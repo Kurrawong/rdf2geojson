@@ -1,0 +1,89 @@
+= RDF-to-GeoJSON
+
+This repository defines a conversion process for RDF data to GeoJSON and implements a version of it in Python.
+
+See the `convert.convert()` function which does all the work.
+
+Whatever RDF you give it, the conversion function will return either:
+
+1. a valid `geojson.FeatureCollection` Python object, or
+2. an empty Python dictionary
+
+A valid result can be serialized to GeoJSON like this:
+
+----
+from rdflib import Graph
+from rdf2geojson import convert
+from geojson import dumps
+
+gj = convert(Graph().parse(rdf_file))
+dumps(gj)
+----
+
+The criteria for creating a valid `FeatureCollection` output are:
+
+* the input must be valid RDF
+* it must also be valid GeoSPARQL
+* it must contain all the GeoSPARQL parts necessary for valid GeoJSON
+** See the GeoSPARQL -> GeoJSON specification below
+
+
+== GeoSPARQL -> GeoJSON specification below
+
+GeoSPARQL knows about the following main object classes:
+
+* `FeatureCollection`
+* `Feature`
+* `GeometryCollection`
+* `Geometry`
+* types of geometry:
+** `MultiPolygon`
+** `Polygon`
+** `MultiLineString`
+** `LineString`
+** `MultiPoint`
+** `Point`
+
+The following rules are used to translate these classes to parts of GeoJSON:
+
+1. `FeatureCollection` -> GeoJSON FeatureCollection
+* if no `FeatureCollection` is present in the RDF, one will be created in the GeoJSON
+2. `Feature` -> GeoJSON Feature
+3. `GeometryCollection` currently has no mapping
+4. `Geometry` -> the geometry of a Feature and such objects are ignored
+** stand-alone Geometries are not handled
+** multiple geometries are not handled - only the first is used
+5. types of geometry:
+** all types of geometry are supported
+** only WKT and GeoJSON serializations are currently supported
+6. properties for `Feature` instances, other than `Geometry` instances, are added as GeoJSON key/valu pair properties
+
+
+== License, Use & Contributing
+
+This code is made available for use using the https://opensource.org/license/BSD-3-clause[BSD 3-Clause] license. See the `LICENSE` file for the deed.
+
+This content is all copyrighted as follows:
+
+&copy; KurrawongAI, 2024
+
+This code will always use this license, so contributors may contribute knowing this code will always be freely available for use.
+
+== Tests
+
+Tests can be run using the Taskfile like this:
+
+----
+task tests
+----
+
+== Development Roadmap
+
+See the https://github.com/Kurrawong/rdf-to-geojson/issues[Issue Tracker] for this project, as well as `TODO:` items within the codebase.
+
+== Contact
+
+*Nicholas J. Car** +
+https://kurrawong.ai[KurrawongAI] +
+nick@kurrawong.net
+

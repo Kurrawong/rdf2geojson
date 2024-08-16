@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+  tests:
+    desc: Run pytest tests
+    cmds:
+      - poetry run pytest --disable-warnings
+      - echo "Python tests run"

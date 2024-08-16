@@ -1,0 +1,8 @@
+PREFIX schema: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://example.com/nick>
+    a schema:Person ;
+    schema:name "Nick" ;
+    schema:url "https://orcid.org/0000-0002-8742-7730"^^xsd:anyURI ;
+.

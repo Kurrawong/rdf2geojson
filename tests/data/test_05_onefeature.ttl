@@ -1,0 +1,14 @@
+PREFIX : <https://example.com/dataset/geo-demo/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX schema: <https://schema.org/>
+
+:camerons-corner
+    a geo:Feature ;
+    geo:hasGeometry [
+            geo:asGeoJSON "{\"type\": \"Point\", \"coordinates\": [141.0068201, -28.9911208]}"^^geo:geoJSONLiteral
+        ] ;
+    geo:sfWithin
+        :australia ,
+        :queensland ;
+    schema:name "Cameron's Corner Point" ;
+.
