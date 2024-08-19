@@ -83,7 +83,7 @@ See the https://github.com/Kurrawong/rdf-to-geojson/issues[Issue Tracker] for th
 
 == Contact
 
-*Nicholas J. Car** +
+*Nicholas J. Car* +
 https://kurrawong.ai[KurrawongAI] +
 nick@kurrawong.net
 
