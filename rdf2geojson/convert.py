@@ -12,11 +12,12 @@ from geojson import (
     LineString,
     MultiPoint,
     Point,
-    GeoJSON
+    GeoJSON,
+    loads as geojson_loads,
 )
 from pyshacl import validate
-from shapely import from_wkt, from_geojson
 from pathlib import Path
+from .contrib.geomet import wkt
 
 
 def get_geosparql_validator() -> Graph:
@@ -57,9 +58,9 @@ def parse_geometry(
     # parse the GeoSPARQL geometry literal based on type
     # TODO: support all other GeoSPARQL 1.1 datatypes other than DGGS - GML, KML
     if geom.datatype == GEO.wktLiteral:
-        return from_wkt(geom)
+        return GeoJSON.to_instance(wkt.loads(geom))
     elif geom.datatype == GEO.geoJSONLiteral:
-        return from_geojson(geom)
+        return geojson_loads(geom)
     elif geom.datatype in [GEO.gmlLiteral, GEO.kmlLiteral]:
         raise NotImplementedError(
             "This GeoSPARQL geometry serialization format is not yet handled but "
