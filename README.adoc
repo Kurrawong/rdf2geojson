@@ -1,4 +1,4 @@
-= RDF-to-GeoJSON
+= RDF 2 GeoJSON
 
 This repository defines a conversion process for RDF data to GeoJSON and implements a version of it in Python.
 
