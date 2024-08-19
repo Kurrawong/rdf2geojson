@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "rdf-to-geojson"
+name = "rdf2geojson"
 version = "0.1.0"
 description = "A Python package that converts any RDF to GeoJSON"
 authors = ["Nicholas Car <nick@kurrawong.ai>"]
 license = "BSD 3-Clause"
 readme = "README.md"
-packages = [{include = "rdf_to_geojson"}]
+packages = [{include = "rdf2geojson"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
