@@ -146,10 +146,6 @@ def loads(string):
 
     if srid:
         result["meta"] = {"srid": int(srid)}
-        result["crs"] = {
-            "type": "name",
-            "properties": {"name": "EPSG%s" % srid},
-        }
 
     if envelope_data:
         result["bbox"] = envelope

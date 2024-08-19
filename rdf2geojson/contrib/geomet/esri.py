@@ -84,21 +84,7 @@ def _extract_geojson_srid(obj):
     :returns: Integer
     """
     meta_srid = obj.get("meta", {}).get("srid", None)
-    # Also try to get it from `crs.properties.name`:
-    crs_srid = obj.get("crs", {}).get("properties", {}).get("name", None)
-    if crs_srid is not None:
-        # Shave off the EPSG: prefix to give us the SRID:
-        crs_srid = crs_srid.replace("EPSG:", "")
-
-    if (
-        meta_srid is not None
-        and crs_srid is not None
-        and str(meta_srid) != str(crs_srid)
-    ):
-        raise ValueError("Ambiguous CRS/SRID values: %s and %s" % (meta_srid, crs_srid))
-    srid = meta_srid or crs_srid
-
-    return srid or 4326
+    return meta_srid or 4326
 
 
 def _dump_geojson_point(obj, srid=None):

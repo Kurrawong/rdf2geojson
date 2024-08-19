@@ -73,24 +73,11 @@ def dumps(obj, decimals=16):
     result = exporter(obj, decimals)
     # Try to get the SRID from `meta.srid`
     meta_srid = obj.get("meta", {}).get("srid")
-    # Also try to get it from `crs.properties.name`:
-    crs_srid = obj.get("crs", {}).get("properties", {}).get("name")
-    if crs_srid is not None:
-        # Shave off the EPSG prefix to give us the SRID:
-        crs_srid = crs_srid.replace("EPSG", "")
-
-    if (
-        meta_srid is not None
-        and crs_srid is not None
-        and str(meta_srid) != str(crs_srid)
-    ):
-        raise ValueError("Ambiguous CRS/SRID values: %s and %s" % (meta_srid, crs_srid))
-    srid = meta_srid or crs_srid
 
     # TODO: add tests for CRS input
-    if srid is not None:
+    if meta_srid is not None:
         # Prepend the SRID
-        result = "SRID=%s;%s" % (srid, result)
+        result = f"SRID={meta_srid};{result}"
     return result
 
 
@@ -134,7 +121,7 @@ def loads(string):
     tokens = itertools.chain([peek], tokens)
     result = importer(tokens, string)
     if srid is not None:
-        result["meta"] = dict(srid=srid)
+        result["meta"] = {"srid": int(srid)}
     return result
 
 

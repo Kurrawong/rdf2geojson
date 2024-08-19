@@ -248,37 +248,6 @@ def loads(string):
     `meta` object. This was an arbitrary decision made by `geomet, the
     discussion of which took place here:
     https://github.com/geomet/geomet/issues/28.
-
-    In order to be consistent with other libraries [1] and (deprecated)
-    specifications [2], also include the same information in a `crs`
-    object. This isn't ideal, but the `crs` member is no longer part of
-    the GeoJSON standard, according to RFC7946 [3]. However, it's still
-    useful to include this information in GeoJSON payloads because it
-    supports conversion to EWKT/EWKB (which are canonical formats used by
-    PostGIS and the like).
-
-    Example:
-
-        {'type': 'Point',
-         'coordinates': [0.0, 1.0],
-         'meta': {'srid': 4326},
-         'crs': {'type': 'name', 'properties': {'name': 'EPSG4326'}}}
-
-    NOTE(larsbutler): I'm not sure if it's valid to just prefix EPSG
-    (European Petroluem Survey Group) to an SRID like this, but we'll
-    stick with it for now until it becomes a problem.
-
-    NOTE(larsbutler): Ideally, we should use URNs instead of this
-    notation, according to the new GeoJSON spec [4]. However, in
-    order to be consistent with [1], we'll stick with this approach
-    for now.
-
-    References:
-
-    [1] - https://github.com/bryanjos/geo/issues/76
-    [2] - http://geojson.org/geojson-spec.html#coordinate-reference-system-objects
-    [3] - https://tools.ietf.org/html/rfc7946#appendix-B.1
-    [4] - https://tools.ietf.org/html/rfc7946#section-4
     """  # noqa
     string = iter(string)
     # endianness = string[0:1]
@@ -317,13 +286,7 @@ def loads(string):
     data_bytes = iter(data_bytes)
     result = importer(big_endian, type_bytes, data_bytes)
     if has_srid:
-        # As mentioned in the docstring above, include both approaches to
-        # indicating the SRID.
         result["meta"] = {"srid": int(srid)}
-        result["crs"] = {
-            "type": "name",
-            "properties": {"name": "EPSG%s" % srid},
-        }
     return result
 
 
