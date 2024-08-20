@@ -84,7 +84,6 @@ def dumps(obj, decimals=16):
 
     result = exporter(obj, decimals, reverse_axes=reverse_axes)
 
-
     # TODO: add tests for CRS input
     if meta_srid is not None:
         # Prepend the SRID
@@ -96,6 +95,7 @@ def _assert_next_token(sequence, expected):
     next_token = next(sequence)
     if not next_token == expected:
         raise ValueError('Expected "%s" but found "%s"' % (expected, next_token))
+
 
 def _iri_to_srid(iri):
     """
@@ -110,20 +110,19 @@ def _iri_to_srid(iri):
         elif "opengis.net/def/crs/ogc/" in lower_iri:
             srid = iri.rsplit("/", 1)[-1]
             if srid == "CRS84" or srid == "crs84":
-                srid = None # This is the default CRS for GeoJSON
+                srid = None  # This is the default CRS for GeoJSON
             else:
                 srid = NotImplemented
     elif lower_iri.startswith("urn:"):
         if "ogc:def:crs:ogc:" in lower_iri:
             srid = iri.rsplit(":", 1)[-1]
             if srid == "CRS84" or srid == "crs84":
-                srid = None # This is the default CRS for GeoJSON
+                srid = None  # This is the default CRS for GeoJSON
             else:
                 srid = NotImplemented
         elif "ogc:def:crs:epsg:" in lower_iri:
             srid = iri.rsplit(":", 1)[-1]
     return srid
-
 
 
 def loads(string):
@@ -141,11 +140,16 @@ def loads(string):
         _assert_next_token(tokens, ";")
         # We expected the geometry type to be next:
         geom_type = next(tokens)
-    elif geom_type_or_srid.startswith("http:") or geom_type_or_srid.startswith("https:") or \
-            geom_type_or_srid.startswith("urn:"):
+    elif (
+        geom_type_or_srid.startswith("http:")
+        or geom_type_or_srid.startswith("https:")
+        or geom_type_or_srid.startswith("urn:")
+    ):
         srid = _iri_to_srid(geom_type_or_srid)
         if srid is NotImplemented:
-            raise ValueError(f"WKT String with CRS code {geom_type_or_srid} cannot be converted to GeoJSON")
+            raise ValueError(
+                f"WKT String with CRS code {geom_type_or_srid} cannot be converted to GeoJSON"
+            )
         geom_type = next(tokens)
     else:
         geom_type = geom_type_or_srid
@@ -282,7 +286,7 @@ def _dump_point(obj, decimals, reverse_axes=False):
         fmt = "EMPTY"
     else:
         if len(coords) > 1 and reverse_axes:
-            coords = coords[::] # make a copy to avoid modifying the original
+            coords = coords[::]  # make a copy to avoid modifying the original
             coords[0:2] = coords[1::-1]
         fmt = "(%s)" % (" ".join(_round_and_pad(c, decimals) for c in coords))
 
@@ -304,7 +308,7 @@ def _dump_linestring(obj, decimals, reverse_axes=False):
         coord_strings = []
         for pt in coords:
             if len(pt) > 1 and reverse_axes:
-                pt = pt[::] # make a copy to avoid modifying the original
+                pt = pt[::]  # make a copy to avoid modifying the original
                 pt[0:2] = pt[1::-1]
             coord_strings.append(" ".join(_round_and_pad(c, decimals) for c in pt))
         fmt = "(%s)" % ", ".join(coord_strings)
@@ -329,7 +333,7 @@ def _dump_polygon(obj, decimals, reverse_axes=False):
             ring_coords = []
             for pt in ring:
                 if len(pt) > 1 and reverse_axes:
-                    pt = pt[::] # make a copy to avoid modifying the real point
+                    pt = pt[::]  # make a copy to avoid modifying the real point
                     pt[0:2] = pt[1::-1]
                 ring_coords.append(" ".join(_round_and_pad(c, decimals) for c in pt))
             ring_collection.append(", ".join(ring_coords))
@@ -353,7 +357,7 @@ def _dump_multipoint(obj, decimals, reverse_axes=False):
         point_strings = []
         for pt in coords:
             if len(pt) > 1 and reverse_axes:
-                pt = pt[::] # make a copy to avoid modifying the real point
+                pt = pt[::]  # make a copy to avoid modifying the real point
                 pt[0:2] = pt[1::-1]
             point_strings.append(" ".join(_round_and_pad(c, decimals) for c in pt))
         # Add parens around each point.
@@ -379,7 +383,7 @@ def _dump_multilinestring(obj, decimals, reverse_axes=False):
             linestr_points = []
             for pt in linestr:
                 if len(pt) > 1 and reverse_axes:
-                    pt = pt[::] # make a copy to avoid modifying the real point
+                    pt = pt[::]  # make a copy to avoid modifying the real point
                     pt[0:2] = pt[1::-1]
                 linestr_points.append(" ".join(_round_and_pad(c, decimals) for c in pt))
             linestrs.append("(%s)" % ", ".join(linestr_points))
@@ -407,9 +411,11 @@ def _dump_multipolygon(obj, decimals, reverse_axes=False):
                 ring_points = []
                 for pt in ring:
                     if len(pt) > 1 and reverse_axes:
-                        pt = pt[::] # make a copy to avoid modifying the real point
+                        pt = pt[::]  # make a copy to avoid modifying the real point
                         pt[0:2] = pt[1::-1]
-                    ring_points.append(" ".join(_round_and_pad(c, decimals) for c in pt))
+                    ring_points.append(
+                        " ".join(_round_and_pad(c, decimals) for c in pt)
+                    )
                 # Join the points in a ring, and wrap in parens
                 ring_strings.append("(%s)" % ", ".join(ring_points))
             # Join the rings in a polygon, and wrap in parens
@@ -437,7 +443,11 @@ def _dump_geometrycollection(obj, decimals, reverse_axes=False):
         geoms_wkt = []
         for geom in geoms:
             geom_type = geom["type"]
-            geoms_wkt.append(_dumps_registry.get(geom_type)(geom, decimals, reverse_axes=reverse_axes))
+            geoms_wkt.append(
+                _dumps_registry.get(geom_type)(
+                    geom, decimals, reverse_axes=reverse_axes
+                )
+            )
         fmt = "(%s)" % ",".join(geoms_wkt)
     return "GEOMETRYCOLLECTION %s" % fmt
 

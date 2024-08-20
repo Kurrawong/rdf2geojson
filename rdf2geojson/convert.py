@@ -123,11 +123,13 @@ def convert(g: Graph) -> GeoJSON:
     else:
         return {}
 
+
 def unconvert_geometry(geom: dict) -> Tuple[str, str]:
     # returns a WKT and GeoJSON representation of the unconverted geometry
     wkt_string = wkt.dumps(geom)
     geojson_string = geojson_dumps(geom)
     return wkt_string, geojson_string
+
 
 def get_unconverted_features(g: Graph, gj: GeoJSON):
     type_ = gj["type"]
@@ -138,7 +140,9 @@ def get_unconverted_features(g: Graph, gj: GeoJSON):
     elif type_ == "GeometryCollection":
         features = [{"type": "Feature", "geometry": gj}]
     else:
-        raise NotImplementedError(f"Not Implemented unconvert for GeoJSON type: {type_}")
+        raise NotImplementedError(
+            f"Not Implemented unconvert for GeoJSON type: {type_}"
+        )
     for f in features:
         id_ = URIRef(f.id)
         unconverted_geom = unconvert_geometry(f.geometry)
@@ -147,7 +151,13 @@ def get_unconverted_features(g: Graph, gj: GeoJSON):
         g.add((id_, RDF.type, GEO.Feature))
         g.add((bn, RDF.type, GEO.Geometry))
         g.add((bn, GEO.asWKT, Literal(unconverted_geom[0], datatype=GEO.wktLiteral)))
-        g.add((bn, GEO.asGeoJSON, Literal(unconverted_geom[1], datatype=GEO.geoJSONLiteral)))
+        g.add(
+            (
+                bn,
+                GEO.asGeoJSON,
+                Literal(unconverted_geom[1], datatype=GEO.geoJSONLiteral),
+            )
+        )
         properties = f.get("properties", {})
         for k, v in properties.items():
             if k == "title":
@@ -162,7 +172,6 @@ def get_unconverted_features(g: Graph, gj: GeoJSON):
                 g.add((id_, GEO.sfWithin, URIRef(v)))
 
 
-
 def unconvert(gj: GeoJSON) -> Graph:
     # very basic GeoJSON to RDF conversion, for testing roundtripping
     g = Graph()
@@ -174,6 +183,8 @@ def unconvert(gj: GeoJSON) -> Graph:
     elif type_ == "GeometryCollection":
         assert "geometries" in gj
     else:
-        raise NotImplementedError(f"Not Implemented unconvert for GeoJSON type: {type_}")
+        raise NotImplementedError(
+            f"Not Implemented unconvert for GeoJSON type: {type_}"
+        )
     get_unconverted_features(g, gj)
     return g
