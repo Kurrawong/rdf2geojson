@@ -1,0 +1,8 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+<https://example.com/dataset/geo-demo/camerons-corner> a geo:Feature ;
+    geo:hasGeometry [ a geo:Geometry ;
+            geo:asGeoJSON "{\"type\": \"Point\", \"coordinates\": [141.00682, -28.991121]}"^^geo:geoJSONLiteral ;
+            geo:asWKT "POINT (141.0068200000000000 -28.9911210000000000)"^^geo:wktLiteral ] ;
+    geo:sfWithin <https://example.com/dataset/geo-demo/queensland> .
+

@@ -1,0 +1,255 @@
+@prefix : <https://example.com/dataset/geo-demo/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix dataset: <https://example.com/dataset/geo-demo> .
+@prefix points: <https://example.com/dataset/geo-demo/points> .
+@prefix polys: <https://example.com/dataset/geo-demo/polys> .
+
+<https://example.com/dataset/geo-demo>
+  a dcat:Dataset , owl:Ontology ;
+  dcterms:title "GeoSPARQL 1.1 Example Dataset"@en ;
+  dcterms:description """A demonstration dataset for of GeoSPARQL objects.
+
+This example demonstrates GeoSPARQL 1.0 and new GeoSPARQL 1.1. geometry serializations (GeoJSON) of `Feature` instances, collected in instances of the new `FeatureCollection` class and a _suggestion_ for the use of [DCAT](https://www.w3.org/TR/vocab-dcat/) to package datasets. New GeoSPARQL 1.1. properties,  such as `hasBoundingBox`, are also used.
+
+Note that GeoSPARQL 1.1 makes no recommendations regarding dataset-level data packaging, however DCAT is a well-used and generic dataset description ontology."""@en ;
+  dcterms:publisher [
+    a sdo:Organization ;
+    sdo:name "Open Geospatial Consortium" ;
+    sdo:url "https://www.ogc.org"^^xsd:anyURI ;
+  ] ;
+  dcterms:creator "OGC GeoSPARQL Standards Working Group" ;
+  dcterms:created "2021-06-16"^^xsd:date ;
+  dcterms:identifier "geo-demo"^^xsd:token ;
+  dcterms:modified "2021-05-21"^^xsd:date ;
+  dcterms:license "http://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+  dcterms:spatial [
+    a dcterms:Location ;
+    geo:hasBoundingBox [
+      a geo:Geometry ;
+      geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-45.0000 96.0000, -9.0000 96.0000, -9.0000 168.0000, -45.0000 168.0000, -45.0000 96.0000))"^^geo:wktLiteral ;
+    ] ;
+    locn:geometry "POLYGON ((96.0000 -45.0000, 96.0000 -9.0000, 168.0000 -9.0000, 168.0000 -45.0000, 96.0000 -45.0000))"^^geo:wktLiteral ;
+    rdfs:comment "This spatial information for this dataset contains geo:hasBoundingBox, the GeoSPARQL style of bounding box, as well as locn:geometry, the DCAT style of bounding box" ;
+  ] ;
+  dcat:contactPoint [
+    a vcard:Individual ;
+    vcard:hasName "Nicholas Car" ;
+    vcard:hasEmail "nicholas.car@surroundaustralia.com"^^xsd:anyURI ;
+    sdo:affiliation <https://linked.data.gov.au/org/surround> ;
+  ] ;
+  dcat:keyword "GeoSPARQL", "demonstration" , "Australia" ;
+  rdfs:member
+    points: ,
+    polys: ;
+.
+
+points:
+  a geo:FeatureCollection ;
+  dcterms:identifier "points"^^xsd:token ;
+  dcterms:title "Points Feature Collection" ;
+  dcterms:description "A FeatureCollection of POINT instances"@en ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-33.491384 150.467423, -34.3223631 150.467423, -34.3223631 150.9920201, -33.491384 150.9920201, -33.491384 150.467423))"^^geo:wktLiteral ;
+  ] ;
+  rdfs:member
+    :camerons-corner ,
+    :shorncliffe-point-1 ,
+    :shorncliffe-point-2 ,
+    :shorncliffe-point-3 ,
+    :wyvenhoe ;
+.
+
+polys:
+  a geo:FeatureCollection ;
+  dcterms:identifier "polys"^^xsd:token ;
+  dcterms:title "Polygons Feature Collection" ;
+  dcterms:description "A FeatureCollection of POLYGON instances"@en ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-33.491384 150.467423, -34.3223631 150.467423, -34.3223631 150.9920201, -33.491384 150.9920201, -33.491384 150.467423))"^^geo:wktLiteral ;
+  ] ;
+  rdfs:member
+    :curlew-park ,
+    :shorncliffe ,
+    :sandgate-golf-club ,
+    :queensland ,
+    :australia ;
+.
+
+:camerons-corner
+  a geo:Feature ;
+  dcterms:identifier "camerons-corner"^^xsd:token ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (141.0068201 -28.9911208)"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Cameron's Corner Point" ;
+  geo:sfWithin :queensland , :australia ;
+.
+
+:shorncliffe-point-1
+  a geo:Feature ;
+  dcterms:identifier "shorncliffe-point-1"^^xsd:token ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (153.0806193 -27.3336526)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.0836526 152.8306193, -27.0836526 153.3306193, -27.5836526 153.3306193, -27.5836526 152.8306193, -27.0836526 152.8306193))"^^geo:wktLiteral ;
+    rdfs:comment "This Bounding Box is calculated by extending a square boundary a certain distance (o.25 degrees) North, South, East & West from the Feature's POINT geometry." ;
+  ] ;
+  dcterms:title "Shorncliffe Point 1" ;
+  geo:sfWithin :queensland ;
+.
+:shorncliffe-point-2
+  a geo:Feature ;
+  dcterms:identifier "shorncliffe-point-2"^^xsd:token ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (153.0880008 -27.3283533)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasCentroid [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (153.0880008 -27.3283533)"^^geo:wktLiteral ;
+    rdfs:comment "This geometry is redundant as a Feature with a POINT geometry will have the same value for a Centroid." ;
+  ] ;
+  dcterms:title "Shorncliffe Point 2" ;
+  geo:sfWithin :queensland ;
+.
+:shorncliffe-point-3
+  a geo:Feature ;
+  dcterms:identifier "shorncliffe-point-3"^^xsd:token ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.0753032 152.8362412, -27.0753032 153.3362412, -27.5753032 153.3362412, -27.5753032 152.8362412, -27.0753032 152.8362412))"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Shorncliffe Point 3" ;
+  geo:sfWithin :queensland ;
+.
+:wyvenhoe
+  a geo:Feature ;
+  dcterms:identifier "wyvenhoe"^^xsd:token ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (152.6282523 -27.3298868)"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Wyvenhoe Point" ;
+  geo:sfWithin :queensland ;
+.
+
+:curlew-park
+  a geo:Feature ;
+  dcterms:identifier "curlew-park"^^xsd:token ;
+  geo:hasCentroid [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (153.0800692121883 -27.32985122185145)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.3270212 153.0769448, -27.3270212 153.0830388, -27.3329687 153.0830388, -27.3329687 153.0769448, -27.3270212 153.0769448))"^^geo:wktLiteral ;
+  ] ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.3270212 153.0792623, -27.3309291 153.0769448, -27.3329687 153.0811505, -27.3304334 153.0819016, -27.3295947 153.0830388, -27.3277075 153.0818801, -27.3270212 153.0792623))"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Curlew Park" ;
+  geo:sfWithin :queensland ;
+.
+:shorncliffe
+  a geo:Feature ;
+  dcterms:identifier "shorncliffe"^^xsd:token ;
+  geo:hasCentroid [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (153.072738950776 -27.32559331247693)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.3229035 153.0691557, -27.3229035 153.0760651, -27.3292706 153.0760651, -27.3292706 153.0691557, -27.3229035 153.0691557))"^^geo:wktLiteral ;
+  ] ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.3231323 153.0695849, -27.3252293 153.0691557, -27.3259918 153.0697565, -27.3261443 153.0710011, -27.3276312 153.0714302, -27.3292706 153.0733614, -27.3275168 153.0742626, -27.3275931 153.0760651, -27.325458 153.0760222, -27.3233611 153.074091, -27.3229035 153.0713873, -27.3232848 153.0707007, -27.3231323 153.0695849))"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Shorncliffe" ;
+  geo:sfWithin :queensland ;
+.
+:sandgate-golf-club
+  a geo:Feature ;
+  dcterms:identifier "sandgate-golf-club"^^xsd:token ;
+  geo:hasCentroid [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (153.0809080031782 -27.32763692549964)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.3218518 153.0733614, -27.3218518 153.0882841, -27.3348907 153.0882841, -27.3348907 153.0733614, -27.3218518 153.0733614))"^^geo:wktLiteral ;
+  ] ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-27.3292706 153.0733614, -27.3303539 153.0755382, -27.3324889 153.0785423, -27.334052 153.0788856, -27.3348907 153.0798298, -27.3342426 153.0814177, -27.3308496 153.0823618, -27.3296296 153.0858808, -27.3287527 153.0882841, -27.3245969 153.0862242, -27.3220043 153.0830055, -27.3221568 153.0809885, -27.3218518 153.0780273, -27.3261982 153.0772119, -27.325458 153.0760222, -27.3275931 153.0760651, -27.3275168 153.0742626, -27.3292706 153.0733614))"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Sandgate Golf Club" ;
+  geo:sfWithin :queensland ;
+.
+
+:queensland
+  a geo:Feature ;
+  dcterms:identifier "queensland"^^xsd:token ;
+  geo:hasCentroid [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (144.5976135065624 -22.59841000065646)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-10.7826691 137.8562434, -10.7826691 153.7205012, -29.1455185 153.7205012, -29.1455185 137.8562434, -10.7826691 137.8562434))"^^geo:wktLiteral ;
+  ] ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-10.7826691 142.3826106, -12.4184198 141.591595, -17.2174931 140.9763606, -17.7205136 140.2292903, -16.4604006 138.07597, -25.9512058 137.8562434, -25.911685 140.9324153, -28.9911208 141.0068201, -28.9149736 148.9744075, -28.4523459 150.2048762, -29.1455185 151.2595637, -28.2976838 152.5339778, -28.4909761 153.7205012, -25.7930431 153.2371028, -20.3786955 148.8425715, -18.8471123 146.3376887, -14.3847506 144.6677668, -14.6400094 143.9646418, -10.7826691 142.3826106))"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Queensland" ;
+  dcterms:description "Queensland is a state of Australia and, in this dataset, contains both Features within the FeatureCollection it is in ('polys') and also Features within another FeatureCollection instance ('points') which is still within this demonstration dataset." ;
+  geo:sfContains
+    :camerons-corner ,
+    :shorncliffe-point-1 ,
+    :shorncliffe-point-2 ,
+    :shorncliffe-point-3 ,
+    :wyvenhoe ,
+    :curlew-park ,
+    :shorncliffe ,
+    :sandgate-golf-club ;
+  geo:sfWithin :australia ;
+.
+
+:australia
+  a geo:Feature ;
+  dcterms:identifier "australia"^^xsd:token ;
+  geo:hasCentroid [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POINT (134.4352268190664 -25.52803598002069)"^^geo:wktLiteral ;
+  ] ;
+  geo:hasBoundingBox [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-10.7826691 113.3787043, -10.7826691 153.7205012, -38.8851125 153.7205012, -38.8851125 113.3787043, -10.7826691 113.3787043))"^^geo:wktLiteral ;
+  ] ;
+  geo:hasGeometry [
+    a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4283> POLYGON ((-19.4283415 121.3328059, -20.7490013 116.5867122, -22.0582289 114.3015559, -24.0395178 113.4226497, -25.9907133 114.2576106, -26.4244169 113.3787043, -29.0687274 114.9167903, -30.1765468 114.9607356, -31.3846645 115.6638606, -33.4617628 115.6638606, -33.7180133 115.0046809, -34.373435 115.1804622, -35.0957111 117.4656184, -34.082762 119.8386653, -33.8641 123.4861262, -32.6144637 125.1999934, -31.6094885 129.3747981, -31.9829906 133.4617122, -34.9157343 135.7908137, -32.9101001 137.944134, -37.0140251 139.5261653, -38.0594038 140.4929622, -38.8166649 143.6130793, -38.0247943 144.8874934, -38.8851125 146.2497981, -37.9901685 147.5242122, -37.5733844 149.9412043, -34.0099372 151.1277278, -32.466278 152.5339778, -28.4909761 153.7205012, -25.7930431 153.2371028, -20.3786955 148.8425715, -18.8471123 146.3376887, -14.3847506 144.6677668, -14.6400094 143.9646418, -10.7826691 142.3826106, -12.4184198 141.591595, -17.2174931 140.9763606, -17.7205136 140.2292903, -14.7675278 135.5271418, -12.2037461 136.8015559, -11.386423 132.6706965, -11.386423 130.6492122, -15.0223398 129.6824153, -13.8306945 126.7820247, -17.1755123 123.5300715, -16.3339267 123.0466731, -19.4283415 121.3328059))"^^geo:wktLiteral ;
+  ] ;
+  dcterms:title "Australia" ;
+  dcterms:comment "'Australia' here is a rough outline (boundary) for the country. It contains Queensland and thus, transitively, contains all the Features that Queensland contains." ;
+  geo:sfContains
+    :queensland ;
+.

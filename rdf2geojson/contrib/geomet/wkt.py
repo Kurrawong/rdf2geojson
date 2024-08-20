@@ -14,6 +14,7 @@
 import io
 import itertools
 import tokenize
+from ctypes import c_char
 
 from ._exception import InvalidGeoJSONException
 from . import util
@@ -70,9 +71,19 @@ def dumps(obj, decimals=16):
     except KeyError:
         raise InvalidGeoJSONException("Invalid GeoJSON: %s" % obj)
 
-    result = exporter(obj, decimals)
     # Try to get the SRID from `meta.srid`
     meta_srid = obj.get("meta", {}).get("srid")
+
+    reverse_axes = False
+    if meta_srid == "CRS84" or meta_srid == "crs84":
+        meta_srid = None
+    if meta_srid is not None:
+        # GeoJSON always uses lon-lat axis order
+        # assume all epsg codes use lat-lon axis order and need to be reversed
+        reverse_axes = True
+
+    result = exporter(obj, decimals, reverse_axes=reverse_axes)
+
 
     # TODO: add tests for CRS input
     if meta_srid is not None:
@@ -86,6 +97,34 @@ def _assert_next_token(sequence, expected):
     if not next_token == expected:
         raise ValueError('Expected "%s" but found "%s"' % (expected, next_token))
 
+def _iri_to_srid(iri):
+    """
+    Reads a WKT http/https CRS code, or a URN crs code and returns the srid
+    :param iri:
+    :return:
+    """
+    lower_iri = iri.lower()
+    if lower_iri.startswith("http://") or lower_iri.startswith("https://"):
+        if "opengis.net/def/crs/epsg/" in lower_iri:
+            srid = iri.rsplit("/", 1)[-1]
+        elif "opengis.net/def/crs/ogc/" in lower_iri:
+            srid = iri.rsplit("/", 1)[-1]
+            if srid == "CRS84" or srid == "crs84":
+                srid = None # This is the default CRS for GeoJSON
+            else:
+                srid = NotImplemented
+    elif lower_iri.startswith("urn:"):
+        if "ogc:def:crs:ogc:" in lower_iri:
+            srid = iri.rsplit(":", 1)[-1]
+            if srid == "CRS84" or srid == "crs84":
+                srid = None # This is the default CRS for GeoJSON
+            else:
+                srid = NotImplemented
+        elif "ogc:def:crs:epsg:" in lower_iri:
+            srid = iri.rsplit(":", 1)[-1]
+    return srid
+
+
 
 def loads(string):
     """
@@ -98,9 +137,15 @@ def loads(string):
     if geom_type_or_srid == "SRID":
         # The geometry WKT contains an SRID header.
         _assert_next_token(tokens, "=")
-        srid = int(next(tokens))
+        srid = next(tokens)
         _assert_next_token(tokens, ";")
         # We expected the geometry type to be next:
+        geom_type = next(tokens)
+    elif geom_type_or_srid.startswith("http:") or geom_type_or_srid.startswith("https:") or \
+            geom_type_or_srid.startswith("urn:"):
+        srid = _iri_to_srid(geom_type_or_srid)
+        if srid is NotImplemented:
+            raise ValueError(f"WKT String with CRS code {geom_type_or_srid} cannot be converted to GeoJSON")
         geom_type = next(tokens)
     else:
         geom_type = geom_type_or_srid
@@ -119,7 +164,17 @@ def loads(string):
 
     # Put the peeked element back on the head of the token generator
     tokens = itertools.chain([peek], tokens)
-    result = importer(tokens, string)
+    reverse_axes = False
+    if srid == "CRS84" or srid == "crs84":
+        srid = None
+    elif srid == "4326" or srid == 4326:
+        srid = None
+        reverse_axes = True
+    if srid is not None:
+        # assume all epsg codes use lat-lon axis order and need to be reversed
+        reverse_axes = True
+
+    result = importer(tokens, string, reverse_axes=reverse_axes)
     if srid is not None:
         result["meta"] = {"srid": int(srid)}
     return result
@@ -136,20 +191,40 @@ def _tokenize_wkt(string):
     # NOTE: This is not the intended purpose of `tokenize`, but it works.
     tokens = (x[1] for x in tokenize.generate_tokens(sio.readline))
     negative = False
+    start = True
+    collect_crs_iri = False
+    crs_iri = ""
     for t in tokens:
         if t == "-":
             negative = True
+            start = False
             continue
+        elif start and t == "<":
+            collect_crs_iri = True
+            start = False
+            continue
+        elif collect_crs_iri and t == ">":
+            yield crs_iri
+            collect_crs_iri = False
+            start = False
         elif t == "":
             # Ignore empty string tokens.
             # This can happen in python3.12, seemingly due to
             # https://peps.python.org/pep-0701/#changes-to-the-tokenize-module
             continue
+        elif collect_crs_iri:
+            if negative:
+                crs_iri = f"{crs_iri}-{t}"
+                negative = False
+            else:
+                crs_iri = crs_iri + t
+            continue
         else:
             if negative:
-                yield "-%s" % t
+                yield "-" + t
             else:
                 yield t
+            start = False
             negative = False
 
 
@@ -188,7 +263,7 @@ def _round_and_pad(value, decimals):
     return rounded
 
 
-def _dump_point(obj, decimals):
+def _dump_point(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like Point object to WKT.
 
@@ -206,12 +281,15 @@ def _dump_point(obj, decimals):
     if not coords:
         fmt = "EMPTY"
     else:
+        if len(coords) > 1 and reverse_axes:
+            coords = coords[::] # make a copy to avoid modifying the original
+            coords[0:2] = coords[1::-1]
         fmt = "(%s)" % (" ".join(_round_and_pad(c, decimals) for c in coords))
 
     return "POINT %s" % fmt
 
 
-def _dump_linestring(obj, decimals):
+def _dump_linestring(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like LineString object to WKT.
 
@@ -223,16 +301,18 @@ def _dump_linestring(obj, decimals):
     if not coords:
         fmt = "EMPTY"
     else:
-        fmt = "(%s)" % (
-            ", ".join(
-                " ".join(_round_and_pad(c, decimals) for c in pt) for pt in coords
-            )
-        )
+        coord_strings = []
+        for pt in coords:
+            if len(pt) > 1 and reverse_axes:
+                pt = pt[::] # make a copy to avoid modifying the original
+                pt[0:2] = pt[1::-1]
+            coord_strings.append(" ".join(_round_and_pad(c, decimals) for c in pt))
+        fmt = "(%s)" % ", ".join(coord_strings)
 
     return "LINESTRING %s" % fmt
 
 
-def _dump_polygon(obj, decimals):
+def _dump_polygon(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like Polygon object to WKT.
 
@@ -244,17 +324,21 @@ def _dump_polygon(obj, decimals):
     if not coords:
         fmt = "EMPTY"
     else:
-        rings = (
-            ", ".join(" ".join(_round_and_pad(c, decimals) for c in pt) for pt in ring)
-            for ring in coords
-        )
-
-        fmt = "(%s)" % ", ".join("(%s)" % r for r in rings)
+        ring_collection = []
+        for ring in coords:
+            ring_coords = []
+            for pt in ring:
+                if len(pt) > 1 and reverse_axes:
+                    pt = pt[::] # make a copy to avoid modifying the real point
+                    pt[0:2] = pt[1::-1]
+                ring_coords.append(" ".join(_round_and_pad(c, decimals) for c in pt))
+            ring_collection.append(", ".join(ring_coords))
+        fmt = "(%s)" % ", ".join("(%s)" % r for r in ring_collection)
 
     return "POLYGON %s" % fmt
 
 
-def _dump_multipoint(obj, decimals):
+def _dump_multipoint(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like MultiPoint object to WKT.
 
@@ -266,14 +350,19 @@ def _dump_multipoint(obj, decimals):
     if not coords:
         fmt = "EMPTY"
     else:
-        points = (" ".join(_round_and_pad(c, decimals) for c in pt) for pt in coords)
+        point_strings = []
+        for pt in coords:
+            if len(pt) > 1 and reverse_axes:
+                pt = pt[::] # make a copy to avoid modifying the real point
+                pt[0:2] = pt[1::-1]
+            point_strings.append(" ".join(_round_and_pad(c, decimals) for c in pt))
         # Add parens around each point.
-        fmt = "(%s)" % ", ".join("(%s)" % pt for pt in points)
+        fmt = "(%s)" % ", ".join("(%s)" % pt for pt in point_strings)
 
     return "MULTIPOINT %s" % fmt
 
 
-def _dump_multilinestring(obj, decimals):
+def _dump_multilinestring(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like MultiLineString object to WKT.
 
@@ -285,20 +374,22 @@ def _dump_multilinestring(obj, decimals):
     if not coords:
         fmt = "EMPTY"
     else:
-        linestrs = (
-            "(%s)"
-            % ", ".join(
-                " ".join(_round_and_pad(c, decimals) for c in pt) for pt in linestr
-            )
-            for linestr in coords
-        )
-
+        linestrs = []
+        for linestr in coords:
+            linestr_points = []
+            for pt in linestr:
+                if len(pt) > 1 and reverse_axes:
+                    pt = pt[::] # make a copy to avoid modifying the real point
+                    pt[0:2] = pt[1::-1]
+                linestr_points.append(" ".join(_round_and_pad(c, decimals) for c in pt))
+            linestrs.append("(%s)" % ", ".join(linestr_points))
+        # Add parens around each linestring.
         fmt = "(%s)" % ", ".join(ls for ls in linestrs)
 
     return "MULTILINESTRING %s" % fmt
 
 
-def _dump_multipolygon(obj, decimals):
+def _dump_multipolygon(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like MultiPolygon object to WKT.
 
@@ -309,31 +400,27 @@ def _dump_multipolygon(obj, decimals):
     if not coords:
         fmt = "EMPTY"
     else:
-        fmt = "(%s)" % (
-            # join the polygons in the multipolygon
-            ", ".join(
-                # join the rings in a polygon,
-                # and wrap in parens
-                "(%s)"
-                % ", ".join(
-                    # join the points in a ring,
-                    # and wrap in parens
-                    "(%s)"
-                    % ", ".join(
-                        # join coordinate values of a vertex
-                        " ".join(_round_and_pad(c, decimals) for c in pt)
-                        for pt in ring
-                    )
-                    for ring in poly
-                )
-                for poly in coords
-            )
-        )
+        polygon_strings = []
+        for poly in coords:
+            ring_strings = []
+            for ring in poly:
+                ring_points = []
+                for pt in ring:
+                    if len(pt) > 1 and reverse_axes:
+                        pt = pt[::] # make a copy to avoid modifying the real point
+                        pt[0:2] = pt[1::-1]
+                    ring_points.append(" ".join(_round_and_pad(c, decimals) for c in pt))
+                # Join the points in a ring, and wrap in parens
+                ring_strings.append("(%s)" % ", ".join(ring_points))
+            # Join the rings in a polygon, and wrap in parens
+            polygon_strings.append("(%s)" % ", ".join(ring_strings))
+        # join the polygons in the multipolygon
+        fmt = "(%s)" % ", ".join(polygon_strings)
 
     return "MULTIPOLYGON %s" % fmt
 
 
-def _dump_geometrycollection(obj, decimals):
+def _dump_geometrycollection(obj, decimals, reverse_axes=False):
     """
     Dump a GeoJSON-like GeometryCollection object to WKT.
 
@@ -350,12 +437,12 @@ def _dump_geometrycollection(obj, decimals):
         geoms_wkt = []
         for geom in geoms:
             geom_type = geom["type"]
-            geoms_wkt.append(_dumps_registry.get(geom_type)(geom, decimals))
+            geoms_wkt.append(_dumps_registry.get(geom_type)(geom, decimals, reverse_axes=reverse_axes))
         fmt = "(%s)" % ",".join(geoms_wkt)
     return "GEOMETRYCOLLECTION %s" % fmt
 
 
-def _load_point(tokens, string):
+def _load_point(tokens, string, reverse_axes=False):
     """
     :param tokens:
         A generator of string tokens for the input WKT, beginning just after
@@ -387,13 +474,17 @@ def _load_point(tokens, string):
                 coords.append(float(t))
     except tokenize.TokenError:
         raise ValueError(INVALID_WKT_FMT % string)
+    if len(coords) < 2:
+        raise ValueError(INVALID_WKT_FMT % string)
+    if reverse_axes:
+        coords[0:2] = coords[1::-1]
 
     return dict(type="Point", coordinates=coords)
 
 
-def _load_linestring(tokens, string):
+def _load_linestring(tokens, string, reverse_axes=False):
     """
-    Has similar inputs and return value to to :func:`_load_point`, except is
+    Has similar inputs and return value to :func:`_load_point`, except is
     for handling LINESTRING geometry.
 
     :returns:
@@ -413,10 +504,18 @@ def _load_linestring(tokens, string):
         pt = []
         for t in tokens:
             if t == ")":
+                if len(pt) < 2:
+                    raise ValueError(INVALID_WKT_FMT % string)
+                if reverse_axes:
+                    pt[0:2] = pt[1::-1]
                 coords.append(pt)
                 break
             elif t == ",":
                 # it's the end of the point
+                if len(pt) < 2:
+                    raise ValueError(INVALID_WKT_FMT % string)
+                if reverse_axes:
+                    pt[0:2] = pt[1::-1]
                 coords.append(pt)
                 pt = []
             else:
@@ -427,9 +526,9 @@ def _load_linestring(tokens, string):
     return dict(type="LineString", coordinates=coords)
 
 
-def _load_polygon(tokens, string):
+def _load_polygon(tokens, string, reverse_axes=False):
     """
-    Has similar inputs and return value to to :func:`_load_point`, except is
+    Has similar inputs and return value to :func:`_load_point`, except is
     for handling POLYGON geometry.
 
     :returns:
@@ -455,6 +554,10 @@ def _load_polygon(tokens, string):
         for t in tokens:
             if t == ")" and on_ring:
                 # The ring is finished
+                if len(pt) < 2:
+                    raise ValueError(INVALID_WKT_FMT % string)
+                if reverse_axes:
+                    pt[0:2] = pt[1::-1]
                 ring.append(pt)
                 coords.append(ring)
                 on_ring = False
@@ -468,6 +571,10 @@ def _load_polygon(tokens, string):
                 on_ring = True
             elif t == "," and on_ring:
                 # it's the end of a point
+                if len(pt) < 2:
+                    raise ValueError(INVALID_WKT_FMT % string)
+                if reverse_axes:
+                    pt[0:2] = pt[1::-1]
                 ring.append(pt)
                 pt = []
             elif t == "," and not on_ring:
@@ -482,9 +589,9 @@ def _load_polygon(tokens, string):
     return dict(type="Polygon", coordinates=coords)
 
 
-def _load_multipoint(tokens, string):
+def _load_multipoint(tokens, string, reverse_axes=False):
     """
-    Has similar inputs and return value to to :func:`_load_point`, except is
+    Has similar inputs and return value to :func:`_load_point`, except is
     for handling MULTIPOINT geometry.
 
     :returns:
@@ -511,6 +618,10 @@ def _load_multipoint(tokens, string):
                     break
             elif t == ",":
                 # the point is done
+                if len(pt) < 2:
+                    raise ValueError(INVALID_WKT_FMT % string)
+                if reverse_axes:
+                    pt[0:2] = pt[1::-1]
                 coords.append(pt)
                 pt = []
             else:
@@ -521,14 +632,18 @@ def _load_multipoint(tokens, string):
     # Given the way we're parsing, we'll probably have to deal with the last
     # point after the loop
     if len(pt) > 0:
+        if len(pt) < 2:
+            raise ValueError(INVALID_WKT_FMT % string)
+        if reverse_axes:
+            pt[0:2] = pt[1::-1]
         coords.append(pt)
 
     return dict(type="MultiPoint", coordinates=coords)
 
 
-def _load_multipolygon(tokens, string):
+def _load_multipolygon(tokens, string, reverse_axes=False):
     """
-    Has similar inputs and return value to to :func:`_load_point`, except is
+    Has similar inputs and return value to :func:`_load_point`, except is
     for handling MULTIPOLYGON geometry.
 
     :returns:
@@ -544,7 +659,7 @@ def _load_multipolygon(tokens, string):
     polygons = []
     while True:
         try:
-            poly = _load_polygon(tokens, string)
+            poly = _load_polygon(tokens, string, reverse_axes=reverse_axes)
             polygons.append(poly["coordinates"])
             t = next(tokens)
             if t == ")":
@@ -557,9 +672,9 @@ def _load_multipolygon(tokens, string):
     return dict(type="MultiPolygon", coordinates=polygons)
 
 
-def _load_multilinestring(tokens, string):
+def _load_multilinestring(tokens, string, reverse_axes=False):
     """
-    Has similar inputs and return value to to :func:`_load_point`, except is
+    Has similar inputs and return value to :func:`_load_point`, except is
     for handling MULTILINESTRING geometry.
 
     :returns:
@@ -575,7 +690,7 @@ def _load_multilinestring(tokens, string):
     linestrs = []
     while True:
         try:
-            linestr = _load_linestring(tokens, string)
+            linestr = _load_linestring(tokens, string, reverse_axes=reverse_axes)
             linestrs.append(linestr["coordinates"])
             t = next(tokens)
             if t == ")":
@@ -588,9 +703,9 @@ def _load_multilinestring(tokens, string):
     return dict(type="MultiLineString", coordinates=linestrs)
 
 
-def _load_geometrycollection(tokens, string):
+def _load_geometrycollection(tokens, string, reverse_axes=False):
     """
-    Has similar inputs and return value to to :func:`_load_point`, except is
+    Has similar inputs and return value to :func:`_load_point`, except is
     for handling GEOMETRYCOLLECTIONs.
 
     Delegates parsing to the parsers for the individual geometry types.
@@ -619,7 +734,7 @@ def _load_geometrycollection(tokens, string):
             else:
                 geom_type = t
                 load_func = _loads_registry.get(geom_type)
-                geom = load_func(tokens, string)
+                geom = load_func(tokens, string, reverse_axes=reverse_axes)
                 geoms.append(geom)
         except (StopIteration, tokenize.TokenError):
             raise ValueError(INVALID_WKT_FMT % string)
