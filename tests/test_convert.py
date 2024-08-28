@@ -18,6 +18,7 @@ TEST_DATA_DIR = Path(__file__).parent / "data"
         (TEST_DATA_DIR / "test_03_empty.ttl", False),
         (TEST_DATA_DIR / "test_04_nogeo.ttl", False),
         (TEST_DATA_DIR / "test_05_onefeature.ttl", True),
+        (TEST_DATA_DIR / "test_06_sdo.ttl", True),
     ]
 )
 def test_convert(rdf_file, expected_valid):
