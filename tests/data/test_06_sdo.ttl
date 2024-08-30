@@ -1,0 +1,19 @@
+PREFIX : <https://example.com/dataset/geo-demo/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX tern-cv: <http://linked.data.gov.au/def/tern-cv/>
+PREFIX schema: <https://schema.org/>
+
+:camerons-corner
+    a geo:Feature ;
+    schema:spatial [
+        geo:hasGeometry [
+                geo:asGeoJSON "{\"type\": \"Point\", \"coordinates\": [141.0068201, -28.9911208]}"^^geo:geoJSONLiteral
+            ] ;
+        geo:sfWithin
+            :australia ,
+            :queensland ;
+        ] ;
+    schema:additionalProperty [ schema:propertyID tern-cv:755b1456-b76f-4d54-8690-10e41e25c5a7 ; schema:value <https://sws.geonames.org/2152274/> ; schema:comment "Conservation status jurisdiction"  ] ;
+    schema:name "Cameron's Corner Point" ;
+.
+
