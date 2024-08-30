@@ -1,6 +1,6 @@
 from typing import List, Union, Optional, Tuple, Dict, AnyStr, Any
 
-from rdflib import BNode, Graph, Literal, URIRef, DCTERMS
+from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS
 from rdflib.namespace import GEO, RDF, RDFS, SDO, NamespaceManager
 from geojson import (
     FeatureCollection,
@@ -49,7 +49,14 @@ def make_json_key_from_iri(iri: URIRef, ns: NamespaceManager) -> Tuple[Optional[
 def make_json_representation_of_obj(obj: Union[Literal, URIRef]) -> object:
     if isinstance(obj, URIRef):
         return str(obj)
-    else:  # Literal
+    elif isinstance(obj, Literal):
+        # Some literals cannot be represented as JSON, so we return a string
+        if obj.datatype is None:
+            return str(obj)
+        elif obj.datatype in (XSD.date, XSD.dateTime, XSD.time):
+            return str(obj)
+    else:
+        # The GeoJSON serializer will take care of converting this to JSON
         return obj.toPython()
 
 
@@ -117,27 +124,68 @@ def _extract_additional_property(g: Graph, pred, obj) -> Tuple[Union[str, URIRef
         raise ValueError("Could not find a value for additionalProperty")
     return key_name, value
 
-def get_features(g: Graph, fc: Optional[URIRef] = None) -> List[Feature]:
+def _extract_bnode(g: Graph, bn: URIRef, prop_contexts: Dict, recurse: int = 0) -> Dict:
+    obs_dict = {}
+    for pred, obj in g.predicate_objects(bn):
+        prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+        if prefix_pair is not None:
+            use_prefix = True
+            prefix_ns, prefix_name = prefix_pair
+            if prefix_name in prop_contexts:
+                if prefix_ns != prop_contexts[prefix_name]:
+                    # conflicting prefix with one thats already in there
+                    use_prefix = False
+            if use_prefix:
+                prop_contexts[prefix_name] = prefix_ns
+                name = f"{prefix_name}:{name}"
+        if isinstance(obj, BNode):
+            if recurse < 8:
+                obs_dict[name] = _extract_bnode(g, obj, prop_contexts, recurse + 1)
+        else:
+
+            obs_dict[name] = make_json_representation_of_obj(obj)
+    return obs_dict
+
+def _extract_observation(g: Graph, obs: URIRef, prop_contexts: Dict) -> Dict:
+    obs_dict = {"id": str(obs)}
+    members = [] # this could be an observationCollection too
+    for pred, obj in g.predicate_objects(obs):
+        if pred == SOSA.hasMember:
+            members.append(_extract_observation(g, obj, prop_contexts))
+        else:
+            prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+            if prefix_pair is not None:
+                use_prefix = True
+                prefix_ns, prefix_name = prefix_pair
+                if prefix_name in prop_contexts:
+                    if prefix_ns != prop_contexts[prefix_name]:
+                        # conflicting prefix with one thats already in there
+                        use_prefix = False
+                if use_prefix:
+                    prop_contexts[prefix_name] = prefix_ns
+                    name = f"{prefix_name}:{name}"
+
+            if isinstance(obj, BNode):
+                obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
+            else:
+                obs_dict[name] = make_json_representation_of_obj(obj)
+        if len(members) > 0:
+            obs_dict["sosa:hasMember"] = members
+    return obs_dict
+
+def get_features_collections(g: Graph) -> List[FeatureCollection]:
+    feature_finder = g.subjects(RDF.type, GEO.FeatureCollection)
     fs = []
-    if fc is not None:
-        feature_finder = g.objects(fc, RDFS.member)
-    else:
-        feature_finder = g.subjects(RDF.type, GEO.Feature)
     for f in feature_finder:
-        # TODO: handle multiple Geometries per Feature
-        geoms = []
         props = {}
+        extras = {}
         prop_contexts = {}
         for pred, obj in g.predicate_objects(f):
-            if pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                geoms.extend(_extract_geoms(g, pred, obj))
-            elif pred == SDO.spatial:
-                # The Schema.org version of a GeoSpatial feature
-                spatial_node = obj
-                for p2, o2 in g.predicate_objects(spatial_node):
-                    if p2 in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                        geoms.extend(_extract_geoms(g, p2, o2))
-
+            if pred in (RDFS.label, SKOS.prefLabel) and not "title" in extras:
+                extras["title"] = str(obj)
+            elif pred == RDFS.member:
+                # Skip the members, they are handled by get_features
+                pass
             elif pred == SDO.additionalProperty:
                 # This is the Schema.org version of a Key-Value pair
                 p_key, p_value =_extract_additional_property(g, pred, obj)
@@ -150,35 +198,115 @@ def get_features(g: Graph, fc: Optional[URIRef] = None) -> List[Feature]:
                     else:
                         p_key = str(p_key)
                 props[p_key] = p_value
-            elif isinstance(obj, BNode):
-                # TODO: do something with Blank Nodes
-                pass
             else:
                 prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
                 if prefix_pair is not None:
                     prefix_ns, prefix_name = prefix_pair
                     prop_contexts[prefix_name] = prefix_ns
                     name = f"{prefix_name}:{name}"
-                props[name] = make_json_representation_of_obj(obj)
+                if isinstance(obj, BNode):
+                    props[name] = _extract_bnode(g, obj, prop_contexts)
+                else:
+                    props[name] = make_json_representation_of_obj(obj)
+
         if len(prop_contexts) > 0:
+            prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
+            props["@context"] = prop_contexts
+        fs.append(FeatureCollection([], id=f, metadata=props, **extras))
+    return fs
+
+def get_features(g: Graph, fc: Optional[URIRef] = None) -> List[Feature]:
+    fs = []
+    if fc is not None:
+        feature_finder = g.objects(fc, RDFS.member)
+    else:
+        feature_finder = g.subjects(RDF.type, GEO.Feature)
+    for f in feature_finder:
+        # TODO: handle multiple Geometries per Feature
+        geoms = []
+        props = {}
+        extras = {}
+        prop_contexts = {}
+        associated_observations = set()
+        for pred, obj in g.predicate_objects(f):
+            if pred in (RDFS.label, SKOS.prefLabel) and not "title" in extras:
+                extras["title"] = str(obj)
+            elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
+                geoms.extend(_extract_geoms(g, pred, obj))
+            elif pred == SDO.spatial:
+                # The Schema.org version of a GeoSpatial feature
+                spatial_node = obj
+                for p2, o2 in g.predicate_objects(spatial_node):
+                    if p2 in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
+                        geoms.extend(_extract_geoms(g, p2, o2))
+            elif pred == SOSA.isFeatureOfInterestOf:
+                associated_observations.add(obj)
+            elif pred == SDO.additionalProperty:
+                # This is the Schema.org version of a Key-Value pair
+                p_key, p_value =_extract_additional_property(g, pred, obj)
+                if isinstance(p_key, URIRef):
+                    prefix_pair, name = make_json_key_from_iri(URIRef(p_key), g.namespace_manager)
+                    if prefix_pair is not None:
+                        prefix_ns, prefix_name = prefix_pair
+                        prop_contexts[prefix_name] = prefix_ns
+                        p_key = f"{prefix_name}:{name}"
+                    else:
+                        p_key = str(p_key)
+                props[p_key] = p_value
+            else:
+                prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+                if prefix_pair is not None:
+                    prefix_ns, prefix_name = prefix_pair
+                    prop_contexts[prefix_name] = prefix_ns
+                    name = f"{prefix_name}:{name}"
+                if isinstance(obj, BNode):
+                    props[name] = _extract_bnode(g, obj, prop_contexts)
+                else:
+                    props[name] = make_json_representation_of_obj(obj)
+        # get observations on the feature
+        associated_observations = associated_observations.union(set(g.subjects(SOSA.hasFeatureOfInterest, f)))
+
+        if len(associated_observations) > 0:
+            props["sosa:isFeatureOfInterestOf"] = obs_dict_list = []
+            for obs in associated_observations:
+                obs_dict = _extract_observation(g, obs, prop_contexts)
+                obs_dict_list.append(obs_dict)
+        if len(prop_contexts) > 0:
+            prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
             props["@context"] = prop_contexts
         if geoms:
-            fs.append(Feature(f, geometry=geoms[0], properties=props))
+            fs.append(Feature(f, geometry=geoms[0], properties=props, **extras))
     return fs
 
 
-def convert(g: Graph) -> GeoJSON:
-    # validate the RDF data according to GeoSPARQL
-    conforms, results_graph, results_text = validate(
-        g,
-        shacl_graph=get_geosparql_validator(),
-    )
-    if not conforms:
-        return {}
+def convert(g: Graph, do_validate: bool = True) -> GeoJSON:
+    if do_validate:
+        # validate the RDF data according to GeoSPARQL
+        conforms, results_graph, results_text = validate(
+            g,
+            shacl_graph=get_geosparql_validator(),
+        )
+        if not conforms:
+            print(results_text)
+            return {}
+    feature_collections = get_features_collections(g)
+    fc = None
+    if len(feature_collections) > 1:
+        # A GeoJSON doc can handle maximum of one Feature Collection
+        fc = feature_collections[0]
+    elif len(feature_collections) == 1:
+        fc = feature_collections[0]
 
-    # TODO: consider handling multiple Feature Collections, as get_features(g, fc) allows for
-    features = get_features(g)
-    if features:
-        return FeatureCollection(features)
+    if fc is not None:
+        features = get_features(g, URIRef(fc['id']))
+        if len(features) > 0:
+            fc["features"].extend(features)
+        return fc
     else:
-        return {}
+        features = get_features(g)
+        if len(features) > 1:
+            return FeatureCollection(features)
+        elif len(features) == 1:
+            return features[0]
+        else:
+            return {}
