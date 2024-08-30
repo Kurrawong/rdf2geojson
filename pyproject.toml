@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A Python package that converts any RDF to GeoJSON"
 authors = ["Nicholas Car <nick@kurrawong.ai>"]
 license = "BSD 3-Clause"
-readme = "README.md"
+readme = "README.adoc"
 packages = [{include = "rdf2geojson"}]
 
 [tool.poetry.dependencies]
