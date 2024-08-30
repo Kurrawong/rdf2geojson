@@ -1,0 +1,21 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/camerons-corner",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    141.00682,
+                    -28.991121
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland",
+                "name": "Cameron's Corner Point"
+            }
+        }
+    ]
+}
