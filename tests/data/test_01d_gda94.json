@@ -1,0 +1,608 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/camerons-corner",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    -28.991121,
+                    141.00682
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "camerons-corner",
+                "title": "Cameron's Corner Point",
+                "sfWithin": "https://example.com/dataset/geo-demo/australia"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/shorncliffe-point-1",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    -27.333653,
+                    153.080619
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "shorncliffe-point-1",
+                "title": "Shorncliffe Point 1",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/shorncliffe-point-2",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    -27.328353,
+                    153.088001
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "shorncliffe-point-2",
+                "title": "Shorncliffe Point 2",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/wyvenhoe",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    -27.329887,
+                    152.628252
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "wyvenhoe",
+                "title": "Wyvenhoe Point",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/curlew-park",
+            "geometry": {
+                "type": "Polygon",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    [
+                        [
+                            153.079262,
+                            -27.327021
+                        ],
+                        [
+                            153.076945,
+                            -27.330929
+                        ],
+                        [
+                            153.081151,
+                            -27.332969
+                        ],
+                        [
+                            153.081902,
+                            -27.330433
+                        ],
+                        [
+                            153.083039,
+                            -27.329595
+                        ],
+                        [
+                            153.08188,
+                            -27.327707
+                        ],
+                        [
+                            153.079262,
+                            -27.327021
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "curlew-park",
+                "title": "Curlew Park",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/shorncliffe",
+            "geometry": {
+                "type": "Polygon",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    [
+                        [
+                            153.069585,
+                            -27.323132
+                        ],
+                        [
+                            153.069156,
+                            -27.325229
+                        ],
+                        [
+                            153.069757,
+                            -27.325992
+                        ],
+                        [
+                            153.071001,
+                            -27.326144
+                        ],
+                        [
+                            153.07143,
+                            -27.327631
+                        ],
+                        [
+                            153.073361,
+                            -27.329271
+                        ],
+                        [
+                            153.074263,
+                            -27.327517
+                        ],
+                        [
+                            153.076065,
+                            -27.327593
+                        ],
+                        [
+                            153.076022,
+                            -27.325458
+                        ],
+                        [
+                            153.074091,
+                            -27.323361
+                        ],
+                        [
+                            153.071387,
+                            -27.322903
+                        ],
+                        [
+                            153.070701,
+                            -27.323285
+                        ],
+                        [
+                            153.069585,
+                            -27.323132
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "shorncliffe",
+                "title": "Shorncliffe",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/sandgate-golf-club",
+            "geometry": {
+                "type": "Polygon",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    [
+                        [
+                            153.073361,
+                            -27.329271
+                        ],
+                        [
+                            153.075538,
+                            -27.330354
+                        ],
+                        [
+                            153.078542,
+                            -27.332489
+                        ],
+                        [
+                            153.078886,
+                            -27.334052
+                        ],
+                        [
+                            153.07983,
+                            -27.334891
+                        ],
+                        [
+                            153.081418,
+                            -27.334243
+                        ],
+                        [
+                            153.082362,
+                            -27.33085
+                        ],
+                        [
+                            153.085881,
+                            -27.32963
+                        ],
+                        [
+                            153.088284,
+                            -27.328753
+                        ],
+                        [
+                            153.086224,
+                            -27.324597
+                        ],
+                        [
+                            153.083006,
+                            -27.322004
+                        ],
+                        [
+                            153.080988,
+                            -27.322157
+                        ],
+                        [
+                            153.078027,
+                            -27.321852
+                        ],
+                        [
+                            153.077212,
+                            -27.326198
+                        ],
+                        [
+                            153.076022,
+                            -27.325458
+                        ],
+                        [
+                            153.076065,
+                            -27.327593
+                        ],
+                        [
+                            153.074263,
+                            -27.327517
+                        ],
+                        [
+                            153.073361,
+                            -27.329271
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "sandgate-golf-club",
+                "title": "Sandgate Golf Club",
+                "sfWithin": "https://example.com/dataset/geo-demo/queensland"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/queensland",
+            "geometry": {
+                "type": "Polygon",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    [
+                        [
+                            142.382611,
+                            -10.782669
+                        ],
+                        [
+                            141.591595,
+                            -12.41842
+                        ],
+                        [
+                            140.976361,
+                            -17.217493
+                        ],
+                        [
+                            140.22929,
+                            -17.720514
+                        ],
+                        [
+                            138.07597,
+                            -16.460401
+                        ],
+                        [
+                            137.856243,
+                            -25.951206
+                        ],
+                        [
+                            140.932415,
+                            -25.911685
+                        ],
+                        [
+                            141.00682,
+                            -28.991121
+                        ],
+                        [
+                            148.974408,
+                            -28.914974
+                        ],
+                        [
+                            150.204876,
+                            -28.452346
+                        ],
+                        [
+                            151.259564,
+                            -29.145519
+                        ],
+                        [
+                            152.533978,
+                            -28.297684
+                        ],
+                        [
+                            153.720501,
+                            -28.490976
+                        ],
+                        [
+                            153.237103,
+                            -25.793043
+                        ],
+                        [
+                            148.842571,
+                            -20.378695
+                        ],
+                        [
+                            146.337689,
+                            -18.847112
+                        ],
+                        [
+                            144.667767,
+                            -14.384751
+                        ],
+                        [
+                            143.964642,
+                            -14.640009
+                        ],
+                        [
+                            142.382611,
+                            -10.782669
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "queensland",
+                "title": "Queensland",
+                "description": "Queensland is a state of Australia and, in this dataset, contains both Features within the FeatureCollection it is in ('polys') and also Features within another FeatureCollection instance ('points') which is still within this demonstration dataset.",
+                "sfContains": "https://example.com/dataset/geo-demo/sandgate-golf-club",
+                "sfWithin": "https://example.com/dataset/geo-demo/australia"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "https://example.com/dataset/geo-demo/australia",
+            "geometry": {
+                "type": "Polygon",
+                "meta": {
+                    "srid": 4283
+                },
+                "coordinates": [
+                    [
+                        [
+                            121.332806,
+                            -19.428341
+                        ],
+                        [
+                            116.586712,
+                            -20.749001
+                        ],
+                        [
+                            114.301556,
+                            -22.058229
+                        ],
+                        [
+                            113.42265,
+                            -24.039518
+                        ],
+                        [
+                            114.257611,
+                            -25.990713
+                        ],
+                        [
+                            113.378704,
+                            -26.424417
+                        ],
+                        [
+                            114.91679,
+                            -29.068727
+                        ],
+                        [
+                            114.960736,
+                            -30.176547
+                        ],
+                        [
+                            115.663861,
+                            -31.384664
+                        ],
+                        [
+                            115.663861,
+                            -33.461763
+                        ],
+                        [
+                            115.004681,
+                            -33.718013
+                        ],
+                        [
+                            115.180462,
+                            -34.373435
+                        ],
+                        [
+                            117.465618,
+                            -35.095711
+                        ],
+                        [
+                            119.838665,
+                            -34.082762
+                        ],
+                        [
+                            123.486126,
+                            -33.8641
+                        ],
+                        [
+                            125.199993,
+                            -32.614464
+                        ],
+                        [
+                            129.374798,
+                            -31.609489
+                        ],
+                        [
+                            133.461712,
+                            -31.982991
+                        ],
+                        [
+                            135.790814,
+                            -34.915734
+                        ],
+                        [
+                            137.944134,
+                            -32.9101
+                        ],
+                        [
+                            139.526165,
+                            -37.014025
+                        ],
+                        [
+                            140.492962,
+                            -38.059404
+                        ],
+                        [
+                            143.613079,
+                            -38.816665
+                        ],
+                        [
+                            144.887493,
+                            -38.024794
+                        ],
+                        [
+                            146.249798,
+                            -38.885112
+                        ],
+                        [
+                            147.524212,
+                            -37.990169
+                        ],
+                        [
+                            149.941204,
+                            -37.573384
+                        ],
+                        [
+                            151.127728,
+                            -34.009937
+                        ],
+                        [
+                            152.533978,
+                            -32.466278
+                        ],
+                        [
+                            153.720501,
+                            -28.490976
+                        ],
+                        [
+                            153.237103,
+                            -25.793043
+                        ],
+                        [
+                            148.842571,
+                            -20.378695
+                        ],
+                        [
+                            146.337689,
+                            -18.847112
+                        ],
+                        [
+                            144.667767,
+                            -14.384751
+                        ],
+                        [
+                            143.964642,
+                            -14.640009
+                        ],
+                        [
+                            142.382611,
+                            -10.782669
+                        ],
+                        [
+                            141.591595,
+                            -12.41842
+                        ],
+                        [
+                            140.976361,
+                            -17.217493
+                        ],
+                        [
+                            140.22929,
+                            -17.720514
+                        ],
+                        [
+                            135.527142,
+                            -14.767528
+                        ],
+                        [
+                            136.801556,
+                            -12.203746
+                        ],
+                        [
+                            132.670696,
+                            -11.386423
+                        ],
+                        [
+                            130.649212,
+                            -11.386423
+                        ],
+                        [
+                            129.682415,
+                            -15.02234
+                        ],
+                        [
+                            126.782025,
+                            -13.830694
+                        ],
+                        [
+                            123.530072,
+                            -17.175512
+                        ],
+                        [
+                            123.046673,
+                            -16.333927
+                        ],
+                        [
+                            121.332806,
+                            -19.428341
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "type": "http://www.opengis.net/ont/geosparql#Feature",
+                "identifier": "australia",
+                "title": "Australia",
+                "comment": "'Australia' here is a rough outline (boundary) for the country. It contains Queensland and thus, transitively, contains all the Features that Queensland contains.",
+                "sfContains": "https://example.com/dataset/geo-demo/queensland"
+            }
+        }
+    ]
+}
