@@ -2,6 +2,7 @@ from typing import List, Union, Optional, Tuple, Dict, AnyStr, Any
 
 from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS
 from rdflib.namespace import GEO, RDF, RDFS, SDO, NamespaceManager
+
 from geojson import (
     FeatureCollection,
     Feature,
@@ -12,11 +13,13 @@ from geojson import (
     LineString,
     MultiPoint,
     Point,
-    GeoJSON
+    GeoJSON,
+    loads as geojson_loads,
+    dumps as geojson_dumps,
 )
 from pyshacl import validate
-from shapely import from_wkt, from_geojson
 from pathlib import Path
+from .contrib.geomet import wkt
 
 
 def get_geosparql_validator() -> Graph:
@@ -74,9 +77,9 @@ def parse_geometry(
     # parse the GeoSPARQL geometry literal based on type
     # TODO: support all other GeoSPARQL 1.1 datatypes other than DGGS - GML, KML
     if geom.datatype == GEO.wktLiteral:
-        return from_wkt(geom)
+        return GeoJSON.to_instance(wkt.loads(geom))
     elif geom.datatype == GEO.geoJSONLiteral:
-        return from_geojson(geom)
+        return geojson_loads(geom)
     elif geom.datatype in [GEO.gmlLiteral, GEO.kmlLiteral]:
         raise NotImplementedError(
             "This GeoSPARQL geometry serialization format is not yet handled but "
@@ -215,7 +218,7 @@ def get_features_collections(g: Graph) -> List[FeatureCollection]:
         fs.append(FeatureCollection([], id=f, metadata=props, **extras))
     return fs
 
-def get_features(g: Graph, fc: Optional[URIRef] = None) -> List[Feature]:
+def get_converted_features(g: Graph, fc: Optional[URIRef] = None) -> List[Feature]:
     fs = []
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
@@ -298,15 +301,81 @@ def convert(g: Graph, do_validate: bool = True) -> GeoJSON:
         fc = feature_collections[0]
 
     if fc is not None:
-        features = get_features(g, URIRef(fc['id']))
+        features = get_converted_features(g, URIRef(fc['id']))
         if len(features) > 0:
             fc["features"].extend(features)
         return fc
     else:
-        features = get_features(g)
+        features = get_converted_features(g)
         if len(features) > 1:
             return FeatureCollection(features)
         elif len(features) == 1:
             return features[0]
         else:
             return {}
+
+
+def unconvert_geometry(geom: dict) -> Tuple[str, str]:
+    # returns a WKT and GeoJSON representation of the unconverted geometry
+    wkt_string = wkt.dumps(geom)
+    geojson_string = geojson_dumps(geom)
+    return wkt_string, geojson_string
+
+
+def get_unconverted_features(g: Graph, gj: GeoJSON):
+    type_ = gj["type"]
+    if type_ == "FeatureCollection":
+        features = gj["features"]
+    elif type_ == "Feature":
+        features = [gj]
+    elif type_ == "GeometryCollection":
+        features = [{"type": "Feature", "geometry": gj}]
+    else:
+        raise NotImplementedError(
+            f"Not Implemented unconvert for GeoJSON type: {type_}"
+        )
+    for f in features:
+        id_ = URIRef(f.id)
+        unconverted_geom = unconvert_geometry(f.geometry)
+        bn = BNode()
+        g.add((id_, GEO.hasGeometry, bn))
+        g.add((id_, RDF.type, GEO.Feature))
+        g.add((bn, RDF.type, GEO.Geometry))
+        g.add((bn, GEO.asWKT, Literal(unconverted_geom[0], datatype=GEO.wktLiteral)))
+        g.add(
+            (
+                bn,
+                GEO.asGeoJSON,
+                Literal(unconverted_geom[1], datatype=GEO.geoJSONLiteral),
+            )
+        )
+        properties = f.get("properties", {})
+        for k, v in properties.items():
+            if k == "title":
+                g.add((id_, DCTERMS.title, Literal(v)))
+            elif k == "label":
+                g.add((id_, RDFS.label, Literal(v)))
+            elif k == "description":
+                g.add((id_, DCTERMS.description, Literal(v)))
+            elif k == "identifier":
+                g.add((id_, DCTERMS.identifier, Literal(v)))
+            elif k == "sfWithin":
+                g.add((id_, GEO.sfWithin, URIRef(v)))
+
+
+def unconvert(gj: GeoJSON) -> Graph:
+    # very basic GeoJSON to RDF conversion, for testing roundtripping
+    g = Graph()
+    type_ = gj["type"]
+    if type_ == "FeatureCollection":
+        assert "features" in gj
+    elif type_ == "Feature":
+        assert "geometry" in gj
+    elif type_ == "GeometryCollection":
+        assert "geometries" in gj
+    else:
+        raise NotImplementedError(
+            f"Not Implemented unconvert for GeoJSON type: {type_}"
+        )
+    get_unconverted_features(g, gj)
+    return g
