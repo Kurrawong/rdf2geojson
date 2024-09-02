@@ -239,9 +239,14 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None) -> List[Featur
             elif pred == SDO.spatial:
                 # The Schema.org version of a GeoSpatial feature
                 spatial_node = obj
+                spatial_geoms = []
                 for p2, o2 in g.predicate_objects(spatial_node):
                     if p2 in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                        geoms.extend(_extract_geoms(g, p2, o2))
+                        spatial_geoms.extend(_extract_geoms(g, p2, o2))
+                if len(spatial_geoms) < 1:
+                    # no hasGeometry in the Spatial, treat this as a Feature
+                    spatial_geoms.extend(_extract_geoms(g, pred, obj))
+                geoms.extend(spatial_geoms)
             elif pred == SOSA.isFeatureOfInterestOf:
                 associated_observations.add(obj)
             elif pred == SDO.additionalProperty:
