@@ -1,4 +1,4 @@
-from typing import List, Union, Optional, Tuple, Dict, AnyStr, Any
+from typing import List, Union, Optional, Tuple, Dict, AnyStr, Any, Callable
 
 from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS
 from rdflib.namespace import GEO, RDF, RDFS, SDO, NamespaceManager
@@ -150,7 +150,7 @@ def _extract_bnode(g: Graph, bn: URIRef, prop_contexts: Dict, recurse: int = 0) 
     return obs_dict
 
 def _extract_observation(g: Graph, obs: URIRef, prop_contexts: Dict) -> Dict:
-    obs_dict = {"id": str(obs)}
+    obs_dict = {"iri": str(obs)}
     members = [] # this could be an observationCollection too
     for pred, obj in g.predicate_objects(obs):
         if pred == SOSA.hasMember:
@@ -176,13 +176,16 @@ def _extract_observation(g: Graph, obs: URIRef, prop_contexts: Dict) -> Dict:
             obs_dict["sosa:hasMember"] = members
     return obs_dict
 
-def get_features_collections(g: Graph) -> List[FeatureCollection]:
+def get_features_collections(g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None) -> List[FeatureCollection]:
     feature_finder = g.subjects(RDF.type, GEO.FeatureCollection)
     fs = []
     for f in feature_finder:
         props = {}
         extras = {}
         prop_contexts = {}
+        _id = None
+        if iri2id is not None:
+            _id = iri2id(f)
         for pred, obj in g.predicate_objects(f):
             if pred in (RDFS.label, SKOS.prefLabel) and not "title" in extras:
                 extras["title"] = str(obj)
@@ -201,6 +204,8 @@ def get_features_collections(g: Graph) -> List[FeatureCollection]:
                     else:
                         p_key = str(p_key)
                 props[p_key] = p_value
+            elif _id is None and pred == DCTERMS.identifier:
+                _id = str(obj)  # the identifier becomes the ID
             else:
                 prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
                 if prefix_pair is not None:
@@ -212,13 +217,20 @@ def get_features_collections(g: Graph) -> List[FeatureCollection]:
                 else:
                     props[name] = make_json_representation_of_obj(obj)
 
+        if _id is not None:
+            # ID is not the same as IRI, so put iri in the properties
+            props["iri"] = str(f)
+        else:
+            _id = str(f)
+
         if len(prop_contexts) > 0:
             prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
             props["@context"] = prop_contexts
-        fs.append(FeatureCollection([], id=f, metadata=props, **extras))
+
+        fs.append(FeatureCollection([], id=_id, metadata=props, **extras))
     return fs
 
-def get_converted_features(g: Graph, fc: Optional[URIRef] = None) -> List[Feature]:
+def get_converted_features(g: Graph, fc: Optional[URIRef] = None, iri2id: Optional[Callable[[URIRef], str]] = None) -> List[Feature]:
     fs = []
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
@@ -229,13 +241,18 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None) -> List[Featur
         geoms = []
         props = {}
         extras = {}
+        _id = None
         prop_contexts = {}
         associated_observations = set()
+        if iri2id is not None:
+            _id = iri2id(f)
         for pred, obj in g.predicate_objects(f):
             if pred in (RDFS.label, SKOS.prefLabel) and not "title" in extras:
                 extras["title"] = str(obj)
             elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
                 geoms.extend(_extract_geoms(g, pred, obj))
+            elif _id is None and pred == DCTERMS.identifier:
+                _id = str(obj)  # the identifier becomes the ID
             elif pred == SDO.spatial:
                 # The Schema.org version of a GeoSpatial feature
                 spatial_node = obj
@@ -279,15 +296,20 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None) -> List[Featur
             for obs in associated_observations:
                 obs_dict = _extract_observation(g, obs, prop_contexts)
                 obs_dict_list.append(obs_dict)
+        if _id is not None:
+            # ID is not the same as IRI, so put iri in the properties
+            props["iri"] = str(f)
+        else:
+            _id = str(f)
         if len(prop_contexts) > 0:
             prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
             props["@context"] = prop_contexts
         if geoms:
-            fs.append(Feature(f, geometry=geoms[0], properties=props, **extras))
+            fs.append(Feature(_id, geometry=geoms[0], properties=props, **extras))
     return fs
 
 
-def convert(g: Graph, do_validate: bool = True) -> GeoJSON:
+def convert(g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None) -> GeoJSON:
     if do_validate:
         # validate the RDF data according to GeoSPARQL
         conforms, results_graph, results_text = validate(
@@ -297,7 +319,7 @@ def convert(g: Graph, do_validate: bool = True) -> GeoJSON:
         if not conforms:
             print(results_text)
             return {}
-    feature_collections = get_features_collections(g)
+    feature_collections = get_features_collections(g, iri2id=iri2id)
     fc = None
     if len(feature_collections) > 1:
         # A GeoJSON doc can handle maximum of one Feature Collection
@@ -306,12 +328,16 @@ def convert(g: Graph, do_validate: bool = True) -> GeoJSON:
         fc = feature_collections[0]
 
     if fc is not None:
-        features = get_converted_features(g, URIRef(fc['id']))
+        if "metadata" in fc and "iri" in fc["metadata"]:
+            fc_iri = fc["metadata"]["iri"]
+        else:
+            fc_iri = fc["id"]
+        features = get_converted_features(g, URIRef(fc_iri), iri2id=iri2id)
         if len(features) > 0:
             fc["features"].extend(features)
         return fc
     else:
-        features = get_converted_features(g)
+        features = get_converted_features(g, iri2id=iri2id)
         if len(features) > 1:
             return FeatureCollection(features)
         elif len(features) == 1:
