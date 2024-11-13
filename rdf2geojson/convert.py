@@ -54,13 +54,25 @@ def make_json_representation_of_obj(obj: Union[Literal, URIRef]) -> object:
         return str(obj)
     elif isinstance(obj, Literal):
         # Some literals cannot be represented as JSON, so we return a string
-        if obj.datatype is None:
+        if obj.datatype is None or obj.datatype == XSD.string or \
+                obj.datatype == RDF.langString or obj.language is not None:
             return str(obj)
         elif obj.datatype in (XSD.date, XSD.dateTime, XSD.time):
-            return str(obj)
-    else:
-        # The GeoJSON serializer will take care of converting this to JSON
-        return obj.toPython()
+            try:
+                return(obj.value.isoformat())
+            except Exception:
+                return str(obj)
+        elif obj.value is not None:
+            return obj.value # This can be a number, decimal, true, false, etc
+        else:
+            if obj.datatype is not None:
+                return {
+                    "datatype": str(obj.datatype),
+                    "value": str(obj)
+                }
+            else:
+                return str(obj) # This will be one of our custom datatypes (eg, waMuseumID)
+
 
 
 def parse_geometry(
