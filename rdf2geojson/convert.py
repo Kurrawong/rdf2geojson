@@ -1,4 +1,4 @@
-from typing import List, Union, Optional, Tuple, Dict, AnyStr, Any, Callable
+from typing import List, Union, Optional, Tuple, Dict, Any, Callable
 
 from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS
 from rdflib.namespace import GEO, RDF, RDFS, SDO, Namespace, NamespaceManager
@@ -34,7 +34,9 @@ def get_geosparql_validator() -> Graph:
         )
 
 
-def make_json_key_from_iri(iri: URIRef, ns: NamespaceManager) -> Tuple[Optional[Tuple[str, str]], str]:
+def make_json_key_from_iri(
+    iri: URIRef, ns: NamespaceManager
+) -> Tuple[Optional[Tuple[str, str]], str]:
     """
     Returns either a tuple of ((namespace, prefix) local name)
     or (None, full_uri_str)
@@ -57,25 +59,27 @@ def make_json_representation_of_obj(obj: Union[Literal, URIRef]) -> object:
         return str(obj)
     elif isinstance(obj, Literal):
         # Some literals cannot be represented as JSON, so we return a string
-        if obj.datatype is None or obj.datatype == XSD.string or \
-                obj.datatype == RDF.langString or obj.language is not None:
+        if (
+            obj.datatype is None
+            or obj.datatype == XSD.string
+            or obj.datatype == RDF.langString
+            or obj.language is not None
+        ):
             return str(obj)
         elif obj.datatype in (XSD.date, XSD.dateTime, XSD.time):
             try:
-                return(obj.value.isoformat())
+                return obj.value.isoformat()
             except Exception:
                 return str(obj)
         elif obj.value is not None:
-            return obj.value # This can be a number, decimal, true, false, etc
+            return obj.value  # This can be a number, decimal, true, false, etc
         else:
             if obj.datatype is not None:
-                return {
-                    "datatype": str(obj.datatype),
-                    "value": str(obj)
-                }
+                return {"datatype": str(obj.datatype), "value": str(obj)}
             else:
-                return str(obj) # This will be one of our custom datatypes (eg, waMuseumID)
-
+                return str(
+                    obj
+                )  # This will be one of our custom datatypes (eg, waMuseumID)
 
 
 def parse_geometry(
@@ -106,6 +110,7 @@ def parse_geometry(
             "GeoSPARQL 1.1's other than DGGS, as required"
         )
 
+
 def _extract_geoms(g: Graph, pred, obj) -> List:
     geoms = []
     coords = g.value(obj, GEO.asWKT)
@@ -118,6 +123,7 @@ def _extract_geoms(g: Graph, pred, obj) -> List:
         # TODO handle unsupported GeosPARQL geometry serialization formats
         pass
     return geoms
+
 
 def _extract_additional_property(g: Graph, pred, obj) -> Tuple[Union[str, URIRef], Any]:
     key_name = None
@@ -142,6 +148,7 @@ def _extract_additional_property(g: Graph, pred, obj) -> Tuple[Union[str, URIRef
         value = "error: Could not find a value for additionalProperty"
     return key_name, value
 
+
 def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict, recurse: int = 0) -> Dict:
     obs_dict = {}
     for pred, obj in g.predicate_objects(bn):
@@ -160,16 +167,16 @@ def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict, recurse: int = 0) -
             if recurse < 8:
                 obs_dict[name] = _extract_bnode(g, obj, prop_contexts, recurse + 1)
         else:
-
             obs_dict[name] = make_json_representation_of_obj(obj)
     return obs_dict
 
-def _extract_observation(g: Graph, obs: URIRef|BNode, prop_contexts: Dict) -> Dict:
+
+def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: Dict) -> Dict:
     if isinstance(obs, URIRef):
         obs_dict = {"rdf:subject": str(obs)}
     else:
         obs_dict = {}
-    members = [] # this could be an observationCollection too
+    members = []  # this could be an observationCollection too
     attribute_list = []
     attribute_list_name = "attributes"
     for pred, obj in g.predicate_objects(obs):
@@ -200,7 +207,10 @@ def _extract_observation(g: Graph, obs: URIRef|BNode, prop_contexts: Dict) -> Di
             obs_dict["sosa:hasMember"] = members
     return obs_dict
 
-def _extract_attribute(g: Graph, attr: URIRef|BNode, prop_contexts: Dict) -> Dict|URIRef:
+
+def _extract_attribute(
+    g: Graph, attr: URIRef | BNode, prop_contexts: Dict
+) -> Dict | URIRef:
     pred_ob_list = list(g.predicate_objects(attr))
     if isinstance(attr, URIRef):
         if len(pred_ob_list) == 0:
@@ -229,7 +239,10 @@ def _extract_attribute(g: Graph, attr: URIRef|BNode, prop_contexts: Dict) -> Dic
             obs_dict[name] = make_json_representation_of_obj(obj)
     return obs_dict
 
-def _extract_attribute_value(g: Graph, attr: URIRef|BNode, prop_contexts: Dict) -> Dict|URIRef:
+
+def _extract_attribute_value(
+    g: Graph, attr: URIRef | BNode, prop_contexts: Dict
+) -> Dict | URIRef:
     pred_ob_list = list(g.predicate_objects(attr))
     if isinstance(attr, URIRef):
         if len(pred_ob_list) == 0:
@@ -257,7 +270,10 @@ def _extract_attribute_value(g: Graph, attr: URIRef|BNode, prop_contexts: Dict) 
             obs_dict[name] = make_json_representation_of_obj(obj)
     return obs_dict
 
-def get_features_collections(g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None) -> List[FeatureCollection]:
+
+def get_features_collections(
+    g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
+) -> List[FeatureCollection]:
     feature_finder = g.subjects(RDF.type, GEO.FeatureCollection)
     fs = []
     for f in feature_finder:
@@ -269,20 +285,22 @@ def get_features_collections(g: Graph, iri2id: Optional[Callable[[URIRef], str]]
             _id = iri2id(f)
         else:
             if "#" in str(f):
-                _id = str(f).rsplit("#",1)[-1]
+                _id = str(f).rsplit("#", 1)[-1]
             else:
-                _id = str(f).rsplit("/",1)[-1]
+                _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred in (RDFS.label, SKOS.prefLabel) and not "title" in extras:
+            if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
             elif pred == RDFS.member:
                 # Skip the members, they are handled by get_features
                 pass
             elif pred == SCHEMA.additionalProperty:
                 # This is the Schema.org version of a Key-Value pair
-                p_key, p_value =_extract_additional_property(g, pred, obj)
+                p_key, p_value = _extract_additional_property(g, pred, obj)
                 if isinstance(p_key, URIRef):
-                    prefix_pair, name = make_json_key_from_iri(URIRef(p_key), g.namespace_manager)
+                    prefix_pair, name = make_json_key_from_iri(
+                        URIRef(p_key), g.namespace_manager
+                    )
                     if prefix_pair is not None:
                         prefix_ns, prefix_name = prefix_pair
                         prop_contexts[prefix_name] = prefix_ns
@@ -311,7 +329,12 @@ def get_features_collections(g: Graph, iri2id: Optional[Callable[[URIRef], str]]
         fs.append(FeatureCollection([], id=_id, metadata=props, **extras))
     return fs
 
-def get_converted_features(g: Graph, fc: Optional[URIRef] = None, iri2id: Optional[Callable[[URIRef], str]] = None) -> List[Feature]:
+
+def get_converted_features(
+    g: Graph,
+    fc: Optional[URIRef] = None,
+    iri2id: Optional[Callable[[URIRef], str]] = None,
+) -> List[Feature]:
     fs = []
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
@@ -330,11 +353,11 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None, iri2id: Option
             _id = iri2id(f)
         else:
             if "#" in str(f):
-                _id = str(f).rsplit("#",1)[-1]
+                _id = str(f).rsplit("#", 1)[-1]
             else:
-                _id = str(f).rsplit("/",1)[-1]
+                _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred in (RDFS.label, SKOS.prefLabel) and not "title" in extras:
+            if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
                 continue
             elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
@@ -359,7 +382,9 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None, iri2id: Option
                 # This is the Schema.org version of a Key-Value pair
                 p_key, p_value = _extract_additional_property(g, pred, obj)
                 if isinstance(p_key, URIRef):
-                    prefix_pair, name = make_json_key_from_iri(URIRef(p_key), g.namespace_manager)
+                    prefix_pair, name = make_json_key_from_iri(
+                        URIRef(p_key), g.namespace_manager
+                    )
                     if prefix_pair is not None:
                         prefix_ns, prefix_name = prefix_pair
                         prop_contexts[prefix_name] = prefix_ns
@@ -383,7 +408,9 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None, iri2id: Option
             else:
                 props[name] = make_json_representation_of_obj(obj)
         # get observations on the feature
-        associated_observations = associated_observations.union(set(g.subjects(SOSA.hasFeatureOfInterest, f)))
+        associated_observations = associated_observations.union(
+            set(g.subjects(SOSA.hasFeatureOfInterest, f))
+        )
 
         if len(associated_observations) > 0:
             props["sosa:isFeatureOfInterestOf"] = obs_dict_list = []
@@ -404,7 +431,9 @@ def get_converted_features(g: Graph, fc: Optional[URIRef] = None, iri2id: Option
     return fs
 
 
-def convert(g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None) -> GeoJSON:
+def convert(
+    g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None
+) -> GeoJSON:
     if do_validate:
         # validate the RDF data according to GeoSPARQL
         conforms, results_graph, results_text = validate(
