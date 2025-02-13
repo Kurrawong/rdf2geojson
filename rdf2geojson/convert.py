@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from collections import defaultdict
 from typing import List, Union, Optional, Tuple, Dict, Any, Callable
 
 from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS, TIME
@@ -326,7 +328,6 @@ def _hoist_attribute(
 def _hoist_observation(
     g: Graph, observation: URIRef | BNode
 ) -> Dict | URIRef:
-    types = list(g.objects(observation, RDF.type))
     members = list(g.objects(observation, SOSA.hasMember))
     if len(members) > 0:
         # This is an ObservationCollection
@@ -407,11 +408,6 @@ def _hoist_observation(
                 return {}
             use_value = "result_"+str(observation)
     return {use_label: use_value}
-
-def _hoist_additional_property(
-    g: Graph, pred: URIRef | BNode, obj: URIRef | BNode
-) -> Dict | URIRef:
-    return {}
 
 def get_features_collections(
     g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
@@ -588,9 +584,10 @@ def get_converted_features_for_human(
         geoms = []
         props = {}
         extras = {}
-        attribute_dict = {}
-        observations_dict = {}
-        additional_properties_dict = {}
+        known_time_strings = []
+        attribute_dict = defaultdict(list)
+        observations_dict = defaultdict(list)
+        additional_properties_dict = defaultdict(list)
         associated_observations = set()
         _id = None
         if iri2id is not None:
@@ -624,18 +621,21 @@ def get_converted_features_for_human(
                 continue
             elif pred == SCHEMA.additionalProperty:
                 # This is the Schema.org version of a Key-Value pair
-                additional_properties_dict.update(_hoist_additional_property(g, pred, obj))
+                add_prop_key, add_prop_val = _extract_additional_property(g, pred, obj)
+                additional_properties_dict[add_prop_key].append(str(add_prop_val))
                 continue
             elif pred == TERN.hasAttribute:
                 # This is the TERN version of a Key-Value pair
-                attribute_dict.update(_hoist_attribute(g, obj))
+                _hoisted_attribute_dict = _hoist_attribute(g, obj)
+                for (k, v) in _hoisted_attribute_dict.items():
+                    attribute_dict[k].append(v)
                 continue
             elif pred == TIME.hasTime:
                 # make it a time string
-                props["datetime"] = temporal_to_string(g, obj)
+                known_time_strings.append(temporal_to_string(g, obj))
                 continue
             elif pred == SCHEMA.temporal:
-                props["datetime"] = temporal_to_string(g, obj)
+                known_time_strings.append(temporal_to_string(g, obj))
                 continue
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 
@@ -668,20 +668,38 @@ def get_converted_features_for_human(
                 props[name] = has_obj_string
             else:
                 props[name] = make_json_representation_of_obj(obj)
+        if len(known_time_strings) > 1:
+            props["datetime"] = "; ".join(known_time_strings)
+        else:
+            props["datetime"] = known_time_strings[0]
         # get observations on the feature
         associated_observations = associated_observations.union(
             set(g.subjects(SOSA.hasFeatureOfInterest, f))
         )
         if len(associated_observations) > 0:
             for obs in associated_observations:
-                observations_dict.update(_hoist_observation(g, obs))
+                hoisted_dict = _hoist_observation(g, obs)
+                for (k, v) in hoisted_dict.items():
+                    observations_dict[k].append(v)
+
         for (obs_key, obs_value) in observations_dict.items():
             if obs_key not in props:
-                props[obs_key] = obs_value
+                if len(obs_value) > 1:
+                    props[obs_key] = "; ".join(obs_value)
+                else:
+                    props[obs_key] = obs_value[0]
         for (attr_key, attr_value) in attribute_dict.items():
             if attr_key not in props:
-                props[attr_key] = attr_value
-
+                if len(attr_value) > 1:
+                    props[attr_key] = "; ".join(attr_value)
+                else:
+                    props[attr_key] = attr_value[0]
+        for (add_key, add_value) in additional_properties_dict.items():
+            if add_key not in props:
+                if len(add_value) > 1:
+                    props[add_key] = "; ".join(add_value)
+                else:
+                    props[add_key] = add_value[0]
 
         if geoms:
             fs.append(Feature(_id, geometry=geoms[0], properties=props, **extras))
