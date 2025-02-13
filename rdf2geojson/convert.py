@@ -274,25 +274,30 @@ def _extract_attribute_value(
             obs_dict[name] = make_json_representation_of_obj(obj)
     return obs_dict
 
-def _hoist_attribute(
-    g: Graph, attr: URIRef | BNode
-) -> Dict | URIRef:
-    prez_labels = list(g.objects(attr, PREZ.label))
+def _get_annotation_label(g: Graph, labelled_node: Union[URIRef,BNode]) -> Union[str, None]:
+    prez_labels = list(g.objects(labelled_node, PREZ.label))
     use_label = None
+
     if len(prez_labels) > 0:
         use_label = str(prez_labels[0])
     if use_label is None:
-        pref_labels = list(g.objects(attr, SKOS.prefLabel))
+        pref_labels = list(g.objects(labelled_node, SKOS.prefLabel))
         if len(pref_labels) > 0:
             use_label = str(pref_labels[0])
     if use_label is None:
-        dcterms_labels = list(g.objects(attr, DCTERMS.title))
+        dcterms_labels = list(g.objects(labelled_node, DCTERMS.title))
         if len(dcterms_labels) > 0:
             use_label = str(dcterms_labels[0])
     if use_label is None:
-        rdfs_labels = list(g.objects(attr, RDFS.label))
+        rdfs_labels = list(g.objects(labelled_node, RDFS.label))
         if len(rdfs_labels) > 0:
             use_label = str(rdfs_labels[0])
+    return use_label
+
+def _hoist_attribute(
+    g: Graph, attr: URIRef | BNode
+) -> Dict | URIRef:
+    use_label = _get_annotation_label(g, attr)
     if use_label is None:
         # TODO: What do we actually use as the name of the attribute?
         if isinstance(attr, URIRef):
@@ -303,56 +308,57 @@ def _hoist_attribute(
                 use_label = str(attrib_links[0]).rsplit("/", 1)[-1]
             else:
                 use_label = "attribute_"+str(attr).rsplit(":", 1)[-1]
-    use_value = None
+    use_value_node = None
+    fallback_value = None
     prez_values = list(g.objects(attr, PREZ.value))
     if len(prez_values) > 0:
-        use_value = str(prez_values[0])
-    if use_value is None:
+        use_value_node = prez_values[0]
+    if use_value_node is None:
         simple_values = list(g.objects(attr, TERN.hasSimpleValue))
         if len(simple_values) > 0:
-            use_value = str(simple_values[0])
-    if use_value is None:
-        value_links = list(g.objects(attr, TERN.hasValue))
+            use_value_node = simple_values[0]
+    if use_value_node is None:
+        value_links = list(g.objects(attr, TERN.value))
         if len(value_links) > 0:
             tern_value = value_links[0]
             tern_value_rdf_values = list(g.objects(tern_value, RDF.value))
             if len(tern_value_rdf_values) > 0:
-                use_value = str(tern_value_rdf_values[0])
+                use_value_node = tern_value_rdf_values[0]
             else:
                 if isinstance(tern_value, URIRef):
-                    use_value = str(tern_value).rsplit("/", 1)[-1]
+                    fallback_value = str(tern_value).rsplit("/", 1)[-1]
                 else:
-                    use_value = "value_"+str(tern_value).rsplit(":", 1)[-1]
+                    fallback_value = "value_"+str(tern_value).rsplit(":", 1)[-1]
+    use_value = None
+    if use_value_node is not None:
+        if isinstance(use_value_node, (URIRef, BNode)):
+            use_annotation_value = _get_annotation_label(g, use_value_node)
+            if use_annotation_value is not None:
+                use_value = use_annotation_value
+            else:
+                if fallback_value is None:
+                    fallback_value = str(use_value_node)
+        else:
+            use_value = str(use_value_node)
+    if use_value is None:
+        if fallback_value is not None:
+            use_value = fallback_value
+        else:
+            use_value = "error: Could not find a value for attribute"
     return {use_label: use_value}
 
 def _hoist_observation(
     g: Graph, observation: URIRef | BNode
-) -> Dict | URIRef:
+) -> list[tuple[Union[URIRef,BNode], dict]]:
     members = list(g.objects(observation, SOSA.hasMember))
     if len(members) > 0:
         # This is an ObservationCollection
-        members_results = {}
+        members_results = []
         for m in members:
-            members_results.update(_hoist_observation(g, m))
+            members_results.extend(_hoist_observation(g, m))
         return members_results
-    prez_labels = list(g.objects(observation, PREZ.label))
-    use_label = None
+    use_label = _get_annotation_label(g, observation)
     degraded_label = False
-
-    if len(prez_labels) > 0:
-        use_label = str(prez_labels[0])
-    if use_label is None:
-        pref_labels = list(g.objects(observation, SKOS.prefLabel))
-        if len(pref_labels) > 0:
-            use_label = str(pref_labels[0])
-    if use_label is None:
-        dcterms_labels = list(g.objects(observation, DCTERMS.title))
-        if len(dcterms_labels) > 0:
-            use_label = str(dcterms_labels[0])
-    if use_label is None:
-        rdfs_labels = list(g.objects(observation, RDFS.label))
-        if len(rdfs_labels) > 0:
-            use_label = str(rdfs_labels[0])
     if use_label is None:
         observed_properties = list(g.objects(observation, SOSA.observedProperty))
         if len(observed_properties) > 0:
@@ -375,39 +381,57 @@ def _hoist_observation(
                 use_label = str(obp_links[0]).rsplit("/", 1)[-1]
             else:
                 use_label = "observation_"+str(observation).rsplit(":", 1)[-1]
-    use_value = None
+    use_value_node = None
+    fallback_value = None
     prez_values = list(g.objects(observation, PREZ.value))
     if len(prez_values) > 0:
-        use_value = str(prez_values[0])
-    if use_value is None:
+        use_value_node = prez_values[0]
+    if use_value_node is None:
         simple_values = list(g.objects(observation, SOSA.hasSimpleResult))
         if len(simple_values) > 0:
-            use_value = str(simple_values[0])
-    if use_value is None:
+            use_value_node = simple_values[0]
+    if use_value_node is None:
         result_links = list(g.objects(observation, SOSA.hasResult))
         if len(result_links) > 0:
             sosa_result = result_links[0]
             sosa_result_rdfs_labels = list(g.objects(sosa_result, RDFS.label))
             if len(sosa_result_rdfs_labels) > 0:
-                use_value = str(sosa_result_rdfs_labels[0])
+                fallback_value = str(sosa_result_rdfs_labels[0])
             else:
                 sosa_result_rdf_values = list(g.objects(sosa_result, RDF.value))
                 if len(sosa_result_rdf_values) > 0:
-                    use_value = str(sosa_result_rdf_values[0])
+                    if isinstance(sosa_result_rdf_values[0], (URIRef, BNode)):
+                        use_value_node = sosa_result_rdf_values[0]
+                    else:
+                        fallback_value = str(sosa_result_rdf_values[0])
                 else:
                     if degraded_label:
                         # label is bad, and also value is bad. Just give up on this one.
-                        return {}
+                        return []
                     if isinstance(sosa_result, URIRef):
-                        use_value = str(sosa_result).rsplit("/", 1)[-1]
+                        fallback_value = str(sosa_result).rsplit("/", 1)[-1]
                     else:
-                        use_value = "result_"+str(sosa_result).rsplit(":", 1)[-1]
+                        fallback_value = "result_"+str(sosa_result).rsplit(":", 1)[-1]
+    use_value = None
+    if use_value_node is not None:
+        if isinstance(use_value_node, (URIRef, BNode)):
+            use_annotation_value = _get_annotation_label(g, use_value_node)
+            if use_annotation_value is not None:
+                use_value = use_annotation_value
+            else:
+                if fallback_value is None:
+                    fallback_value = str(use_value_node)
+        else:
+            use_value = str(use_value_node)
+    if use_value is None:
+        if fallback_value is not None:
+            use_value = fallback_value
         else:
             if degraded_label:
                 # label is bad, and also value is bad. Just give up on this one.
-                return {}
+                return []
             use_value = "result_"+str(observation)
-    return {use_label: use_value}
+    return [(observation, {use_label: use_value})]
 
 def get_features_collections(
     g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
@@ -589,6 +613,7 @@ def get_converted_features_for_human(
         observations_dict = defaultdict(list)
         additional_properties_dict = defaultdict(list)
         associated_observations = set()
+        props_dict_lists = defaultdict(list)
         _id = None
         if iri2id is not None:
             _id = iri2id(f)
@@ -639,48 +664,49 @@ def get_converted_features_for_human(
                 continue
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 
-            if isinstance(obj, BNode):
-                props[name] = _extract_bnode(g, obj)
-            elif isinstance(obj, URIRef):
+
+            if isinstance(obj, (URIRef, BNode)):
                 has_obj_string = None
                 prez_value = list(g.objects(obj, PREZ.value))
                 if len(prez_value) > 0:
-                    has_obj_string = str(prez_value[0])
+                    if isinstance(prez_value[0], (URIRef, BNode)):
+                        has_obj_string = _get_annotation_label(g, prez_value[0])
+                    else:
+                        has_obj_string = str(prez_value[0])
+
                 if has_obj_string is None:
-                    prez_label = list(g.objects(obj, PREZ.label))
-                    if len(prez_label) > 0:
-                        has_obj_string = str(prez_label[0])
-                if has_obj_string is None:
-                    skos_preflabels = list(g.objects(obj, SKOS.prefLabel))
-                    if len(skos_preflabels) > 0:
-                        has_obj_string = str(skos_preflabels[0])
-                if has_obj_string is None:
-                    dcterms_titles = list(g.objects(obj, DCTERMS.title))
-                    if len(dcterms_titles) > 0:
-                        has_obj_string = str(dcterms_titles[0])
-                if has_obj_string is None:
-                    rdfs_labels = list(g.objects(obj, RDFS.label))
-                    if len(rdfs_labels) > 0:
-                        has_obj_string = str(rdfs_labels[0])
+                    has_obj_string = _get_annotation_label(g, obj)
                 if has_obj_string is None:
                     # TODO: What do we actually use as the value of the property?
                     has_obj_string = str(obj)
-                props[name] = has_obj_string
+                props_dict_lists[name].append(has_obj_string)
             else:
-                props[name] = make_json_representation_of_obj(obj)
-        if len(known_time_strings) > 1:
-            props["datetime"] = "; ".join(known_time_strings)
-        else:
-            props["datetime"] = known_time_strings[0]
+                props_dict_lists[name].append(make_json_representation_of_obj(obj))
+        for (name, values) in props_dict_lists.items():
+            if len(values) > 1:
+                props[name] = "; ".join(str(v) for v in values)
+            else:
+                props[name] = values[0]
+        if "datetime" not in props:
+            if len(known_time_strings) > 1:
+                props["datetime"] = "; ".join(known_time_strings)
+            else:
+                props["datetime"] = known_time_strings[0]
         # get observations on the feature
         associated_observations = associated_observations.union(
             set(g.subjects(SOSA.hasFeatureOfInterest, f))
         )
+        serialized_observations = set()
         if len(associated_observations) > 0:
             for obs in associated_observations:
-                hoisted_dict = _hoist_observation(g, obs)
-                for (k, v) in hoisted_dict.items():
-                    observations_dict[k].append(v)
+                hoisted_observation_dicts = _hoist_observation(g, obs)
+                for (obs_node, hoisted_dict) in hoisted_observation_dicts:
+                    if obs_node in serialized_observations:
+                        # Its possible to see the same observation twice, if it is a member of multiple ObservationCollections
+                        continue
+                    for (k, v) in hoisted_dict.items():
+                        observations_dict[k].append(v)
+                    serialized_observations.add(obs_node)
 
         for (obs_key, obs_value) in observations_dict.items():
             if obs_key not in props:
