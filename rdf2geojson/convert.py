@@ -1,6 +1,7 @@
+from __future__ import annotations
 from typing import List, Union, Optional, Tuple, Dict, Any, Callable
 
-from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS
+from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS, TIME
 from rdflib.namespace import GEO, RDF, RDFS, SDO, Namespace, NamespaceManager
 
 from geojson import (
@@ -20,8 +21,10 @@ from geojson import (
 from pyshacl import validate
 from pathlib import Path
 from .contrib.geomet import wkt
+from .time_ont import temporal_to_string
 
 TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
+PREZ = Namespace("https://prez.dev/")
 SCHEMA = SDO
 
 
@@ -38,7 +41,7 @@ def make_json_key_from_iri(
     iri: URIRef, ns: NamespaceManager
 ) -> Tuple[Optional[Tuple[str, str]], str]:
     """
-    Returns either a tuple of ((namespace, prefix) local name)
+    Returns either a tuple of ((namespace, prefix), local_name)
     or (None, full_uri_str)
     :param iri:
     :return:
@@ -149,11 +152,11 @@ def _extract_additional_property(g: Graph, pred, obj) -> Tuple[Union[str, URIRef
     return key_name, value
 
 
-def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict, recurse: int = 0) -> Dict:
+def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict|None=None, recurse: int = 0) -> Dict:
     obs_dict = {}
     for pred, obj in g.predicate_objects(bn):
         prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
-        if prefix_pair is not None:
+        if prop_contexts is not None and prefix_pair is not None:
             use_prefix = True
             prefix_ns, prefix_name = prefix_pair
             if prefix_name in prop_contexts:
@@ -239,7 +242,6 @@ def _extract_attribute(
             obs_dict[name] = make_json_representation_of_obj(obj)
     return obs_dict
 
-
 def _extract_attribute_value(
     g: Graph, attr: URIRef | BNode, prop_contexts: Dict
 ) -> Dict | URIRef:
@@ -270,6 +272,146 @@ def _extract_attribute_value(
             obs_dict[name] = make_json_representation_of_obj(obj)
     return obs_dict
 
+def _hoist_attribute(
+    g: Graph, attr: URIRef | BNode
+) -> Dict | URIRef:
+    prez_labels = list(g.objects(attr, PREZ.label))
+    use_label = None
+    if len(prez_labels) > 0:
+        use_label = str(prez_labels[0])
+    if use_label is None:
+        pref_labels = list(g.objects(attr, SKOS.prefLabel))
+        if len(pref_labels) > 0:
+            use_label = str(pref_labels[0])
+    if use_label is None:
+        dcterms_labels = list(g.objects(attr, DCTERMS.title))
+        if len(dcterms_labels) > 0:
+            use_label = str(dcterms_labels[0])
+    if use_label is None:
+        rdfs_labels = list(g.objects(attr, RDFS.label))
+        if len(rdfs_labels) > 0:
+            use_label = str(rdfs_labels[0])
+    if use_label is None:
+        # TODO: What do we actually use as the name of the attribute?
+        if isinstance(attr, URIRef):
+            use_label = str(attr).rsplit("/", 1)[-1]
+        else:
+            attrib_links = list(g.objects(attr, TERN.attribute))
+            if attrib_links:
+                use_label = str(attrib_links[0]).rsplit("/", 1)[-1]
+            else:
+                use_label = "attribute_"+str(attr).rsplit(":", 1)[-1]
+    use_value = None
+    prez_values = list(g.objects(attr, PREZ.value))
+    if len(prez_values) > 0:
+        use_value = str(prez_values[0])
+    if use_value is None:
+        simple_values = list(g.objects(attr, TERN.hasSimpleValue))
+        if len(simple_values) > 0:
+            use_value = str(simple_values[0])
+    if use_value is None:
+        value_links = list(g.objects(attr, TERN.hasValue))
+        if len(value_links) > 0:
+            tern_value = value_links[0]
+            tern_value_rdf_values = list(g.objects(tern_value, RDF.value))
+            if len(tern_value_rdf_values) > 0:
+                use_value = str(tern_value_rdf_values[0])
+            else:
+                if isinstance(tern_value, URIRef):
+                    use_value = str(tern_value).rsplit("/", 1)[-1]
+                else:
+                    use_value = "value_"+str(tern_value).rsplit(":", 1)[-1]
+    return {use_label: use_value}
+
+def _hoist_observation(
+    g: Graph, observation: URIRef | BNode
+) -> Dict | URIRef:
+    types = list(g.objects(observation, RDF.type))
+    members = list(g.objects(observation, SOSA.hasMember))
+    if len(members) > 0:
+        # This is an ObservationCollection
+        members_results = {}
+        for m in members:
+            members_results.update(_hoist_observation(g, m))
+        return members_results
+    prez_labels = list(g.objects(observation, PREZ.label))
+    use_label = None
+    degraded_label = False
+
+    if len(prez_labels) > 0:
+        use_label = str(prez_labels[0])
+    if use_label is None:
+        pref_labels = list(g.objects(observation, SKOS.prefLabel))
+        if len(pref_labels) > 0:
+            use_label = str(pref_labels[0])
+    if use_label is None:
+        dcterms_labels = list(g.objects(observation, DCTERMS.title))
+        if len(dcterms_labels) > 0:
+            use_label = str(dcterms_labels[0])
+    if use_label is None:
+        rdfs_labels = list(g.objects(observation, RDFS.label))
+        if len(rdfs_labels) > 0:
+            use_label = str(rdfs_labels[0])
+    if use_label is None:
+        observed_properties = list(g.objects(observation, SOSA.observedProperty))
+        if len(observed_properties) > 0:
+            the_observed_property = observed_properties[0]
+            property_labels = list(g.objects(the_observed_property, PREZ.label))
+            if len(property_labels) > 0:
+                use_label = str(property_labels[0])
+            else:
+                property_pref_labels = list(g.objects(the_observed_property, SKOS.prefLabel))
+                if len(property_pref_labels) > 0:
+                    use_label = str(property_pref_labels[0])
+    if use_label is None:
+        # TODO: What do we actually use as the name of the observation?
+        degraded_label = True
+        if isinstance(observation, URIRef):
+            use_label = str(observation).rsplit("/", 1)[-1]
+        else:
+            obp_links = list(g.objects(observation, SOSA.observedPropertyr))
+            if obp_links:
+                use_label = str(obp_links[0]).rsplit("/", 1)[-1]
+            else:
+                use_label = "observation_"+str(observation).rsplit(":", 1)[-1]
+    use_value = None
+    prez_values = list(g.objects(observation, PREZ.value))
+    if len(prez_values) > 0:
+        use_value = str(prez_values[0])
+    if use_value is None:
+        simple_values = list(g.objects(observation, SOSA.hasSimpleResult))
+        if len(simple_values) > 0:
+            use_value = str(simple_values[0])
+    if use_value is None:
+        result_links = list(g.objects(observation, SOSA.hasResult))
+        if len(result_links) > 0:
+            sosa_result = result_links[0]
+            sosa_result_rdfs_labels = list(g.objects(sosa_result, RDFS.label))
+            if len(sosa_result_rdfs_labels) > 0:
+                use_value = str(sosa_result_rdfs_labels[0])
+            else:
+                sosa_result_rdf_values = list(g.objects(sosa_result, RDF.value))
+                if len(sosa_result_rdf_values) > 0:
+                    use_value = str(sosa_result_rdf_values[0])
+                else:
+                    if degraded_label:
+                        # label is bad, and also value is bad. Just give up on this one.
+                        return {}
+                    if isinstance(sosa_result, URIRef):
+                        use_value = str(sosa_result).rsplit("/", 1)[-1]
+                    else:
+                        use_value = "result_"+str(sosa_result).rsplit(":", 1)[-1]
+        else:
+            if degraded_label:
+                # label is bad, and also value is bad. Just give up on this one.
+                return {}
+            use_value = "result_"+str(observation)
+    return {use_label: use_value}
+
+def _hoist_additional_property(
+    g: Graph, pred: URIRef | BNode, obj: URIRef | BNode
+) -> Dict | URIRef:
+    return {}
 
 def get_features_collections(
     g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
@@ -431,8 +573,123 @@ def get_converted_features(
     return fs
 
 
+def get_converted_features_for_human(
+    g: Graph,
+    fc: Optional[URIRef] = None,
+    iri2id: Optional[Callable[[URIRef], str]] = None,
+) -> List[Feature]:
+    fs = []
+    if fc is not None:
+        feature_finder = g.objects(fc, RDFS.member)
+    else:
+        feature_finder = g.subjects(RDF.type, GEO.Feature)
+    for f in feature_finder:
+        # TODO: handle multiple Geometries per Feature
+        geoms = []
+        props = {}
+        extras = {}
+        attribute_dict = {}
+        observations_dict = {}
+        additional_properties_dict = {}
+        associated_observations = set()
+        _id = None
+        if iri2id is not None:
+            _id = iri2id(f)
+        else:
+            if "#" in str(f):
+                _id = str(f).rsplit("#", 1)[-1]
+            else:
+                _id = str(f).rsplit("/", 1)[-1]
+        for pred, obj in g.predicate_objects(f):
+            if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
+                extras["title"] = str(obj)
+                continue
+            elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
+                geoms.extend(_extract_geoms(g, pred, obj))
+                continue
+            elif pred == SCHEMA.spatial:
+                # The Schema.org version of a GeoSpatial feature
+                spatial_node = obj
+                spatial_geoms = []
+                for p2, o2 in g.predicate_objects(spatial_node):
+                    if p2 in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
+                        spatial_geoms.extend(_extract_geoms(g, p2, o2))
+                if len(spatial_geoms) < 1:
+                    # no hasGeometry in the Spatial, treat this as a Feature
+                    spatial_geoms.extend(_extract_geoms(g, pred, obj))
+                geoms.extend(spatial_geoms)
+                continue
+            elif pred == SOSA.isFeatureOfInterestOf:
+                associated_observations.add(obj)
+                continue
+            elif pred == SCHEMA.additionalProperty:
+                # This is the Schema.org version of a Key-Value pair
+                additional_properties_dict.update(_hoist_additional_property(g, pred, obj))
+                continue
+            elif pred == TERN.hasAttribute:
+                # This is the TERN version of a Key-Value pair
+                attribute_dict.update(_hoist_attribute(g, obj))
+                continue
+            elif pred == TIME.hasTime:
+                # make it a time string
+                props["datetime"] = temporal_to_string(g, obj)
+                continue
+            elif pred == SCHEMA.temporal:
+                props["datetime"] = temporal_to_string(g, obj)
+                continue
+            prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+
+            if isinstance(obj, BNode):
+                props[name] = _extract_bnode(g, obj)
+            elif isinstance(obj, URIRef):
+                has_obj_string = None
+                prez_value = list(g.objects(obj, PREZ.value))
+                if len(prez_value) > 0:
+                    has_obj_string = str(prez_value[0])
+                if has_obj_string is None:
+                    prez_label = list(g.objects(obj, PREZ.label))
+                    if len(prez_label) > 0:
+                        has_obj_string = str(prez_label[0])
+                if has_obj_string is None:
+                    skos_preflabels = list(g.objects(obj, SKOS.prefLabel))
+                    if len(skos_preflabels) > 0:
+                        has_obj_string = str(skos_preflabels[0])
+                if has_obj_string is None:
+                    dcterms_titles = list(g.objects(obj, DCTERMS.title))
+                    if len(dcterms_titles) > 0:
+                        has_obj_string = str(dcterms_titles[0])
+                if has_obj_string is None:
+                    rdfs_labels = list(g.objects(obj, RDFS.label))
+                    if len(rdfs_labels) > 0:
+                        has_obj_string = str(rdfs_labels[0])
+                if has_obj_string is None:
+                    # TODO: What do we actually use as the value of the property?
+                    has_obj_string = str(obj)
+                props[name] = has_obj_string
+            else:
+                props[name] = make_json_representation_of_obj(obj)
+        # get observations on the feature
+        associated_observations = associated_observations.union(
+            set(g.subjects(SOSA.hasFeatureOfInterest, f))
+        )
+        if len(associated_observations) > 0:
+            for obs in associated_observations:
+                observations_dict.update(_hoist_observation(g, obs))
+        for (obs_key, obs_value) in observations_dict.items():
+            if obs_key not in props:
+                props[obs_key] = obs_value
+        for (attr_key, attr_value) in attribute_dict.items():
+            if attr_key not in props:
+                props[attr_key] = attr_value
+
+
+        if geoms:
+            fs.append(Feature(_id, geometry=geoms[0], properties=props, **extras))
+    return fs
+
 def convert(
-    g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None
+    g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None,
+    kind: str = "machine", collection_label: str|None = None,
 ) -> GeoJSON:
     if do_validate:
         # validate the RDF data according to GeoSPARQL
@@ -456,14 +713,24 @@ def convert(
             fc_iri = fc["metadata"]["rdf:subject"]
         else:
             fc_iri = fc["id"]
-        features = get_converted_features(g, URIRef(fc_iri), iri2id=iri2id)
+        if kind == "human":
+            features = get_converted_features_for_human(g, URIRef(fc_iri), iri2id=iri2id)
+        else:
+            features = get_converted_features(g, URIRef(fc_iri), iri2id=iri2id)
         if len(features) > 0:
             fc["features"].extend(features)
         return fc
     else:
-        features = get_converted_features(g, iri2id=iri2id)
+        if kind == "human":
+            features = get_converted_features_for_human(g, iri2id=iri2id)
+        else:
+            features = get_converted_features(g, iri2id=iri2id)
         if len(features) > 1:
-            return FeatureCollection(features)
+            # Make a new feature collection for these Features.
+            if collection_label is not None:
+                return FeatureCollection(features, title=collection_label)
+            else:
+                return FeatureCollection(features)
         elif len(features) == 1:
             return features[0]
         else:
