@@ -687,7 +687,7 @@ def get_converted_features_for_human(
                 props[name] = "; ".join(str(v) for v in values)
             else:
                 props[name] = values[0]
-        if "datetime" not in props:
+        if "datetime" not in props and known_time_strings:
             if len(known_time_strings) > 1:
                 props["datetime"] = "; ".join(known_time_strings)
             else:
