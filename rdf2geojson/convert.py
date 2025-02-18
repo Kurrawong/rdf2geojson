@@ -769,7 +769,7 @@ def convert(
             features = get_converted_features_for_human(g, iri2id=iri2id)
         else:
             features = get_converted_features(g, iri2id=iri2id)
-        if len(features) > 1:
+        if (len(features) > 1) or (collection_label is not None):
             # Make a new feature collection for these Features.
             if collection_label is not None:
                 return FeatureCollection(features, title=collection_label)
