@@ -28,7 +28,9 @@ from .time_ont import temporal_to_string
 TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
 PREZ = Namespace("https://prez.dev/")
 SCHEMA = SDO
-
+GEO_Feature = GEO.Feature
+PrezFocusNode = PREZ.FocusNode
+PrezType = PREZ.type
 
 def get_geosparql_validator() -> Graph:
     try:
@@ -451,6 +453,13 @@ def get_features_collections(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
+            if pred == RDF.type:
+                if obj in [PrezFocusNode, GEO.FeatureCollection]:
+                    # Don't include FocusNode or Geo.FeatureCollection in the list of RDF types, they are both implied
+                    continue
+            elif pred == PrezType:
+                # Don't include PrezType in the list of properties, it is a hidden property
+                continue
             if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
             elif pred == RDFS.member:
@@ -501,7 +510,7 @@ def get_converted_features(
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
     else:
-        feature_finder = g.subjects(RDF.type, GEO.Feature)
+        feature_finder = g.subjects(RDF.type, GEO_Feature)
     for f in feature_finder:
         # TODO: handle multiple Geometries per Feature
         geoms = []
@@ -519,6 +528,13 @@ def get_converted_features(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
+            if pred == RDF.type:
+                if obj in [PrezFocusNode, GEO_Feature]:
+                    # Don't include FocusNode or GeoFeature in the list of RDF types, they are both implied
+                    continue
+            elif pred == PrezType:
+                # Don't include PrezType in the list of properties, it is a hidden property
+                continue
             if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
                 continue
@@ -602,7 +618,7 @@ def get_converted_features_for_human(
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
     else:
-        feature_finder = g.subjects(RDF.type, GEO.Feature)
+        feature_finder = g.subjects(RDF.type, GEO_Feature)
     for f in feature_finder:
         # TODO: handle multiple Geometries per Feature
         geoms = []
@@ -623,7 +639,14 @@ def get_converted_features_for_human(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
+            if pred == RDF.type:
+                if obj in [PrezFocusNode, GEO_Feature]:
+                    # Don't include FocusNode or GeoFeature in the lost of RDF types, they are both implied
+                    continue
+            elif pred == PrezType:
+                # Don't include PrezType in the list of properties, it is a hidden property
+                continue
+            elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
                 continue
             elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
@@ -663,7 +686,6 @@ def get_converted_features_for_human(
                 known_time_strings.append(temporal_to_string(g, obj))
                 continue
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
-
 
             if isinstance(obj, (URIRef, BNode)):
                 has_obj_string = None
