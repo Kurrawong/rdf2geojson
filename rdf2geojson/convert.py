@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from operator import attrgetter
 from typing import List, Union, Optional, Tuple, Dict, Any, Callable
 
 from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS, TIME
@@ -299,13 +300,42 @@ def _get_annotation_label(g: Graph, labelled_node: Union[URIRef,BNode]) -> Union
 def _hoist_attribute(
     g: Graph, attr: URIRef | BNode
 ) -> Dict | URIRef:
-    use_label = _get_annotation_label(g, attr)
+    annotation_label = _get_annotation_label(g, attr)
+    attrib_links = list(g.objects(attr, TERN.attribute))
+    if len(attrib_links) > 0:
+        the_attribute_link = attrib_links[0]
+        attrib_labels = list(g.objects(the_attribute_link, PREZ.label))
+        if len(attrib_labels) > 0:
+            use_label = str(attrib_labels[0])
+        else:
+            attrib_pref_label = list(g.objects(the_attribute_link, SKOS.prefLabel))
+            if len(attrib_pref_label) > 0:
+                use_label = str(attrib_pref_label[0])
+            elif annotation_label is not None:
+                use_label = annotation_label
+            else:
+                attrib_parts = str(the_attribute_link).rsplit("/", 2)
+                if len(attrib_parts) == 1:
+                    use_label = attrib_parts[0]
+                elif len(attrib_parts) == 2:
+                    use_label = attrib_parts[-1]
+                else:
+                    use_label = attrib_parts[-2]+":"+attrib_parts[-1]
+    else:
+        use_label = annotation_label
+
     if use_label is None:
         # TODO: What do we actually use as the name of the attribute?
         if isinstance(attr, URIRef):
-            use_label = str(attr).rsplit("/", 1)[-1]
+            attr_parts = str(attr).rsplit("/", 2)
+            if len(attr_parts) == 1:
+                use_label = attr_parts[0]
+            else:
+                if attr_parts[-1].isnumeric():
+                    use_label = attr_parts[-2]
+                else:
+                    use_label = attr_parts[-1]
         else:
-            attrib_links = list(g.objects(attr, TERN.attribute))
             if attrib_links:
                 use_label = str(attrib_links[0]).rsplit("/", 1)[-1]
             else:
@@ -359,28 +389,46 @@ def _hoist_observation(
         for m in members:
             members_results.extend(_hoist_observation(g, m))
         return members_results
-    use_label = _get_annotation_label(g, observation)
     degraded_label = False
-    if use_label is None:
-        observed_properties = list(g.objects(observation, SOSA.observedProperty))
-        if len(observed_properties) > 0:
-            the_observed_property = observed_properties[0]
-            property_labels = list(g.objects(the_observed_property, PREZ.label))
-            if len(property_labels) > 0:
-                use_label = str(property_labels[0])
+    annotation_label = _get_annotation_label(g, observation)
+    observed_properties = list(g.objects(observation, SOSA.observedProperty))
+    if len(observed_properties) > 0:
+        the_observed_property = observed_properties[0]
+        property_labels = list(g.objects(the_observed_property, PREZ.label))
+        if len(property_labels) > 0:
+            use_label = str(property_labels[0])
+        else:
+            property_pref_labels = list(g.objects(the_observed_property, SKOS.prefLabel))
+            if len(property_pref_labels) > 0:
+                use_label = str(property_pref_labels[0])
+            elif annotation_label is not None:
+                use_label = annotation_label
             else:
-                property_pref_labels = list(g.objects(the_observed_property, SKOS.prefLabel))
-                if len(property_pref_labels) > 0:
-                    use_label = str(property_pref_labels[0])
+                observed_property_parts = str(the_observed_property).rsplit("/", 2)
+                if len(observed_property_parts) == 1:
+                    use_label = observed_property_parts[0]
+                elif len(observed_property_parts) == 2:
+                    use_label = observed_property_parts[-1]
+                else:
+                    use_label = observed_property_parts[-2]+":"+observed_property_parts[-1]
+    else:
+        use_label = annotation_label
+
     if use_label is None:
         # TODO: What do we actually use as the name of the observation?
         degraded_label = True
         if isinstance(observation, URIRef):
-            use_label = str(observation).rsplit("/", 1)[-1]
+            observation_parts = str(observation).rsplit("/", 2)
+            if len(observation_parts) == 1:
+                use_label = observation_parts[0]
+            else:
+                if observation_parts[-1].isnumeric():
+                    use_label = observation_parts[-2]
+                else:
+                    use_label = observation_parts[-1]
         else:
-            obp_links = list(g.objects(observation, SOSA.observedPropertyr))
-            if obp_links:
-                use_label = str(obp_links[0]).rsplit("/", 1)[-1]
+            if observed_properties:
+                use_label = str(observed_properties[0]).rsplit("/", 1)[-1]
             else:
                 use_label = "observation_"+str(observation).rsplit(":", 1)[-1]
     use_value_node = None
