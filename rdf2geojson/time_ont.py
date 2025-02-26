@@ -10,7 +10,9 @@ def temporal_to_string(graph: Graph, temporal: Union[URIRef,BNode,Literal]) -> s
         if temporal.datatype:
             if temporal.datatype == XSD.string or temporal.datatype == RDF.langString:
                 return str(temporal)
-            elif temporal.datatype == XSD.dateTime or temporal.datatype == XSD.dateTimeStamp:
+            elif temporal.datatype == XSD.dateTime or \
+                    temporal.datatype == XSD.date or \
+                    temporal.datatype == XSD.dateTimeStamp:
                 return str(temporal)
             elif temporal.datatype == XSD.gYear or temporal.datatype == XSD.gYearMonth:
                 return str(temporal)
