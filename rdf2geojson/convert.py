@@ -32,6 +32,7 @@ SCHEMA = SDO
 GEO_Feature = GEO.Feature
 PrezFocusNode = PREZ.FocusNode
 PrezType = PREZ.type
+PrezLabel = PREZ.label
 
 def get_geosparql_validator() -> Graph:
     try:
@@ -491,12 +492,13 @@ def _hoist_observation(
 def get_features_collections(
     g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
 ) -> List[FeatureCollection]:
-    feature_finder = g.subjects(RDF.type, GEO.FeatureCollection)
+    fc_finder = g.subjects(RDF.type, GEO.FeatureCollection)
     fs = []
-    for f in feature_finder:
+    for f in fc_finder:
         props = {}
         extras = {}
         prop_contexts = {}
+        anot = None
         _id = None
         if iri2id is not None:
             _id = iri2id(f)
@@ -513,11 +515,14 @@ def get_features_collections(
             elif pred == PrezType:
                 # Don't include PrezType in the list of properties, it is a hidden property
                 continue
-            if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
-                extras["title"] = str(obj)
             elif pred == RDFS.member:
                 # Skip the members, they are handled by get_features
-                pass
+                continue
+            elif pred == PrezLabel:
+                anot = str(obj)
+                continue
+            elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
+                extras["title"] = str(obj)
             elif pred == SCHEMA.additionalProperty:
                 # This is the Schema.org version of a Key-Value pair
                 p_key, p_value = _extract_additional_property(g, pred, obj)
@@ -550,9 +555,103 @@ def get_features_collections(
             prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
             props["@context"] = prop_contexts
 
+        if "title" not in extras and anot is not None:
+            extras["title"] = anot
+
         fs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
     return fs
 
+def get_features_collections_for_human(
+    g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
+) -> List[(URIRef, FeatureCollection)]:
+    fc_finder = g.subjects(RDF.type, GEO.FeatureCollection)
+    fs = []
+    for f in fc_finder:
+        props = {}
+        extras = {}
+        prop_contexts = {}
+        anot = None
+        attribute_dict = defaultdict(list)
+        props_dict_lists = defaultdict(list)
+        additional_properties_dict = defaultdict(list)
+        _id = None
+        if iri2id is not None:
+            _id = iri2id(f)
+        else:
+            if "#" in str(f):
+                _id = str(f).rsplit("#", 1)[-1]
+            else:
+                _id = str(f).rsplit("/", 1)[-1]
+        for pred, obj in g.predicate_objects(f):
+            if pred == RDF.type:
+                if obj in [PrezFocusNode, GEO.FeatureCollection]:
+                    # Don't include FocusNode or Geo.FeatureCollection in the list of RDF types, they are both implied
+                    continue
+            elif pred == PrezType:
+                # Don't include PrezType in the list of properties, it is a hidden property
+                continue
+            elif pred == RDFS.member:
+                # Skip the members, they are handled by get_features
+                continue
+            elif pred == PrezLabel:
+                anot = str(obj)
+                continue
+            elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
+                extras["title"] = str(obj)
+                continue # This is a difference between semantic and human-readable labels
+                # we don't want to duplicate the "title" into the properties, in human-readable mode.
+            elif pred == SCHEMA.additionalProperty:
+                # This is the Schema.org version of a Key-Value pair
+                add_prop_key, add_prop_val = _extract_additional_property(g, pred, obj)
+                additional_properties_dict[add_prop_key].append(str(add_prop_val))
+                continue
+            elif pred == TERN.hasAttribute:
+                # This is the TERN version of a Key-Value pair
+                _hoisted_attribute_dict = _hoist_attribute(g, obj)
+                for (k, v) in _hoisted_attribute_dict.items():
+                    attribute_dict[k].append(v)
+                continue
+            prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+            if isinstance(obj, (URIRef, BNode)):
+                bn_has_obj_string = None
+                bn_prez_value = list(g.objects(obj, PREZ.value))
+                if len(bn_prez_value) > 0:
+                    if isinstance(bn_prez_value[0], (URIRef, BNode)):
+                        bn_has_obj_string = _get_annotation_label(g, bn_prez_value[0])
+                    else:
+                        bn_has_obj_string = str(bn_prez_value[0])
+
+                if bn_has_obj_string is None:
+                    bn_has_obj_string = _get_annotation_label(g, obj)
+                if bn_has_obj_string is None:
+                    # TODO: What do we actually use as the value of the property?
+                    bn_has_obj_string = str(obj)
+                props_dict_lists[name].append(bn_has_obj_string)
+            else:
+                props_dict_lists[name].append(make_json_representation_of_obj(g, obj, flatten=True))
+        for (name, values) in props_dict_lists.items():
+            if len(values) > 1:
+                props[name] = "; ".join(str(v) for v in values)
+            else:
+                props[name] = values[0]
+        for (attr_key, attr_value) in attribute_dict.items():
+            if attr_key not in props:
+                if len(attr_value) > 1:
+                    props[attr_key] = "; ".join(attr_value)
+                else:
+                    props[attr_key] = attr_value[0]
+        for (add_key, add_value) in additional_properties_dict.items():
+            if add_key not in props:
+                if len(add_value) > 1:
+                    props[add_key] = "; ".join(add_value)
+                else:
+                    props[add_key] = add_value[0]
+
+        if "title" not in extras and anot is not None:
+            extras["title"] = anot
+        props["uri"] = str(f)
+        fs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
+    return fs
 
 def get_converted_features(
     g: Graph,
@@ -566,13 +665,17 @@ def get_converted_features(
         feature_finder = g.subjects(RDF.type, GEO_Feature)
     for f in feature_finder:
         # TODO: handle multiple Geometries per Feature
-        geoms = []
+        default_geometry = None
+        centroid = None
+        bounding_box = None
+        geoms: list[list] = []
         props = {}
         extras = {}
         attribute_list = []
         _id = None
         prop_contexts = {}
         associated_observations = set()
+        anot = None
         if iri2id is not None:
             _id = iri2id(f)
         else:
@@ -588,22 +691,49 @@ def get_converted_features(
             elif pred == PrezType:
                 # Don't include PrezType in the list of properties, it is a hidden property
                 continue
-            if pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
-                extras["title"] = str(obj)
+            elif pred == PrezLabel:
+                anot = str(obj)
                 continue
-            elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                geoms.extend(_extract_geoms(g, pred, obj))
+            elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
+                extras["title"] = str(obj)
+            elif pred == GEO.hasDefaultGeometry:
+                default_geometry = _extract_geoms(g, pred, obj)
+                continue
+            elif pred == GEO.hasBoundingBox:
+                bounding_box = _extract_geoms(g, pred, obj)
+                continue
+            elif pred == GEO.hasCentroid:
+                centroid = _extract_geoms(g, pred, obj)
+                continue
+            elif pred == GEO.hasGeometry:
+                geoms.append(_extract_geoms(g, pred, obj))
                 continue
             elif pred == SCHEMA.spatial:
                 # The Schema.org version of a GeoSpatial feature
                 spatial_node = obj
-                spatial_geoms = []
+                spatial_geoms: list[list] = []
+                sp_default_geometry = None
+                sp_bounding_box = None
+                sp_centroid = None
                 for p2, o2 in g.predicate_objects(spatial_node):
-                    if p2 in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                        spatial_geoms.extend(_extract_geoms(g, p2, o2))
-                if len(spatial_geoms) < 1:
-                    # no hasGeometry in the Spatial, treat this as a Feature
-                    spatial_geoms.extend(_extract_geoms(g, pred, obj))
+                    if p2 == GEO.hasDefaultGeometry:
+                        sp_default_geometry = _extract_geoms(g, p2, o2)
+                    elif p2 == GEO.hasBoundingBox:
+                        sp_bounding_box = _extract_geoms(g, p2, o2)
+                    elif p2 == GEO.hasCentroid:
+                        sp_centroid = _extract_geoms(g, p2, o2)
+                    elif p2 == GEO.hasGeometry:
+                        spatial_geoms.append(_extract_geoms(g, p2, o2))
+                if sp_default_geometry is not None and default_geometry is None:
+                    default_geometry = sp_default_geometry
+                if sp_bounding_box is not None and bounding_box is None:
+                    bounding_box = sp_bounding_box
+                if sp_centroid is not None and centroid is None:
+                    centroid = sp_centroid
+                if sp_default_geometry is None and sp_centroid is None and sp_bounding_box is None \
+                        and len(spatial_geoms) < 1:
+                    # no hasGeometry in the Spatial, treat this as a the geometry itself.
+                    spatial_geoms.append(_extract_geoms(g, pred, obj))
                 geoms.extend(spatial_geoms)
                 continue
             elif pred == SOSA.isFeatureOfInterestOf:
@@ -653,12 +783,22 @@ def get_converted_features(
 
         # ID is not the same as IRI, so put iri in the properties
         props["rdf:subject"] = str(f)
-
+        if "title" not in extras and anot is not None:
+            extras["title"] = anot
         if len(prop_contexts) > 0:
             prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
             props["@context"] = prop_contexts
-        if geoms:
-            fs.append(Feature(_id, geometry=geoms[0], properties=props, **extras))
+        use_geometry = None
+        if default_geometry is not None:
+            use_geometry = default_geometry[0]
+        elif len(geoms) > 0:
+            use_geometry = geoms[0][0]
+        elif bounding_box is not None:
+            use_geometry = bounding_box[0]
+        elif centroid is not None:
+            use_geometry = centroid[0]
+        if use_geometry is not None:
+            fs.append(Feature(_id, geometry=use_geometry, properties=props, **extras))
     return fs
 
 
@@ -674,7 +814,10 @@ def get_converted_features_for_human(
         feature_finder = g.subjects(RDF.type, GEO_Feature)
     for f in feature_finder:
         # TODO: handle multiple Geometries per Feature
-        geoms = []
+        default_geometry = None
+        centroid = None
+        bounding_box = None
+        geoms: list[list] = []
         props = {}
         extras = {}
         known_time_strings = []
@@ -683,6 +826,7 @@ def get_converted_features_for_human(
         additional_properties_dict = defaultdict(list)
         associated_observations = set()
         props_dict_lists = defaultdict(list)
+        anot = None
         _id = None
         if iri2id is not None:
             _id = iri2id(f)
@@ -699,22 +843,51 @@ def get_converted_features_for_human(
             elif pred == PrezType:
                 # Don't include PrezType in the list of properties, it is a hidden property
                 continue
+            elif pred == PrezLabel:
+                anot = str(obj)
+                continue
             elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
+                continue # This is a difference between semantic and human-readable labels
+                # we don't want to duplicate the "title" into the properties, in human-readable mode.
+            elif pred == GEO.hasDefaultGeometry:
+                default_geometry = _extract_geoms(g, pred, obj)
                 continue
-            elif pred in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                geoms.extend(_extract_geoms(g, pred, obj))
+            elif pred == GEO.hasBoundingBox:
+                bounding_box = _extract_geoms(g, pred, obj)
+                continue
+            elif pred == GEO.hasCentroid:
+                centroid = _extract_geoms(g, pred, obj)
+                continue
+            elif pred == GEO.hasGeometry:
+                geoms.append(_extract_geoms(g, pred, obj))
                 continue
             elif pred == SCHEMA.spatial:
                 # The Schema.org version of a GeoSpatial feature
                 spatial_node = obj
-                spatial_geoms = []
+                spatial_geoms: list[list] = []
+                sp_default_geometry = None
+                sp_bounding_box = None
+                sp_centroid = None
                 for p2, o2 in g.predicate_objects(spatial_node):
-                    if p2 in [GEO.hasGeometry, GEO.hasDefaultGeometry]:
-                        spatial_geoms.extend(_extract_geoms(g, p2, o2))
-                if len(spatial_geoms) < 1:
-                    # no hasGeometry in the Spatial, treat this as a Feature
-                    spatial_geoms.extend(_extract_geoms(g, pred, obj))
+                    if p2 == GEO.hasDefaultGeometry:
+                        sp_default_geometry = _extract_geoms(g, p2, o2)
+                    elif p2 == GEO.hasBoundingBox:
+                        sp_bounding_box = _extract_geoms(g, p2, o2)
+                    elif p2 == GEO.hasCentroid:
+                        sp_centroid = _extract_geoms(g, p2, o2)
+                    elif p2 == GEO.hasGeometry:
+                        spatial_geoms.append(_extract_geoms(g, p2, o2))
+                if sp_default_geometry is not None and default_geometry is None:
+                    default_geometry = sp_default_geometry
+                if sp_bounding_box is not None and bounding_box is None:
+                    bounding_box = sp_bounding_box
+                if sp_centroid is not None and centroid is None:
+                    centroid = sp_centroid
+                if sp_default_geometry is None and sp_centroid is None and sp_bounding_box is None \
+                        and len(spatial_geoms) < 1:
+                    # no hasGeometry in the Spatial, treat this as a the geometry itself.
+                    spatial_geoms.append(_extract_geoms(g, pred, obj))
                 geoms.extend(spatial_geoms)
                 continue
             elif pred == SOSA.isFeatureOfInterestOf:
@@ -741,20 +914,20 @@ def get_converted_features_for_human(
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 
             if isinstance(obj, (URIRef, BNode)):
-                has_obj_string = None
-                prez_value = list(g.objects(obj, PREZ.value))
-                if len(prez_value) > 0:
-                    if isinstance(prez_value[0], (URIRef, BNode)):
-                        has_obj_string = _get_annotation_label(g, prez_value[0])
+                bn_has_obj_string = None
+                bn_prez_value = list(g.objects(obj, PREZ.value))
+                if len(bn_prez_value) > 0:
+                    if isinstance(bn_prez_value[0], (URIRef, BNode)):
+                        bn_has_obj_string = _get_annotation_label(g, bn_prez_value[0])
                     else:
-                        has_obj_string = str(prez_value[0])
+                        bn_has_obj_string = str(bn_prez_value[0])
 
-                if has_obj_string is None:
-                    has_obj_string = _get_annotation_label(g, obj)
-                if has_obj_string is None:
+                if bn_has_obj_string is None:
+                    bn_has_obj_string = _get_annotation_label(g, obj)
+                if bn_has_obj_string is None:
                     # TODO: What do we actually use as the value of the property?
-                    has_obj_string = str(obj)
-                props_dict_lists[name].append(has_obj_string)
+                    bn_has_obj_string = str(obj)
+                props_dict_lists[name].append(bn_has_obj_string)
             else:
                 props_dict_lists[name].append(make_json_representation_of_obj(g, obj, flatten=True))
         for (name, values) in props_dict_lists.items():
@@ -801,9 +974,21 @@ def get_converted_features_for_human(
                     props[add_key] = "; ".join(add_value)
                 else:
                     props[add_key] = add_value[0]
+        if "title" not in extras and anot is not None:
+            extras["title"] = anot
+        props["uri"] = str(f)
+        use_geometry = None
+        if default_geometry is not None:
+            use_geometry = default_geometry[0]
+        elif len(geoms) > 0:
+            use_geometry = geoms[0][0]
+        elif bounding_box is not None:
+            use_geometry = bounding_box[0]
+        elif centroid is not None:
+            use_geometry = centroid[0]
+        if use_geometry is not None:
+            fs.append(Feature(_id, geometry=use_geometry, properties=props, **extras))
 
-        if geoms:
-            fs.append(Feature(_id, geometry=geoms[0], properties=props, **extras))
     return fs
 
 def convert(
@@ -819,7 +1004,10 @@ def convert(
         if not conforms:
             print(results_text)
             return {}
-    feature_collections = get_features_collections(g, iri2id=iri2id)
+    if kind == "human":
+        feature_collections = get_features_collections_for_human(g, iri2id=iri2id)
+    else:
+        feature_collections = get_features_collections(g, iri2id=iri2id)
     fc = None
     fc_uri = None
     if len(feature_collections) > 1:
