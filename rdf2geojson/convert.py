@@ -550,7 +550,7 @@ def get_features_collections(
             prop_contexts["@vocab"] = "https://purl.org/geojson/vocab#"
             props["@context"] = prop_contexts
 
-        fs.append(FeatureCollection([], id=_id, metadata=props, **extras))
+        fs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
     return fs
 
 
@@ -821,21 +821,17 @@ def convert(
             return {}
     feature_collections = get_features_collections(g, iri2id=iri2id)
     fc = None
+    fc_uri = None
     if len(feature_collections) > 1:
         # A GeoJSON doc can handle maximum of one Feature Collection
-        fc = feature_collections[0]
+        fc_uri, fc = feature_collections[0]
     elif len(feature_collections) == 1:
-        fc = feature_collections[0]
-
-    if fc is not None:
-        if "metadata" in fc and "rdf:subject" in fc["metadata"]:
-            fc_iri = fc["metadata"]["rdf:subject"]
-        else:
-            fc_iri = fc["id"]
+        fc_uri, fc = feature_collections[0]
+    if fc_uri is not None and fc is not None:
         if kind == "human":
-            features = get_converted_features_for_human(g, URIRef(fc_iri), iri2id=iri2id)
+            features = get_converted_features_for_human(g, URIRef(fc_uri), iri2id=iri2id)
         else:
-            features = get_converted_features(g, URIRef(fc_iri), iri2id=iri2id)
+            features = get_converted_features(g, URIRef(fc_uri), iri2id=iri2id)
         if len(features) > 0:
             fc["features"].extend(features)
         return fc
