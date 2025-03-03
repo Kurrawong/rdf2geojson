@@ -62,7 +62,7 @@ def make_json_key_from_iri(
     return None, name
 
 
-def make_json_representation_of_obj(obj: Union[Literal, URIRef]) -> object:
+def make_json_representation_of_obj(g: Graph, obj: Union[Literal, URIRef], flatten: bool = False) -> object:
     if isinstance(obj, URIRef):
         return str(obj)
     elif isinstance(obj, Literal):
@@ -82,12 +82,17 @@ def make_json_representation_of_obj(obj: Union[Literal, URIRef]) -> object:
         elif obj.value is not None:
             return obj.value  # This can be a number, decimal, true, false, etc
         else:
+            # This will be one of our custom datatypes (eg, waMuseumID)
             if obj.datatype is not None:
-                return {"datatype": str(obj.datatype), "value": str(obj)}
+                if flatten:
+                    dt_label = _get_annotation_label(g, obj.datatype)
+                    if dt_label is None:
+                        dt_label = str(obj.datatype).rsplit("/", 1)[-1]
+                    return f"{str(obj)} ({dt_label})"
+                else:
+                    return {"datatype": str(obj.datatype), "value": str(obj)}
             else:
-                return str(
-                    obj
-                )  # This will be one of our custom datatypes (eg, waMuseumID)
+                return str(obj)
 
 
 def parse_geometry(
@@ -175,7 +180,7 @@ def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict|None=None, recurse: 
             if recurse < 8:
                 obs_dict[name] = _extract_bnode(g, obj, prop_contexts, recurse + 1)
         else:
-            obs_dict[name] = make_json_representation_of_obj(obj)
+            obs_dict[name] = make_json_representation_of_obj(g, obj)
     return obs_dict
 
 
@@ -208,7 +213,7 @@ def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: Dict) -> 
             elif isinstance(obj, BNode):
                 obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
             else:
-                obs_dict[name] = make_json_representation_of_obj(obj)
+                obs_dict[name] = make_json_representation_of_obj(g, obj)
         if len(attribute_list) > 0:
             obs_dict[attribute_list_name] = attribute_list
         if len(members) > 0:
@@ -244,7 +249,7 @@ def _extract_attribute(
         elif isinstance(obj, BNode):
             obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
         else:
-            obs_dict[name] = make_json_representation_of_obj(obj)
+            obs_dict[name] = make_json_representation_of_obj(g, obj)
     return obs_dict
 
 def _extract_attribute_value(
@@ -274,7 +279,7 @@ def _extract_attribute_value(
         if isinstance(obj, BNode):
             obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
         else:
-            obs_dict[name] = make_json_representation_of_obj(obj)
+            obs_dict[name] = make_json_representation_of_obj(g, obj)
     return obs_dict
 
 def _get_annotation_label(g: Graph, labelled_node: Union[URIRef,BNode]) -> Union[str, None]:
@@ -536,7 +541,7 @@ def get_features_collections(
             if isinstance(obj, BNode):
                 props[name] = _extract_bnode(g, obj, prop_contexts)
             else:
-                props[name] = make_json_representation_of_obj(obj)
+                props[name] = make_json_representation_of_obj(g, obj)
 
         # ID is not the same as IRI, so put iri in the properties
         props["rdf:subject"] = str(f)
@@ -632,7 +637,7 @@ def get_converted_features(
             if isinstance(obj, BNode):
                 props[name] = _extract_bnode(g, obj, prop_contexts)
             else:
-                props[name] = make_json_representation_of_obj(obj)
+                props[name] = make_json_representation_of_obj(g, obj)
         # get observations on the feature
         associated_observations = associated_observations.union(
             set(g.subjects(SOSA.hasFeatureOfInterest, f))
@@ -751,7 +756,7 @@ def get_converted_features_for_human(
                     has_obj_string = str(obj)
                 props_dict_lists[name].append(has_obj_string)
             else:
-                props_dict_lists[name].append(make_json_representation_of_obj(obj))
+                props_dict_lists[name].append(make_json_representation_of_obj(g, obj, flatten=True))
         for (name, values) in props_dict_lists.items():
             if len(values) > 1:
                 props[name] = "; ".join(str(v) for v in values)
