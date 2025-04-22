@@ -1004,6 +1004,14 @@ def convert(
         if not conforms:
             print(results_text)
             return {}
+
+    if collection_label is not None:
+        if kind == "human":
+            features = get_converted_features_for_human(g, iri2id=iri2id)
+        else:
+            features = get_converted_features(g, iri2id=iri2id)
+        return FeatureCollection(features, title=collection_label)
+
     if kind == "human":
         feature_collections = get_features_collections_for_human(g, iri2id=iri2id)
     else:
