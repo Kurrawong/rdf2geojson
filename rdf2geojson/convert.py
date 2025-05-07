@@ -490,11 +490,16 @@ def _hoist_observation(
     return [(observation, {use_label: use_value})]
 
 def get_features_collections(
-    g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
+    g: Graph, fc_uri: Optional[URIRef] = None,
+    iri2id: Optional[Callable[[URIRef], str]] = None
 ) -> List[FeatureCollection]:
     fc_finder = g.subjects(RDF.type, GEO.FeatureCollection)
-    fs = []
+    fcs = []
     for f in fc_finder:
+        if fc_uri is not None:
+            # Filter on a given known FeatureCollection URI
+            if fc_uri != f:
+                continue
         props = {}
         extras = {}
         prop_contexts = {}
@@ -558,15 +563,20 @@ def get_features_collections(
         if "title" not in extras and anot is not None:
             extras["title"] = anot
 
-        fs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
-    return fs
+        fcs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
+    return fcs
 
 def get_features_collections_for_human(
-    g: Graph, iri2id: Optional[Callable[[URIRef], str]] = None
+    g: Graph, fc_uri: Optional[URIRef] = None,
+    iri2id: Optional[Callable[[URIRef], str]] = None
 ) -> List[(URIRef, FeatureCollection)]:
     fc_finder = g.subjects(RDF.type, GEO.FeatureCollection)
-    fs = []
+    fcs = []
     for f in fc_finder:
+        if fc_uri is not None:
+            # Filter on a given known FeatureCollection URI
+            if fc_uri != f:
+                continue
         props = {}
         extras = {}
         prop_contexts = {}
@@ -650,8 +660,8 @@ def get_features_collections_for_human(
         if "title" not in extras and anot is not None:
             extras["title"] = anot
         props["uri"] = str(f)
-        fs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
-    return fs
+        fcs.append((f, FeatureCollection([], id=_id, metadata=props, **extras)))
+    return fcs
 
 def get_converted_features(
     g: Graph,
@@ -993,7 +1003,7 @@ def get_converted_features_for_human(
 
 def convert(
     g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None,
-    kind: str = "machine", collection_label: str|None = None,
+    kind: str = "machine", fc_uri: Optional[URIRef] = None, collection_label: Optional[str] = None,
 ) -> GeoJSON:
     if do_validate:
         # validate the RDF data according to GeoSPARQL
@@ -1005,7 +1015,9 @@ def convert(
             print(results_text)
             return {}
 
-    if collection_label is not None:
+    if fc_uri is None and collection_label is not None:
+        # When a collection_label is passed, this is a custom collection that doesn't
+        # exist as a defined FeatureCollection in the graph. So don't look up FeatureCollections.
         if kind == "human":
             features = get_converted_features_for_human(g, iri2id=iri2id)
         else:
@@ -1013,21 +1025,21 @@ def convert(
         return FeatureCollection(features, title=collection_label)
 
     if kind == "human":
-        feature_collections = get_features_collections_for_human(g, iri2id=iri2id)
+        feature_collections = get_features_collections_for_human(g, fc_uri=fc_uri, iri2id=iri2id)
     else:
-        feature_collections = get_features_collections(g, iri2id=iri2id)
+        feature_collections = get_features_collections(g, fc_uri=fc_uri, iri2id=iri2id)
     fc = None
-    fc_uri = None
+    from_fc_uri: Optional[URIRef] = None
     if len(feature_collections) > 1:
         # A GeoJSON doc can handle maximum of one Feature Collection
-        fc_uri, fc = feature_collections[0]
+        from_fc_uri, fc = feature_collections[0]
     elif len(feature_collections) == 1:
-        fc_uri, fc = feature_collections[0]
-    if fc_uri is not None and fc is not None:
+        from_fc_uri, fc = feature_collections[0]
+    if from_fc_uri is not None and fc is not None:
         if kind == "human":
-            features = get_converted_features_for_human(g, URIRef(fc_uri), iri2id=iri2id)
+            features = get_converted_features_for_human(g, from_fc_uri, iri2id=iri2id)
         else:
-            features = get_converted_features(g, URIRef(fc_uri), iri2id=iri2id)
+            features = get_converted_features(g, from_fc_uri, iri2id=iri2id)
         if len(features) > 0:
             fc["features"].extend(features)
         return fc
