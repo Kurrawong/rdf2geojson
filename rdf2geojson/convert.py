@@ -31,6 +31,7 @@ TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
 PREZ = Namespace("https://prez.dev/")
 SCHEMA = SDO
 GEO_Feature = GEO.Feature
+GEO_hasGeometry = GEO.hasGeometry
 PrezFocusNode = PREZ.FocusNode
 PrezType = PREZ.type
 PrezLabel = PREZ.label
@@ -128,19 +129,44 @@ def parse_geometry(
         )
 
 
-def _extract_geoms(g: Graph, pred, obj) -> list:
+def _extract_geoms(g: Graph, pred, obj, recurse=0, with_coords=False) -> list:
     geoms = []
     coords = g.value(obj, GEO.asWKT)
     if coords:
-        geoms.append(parse_geometry(coords))
+        _geom = parse_geometry(coords)
+        if with_coords:
+            geoms.append((coords, _geom))
+        else:
+            geoms.append(_geom)
     coords = g.value(obj, GEO.asGeoJSON)
     if coords:
-        geoms.append(parse_geometry(coords))
+        _geom = parse_geometry(coords)
+        if with_coords:
+            geoms.append((coords, _geom))
+        else:
+            geoms.append(_geom)
     else:
-        # TODO handle unsupported GeosPARQL geometry serialization formats
-        pass
+        if recurse < 3:
+            if hasGeometrys := list(g.objects(obj, GEO_hasGeometry)):
+                for inner_geom in hasGeometrys:
+                    geoms.extend(_extract_geoms(g, GEO_hasGeometry, inner_geom, recurse=recurse+1, with_coords=with_coords))
+            else:
+                # TODO handle unsupported GeosPARQL geometry serialization formats
+                pass
     return geoms
 
+def geosparql_wkt_to_ewkt(wktstr: str):
+    if wktstr.startswith("<"):
+        end_part_index = wktstr.find(">", 1, 101)
+        if end_part_index > 0:
+            crs_iri = wktstr[1:end_part_index]
+            srid: str = wkt._iri_to_srid(crs_iri)
+            return f"SRID={srid};"+wktstr[end_part_index+1:]
+        else:
+            return "Cannot convert GeoSPARQL WKT to OGC eWKT."
+    else:
+        return wktstr
+        
 
 def _extract_additional_property(g: Graph, pred, obj) -> tuple[Union[str, URIRef], Any]:
     key_name = None
@@ -834,7 +860,7 @@ def get_converted_features(
             elif pred == GEO.hasCentroid:
                 centroid = _extract_geoms(g, pred, obj)
                 continue
-            elif pred == GEO.hasGeometry:
+            elif pred == GEO_hasGeometry:
                 geoms.append(_extract_geoms(g, pred, obj))
                 continue
             elif pred == SCHEMA.spatial:
@@ -851,7 +877,7 @@ def get_converted_features(
                         sp_bounding_box = _extract_geoms(g, p2, o2)
                     elif p2 == GEO.hasCentroid:
                         sp_centroid = _extract_geoms(g, p2, o2)
-                    elif p2 == GEO.hasGeometry:
+                    elif p2 == GEO_hasGeometry:
                         spatial_geoms.append(_extract_geoms(g, p2, o2))
                 if sp_default_geometry is not None and default_geometry is None:
                     default_geometry = sp_default_geometry
@@ -946,7 +972,7 @@ def get_converted_features_for_human(
         default_geometry = None
         centroid = None
         bounding_box = None
-        geoms: list[list] = []
+        geoms: list[list[tuple[str, Any]]] = []
         props = {}
         extras = {}
         known_time_strings = []
@@ -981,16 +1007,16 @@ def get_converted_features_for_human(
                 additional_properties_dict["label"].append(str(obj))
                 continue 
             elif pred == GEO.hasDefaultGeometry:
-                default_geometry = _extract_geoms(g, pred, obj)
+                default_geometry = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
             elif pred == GEO.hasBoundingBox:
-                bounding_box = _extract_geoms(g, pred, obj)
+                bounding_box = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
             elif pred == GEO.hasCentroid:
-                centroid = _extract_geoms(g, pred, obj)
+                centroid = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
-            elif pred == GEO.hasGeometry:
-                geoms.append(_extract_geoms(g, pred, obj))
+            elif pred == GEO_hasGeometry:
+                geoms.append(_extract_geoms(g, pred, obj, with_coords=True))
                 continue
             elif pred == SCHEMA.spatial:
                 # The Schema.org version of a GeoSpatial feature
@@ -1001,13 +1027,13 @@ def get_converted_features_for_human(
                 sp_centroid = None
                 for p2, o2 in g.predicate_objects(spatial_node):
                     if p2 == GEO.hasDefaultGeometry:
-                        sp_default_geometry = _extract_geoms(g, p2, o2)
+                        sp_default_geometry = _extract_geoms(g, p2, o2, with_coords=True)
                     elif p2 == GEO.hasBoundingBox:
-                        sp_bounding_box = _extract_geoms(g, p2, o2)
+                        sp_bounding_box = _extract_geoms(g, p2, o2, with_coords=True)
                     elif p2 == GEO.hasCentroid:
-                        sp_centroid = _extract_geoms(g, p2, o2)
-                    elif p2 == GEO.hasGeometry:
-                        spatial_geoms.append(_extract_geoms(g, p2, o2))
+                        sp_centroid = _extract_geoms(g, p2, o2, with_coords=True)
+                    elif p2 == GEO_hasGeometry:
+                        spatial_geoms.append(_extract_geoms(g, p2, o2, with_coords=True))
                 if sp_default_geometry is not None and default_geometry is None:
                     default_geometry = sp_default_geometry
                 if sp_bounding_box is not None and bounding_box is None:
@@ -1017,7 +1043,7 @@ def get_converted_features_for_human(
                 if sp_default_geometry is None and sp_centroid is None and sp_bounding_box is None \
                         and len(spatial_geoms) < 1:
                     # no hasGeometry in the Spatial, treat this as a the geometry itself.
-                    spatial_geoms.append(_extract_geoms(g, pred, obj))
+                    spatial_geoms.append(_extract_geoms(g, pred, obj, with_coords=True))
                 geoms.extend(spatial_geoms)
                 continue
             elif pred == SOSA.isFeatureOfInterestOf:
@@ -1045,8 +1071,7 @@ def get_converted_features_for_human(
 
             if isinstance(obj, (URIRef, BNode)):
                 bn_has_obj_string = None
-                bn_prez_value = list(g.objects(obj, PREZ.value))
-                if len(bn_prez_value) > 0:
+                if bn_prez_value := list(g.objects(obj, PREZ.value)):
                     if isinstance(bn_prez_value[0], (URIRef, BNode)):
                         bn_has_obj_string = _get_annotation_label(g, bn_prez_value[0])
                     else:
@@ -1055,8 +1080,15 @@ def get_converted_features_for_human(
                 if bn_has_obj_string is None:
                     bn_has_obj_string = _get_annotation_label(g, obj)
                 if bn_has_obj_string is None:
-                    # TODO: What do we actually use as the value of the property?
-                    bn_has_obj_string = str(obj)
+                    if pred == RDFType:
+                        type_name_string = str(obj)
+                        if "#" in type_name_string:
+                            bn_has_obj_string = type_name_string.rsplit("#",1)[-1]
+                        else:
+                            bn_has_obj_string = type_name_string.rsplit("/",1)[-1]
+                    else:
+                        # TODO: What do we actually use as the value of the property?
+                        bn_has_obj_string = str(obj)
                 props_dict_lists[name].append(bn_has_obj_string)
             else:
                 props_dict_lists[name].append(make_json_representation_of_obj(g, obj, flatten=True))
@@ -1162,14 +1194,17 @@ def get_converted_features_for_human(
             extras["title"] = anot
         props["uri"] = str(f)
         use_geometry = None
+        use_geo_literal = None
         if default_geometry is not None:
-            use_geometry = default_geometry[0]
+            use_geo_literal, use_geometry = default_geometry[0]
         elif len(geoms) > 0:
-            use_geometry = geoms[0][0]
+            use_geo_literal, use_geometry = geoms[0][0]
         elif bounding_box is not None:
-            use_geometry = bounding_box[0]
+            use_geo_literal, use_geometry = bounding_box[0]
         elif centroid is not None:
-            use_geometry = centroid[0]
+            use_geo_literal, use_geometry = centroid[0]
+        if use_geo_literal is not None and "wkt" not in props:
+            props["wkt"] = geosparql_wkt_to_ewkt(str(use_geo_literal))
         if use_geometry is not None:
             fs.append(Feature(_id, geometry=use_geometry, properties=props, **extras))
 
@@ -1257,8 +1292,8 @@ def get_unconverted_features(g: Graph, gj: GeoJSON):
         id_ = URIRef(f.id)
         unconverted_geom = unconvert_geometry(f.geometry)
         bn = BNode()
-        g.add((id_, GEO.hasGeometry, bn))
-        g.add((id_, RDFType, GEO.Feature))
+        g.add((id_, GEO_hasGeometry, bn))
+        g.add((id_, RDFType, GEO_Feature))
         g.add((bn, RDFType, GEO.Geometry))
         g.add((bn, GEO.asWKT, Literal(unconverted_geom[0], datatype=GEO.wktLiteral)))
         g.add(
