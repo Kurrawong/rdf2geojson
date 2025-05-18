@@ -1,0 +1,8 @@
+root=true
+[*.py]
+tab_width=4
+indent_type="space"
+indent_size="tab"
+charset="utf-8"
+trim_trailing_whitespace=true
+insert_final_newline=true

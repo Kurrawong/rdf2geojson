@@ -1,0 +1,293 @@
+{
+    "type": "FeatureCollection",
+    "id": "632b575b-b7eb-4804-918e-af7c65a3e4a5",
+    "metadata": {
+        "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+        "uri": "https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"
+    },
+    "title": "All Occurrence features in BDR Dataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5>",
+    "features": [
+        {
+            "type": "Feature",
+            "title": "plant occurrence",
+            "id": "e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.939636,
+                    -22.964249
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record 1b6ae88b-4b6e-40c3-b7a4-d5668a84010a",
+                "additionalType": "plant occurrence",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-09-10T05:24:24.932000+00:00",
+                "taking representative media": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/taking-representative-media/4c7c10f3-dcf4-4eb2-93d5-4615828bc817; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/taking-representative-media/0eda12b9-68e6-44c8-b51d-787a70d27c23; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/taking-representative-media/741a2267-0bd5-426a-9ced-60a8dc869aa1",
+                "taking representative media (datetime)": "2024-09-10T05:35:48.664000+00:00; 2024-09-10T05:35:48.664000+00:00; 2024-09-10T05:35:48.664000+00:00",
+                "taking representative media (procedure)": "Opportune Module; Opportune Module; Opportune Module",
+                "field species name": "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)",
+                "field species name (datetime)": "2024-09-10T05:24:24.932000+00:00",
+                "field species name (procedure)": "Opportune Module",
+                "growth form": "NVIS growth form - tree",
+                "growth form (datetime)": "2024-09-10T05:24:24.932000+00:00",
+                "growth form (procedure)": "Opportune Module",
+                "life stage": "plant life stage - mature",
+                "life stage (datetime)": "2024-09-10T05:24:24.932000+00:00",
+                "life stage (procedure)": "Opportune Module",
+                "taxa type": "Vascular plant",
+                "taxa type (datetime)": "2024-09-10T05:24:24.932000+00:00",
+                "taxa type (procedure)": "Opportune Module",
+                "label": "plant occurrence",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b"
+            }
+        },
+        {
+            "type": "Feature",
+            "title": "vegetation stratum",
+            "id": "c3d2ad2d-779d-f860-22b9-770bd81400c5",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.939665,
+                    -22.964344
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record 1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8",
+                "additionalType": "vegetation stratum",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-09-10T05:25:26.766000+00:00",
+                "taking photos": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/taking-photos/1d3c2f49-5279-4055-9a29-53e3a9ad6a38",
+                "taking photos (datetime)": "2024-09-10T23:30:02.305000+00:00",
+                "taking photos (procedure)": "Vegetation Mapping Module",
+                "(group 1) average species height": "0.25",
+                "(group 1) average species height (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 1) average species height (procedure)": "Vegetation Mapping Module",
+                "(group 1) dominant growth form": "NVIS growth form - lower plant",
+                "(group 1) dominant growth form (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 1) dominant growth form (procedure)": "Vegetation Mapping Module",
+                "(group 1) foliage projective cover": "10",
+                "(group 1) foliage projective cover (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 1) foliage projective cover (procedure)": "Vegetation Mapping Module",
+                "(group 2) average species height": "4",
+                "(group 2) average species height (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 2) average species height (procedure)": "Vegetation Mapping Module",
+                "(group 2) dominant growth form": "NVIS growth form - tree mallee",
+                "(group 2) dominant growth form (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 2) dominant growth form (procedure)": "Vegetation Mapping Module",
+                "(group 2) field species name": "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)",
+                "(group 2) field species name (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 2) field species name (procedure)": "Vegetation Mapping Module",
+                "(group 2) foliage projective cover": "2",
+                "(group 2) foliage projective cover (datetime)": "2024-09-10T05:25:26.766000+00:00",
+                "(group 2) foliage projective cover (procedure)": "Vegetation Mapping Module",
+                "label": "vegetation stratum",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5"
+            }
+        },
+        {
+            "type": "Feature",
+            "title": "plant occurrence",
+            "id": "e1c22550-464a-1da3-9e84-4938b20612b6",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.79992,
+                    -23.02747
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record 27081dcd-418b-43f4-b0e9-52e814c04af1",
+                "additionalType": "plant occurrence",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-06-24T00:47:59.055000+00:00",
+                "taking representative media": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/taking-representative-media/2ba7752c-a3db-47e6-9857-8be5b5427f43",
+                "taking representative media (datetime)": "2024-06-24T00:59:23.245000+00:00",
+                "taking representative media (procedure)": "Opportune Module",
+                "field species name": "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)",
+                "field species name (datetime)": "2024-06-24T00:47:59.055000+00:00",
+                "field species name (procedure)": "Opportune Module",
+                "growth form": "NVIS growth form - tree; NVIS growth form - tree mallee",
+                "growth form (datetime)": "2024-06-24T00:47:59.055000+00:00",
+                "growth form (procedure)": "Opportune Module",
+                "life stage": "plant life stage - sapling; plant life stage - mature",
+                "life stage (datetime)": "2024-06-24T00:47:59.055000+00:00",
+                "life stage (procedure)": "Opportune Module",
+                "taxa type": "Vascular plant",
+                "taxa type (datetime)": "2024-06-24T00:47:59.055000+00:00",
+                "taxa type (procedure)": "Opportune Module",
+                "label": "plant occurrence",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6"
+            }
+        },
+        {
+            "type": "Feature",
+            "title": "plant occurrence",
+            "id": "a630f6b3-edf8-2fca-5bbd-95000ee787d0",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.796537,
+                    -23.033508
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record 7ca8ec9a-7a3c-4518-af60-2afc1c3cb454",
+                "additionalType": "plant occurrence",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-09-11T22:38:02.435000+00:00",
+                "taking representative media": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/08dc20c1-daf3-4b27-bb27-b927b6806473; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/d8e61e62-ad92-4e0a-9a83-ffd49aa004cb; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/4be8dcb5-52b4-4029-a3bc-884c56bdc2d8; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/efb6d01b-3d66-457f-909a-a52ef3a10505; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/cdf0aff1-997a-415f-b9d3-d741f236218f",
+                "taking representative media (datetime)": "2024-09-11T22:39:58.074000+00:00; 2024-09-11T22:39:58.074000+00:00; 2024-09-11T22:39:58.074000+00:00; 2024-09-11T22:39:58.074000+00:00; 2024-09-11T22:39:58.074000+00:00",
+                "taking representative media (procedure)": "Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module",
+                "field species name": "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)",
+                "field species name (datetime)": "2024-09-11T22:38:02.435000+00:00",
+                "field species name (procedure)": "Opportune Module",
+                "growth form": "NVIS growth form - tree",
+                "growth form (datetime)": "2024-09-11T22:38:02.435000+00:00",
+                "growth form (procedure)": "Opportune Module",
+                "life stage": "plant life stage/phenological stage - flowers",
+                "life stage (datetime)": "2024-09-11T22:38:02.435000+00:00",
+                "life stage (procedure)": "Opportune Module",
+                "taxa type": "Vascular plant",
+                "taxa type (datetime)": "2024-09-11T22:38:02.435000+00:00",
+                "taxa type (procedure)": "Opportune Module",
+                "label": "plant occurrence",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0"
+            }
+        },
+        {
+            "type": "Feature",
+            "title": "plant occurrence",
+            "id": "6b76cb3e-e664-23d9-bf2d-9b602078cfa9",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.93053,
+                    -23.253136
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record 9b603e5e-665a-4e38-9d88-46f359f3f1ce",
+                "additionalType": "plant occurrence",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-09-12T01:47:38.918000+00:00",
+                "taking representative media": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/64dd9993-13e2-4701-9c66-fea1ff0d2a56; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/54d8067a-35c9-4567-8430-599e147541f6; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/ba20c1f3-966e-461b-a02f-d1c43a42e323; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/0cb98762-8279-46ea-b024-18a037abc930; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/81fe67ef-6449-4e8e-a648-42e6f53e9db4; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/5a6b6243-322d-4f1b-8c93-ef1612c09aef; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/45f8f692-4c89-43fb-8d3e-44f4ed6259eb; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/60316e88-8567-4393-8bf6-29d7a369ea40; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/6fdf6647-99a4-4a8e-9841-322b9a8a59b9; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/c651b276-a2b0-4e22-8945-327a81502df9; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/0b942298-baf6-4cbd-bc6f-f68266fc6969; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/2fb895ab-80ba-42cb-8ad8-aae4f20df40e; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/c7b4436b-bd57-4419-b49c-8fc12143a8dd; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/1858808c-2c0a-460d-8b5a-818888e63a13; result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/4f6bf9fc-077d-4b6d-8d0e-f62deb37f015",
+                "taking representative media (datetime)": "2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00; 2024-09-12T21:34:02.715000+00:00",
+                "taking representative media (procedure)": "Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module; Opportune Module",
+                "field species name": "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)",
+                "field species name (datetime)": "Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3; 2024-09-12T01:47:38.918000+00:00; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8",
+                "field species name (procedure)": "Opportune Module",
+                "growth form": "NVIS growth form - tree",
+                "growth form (datetime)": "2024-09-12T01:47:38.918000+00:00; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8",
+                "growth form (procedure)": "Opportune Module",
+                "life stage": "plant life stage - sapling; plant life stage - mature",
+                "life stage (datetime)": "Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8; 2024-09-12T01:47:38.918000+00:00",
+                "life stage (procedure)": "Opportune Module",
+                "taxa type": "Vascular plant",
+                "taxa type (datetime)": "Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8; 2024-09-12T01:47:38.918000+00:00; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb; Cannot convert time to string: https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3",
+                "taxa type (procedure)": "Opportune Module",
+                "label": "plant occurrence",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9"
+            }
+        },
+        {
+            "type": "Feature",
+            "title": "vegetation stratum",
+            "id": "7e218f83-01f1-da03-0cdc-09f0a5b71978",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.796553,
+                    -23.033509
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record a89d8419-dc22-43de-8dfe-ec19565ede33",
+                "additionalType": "vegetation stratum",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-09-11T22:40:43.783000+00:00",
+                "taking photos": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/taking-photos/e310cf5d-dd07-4d20-b23c-78d342cbe15b",
+                "taking photos (datetime)": "2024-09-11T22:45:51.451000+00:00",
+                "taking photos (procedure)": "Vegetation Mapping Module",
+                "average species height": "5.4",
+                "average species height (datetime)": "2024-09-11T22:40:43.783000+00:00",
+                "average species height (procedure)": "Vegetation Mapping Module",
+                "dominant growth form": "NVIS growth form - tree mallee",
+                "dominant growth form (datetime)": "2024-09-11T22:40:43.783000+00:00",
+                "dominant growth form (procedure)": "Vegetation Mapping Module",
+                "field species name": "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)",
+                "field species name (datetime)": "2024-09-11T22:40:43.783000+00:00",
+                "field species name (procedure)": "Vegetation Mapping Module",
+                "foliage projective cover": "10",
+                "foliage projective cover (datetime)": "2024-09-11T22:40:43.783000+00:00",
+                "foliage projective cover (procedure)": "Vegetation Mapping Module",
+                "label": "vegetation stratum",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978"
+            }
+        },
+        {
+            "type": "Feature",
+            "title": "vegetation stratum",
+            "id": "e26e6292-8268-6f95-beba-1ae30bbba20f",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    139.799904,
+                    -23.027562
+                ]
+            },
+            "properties": {
+                "type": "http://rs.tdwg.org/dwc/terms/Occurrence; Feature of Interest",
+                "inDataset": "Record e40d799c-b93c-4179-8a68-c3b68044983b",
+                "additionalType": "vegetation stratum",
+                "isPartOf": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5",
+                "datetime": "2024-06-24T00:32:10.846000+00:00",
+                "taking photos": "result_https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/taking-photos/2badc574-00be-4363-a80b-08617c15a77a",
+                "taking photos (datetime)": "2024-06-24T00:45:03.706000+00:00",
+                "taking photos (procedure)": "Vegetation Mapping Module",
+                "average species height": "8",
+                "average species height (datetime)": "2024-06-24T00:32:10.846000+00:00",
+                "average species height (procedure)": "Vegetation Mapping Module",
+                "dominant growth form": "NVIS growth form - tree mallee",
+                "dominant growth form (datetime)": "2024-06-24T00:32:10.846000+00:00",
+                "dominant growth form (procedure)": "Vegetation Mapping Module",
+                "field species name": "",
+                "field species name (datetime)": "2024-06-24T00:32:10.846000+00:00",
+                "field species name (procedure)": "Vegetation Mapping Module",
+                "foliage projective cover": "15",
+                "foliage projective cover (datetime)": "2024-06-24T00:32:10.846000+00:00",
+                "foliage projective cover (procedure)": "Vegetation Mapping Module",
+                "label": "vegetation stratum",
+                "uri": "https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f"
+            }
+        }
+    ]
+}
