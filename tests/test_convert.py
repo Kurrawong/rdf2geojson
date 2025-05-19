@@ -4,7 +4,7 @@
 import pytest
 from pathlib import Path
 from rdf2geojson import convert
-from rdflib import Graph
+from rdflib import Graph, URIRef
 
 from rdf2geojson.convert import unconvert
 
@@ -60,3 +60,21 @@ def test_convert_geojson_to_wkt(json_file: Path):
     g: Graph = unconvert(gj)
     with open(json_file.with_suffix(".roundtrip.ttl"), "w") as f:
         f.write(g.serialize(format="turtle"))
+        
+
+def test_observation_collection():
+        gj = convert(Graph().parse(TEST_DATA_DIR / "test_07_observation_collection.ttl"), do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/feature-collection/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f"))
+
+def test_big_observation_collection():
+        rdf_file = TEST_DATA_DIR / "test_big_observation_collection.ttl"
+        gj = convert(Graph().parse(rdf_file), do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"))
+        from geojson import dump
+        with open(rdf_file.with_suffix(".json"), "w") as f2:
+            dump(gj, f2, indent=4)
+
+def test_big_observation_collection_with_attributes():
+        rdf_file = TEST_DATA_DIR / "test_big_observation_collection_attributes.ttl"
+        gj = convert(Graph().parse(rdf_file), do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"))
+        from geojson import dump
+        with open(rdf_file.with_suffix(".json"), "w") as f2:
+            dump(gj, f2, indent=4)

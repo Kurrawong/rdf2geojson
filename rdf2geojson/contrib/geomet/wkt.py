@@ -107,6 +107,8 @@ def _iri_to_srid(iri):
     if lower_iri.startswith("http://") or lower_iri.startswith("https://"):
         if "opengis.net/def/crs/epsg/" in lower_iri:
             srid = iri.rsplit("/", 1)[-1]
+        elif "epsg.io/" in lower_iri:
+            srid = iri.rsplit("/", 1)[-1]
         elif "opengis.net/def/crs/ogc/" in lower_iri:
             srid = iri.rsplit("/", 1)[-1]
             if srid == "CRS84" or srid == "crs84":

@@ -1,0 +1,307 @@
+@prefix bdr-ds: <https://linked.data.gov.au/dataset/bdr/> .
+@prefix disturbance9cb89c55e56b35ade407084bc5edc6e2: <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/feature-of-interest/disturbance-9cb89c55-e56b-35ad-e407-084bc5edc6e2/> .
+@prefix emsa-cv: <https://linked.data.gov.au/def/nrm/> .
+@prefix featurecollection: <https://linked.data.gov.au/dataset/bdr/feature-collection/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix landsurface9cb89c55e56b35ade407084bc5edc6e2: <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/feature-of-interest/land-surface-9cb89c55-e56b-35ad-e407-084bc5edc6e2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix tern: <https://w3id.org/tern/ontologies/tern/> .
+@prefix tern-cv: <http://linked.data.gov.au/def/tern-cv/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation-collection/disturbance-9cb89c55-e56b-35ad-e407-084bc5edc6e2> sosa:hasFeatureOfInterest disturbance9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation/site-disturbance/1c1f8b39-42f9-4423-8bf9-44d3ba5d6c3c> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation-collection/land-surface-9cb89c55-e56b-35ad-e407-084bc5edc6e2> sosa:hasFeatureOfInterest landsurface9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation/land-use/56a708f7-d481-4139-88e7-f980b9285379>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation/outcrop-lithology/df622780-8e20-4d03-ab6d-2a3bfbf1607e> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation-collection/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/site-disturbance/7ae54cd7-03ae-4c73-8274-d3c7d8401422> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation-collection/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/land-use/4183ade5-666b-4627-8ea4-9ddf9004d1b2>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/outcrop-lithology/f6a950e4-0bfa-49cc-b762-aea126f01e00> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation-collection/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/aspect/0d127238-86aa-44fa-a720-333f0092ce58>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/landform-element/b97b9dde-fe1e-4132-9457-4db139ad6cf0>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/landform-pattern/45933f2d-ed95-4620-a37a-5f3344cad720>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/relief/59d9c5a2-9d5e-407e-8e3c-d081cbd986ec>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/slope-class/a4b3fa51-da78-47b5-91d5-37dc9cb938e3>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/slope/f7803342-f2e0-4b8d-b911-59657e844ab1> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation-collection/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/homogeneity-measure/fdfcac37-3fca-4ebf-bf42-b4dadac0fa4d>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/structural-formation/52116d08-1b00-47a8-ae0d-7ecdb5f3ae77>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/vegetation-growth-stage/71d51334-e266-4890-9972-720dde0eba3e> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation-collection/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/site-disturbance/b1115056-bdea-42f5-a8c4-b134b47404ca> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation-collection/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/land-use/4ece6ebb-a26a-4d0b-a130-14b3c6692251>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/outcrop-lithology/f87867c5-b7c5-4448-9bb7-f45ce77b244c> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation-collection/landform-8e089b3f-4fc9-472d-816e-aca2d279c032> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/aspect/98fcf5a3-3796-4982-b9c4-4834912f71f0>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/landform-element/db66d907-7478-4ae1-866c-263edbfce475>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/landform-pattern/174736a0-8143-4a0b-a064-0ca28b176bf3>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/relief/79ed7058-d6f7-4b48-980a-13b33f661ef6>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/slope-class/266e1e33-b784-464e-b513-57ae1bb83c09>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/slope/a6111618-3c98-464d-a86d-bcf2b2556738> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation-collection/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/homogeneity-measure/7ba439f3-3bd4-471e-8bcb-fb796af73794>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/structural-formation/d0e49bbf-c9ca-4989-bca8-63c379e58c02>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/vegetation-growth-stage/20dfe3d5-db4d-4351-8760-38ec471d002c> .
+
+featurecollection:3fbd2f1e-d4f4-5a50-ad83-adc979e6dff5 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sdo:isPartOf <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41> .
+
+featurecollection:4eec5bd7-23a8-5dd2-a768-d9443d1dcf44 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sdo:isPartOf <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306> .
+
+featurecollection:9cc2d33f-3c30-5ef0-a58c-e9e2b51c1d7c a gsp:FeatureCollection ;
+    rdfs:member disturbance9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2,
+        landsurface9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 ;
+    sdo:isPartOf <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286> .
+
+featurecollection:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f a gsp:FeatureCollection ;
+    rdfs:member disturbance9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2,
+        landsurface9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032>,
+        <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation/land-use/56a708f7-d481-4139-88e7-f980b9285379> sosa:hasFeatureOfInterest landsurface9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 ;
+    sosa:hasSimpleResult <https://linked.data.gov.au/def/alum/1.1> ;
+    sosa:observedProperty emsa-cv:372ec5c5-79da-44a9-a56e-dd9ab311da06 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation/outcrop-lithology/df622780-8e20-4d03-ab6d-2a3bfbf1607e> sosa:hasFeatureOfInterest landsurface9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 ;
+    sosa:hasSimpleResult emsa-cv:bc445bd5-0c49-5108-84ef-430efb48ee06 ;
+    sosa:observedProperty emsa-cv:5af5cef1-179c-4bae-9037-42196668deff .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/observation/site-disturbance/1c1f8b39-42f9-4423-8bf9-44d3ba5d6c3c> sosa:hasFeatureOfInterest disturbance9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 ;
+    sosa:hasSimpleResult emsa-cv:8457585c-9358-5bc0-b975-0a449b304006 ;
+    sosa:observedProperty emsa-cv:632e4c3c-0e73-4b3d-b1d6-7b38897da5e8 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/aspect/0d127238-86aa-44fa-a720-333f0092ce58> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult 0 ;
+    sosa:observedProperty emsa-cv:0e0423c6-0dc3-40aa-9776-410a94299256 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/homogeneity-measure/fdfcac37-3fca-4ebf-bf42-b4dadac0fa4d> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult 1000 ;
+    sosa:observedProperty emsa-cv:325d5ff2-8c81-484a-a422-c13ff29666a9 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/land-use/4183ade5-666b-4627-8ea4-9ddf9004d1b2> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult <https://linked.data.gov.au/def/alum/2.1> ;
+    sosa:observedProperty emsa-cv:372ec5c5-79da-44a9-a56e-dd9ab311da06 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/landform-element/b97b9dde-fe1e-4132-9457-4db139ad6cf0> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:5c7e64fc-188c-5d94-b727-c88458bc7f95 ;
+    sosa:observedProperty emsa-cv:9d4f8a2d-8e77-42dd-857b-0ecbc9c85696 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/landform-pattern/45933f2d-ed95-4620-a37a-5f3344cad720> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:101075ba-daf8-5cfa-bc3e-faa8e4f7ea55 ;
+    sosa:observedProperty emsa-cv:58e4aba5-78c3-4361-b08a-ae39a93c8cb0 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/outcrop-lithology/f6a950e4-0bfa-49cc-b762-aea126f01e00> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:bc445bd5-0c49-5108-84ef-430efb48ee06 ;
+    sosa:observedProperty emsa-cv:5af5cef1-179c-4bae-9037-42196668deff .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/relief/59d9c5a2-9d5e-407e-8e3c-d081cbd986ec> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:5b38b1ec-de00-51cc-a081-63f438ddf67f ;
+    sosa:observedProperty emsa-cv:148f60c9-92c5-4324-81b6-61b59bccdb4c .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/site-disturbance/7ae54cd7-03ae-4c73-8274-d3c7d8401422> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:8457585c-9358-5bc0-b975-0a449b304006 ;
+    sosa:observedProperty emsa-cv:632e4c3c-0e73-4b3d-b1d6-7b38897da5e8 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/slope-class/a4b3fa51-da78-47b5-91d5-37dc9cb938e3> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:dd551efe-9dcd-5c46-8735-8f4642e03f5a ;
+    sosa:observedProperty emsa-cv:132a1452-4fd7-473c-956b-3183dd315b67 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/slope/f7803342-f2e0-4b8d-b911-59657e844ab1> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult 5 ;
+    sosa:observedProperty emsa-cv:b036ba09-d061-4a1c-99a8-890efc462a2c .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/structural-formation/52116d08-1b00-47a8-ae0d-7ecdb5f3ae77> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:3de3bfd1-7d1c-5656-8439-85f56f487c40 ;
+    sosa:observedProperty emsa-cv:103f26cb-0194-45d2-8b1a-e18e1da6df2b .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/observation/vegetation-growth-stage/71d51334-e266-4890-9972-720dde0eba3e> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sosa:hasSimpleResult emsa-cv:cd03aa9a-1221-5db9-99e7-800cba375db3 ;
+    sosa:observedProperty emsa-cv:a2c2f997-46c0-5c64-aca0-a43e624cf8d5 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/aspect/98fcf5a3-3796-4982-b9c4-4834912f71f0> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult 15 ;
+    sosa:observedProperty emsa-cv:0e0423c6-0dc3-40aa-9776-410a94299256 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/homogeneity-measure/7ba439f3-3bd4-471e-8bcb-fb796af73794> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult 1000 ;
+    sosa:observedProperty emsa-cv:325d5ff2-8c81-484a-a422-c13ff29666a9 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/land-use/4ece6ebb-a26a-4d0b-a130-14b3c6692251> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult <https://linked.data.gov.au/def/alum/2.1> ;
+    sosa:observedProperty emsa-cv:372ec5c5-79da-44a9-a56e-dd9ab311da06 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/landform-element/db66d907-7478-4ae1-866c-263edbfce475> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:e874a1f0-e788-5a8c-9331-4b8329222759 ;
+    sosa:observedProperty emsa-cv:9d4f8a2d-8e77-42dd-857b-0ecbc9c85696 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/landform-pattern/174736a0-8143-4a0b-a064-0ca28b176bf3> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:101075ba-daf8-5cfa-bc3e-faa8e4f7ea55 ;
+    sosa:observedProperty emsa-cv:58e4aba5-78c3-4361-b08a-ae39a93c8cb0 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/outcrop-lithology/f87867c5-b7c5-4448-9bb7-f45ce77b244c> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:bc445bd5-0c49-5108-84ef-430efb48ee06 ;
+    sosa:observedProperty emsa-cv:5af5cef1-179c-4bae-9037-42196668deff .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/relief/79ed7058-d6f7-4b48-980a-13b33f661ef6> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:5b38b1ec-de00-51cc-a081-63f438ddf67f ;
+    sosa:observedProperty emsa-cv:148f60c9-92c5-4324-81b6-61b59bccdb4c .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/site-disturbance/b1115056-bdea-42f5-a8c4-b134b47404ca> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:8457585c-9358-5bc0-b975-0a449b304006 ;
+    sosa:observedProperty emsa-cv:632e4c3c-0e73-4b3d-b1d6-7b38897da5e8 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/slope-class/266e1e33-b784-464e-b513-57ae1bb83c09> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:7ddc91f5-a5f0-5f3e-b18a-5b693d7100db ;
+    sosa:observedProperty emsa-cv:132a1452-4fd7-473c-956b-3183dd315b67 .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/slope/a6111618-3c98-464d-a86d-bcf2b2556738> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult 1 ;
+    sosa:observedProperty emsa-cv:b036ba09-d061-4a1c-99a8-890efc462a2c .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/structural-formation/d0e49bbf-c9ca-4989-bca8-63c379e58c02> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:484d51eb-c1ee-597c-aed0-664a28e7b1d1 ;
+    sosa:observedProperty emsa-cv:103f26cb-0194-45d2-8b1a-e18e1da6df2b .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/observation/vegetation-growth-stage/20dfe3d5-db4d-4351-8760-38ec471d002c> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sosa:hasSimpleResult emsa-cv:cd03aa9a-1221-5db9-99e7-800cba375db3 ;
+    sosa:observedProperty emsa-cv:a2c2f997-46c0-5c64-aca0-a43e624cf8d5 .
+
+disturbance9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "disturbance" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/geometry/9cb89c55-e56b-35ad-e407-084bc5edc6e2> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/geometry/9cb89c55-e56b-35ad-e407-084bc5edc6e2> ;
+    tern:featureType tern-cv:7e256d28-e686-4b6a-b64a-ac1b1a8f164d ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/0b412bd4-826a-4d4a-8c3e-4bf3c4182494> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/geometry/9cb89c55-e56b-35ad-e407-084bc5edc6e2> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-34.5342077 142.7486586)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "disturbance" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    tern:featureType tern-cv:7e256d28-e686-4b6a-b64a-ac1b1a8f164d ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/ee2d0094-c628-4813-807e-d028bfa82442> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "disturbance" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    tern:featureType tern-cv:7e256d28-e686-4b6a-b64a-ac1b1a8f164d ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/1c4d9971-eaa6-4673-81a2-5e3757ac6993> .
+
+landsurface9cb89c55e56b35ade407084bc5edc6e2:9cb89c55-e56b-35ad-e407-084bc5edc6e2 a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "land surface" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/geometry/9cb89c55-e56b-35ad-e407-084bc5edc6e2> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/geometry/9cb89c55-e56b-35ad-e407-084bc5edc6e2> ;
+    tern:featureType tern-cv:8282fb22-4135-415c-8ca2-317860d102fb ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/0b412bd4-826a-4d4a-8c3e-4bf3c4182494> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "land surface" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    tern:featureType tern-cv:8282fb22-4135-415c-8ca2-317860d102fb ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/ee2d0094-c628-4813-807e-d028bfa82442> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "land surface" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    tern:featureType tern-cv:8282fb22-4135-415c-8ca2-317860d102fb ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/1c4d9971-eaa6-4673-81a2-5e3757ac6993> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "plant community" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    tern:featureType tern-cv:ea3a4c64-dac3-4660-809a-8ad5ced8997b ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/ee2d0094-c628-4813-807e-d028bfa82442> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "plant community" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    tern:featureType tern-cv:ea3a4c64-dac3-4660-809a-8ad5ced8997b ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/1c4d9971-eaa6-4673-81a2-5e3757ac6993> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-34.6528689 142.5411738)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-34.58151880091879 142.5698466486357)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "landform" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/geometry/8dc32901-3c9e-0f78-332a-cc850d5cefaa> ;
+    tern:featureType tern-cv:2cf3ed29-440e-4a50-9bbc-5aab30df9fcd ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/ee2d0094-c628-4813-807e-d028bfa82442> .
+
+<https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032> a gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "landform" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    sdo:isPartOf bdr-ds:cfeb6552-abf6-4fc2-9fe1-d62f76c8579f ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/geometry/8e089b3f-4fc9-472d-816e-aca2d279c032> ;
+    tern:featureType tern-cv:2cf3ed29-440e-4a50-9bbc-5aab30df9fcd ;
+    tern:hasSite <https://linked.data.gov.au/dataset/bdr/sites/1c4d9971-eaa6-4673-81a2-5e3757ac6993> .
+

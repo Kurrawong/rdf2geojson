@@ -1,0 +1,1306 @@
+@prefix bdr-ds: <https://linked.data.gov.au/dataset/bdr/> .
+@prefix bdr-rec: <https://linked.data.gov.au/dataset/bdr/records/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix emsa-cv: <https://linked.data.gov.au/def/nrm/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix occurrencecollection: <https://linked.data.gov.au/dataset/bdr/occurrence-collection/> .
+@prefix prez: <https://prez.dev/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix tern: <https://w3id.org/tern/ontologies/tern/> .
+@prefix tern-cv: <http://linked.data.gov.au/def/tern-cv/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+void:inDataset prez:description "Points to the void:Dataset that a document is a part of." ;
+    prez:label "in dataset" .
+
+gsp:asWKT prez:description "The WKT serialization of a Geometry"@en ;
+    prez:label "as WKT"@en .
+
+gsp:hasGeometry prez:description "A spatial representation for a given Feature."@en ;
+    prez:label "has geometry"@en .
+
+gsp:wktLiteral prez:description "A Well-known Text serialization of a Geometry object."@en ;
+    prez:label "Well-known Text Literal"@en .
+
+rdf:HTML prez:description "The datatype of RDF literals storing fragments of HTML content" ;
+    prez:label "HTML" .
+
+rdf:type prez:description "The subject is an instance of a class." ;
+    prez:label "type" .
+
+rdfs:label prez:description "A human-readable name for the subject." ;
+    prez:label "label" .
+
+rdfs:member prez:description "A member of the subject resource." ;
+    prez:label "member" .
+
+xsd:dateTime prez:label "dateTime" .
+
+xsd:double prez:label "double" .
+
+xsd:integer prez:label "integer" .
+
+time:inXSDDateTimeStamp prez:description "Position of an instant, expressed using xsd:dateTimeStamp"@en ;
+    prez:label "in XSD Date-Time-Stamp"@en .
+
+sosa:hasFeatureOfInterest prez:description "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled."@en ;
+    prez:label "has feature of interest"@en .
+
+sosa:observedProperty prez:description "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+    prez:label "observed property"@en .
+
+sosa:phenomenonTime prez:description "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
+    prez:label "phenomenon time"@en .
+
+sosa:usedProcedure prez:description "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."@en ;
+    prez:label "used procedure"@en .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation-collection/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/field-species-name/fd54a0af-6856-4647-8790-3378ee32ab6a>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/growth-form/9126eab0-5260-4c0c-97e0-9e4f0ee30e76>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/life-stage/16957896-8080-4783-a87c-9aedffaf17ed>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/taxa-type/a27173ad-0e4d-4278-9e0a-d11e5bfdc290> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "Observation collection of plant occurrence e34d70fb 1fa2 441c c0cf 5962a4d0fd4b" ;
+    tern:resultDateTime "2024-09-10T05:24:24.932000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/taking-representative-media/0eda12b9-68e6-44c8-b51d-787a70d27c23> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/taking-representative-media/4c7c10f3-dcf4-4eb2-93d5-4615828bc817> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/taking-representative-media/741a2267-0bd5-426a-9ced-60a8dc869aa1> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation-collection/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5-10> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/average-species-height/a4d87b26-b659-4f12-9dc7-6976ccaf8155>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/dominant-growth-form/74a5fc2c-b6a3-404e-a7f3-07bb02e8a60b>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/foliage-projective-cover/4847d154-24ac-4dfb-ae13-f0408c5af7ec> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "Observation collection of vegetation stratum c3d2ad2d 779d f860 22b9 770bd81400c5-10" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation-collection/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5-9> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/average-species-height/b9d52909-4927-4595-8dca-818b96c61151>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/dominant-growth-form/fd4c73ba-4edb-4d9c-a96b-02e2fb6d2658>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/field-species-name/5de61bc0-bb76-461f-a958-1d02b5557195>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/foliage-projective-cover/165f717d-5338-4a33-8f05-72c9c29998df> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "Observation collection of vegetation stratum c3d2ad2d 779d f860 22b9 770bd81400c5-9" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/taking-photos/1d3c2f49-5279-4055-9a29-53e3a9ad6a38> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "taking photos" ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation-collection/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/field-species-name/e3d5f303-e801-4912-8e60-2eb85bc5f417>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/growth-form/3335db89-0bd1-4ef2-9589-f6668810a390>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/growth-form/e00d91dc-aa9a-4c3a-93fc-028b3bee93dc>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/life-stage/2de41f8c-018a-457d-b8f6-36f24c4f36c9>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/life-stage/9fadb04e-dfcd-4366-a9f7-fd1014ed4f04>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/taxa-type/e1dac6f0-d8a2-45f4-93d6-27d3729c4c36> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "Observation collection of plant occurrence e1c22550 464a 1da3 9e84 4938b20612b6" ;
+    tern:resultDateTime "2024-06-24T00:47:59.055000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/taking-representative-media/2ba7752c-a3db-47e6-9857-8be5b5427f43> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation-collection/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/field-species-name/f38499b9-bc0b-47b4-bb5f-6bea83d708ba>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/growth-form/0aa07a87-731d-4b08-bd37-cd9e67c3f4ab>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/life-stage/c6d1e808-1c12-47c1-82eb-54583627d601>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/taxa-type/a84303e4-c28a-48f0-8f63-d4d62f1880a0> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "Observation collection of plant occurrence a630f6b3 edf8 2fca 5bbd 95000ee787d0" ;
+    tern:resultDateTime "2024-09-11T22:38:02.435000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/08dc20c1-daf3-4b27-bb27-b927b6806473> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/4be8dcb5-52b4-4029-a3bc-884c56bdc2d8> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/cdf0aff1-997a-415f-b9d3-d741f236218f> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/d8e61e62-ad92-4e0a-9a83-ffd49aa004cb> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/taking-representative-media/efb6d01b-3d66-457f-909a-a52ef3a10505> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation-collection/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/48e9becd-cf17-440c-83f2-79b819bac92c>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/5797c15b-bd11-4474-ac76-04c77de17774>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/665eee3a-a8b2-44c6-96a5-c3ac8d65ea42>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/8c060fcf-3d32-4340-87e1-73a81bbaa405>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/02207e0b-2864-418f-b4d8-91b93f27f114>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/112d93d6-1f0f-4b41-b232-6c932dc2f591>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/4293082a-34a9-48b0-98bf-7971a7f0d6f6>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/999f885d-ef45-441f-9458-71f0b1ee17d1>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/24373cc1-ee3a-4734-8538-220ff29be98c>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/8aae1f73-032a-4650-945f-9e2a2de1005b>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/e7eb4485-2879-4c1e-8368-58868e6d5c05>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/e884e1a9-d4ea-4598-a603-c1a693c230af>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/9fe1ca16-9cfd-44eb-94c1-ad914b01ba48>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/a773ca59-3a2c-4f47-993c-85c967776709>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/d4372ecd-210c-4ec5-ae24-8b483797bf4b>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/e5eceae9-e14a-4e48-ab56-4012c9c71181> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "Observation collection of plant occurrence 6b76cb3e e664 23d9 bf2d 9b602078cfa9" ;
+    tern:resultDateTime "2024-09-12T02:53:17.637000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/0b942298-baf6-4cbd-bc6f-f68266fc6969> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/0cb98762-8279-46ea-b024-18a037abc930> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/1858808c-2c0a-460d-8b5a-818888e63a13> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/2fb895ab-80ba-42cb-8ad8-aae4f20df40e> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/45f8f692-4c89-43fb-8d3e-44f4ed6259eb> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/4f6bf9fc-077d-4b6d-8d0e-f62deb37f015> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/54d8067a-35c9-4567-8430-599e147541f6> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/5a6b6243-322d-4f1b-8c93-ef1612c09aef> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/60316e88-8567-4393-8bf6-29d7a369ea40> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/64dd9993-13e2-4701-9c66-fea1ff0d2a56> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/6fdf6647-99a4-4a8e-9841-322b9a8a59b9> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/81fe67ef-6449-4e8e-a648-42e6f53e9db4> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/ba20c1f3-966e-461b-a02f-d1c43a42e323> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/c651b276-a2b0-4e22-8945-327a81502df9> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/taking-representative-media/c7b4436b-bd57-4419-b49c-8fc12143a8dd> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taking representative media" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation-collection/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978-11> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/average-species-height/f81e0248-7779-4812-86e6-2ae46f219eb3>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/dominant-growth-form/fe020e4f-1fa0-4f59-95ff-3f41fe5704a2>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/field-species-name/5f618084-e5ab-448d-9232-777dff65d4fb>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/foliage-projective-cover/a87d8d26-88bf-4c75-a3a2-a525278bd4e5> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> ;
+    prez:label "Observation collection of vegetation stratum 7e218f83 01f1 da03 0cdc 09f0a5b71978-11" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/taking-photos/e310cf5d-dd07-4d20-b23c-78d342cbe15b> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> ;
+    prez:label "taking photos" ;
+    tern:resultDateTime "2024-09-11T22:45:51.451000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation-collection/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f-8> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sosa:hasMember <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/average-species-height/d2325744-6415-4747-9c12-8d20b84ccd2e>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/dominant-growth-form/f1680714-d49d-4782-a56c-79752f95dc6b>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/field-species-name/8a9f2502-1158-4720-ac54-ca09ecad1597>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/foliage-projective-cover/b44d45fc-189f-4893-9014-63e3e616aa00> ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> ;
+    prez:label "Observation collection of vegetation stratum e26e6292 8268 6f95 beba 1ae30bbba20f-8" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/taking-photos/2badc574-00be-4363-a80b-08617c15a77a> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> ;
+    prez:label "taking photos" ;
+    tern:resultDateTime "2024-06-24T00:45:03.706000+00:00"^^xsd:dateTime .
+
+occurrencecollection:1b6ae88b-4b6e-40c3-b7a4-d5668a84010a a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:27081dcd-418b-43f4-b0e9-52e814c04af1 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:632b575b-b7eb-4804-918e-af7c65a3e4a5 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978>,
+        <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    prez:label "All Occurrence features in BDR Dataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:7ca8ec9a-7a3c-4518-af60-2afc1c3cb454 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:9b603e5e-665a-4e38-9d88-46f359f3f1ce a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:a89d8419-dc22-43de-8dfe-ec19565ede33 a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+occurrencecollection:e40d799c-b93c-4179-8a68-c3b68044983b a gsp:FeatureCollection ;
+    rdfs:member <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    prez:label "All Occurrence features for Submission <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b>" ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:6b76cb3e-e664-23d9-bf2d-9b602078cfa9 sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:7e218f83-01f1-da03-0cdc-09f0a5b71978 sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:a630f6b3-edf8-2fca-5bbd-95000ee787d0 sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:c3d2ad2d-779d-f860-22b9-770bd81400c5 sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:e1c22550-464a-1da3-9e84-4938b20612b6 sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:e26e6292-8268-6f95-beba-1ae30bbba20f sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+bdr-rec:e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b sdo:about <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 .
+
+sdo:about prez:description "The subject matter of the content." ;
+    prez:label "about" .
+
+sdo:additionalType prez:description "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally." ;
+    prez:label "additional type" .
+
+sdo:isPartOf prez:description "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of." ;
+    prez:label "is part of" .
+
+sdo:spatial prez:description """The "spatial" property can be used in cases when more specific properties
+(e.g. [[locationCreated]], [[spatialCoverage]], [[contentLocation]]) are not known to be appropriate.""" ;
+    prez:label "spatial" .
+
+sdo:temporal prez:description """The "temporal" property can be used in cases where more specific properties
+(e.g. [[temporalCoverage]], [[dateCreated]], [[dateModified]], [[datePublished]]) are not known to be appropriate.""" ;
+    prez:label "temporal" .
+
+tern:methodType prez:description "A particular method type used to conduct some survey." ;
+    prez:label "method type" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a> prez:description "Record of opportunistic survey protocol" ;
+    prez:label "Record 1b6ae88b-4b6e-40c3-b7a4-d5668a84010a" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/field-species-name/fd54a0af-6856-4647-8790-3378ee32ab6a> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/growth-form/9126eab0-5260-4c0c-97e0-9e4f0ee30e76> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/life-stage/16957896-8080-4783-a87c-9aedffaf17ed> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:019f50b1-80ee-537c-97bf-3d1825826a8c ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/observation/taxa-type/a27173ad-0e4d-4278-9e0a-d11e5bfdc290> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-09-10T05:35:48.664000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8> prez:description "Record of vegetation mapping survey protocol" ;
+    prez:label "Record 1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/average-species-height/a4d87b26-b659-4f12-9dc7-6976ccaf8155> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:cea92774-6d4b-4880-8d07-1fe23c4a5e16 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "average species height" ;
+    prez:value 2.5e-01 ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/average-species-height/b9d52909-4927-4595-8dca-818b96c61151> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:cea92774-6d4b-4880-8d07-1fe23c4a5e16 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "average species height" ;
+    prez:value 4 ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/dominant-growth-form/74a5fc2c-b6a3-404e-a7f3-07bb02e8a60b> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:4a550407-5158-497c-982a-9f1b662b73e9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "dominant growth form" ;
+    prez:value emsa-cv:9fce048c-9919-5ad1-9796-c6d70fa26596 ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/dominant-growth-form/fd4c73ba-4edb-4d9c-a96b-02e2fb6d2658> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:4a550407-5158-497c-982a-9f1b662b73e9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "dominant growth form" ;
+    prez:value emsa-cv:66aa8058-5e60-5025-a84e-de1234f23d8b ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/field-species-name/5de61bc0-bb76-461f-a958-1d02b5557195> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/foliage-projective-cover/165f717d-5338-4a33-8f05-72c9c29998df> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:0378976a-0018-4604-826d-1886ca5f38c3 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "foliage projective cover" ;
+    prez:value 2 ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/observation/foliage-projective-cover/4847d154-24ac-4dfb-ae13-f0408c5af7ec> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sosa:observedProperty emsa-cv:0378976a-0018-4604-826d-1886ca5f38c3 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> ;
+    prez:label "foliage projective cover" ;
+    prez:value 10 ;
+    tern:resultDateTime "2024-09-10T23:30:02.305000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1> prez:description "Record of opportunistic survey protocol" ;
+    prez:label "Record 27081dcd-418b-43f4-b0e9-52e814c04af1" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/field-species-name/e3d5f303-e801-4912-8e60-2eb85bc5f417> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/growth-form/3335db89-0bd1-4ef2-9589-f6668810a390> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/growth-form/e00d91dc-aa9a-4c3a-93fc-028b3bee93dc> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:66aa8058-5e60-5025-a84e-de1234f23d8b ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/life-stage/2de41f8c-018a-457d-b8f6-36f24c4f36c9> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:f458582f-86fa-53be-b151-c4d7bbee4af2 ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/life-stage/9fadb04e-dfcd-4366-a9f7-fd1014ed4f04> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:019f50b1-80ee-537c-97bf-3d1825826a8c ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/observation/taxa-type/e1dac6f0-d8a2-45f4-93d6-27d3729c4c36> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-06-24T00:59:23.245000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454> prez:description "Record of opportunistic survey protocol" ;
+    prez:label "Record 7ca8ec9a-7a3c-4518-af60-2afc1c3cb454" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/field-species-name/f38499b9-bc0b-47b4-bb5f-6bea83d708ba> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/growth-form/0aa07a87-731d-4b08-bd37-cd9e67c3f4ab> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/life-stage/c6d1e808-1c12-47c1-82eb-54583627d601> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:9a4421e0-c308-5e44-b778-24f2688ec1ea ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/observation/taxa-type/a84303e4-c28a-48f0-8f63-d4d62f1880a0> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-09-11T22:39:58.074000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce> prez:description "Record of opportunistic survey protocol" ;
+    prez:label "Record 9b603e5e-665a-4e38-9d88-46f359f3f1ce" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/48e9becd-cf17-440c-83f2-79b819bac92c> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/5797c15b-bd11-4474-ac76-04c77de17774> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/a862a15b-a8a9-7252-48ff-7f3c016128d8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/665eee3a-a8b2-44c6-96a5-c3ac8d65ea42> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/field-species-name/8c060fcf-3d32-4340-87e1-73a81bbaa405> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/02207e0b-2864-418f-b4d8-91b93f27f114> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/a862a15b-a8a9-7252-48ff-7f3c016128d8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/112d93d6-1f0f-4b41-b232-6c932dc2f591> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/4293082a-34a9-48b0-98bf-7971a7f0d6f6> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/growth-form/999f885d-ef45-441f-9458-71f0b1ee17d1> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "growth form" ;
+    prez:value emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/24373cc1-ee3a-4734-8538-220ff29be98c> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:f458582f-86fa-53be-b151-c4d7bbee4af2 ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/8aae1f73-032a-4650-945f-9e2a2de1005b> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:019f50b1-80ee-537c-97bf-3d1825826a8c ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/e7eb4485-2879-4c1e-8368-58868e6d5c05> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:019f50b1-80ee-537c-97bf-3d1825826a8c ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/life-stage/e884e1a9-d4ea-4598-a603-c1a693c230af> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/a862a15b-a8a9-7252-48ff-7f3c016128d8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "life stage" ;
+    prez:value emsa-cv:f458582f-86fa-53be-b151-c4d7bbee4af2 ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/9fe1ca16-9cfd-44eb-94c1-ad914b01ba48> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/6762a3ad-f521-024a-34bd-e6e8c99747e8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/a773ca59-3a2c-4f47-993c-85c967776709> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/a862a15b-a8a9-7252-48ff-7f3c016128d8> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/d4372ecd-210c-4ec5-ae24-8b483797bf4b> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/0f5a955b-59c1-1a36-f12a-7ecbc2682dfb> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/observation/taxa-type/e5eceae9-e14a-4e48-ab56-4012c9c71181> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sosa:observedProperty emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/efef685d-3797-b30c-5f9f-033360a815e3> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> ;
+    prez:label "taxa type" ;
+    prez:value emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a ;
+    tern:resultDateTime "2024-09-12T21:34:02.715000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33> prez:description "Record of vegetation mapping survey protocol" ;
+    prez:label "Record a89d8419-dc22-43de-8dfe-ec19565ede33" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/average-species-height/f81e0248-7779-4812-86e6-2ae46f219eb3> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sosa:observedProperty emsa-cv:cea92774-6d4b-4880-8d07-1fe23c4a5e16 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> ;
+    prez:label "average species height" ;
+    prez:value 5.4e+00 ;
+    tern:resultDateTime "2024-09-11T22:45:51.451000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/dominant-growth-form/fe020e4f-1fa0-4f59-95ff-3f41fe5704a2> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sosa:observedProperty emsa-cv:4a550407-5158-497c-982a-9f1b662b73e9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> ;
+    prez:label "dominant growth form" ;
+    prez:value emsa-cv:66aa8058-5e60-5025-a84e-de1234f23d8b ;
+    tern:resultDateTime "2024-09-11T22:45:51.451000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/field-species-name/5f618084-e5ab-448d-9232-777dff65d4fb> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> ;
+    prez:label "field species name" ;
+    prez:value "Acacia peuce [Species] (scientific: Acacia peuce F.Muell.)" ;
+    tern:resultDateTime "2024-09-11T22:45:51.451000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/observation/foliage-projective-cover/a87d8d26-88bf-4c75-a3a2-a525278bd4e5> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sosa:observedProperty emsa-cv:0378976a-0018-4604-826d-1886ca5f38c3 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> ;
+    prez:label "foliage projective cover" ;
+    prez:value 10 ;
+    tern:resultDateTime "2024-09-11T22:45:51.451000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b> prez:description "Record of vegetation mapping survey protocol" ;
+    prez:label "Record e40d799c-b93c-4179-8a68-c3b68044983b" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/average-species-height/d2325744-6415-4747-9c12-8d20b84ccd2e> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sosa:observedProperty emsa-cv:cea92774-6d4b-4880-8d07-1fe23c4a5e16 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> ;
+    prez:label "average species height" ;
+    prez:value 8 ;
+    tern:resultDateTime "2024-06-24T00:45:03.706000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/dominant-growth-form/f1680714-d49d-4782-a56c-79752f95dc6b> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sosa:observedProperty emsa-cv:4a550407-5158-497c-982a-9f1b662b73e9 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> ;
+    prez:label "dominant growth form" ;
+    prez:value emsa-cv:66aa8058-5e60-5025-a84e-de1234f23d8b ;
+    tern:resultDateTime "2024-06-24T00:45:03.706000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/field-species-name/8a9f2502-1158-4720-ac54-ca09ecad1597> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sosa:observedProperty emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> ;
+    prez:label "field species name" ;
+    prez:value "" ;
+    tern:resultDateTime "2024-06-24T00:45:03.706000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/observation/foliage-projective-cover/b44d45fc-189f-4893-9014-63e3e616aa00> sosa:hasFeatureOfInterest <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sosa:observedProperty emsa-cv:0378976a-0018-4604-826d-1886ca5f38c3 ;
+    sosa:phenomenonTime <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> ;
+    sosa:usedProcedure <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> ;
+    prez:label "foliage projective cover" ;
+    prez:value 15 ;
+    tern:resultDateTime "2024-06-24T00:45:03.706000+00:00"^^xsd:dateTime .
+
+emsa-cv:9a4421e0-c308-5e44-b778-24f2688ec1ea prez:description "Refers to the plant phenological stage characterized by active bloom, and peak flowering period.",
+        "Refers to the plant phenological stage when in flower." ;
+    prez:label "plant life stage/phenological stage - flowers" .
+
+emsa-cv:9fce048c-9919-5ad1-9796-c6d70fa26596 prez:description "Members of lower plant groups such as algae, lichens, fungi and related members." ;
+    prez:label "NVIS growth form - lower plant" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/geometry/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-22.9642493 139.939636)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/geometry/c3d2ad2d-779d-f860-22b9-770bd81400c5> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-22.9643442 139.9396648)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/geometry/e1c22550-464a-1da3-9e84-4938b20612b6> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-23.0274701 139.7999203)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/geometry/a630f6b3-edf8-2fca-5bbd-95000ee787d0> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-23.0335084 139.7965371)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/geometry/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-23.2531361 139.9305296)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/geometry/7e218f83-01f1-da03-0cdc-09f0a5b71978> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-23.0335094 139.7965527)"^^gsp:wktLiteral .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/geometry/e26e6292-8268-6f95-beba-1ae30bbba20f> gsp:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-23.0275622 139.7999043)"^^gsp:wktLiteral .
+
+tern-cv:32834f36-a478-45be-97f4-ff2ff51e9f5c prez:description "A layer which is determined by a form of vegetation and is of a distinct height class in the vegetation.",
+        "A stratum is an easily seen layer of foliage and branches of a distinct and measurable height. One or more strata can exist in a patch of vegetation." ;
+    prez:label "vegetation stratum"@en .
+
+emsa-cv:15361f98-7669-410e-9b04-e9be069c7508 prez:description """
+    <h2 id="key-definitions-and-terminology">Key Definitions and
+Terminology</h2>
+<p><h5 id="table-2">Table 2. Key definitions and terms used in the Vegetation Mapping
+Module.</h5></p>
+<table>
+<colgroup>
+<col style="width: 19%"/>
+<col style="width: 80%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cluster analysis</td>
+<td>Numerical analysis of multivariate data (i.e. sites and species) to
+assist vegetation classification.</td>
+</tr>
+<tr class="even">
+<td>Emergent vegetation</td>
+<td><p>The tallest plants in some vegetation communities are so sparse
+that they no longer form the dominant or most significant layer. For
+example, widely scattered eucalypts or acacias may rise above lower
+shrubs or grasses in semi-arid regions. The tallest stratum is then
+classified as an ‘emergent layer’ and the dominant layer on which the
+vegetation will be classified is usually the next tallest layer.</p>
+<p>For example, using the NVIS classification framework, U1 is the
+tallest tree substratum. For forests and woodlands, this will generally
+be the dominant stratum, except where the substratum cover is &lt;5% and
+hence considered ‘emergent’. For a continuum (e.g., no distinct or
+discernible layering in the vegetation) the tallest stratum becomes the
+defining substratum (National Committee on Soil and Terrain in
+prep).</p></td>
+</tr>
+<tr class="odd">
+<td>Foliage projective cover</td>
+<td>The percentage of the sample site occupied by the vertical
+projection of foliage only (NVIS Technical Working Group 2017).</td>
+</tr>
+<tr class="even">
+<td>Homogeneity measure</td>
+<td>A record of the visual estimate (in metres) of the shortest distance
+from the vegetation mapping point to a vegetation association different
+to the one being sampled (White <em>et al.</em> 2012)(see <a href="#appendix-2">Appendix
+2</a>).</td>
+</tr>
+<tr class="odd">
+<td>Monitor</td>
+<td>Field data collection app for Ecological Monitoring System
+Australia. Collects data using the Biodiversity Information Standard for
+delivery to the Australian Biodiversity Data Repository managed by the
+Department of Climate Change, Energy, the Environment and Water.</td>
+</tr>
+<tr class="even">
+<td>NVIS</td>
+<td>National Vegetation Information System. A framework that enables the
+compilation of a nationally consistent vegetation dataset from data
+collected by states and territories. It provides a comprehensive means
+of describing and representing vegetation information based on
+establishing relationships between structural and floristic data.</td>
+</tr>
+<tr class="odd">
+<td>Plant photo voucher</td>
+<td>A photo of a plant species clearly indicating its habit, its main
+organs (leaves, flowers, inflorescences and fruits) or any other
+characters (e.g. spines) that are useful for unambiguous species
+identification (see <a href="#appendix-7">Appendix 7</a>).</td>
+</tr>
+<tr class="even">
+<td>Vegetation association</td>
+<td><p>A climax community of which the dominant stratum has a
+qualitatively uniform floristic composition and which exhibits uniform
+structure as a whole (Executive Steering Committee for Australian
+Vegetation Information 2003; NVIS Technical Working Group 2017).</p>
+<p>Vegetation association (NVIS Level 5) is the recommended minimum
+standard for the input of vegetation description data into NVIS. At this
+level, the three predominantly recognised strata (where present), are
+easily recognised for most vegetation types across Australia. For each
+stratum, the characteristic height and cover are recorded, and up to 3
+growth forms and up to 3 species (for each stratum) can be used to
+describe the vegetation type (NVIS Technical Working Group
+2017).</p></td>
+</tr>
+<tr class="odd">
+<td>Vegetation classification</td>
+<td>Grouping together vegetation communities that are perceived as
+similar in order to simplify the description of the vegetation patterns
+within a given geographical area (De Cáceres and Wiser 2012).</td>
+</tr>
+<tr class="even">
+<td>Vegetation mapping point</td>
+<td>Geo-defined locations within the project area at which the
+vegetation is classified consistent with the NVIS information hierarchy
+– to Level 5 (association).</td>
+</tr>
+<tr class="odd">
+<td>Voucher specimen</td>
+<td>A preserved specimen (whole plant, part thereof, or a tissue sample)
+retained for expert identification. Voucher specimens are ideally
+deposited in a permanent and accessible storage facility to enable
+examination and further study. Refer to vouchering protocols in the
+Floristics Module.</td>
+</tr>
+</tbody>
+</table>"""^^rdf:HTML,
+        """<h3>Contents</h3>
+  <ol>
+  <li><a href="#module-overview">Module Overview</a></li>
+    <li><a href="#introduction-and-background">Introduction and Background</a></li>
+    <li>
+      <a href="#key-definitions-and-terminology"
+        >Key definitions and Terminology</a>
+    </li>
+    <li><a href="#rationale">Rationale</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li>
+      <a href="#instructions-and-procedures">Instructions and Procedures</a>
+    </li>
+    <li><a href="#additional-guidelines">Additional Guidelines</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#appendices">Appendices</a></li>
+  </ol>
+    <h1 id="module-overview">Module Overview</h1>
+<h2 id="available-protocols">Available protocols</h2>
+<p>This module provides the procedures and guidelines to classify
+vegetation at precise points across the project area. It involves
+collecting rapid structural and floristic data within homogeneous
+vegetation representative of the visually distinct vegetation
+associations present. The data can be used to assist project area
+stratification, vegetation mapping, reporting and analysis.</p>
+<p>The procedures align with the national approach for collecting
+vegetation mapping data outlined in the <em>Australian Vegetation
+Attribute Manual: NVIS Version 7.0</em> (NVIS Technical Working Group
+2017) and the <em>Australian Soil and Land Survey Field Handbook</em>
+(National Committee on Soil and Terrain 2009).</p>
+<p>Vegetation mapping data can be collected at any stage of a project,
+although collecting it at the start helps to stratify the project area
+and inform the location of survey plots, targeted surveys and
+intervention activities. Data is entered directly into the Monitor app
+and is additional to any plot-derived vegetation data. This module may
+be unnecessary if the project area is small (e.g. less than 5 ha) and
+the range of visually distinct vegetation associations is already
+represented within survey plots.</p>
+<h2 id="relationship-to-other-modules">Relationship to other
+modules</h2>
+<h3 id="mandatory-related-modules">Mandatory related modules</h3>
+<p>The Vegetation Mapping Module is not dependent on any other module
+having been completed first.</p>
+<h3 id="optional-complementary-related-modules">Optional complementary
+related modules</h3>
+<p>This Vegetation Mapping Module has links to the following optional
+modules:</p>
+<ul>
+<li><p><a href="https://linked.data.gov.au/def/nrm/d15d05db-5007-411e-b257-105ef4f76821">Plot Selection Module</a> – data from vegetation mapping points may
+inform the selection of plot locations. In some instances, plots may be
+located at a similar location to the vegetation mapping points.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/1ff9e97c-3bdd-44c9-bdd3-401fa31c0b32">Plot Description Module</a> – structural formation, vegetation growth
+stage, disturbance, and fire history are assigned at vegetation mapping
+points as per the methodology adopted for plots in the Plot Description
+Module.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/2b5c2281-e0f4-4ef5-8ae0-8ae745af9a7e">Floristics Module</a> – provides guidelines for the collection of
+voucher specimens. Voucher specimens collected from vegetation mapping
+points are in addition to those collected within survey plots.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/c3403517-fcc6-4389-9c09-f1e1ee8b0f3b">Cover Module</a> – if plots are later placed at vegetation mapping
+points, the foliage projective cover data collected at vegetation
+mapping points can be cross-checked against quantitative cover values
+obtained from the Cover Module.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/6fd39a33-9c4f-469e-80a5-e76b5d5f04a6">Opportune Module</a> – plant species of interest observed at
+vegetation mapping points that are not captured by the Vegetation
+Mapping Module can be recorded using the Opportune Module.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/420ce0a7-9364-4bf4-861c-ef5f710e31b9">Targeted Surveys Module</a> – data from vegetation mapping points may
+inform the selection of targeted survey locations.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/8b334ccd-5e1a-474c-88e1-0f9b02d7d9c6">Interventions Module</a> – data from vegetation mapping points may
+inform the location of management interventions.</p></li>
+</ul>"""^^rdf:HTML ;
+    prez:label "Vegetation Mapping Module" .
+
+emsa-cv:f458582f-86fa-53be-b151-c4d7bbee4af2 prez:description "A life stage of plants. For Trees: individuals <2 m height and ~2-10 cm DBH; For Shrubs: has not reached maximum height, apical dominance." ;
+    prez:label "plant life stage - sapling" .
+
+tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 prez:description "In the context of plant ecology, plant occurrence typically refers to the presence of a single plant or a group of plants of the same species in a specific area.",
+        "Plant occurrence can be used to describe the distribution and abundance of plants within a population or community, and it is often used in studies of plant populations and communities. Plant occurrence can be influenced by many factors, such as environmental conditions, competition for resources, and interactions with other species. Plant occurrence is an important concept in plant ecology because it provides information about the distribution and abundance of plants in a given area, which can help to understand the dynamics of plant populations and communities." ;
+    prez:label "plant occurrence"@en .
+
+emsa-cv:019f50b1-80ee-537c-97bf-3d1825826a8c prez:description "Life stage of plants representing a mature phase, where fully developed roots, shoots and vegetative compoinents are established and are ready to develop floral traits." ;
+    prez:label "plant life stage - mature" .
+
+emsa-cv:0378976a-0018-4604-826d-1886ca5f38c3 prez:description "The proportion of the ground area covered by foliage (or photosynthetic tissue) held in a vertical plane. Foliage Projective Cover is usually expressed as the percentage of ground covered by foliage and can be separated according to vegetation strata." ;
+    prez:label "foliage projective cover" .
+
+emsa-cv:4a550407-5158-497c-982a-9f1b662b73e9 prez:description "The growth form of the most dominant/abundant plants at the time the observation was recorded." ;
+    prez:label "dominant growth form" .
+
+emsa-cv:66aa8058-5e60-5025-a84e-de1234f23d8b prez:description "Woody perennial plant usually of the genus Eucalyptus. Multi-stemmed with fewer than 5 trunks of which at least 3 exceed 100 mm at breast height (1.3 m). Usually 8 m or more." ;
+    prez:label "NVIS growth form - tree mallee" .
+
+emsa-cv:6fd39a33-9c4f-469e-80a5-e76b5d5f04a6 prez:description """
+     <h3>Contents</h3>
+  <ol>
+    <li><a href="#module-overview">Module Overview</a></li>
+    <li><a href="#introduction-and-background">Introduction and Background</a></li>
+    <li>
+      <a href="#key-definitions-and-terminology">Key definitions and terminology</a>
+    </li>
+    <li><a href="#rationale">Rationale</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li>
+      <a href="#instructions-and-procedures">Instructions and procedures</a>
+    </li>
+    <li><a href="#additional-guidelines">Additional guidelines</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#appendices">Appendices</a></li>
+  </ol>
+    <h1 id="module-overview">Module overview</h1>
+<p>This module covers the procedures and guidelines for recording
+opportune observations of flora (vascular and non-vascular) and fauna
+(vertebrate and invertebrate). Fauna observations include sightings and
+calls as well as indirect evidence of species presence such as tracks
+and scats.</p>
+<p>Opportune observations are unplanned (no defined survey effort) and
+made while undertaking other activities, at any stage of a project.
+Opportune observations often occur while travelling between monitoring
+plots and while undertaking other EMSA (Environmental Monitoring Systems
+Australia) modules. The likelihood of species detection is increased by
+traversing the project area on foot and visiting the range of habitats
+present.</p>
+<p>Opportune observations are entered directly into the Monitor app.
+Minimum data requirements apply to save a record, including taxonomic
+name or descriptive field name, location, date and time of the
+observation, number of individuals observed, the observation method and
+the observer. Additional information can be recorded using the optional
+advanced data fields. Records can be accompanied by physical voucher
+specimens and/or photo, video and audio files, to verify species
+identification. Voucher specimens are linked to a record via a unique
+barcode which is scanned within the app.</p>
+<h2 id="relationships-to-other-modules">Relationships to other
+modules</h2>
+<h3 id="mandatory-related-modules">Mandatory related modules</h3>
+<p>The Opportune Module is not dependent on any other modules.</p>
+<h3 id="optional-complimentary-related-modules">Optional complimentary
+related modules</h3>
+<p>The Opportune Module has links to the following modules:</p>
+<ul>
+<li><p><a href="https://linked.data.gov.au/def/nrm/2b5c2281-e0f4-4ef5-8ae0-8ae745af9a7e">Floristics Module</a> – further details on vascular plant collection
+and vouchering methods. Species names should be consistent between these
+two modules.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/1f2ac884-2177-403a-a6c3-27e109b1fc95"> Plant Tissue Vouchering Module</a> – provides standardised survey
+protocols for the collection of plant tissue samples and further details
+on vascular plant tissue collection and vouchering methods.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/0771a99f-27f4-4ff7-bf6d-aa70fe22ae51">Vertebrate Fauna Module</a> – provides standardised survey protocols
+for vertebrate fauna within plots, and further details on vertebrate
+fauna survey, collection, and vouchering methods.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/0ad98270-707f-4a78-acd1-666faa2c124e">Invertebrate Fauna Module</a> – provides standardised survey
+protocols for invertebrate fauna within plots, and further details on
+invertebrate fauna survey, collection, and vouchering methods.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/420ce0a7-9364-4bf4-861c-ef5f710e31b9">Targeted Survey Module</a> – opportune observations of species of
+interest (e.g. threatened or invasive) may trigger the need for targeted
+surveys.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/cd04526e-7455-45c1-8a44-55575a4a7b2d">Fauna Ground Counts Module</a> – provides standardised survey
+protocols for ground counts of vertebrate fauna (namely pest fauna) and
+includes similar data collection fields to those for opportune
+observations.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/8e7c86ce-e283-4cea-aca7-44ed7a22629c">Signs-based Fauna Survey Module</a> – provides standardised survey
+protocols for recording signs of vertebrate fauna (namely pest fauna)
+within plots.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/dd2da1e0-edbe-4f20-a1ae-b860876c1837">Herbivory and Physical Damage Module</a> – provides a standardised
+survey protocol for recording physical impacts of pest vertebrate fauna
+species.</p></li>
+<li><p><a href="https://linked.data.gov.au/def/nrm/f0123418-c565-45a6-be01-c5c332c727e5">Camera Trapping Module</a> – opportune observations of particular species
+may warrant the use of camera trapping.</p></li>
+</ul>
+<h2 id="field-collection">Field collection</h2>
+<h3 id="pre-requisites">Pre-requisites</h3>
+<p>Pre-requisites for completing this protocol:</p>
+<ul>
+<li><p>Opportune observations can be recorded at any stage of a project
+and are not dependent on other modules.</p></li>
+</ul>
+<h3 id="time-requirements">Time requirements</h3>
+<p>Time estimates vary depending on the level of detail recorded and
+whether voucher specimens are collected. As a general guide, allow:</p>
+<ul>
+<li><p>2 – 5 minutes to record an opportune flora observation in the
+Monitor app, depending on if a voucher specimen is collected.</p></li>
+<li><p>2 – 10 minutes to record an opportune fauna observation in the
+app, depending on if a voucher specimen is collected.</p></li>
+<li><p>5 minutes processing time per flora voucher specimen (barcode and
+press).</p></li>
+<li><p>5 – 30 minutes processing time per fauna voucher specimen (e.g.
+tissue sampling, preservation, labelling, barcode).</p></li>
+<li><p>5 minutes per record to upload any photos/videos/audio recordings
+collected outside of the app.</p></li>
+</ul>
+<h3 id="personnel-requirements">Personnel requirements</h3>
+<p>Number of personnel and skills:</p>
+<ul>
+<li><p>Opportune observations can be completed by one person but is
+easier with two, so one can make the observations and the other can
+record the data directly into the app.</p></li>
+<li><p>The surveyor making the observations is ideally familiar with and
+experienced in identifying the flora and fauna within the area.</p></li>
+<li><p>Scientific permits may be required for the collection of voucher
+specimens. Land access permissions are required.</p></li>
+</ul>"""^^rdf:HTML,
+        """
+    <h2 id="key-definitions-and-terminology">Key definitions and
+terminology</h2>
+<p><span class="anchor" id="table-1"></span>Table 1. Key
+definitions and terminology relevant to the Opportune Module.</p>
+<table>
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 88%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Monitor</td>
+<td>Field data collection app for Ecological Monitoring System
+Australia. Collects data using the Biodiversity Information Standard for
+delivery to the Australian Biodiversity Data Repository managed by the
+Department of Climate Change, Energy, the Environment and Water.</td>
+</tr>
+<tr class="even">
+<td>Opportune observation</td>
+<td>A documented record of a species collected without standardised
+field protocol and without an explicit sampling design (van Strien
+<em>et al.</em> 2013), associated with a geographic location, date and
+time; may be accompanied by voucher specimens, photos, video, audio and
+ultrasonic recordings.</td>
+</tr>
+<tr class="odd">
+<td>Voucher specimen</td>
+<td><p>A preserved specimen (whole plant or animal, part thereof, or a
+tissue sample) that is retained for expert identification. Voucher
+specimens are ideally deposited in a permanent and accessible storage
+facility to enable examination and further study. See vouchering
+protocols in the <em>Floristics</em>, <em>Plant tissue vouchering</em>,
+<em>Vertebrate fauna</em> and <em>Invertebrate fauna</em> modules.</p>
+<p>The Opportune Module is not intended to cover the capture or
+euthanasia of vertebrate fauna; thus, fauna voucher specimens are
+restricted to those collected from deceased animals or observed signs
+such as scats and hair.</p></td>
+</tr>
+<tr class="even">
+<td>Tissue sample</td>
+<td><p>For vertebrate fauna, this is a sample of tissue taken from a
+live or deceased animal that includes ear clip/notch, toe clip, tail
+clip, skin, skin scrape (cetaceans), muscle, liver, heart, blood, hair,
+feather, eggshell, scale, faecal sample, egg or semen (Wildlife Ethics
+Committee 2020). See tissue vouchering protocols in the Vertebrate fauna
+module. The Opportune Module is not intended to cover the capture or
+euthanasia of vertebrate fauna; thus, tissue samples are restricted to
+those collected from deceased animals.</p>
+<p>For flora, tissue samples ideally consist of approximately 10
+cm<sup>2</sup> of young, undamaged leaves (or the best/freshest growth
+that is on offer) that have been rapidly dried using silica gel granules
+to preserve the DNA for subsequent molecular analyses. See also the
+Plant tissue vouchering module.</p></td>
+</tr>
+</tbody>
+</table>"""^^rdf:HTML ;
+    prez:label "Opportune Module" .
+
+emsa-cv:cea92774-6d4b-4880-8d07-1fe23c4a5e16 prez:description "The average height (in meters) of a plant species for each vegetation strata (with ≥5% foliage projective cover), i.e., measured from the ground to the highest vegetative component (i.e. non-reproductive)." ;
+    prez:label "average species height" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/a862a15b-a8a9-7252-48ff-7f3c016128d8> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-09-12T01:47:38.918000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-09-10T05:24:24.932000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-09-11T22:38:02.435000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-09-11T22:40:43.783000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/procedure/83f61fec-9086-4962-8b40-9d1536420cb2> tern:methodType emsa-cv:15361f98-7669-410e-9b04-e9be069c7508 .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-06-24T00:32:10.846000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/procedure/96a7ad1d-cdaf-45d2-9fbc-fa4a1094bf3f> tern:methodType emsa-cv:15361f98-7669-410e-9b04-e9be069c7508 .
+
+gsp:Feature prez:description "A discrete spatial phenomenon in a universe of discourse."@en ;
+    prez:label "Feature"@en .
+
+time:Instant prez:description "A temporal entity with zero extent or duration"@en ;
+    prez:label "Time instant"@en .
+
+emsa-cv:1b3904f4-df8c-49ba-a234-3b406fe11fa9 prez:description "A taxon (plural: taxa) is a group of organisms that are classified together based on their evolutionary relationships and shared characteristics.",
+        "The broad taxon categories used here are Amphibian, Bird, Invertebrate, Mammal, Non-vascular plant, Reptile, and Vascular plant." ;
+    prez:label "taxa type" .
+
+emsa-cv:7def5e09-00a6-5ace-b48b-6f93b4d4bf8a prez:description "Refers to the target taxa studied in a fauna survey. Vascular plants are plants that possess a true vascular tissue (such as xylem-water conducting, phloem-sugar transport). Examples include some members mosses, such as club moss, horsetails, and pteridophytes such as ferns an fern-allies, gymnosperms (including conifers), and angiosperms (flowering plants). " ;
+    prez:label "Vascular plant" .
+
+emsa-cv:9b841f72-4903-5d65-818f-d386a6eca15f prez:description "A tree can be defined as a large woody perennial plant with an elongated stem, or trunk, supporting branches and leaves in most species.",
+        "Large woody plants, more than 2 m tall with a single stem or branches well above the base." ;
+    prez:label "NVIS growth form - tree" .
+
+tern:FeatureOfInterest prez:description "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
+    prez:label "Feature of Interest" .
+
+gsp:FeatureCollection prez:description "The class Feature Collection represents any collection of individual Features."@en ;
+    prez:label "Feature Collection"@en .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/procedure/7c67b447-3780-40d5-99f4-38e8e88010e7> tern:methodType emsa-cv:6fd39a33-9c4f-469e-80a5-e76b5d5f04a6 .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-06-24T00:47:59.055000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/procedure/309fcc5a-72e8-43a2-96d2-271d28986088> tern:methodType emsa-cv:6fd39a33-9c4f-469e-80a5-e76b5d5f04a6 .
+
+emsa-cv:ce3fd96d-e68d-4b14-b3fd-27690c566440 prez:description "The life stage of the biological individual(s) at the time the occurrence was recorded." ;
+    prez:label "life stage" .
+
+emsa-cv:dd1769b9-c475-4732-915c-9b890a8d5f65 prez:description "Plant growth forms can be defined as the physical form a plant assumes under the conditions of its environment." ;
+    prez:label "growth form" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/feature-of-interest/vegetation-stratum-7e218f83-01f1-da03-0cdc-09f0a5b71978/7e218f83-01f1-da03-0cdc-09f0a5b71978> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "vegetation stratum" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/geometry/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    prez:label "vegetation stratum" ;
+    sdo:additionalType tern-cv:32834f36-a478-45be-97f4-ff2ff51e9f5c ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/geometry/7e218f83-01f1-da03-0cdc-09f0a5b71978> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/a89d8419-dc22-43de-8dfe-ec19565ede33/phenomenon-time/88bf9c95-e347-94ae-bea1-44b85b0ca492> .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/feature-of-interest/vegetation-stratum-e26e6292-8268-6f95-beba-1ae30bbba20f/e26e6292-8268-6f95-beba-1ae30bbba20f> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "vegetation stratum" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/geometry/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    prez:label "vegetation stratum" ;
+    sdo:additionalType tern-cv:32834f36-a478-45be-97f4-ff2ff51e9f5c ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/geometry/e26e6292-8268-6f95-beba-1ae30bbba20f> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/e40d799c-b93c-4179-8a68-c3b68044983b/phenomenon-time/c188ba6c-c4e1-9810-b222-ed0db550df16> .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> a time:Instant ;
+    time:inXSDDateTimeStamp "2024-09-10T05:25:26.766000+00:00"^^xsd:dateTime .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/procedure/678a0396-cf84-4eee-a5dd-1a2736bd1180> tern:methodType emsa-cv:15361f98-7669-410e-9b04-e9be069c7508 .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/procedure/1d9f3f0d-5fe1-4ac1-90a7-7834424c8181> tern:methodType emsa-cv:6fd39a33-9c4f-469e-80a5-e76b5d5f04a6 .
+
+emsa-cv:26f843a5-e1ed-46da-b22b-053e567e3227 prez:description "Taxon name determined during the process of field observation. A species is given two names in binomial nomenclature (e.g. Homo sapiens), the generic name and speciﬁc epithet (italicized in the scientiﬁc liter­ature), similar and related species being grouped into genera." ;
+    prez:label "field species name" .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/feature-of-interest/plant-occurrence-e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "plant occurrence" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/geometry/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    prez:label "plant occurrence" ;
+    sdo:additionalType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/geometry/e34d70fb-1fa2-441c-c0cf-5962a4d0fd4b> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1b6ae88b-4b6e-40c3-b7a4-d5668a84010a/phenomenon-time/65c2a604-130f-305b-0bef-2cf390ab980a> .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/feature-of-interest/plant-occurrence-e1c22550-464a-1da3-9e84-4938b20612b6/e1c22550-464a-1da3-9e84-4938b20612b6> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "plant occurrence" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/geometry/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    prez:label "plant occurrence" ;
+    sdo:additionalType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/geometry/e1c22550-464a-1da3-9e84-4938b20612b6> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/27081dcd-418b-43f4-b0e9-52e814c04af1/phenomenon-time/84a80bbd-6ef0-cb2c-99c1-bac0875d7577> .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/feature-of-interest/vegetation-stratum-c3d2ad2d-779d-f860-22b9-770bd81400c5/c3d2ad2d-779d-f860-22b9-770bd81400c5> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "vegetation stratum" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/geometry/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    prez:label "vegetation stratum" ;
+    sdo:additionalType tern-cv:32834f36-a478-45be-97f4-ff2ff51e9f5c ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/geometry/c3d2ad2d-779d-f860-22b9-770bd81400c5> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/1f8bce88-31c5-45ba-8dd1-5a7c55e3eee8/phenomenon-time/872a8fdc-6969-318e-d392-744dabc43fd1> .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/feature-of-interest/plant-occurrence-a630f6b3-edf8-2fca-5bbd-95000ee787d0/a630f6b3-edf8-2fca-5bbd-95000ee787d0> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "plant occurrence" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/geometry/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    prez:label "plant occurrence" ;
+    sdo:additionalType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/geometry/a630f6b3-edf8-2fca-5bbd-95000ee787d0> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/7ca8ec9a-7a3c-4518-af60-2afc1c3cb454/phenomenon-time/05b66bf9-bfc6-6a74-3426-8bb61d5a1302> .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/procedure/f799efc7-ba1e-4f93-a36f-7ab895d5f18c> tern:methodType emsa-cv:6fd39a33-9c4f-469e-80a5-e76b5d5f04a6 .
+
+<https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/feature-of-interest/plant-occurrence-6b76cb3e-e664-23d9-bf2d-9b602078cfa9/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> a dwc:Occurrence,
+        gsp:Feature,
+        tern:FeatureOfInterest ;
+    rdfs:label "plant occurrence" ;
+    void:inDataset <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce> ;
+    gsp:hasGeometry <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/geometry/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    prez:label "plant occurrence" ;
+    sdo:additionalType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+    sdo:isPartOf bdr-ds:632b575b-b7eb-4804-918e-af7c65a3e4a5 ;
+    sdo:spatial <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/geometry/6b76cb3e-e664-23d9-bf2d-9b602078cfa9> ;
+    sdo:temporal <https://linked.data.gov.au/dataset/bdr/632b575b-b7eb-4804-918e-af7c65a3e4a5/submission/9b603e5e-665a-4e38-9d88-46f359f3f1ce/phenomenon-time/a862a15b-a8a9-7252-48ff-7f3c016128d8> .
+

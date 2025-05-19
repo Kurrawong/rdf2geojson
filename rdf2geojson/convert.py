@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from operator import attrgetter
-from typing import List, Union, Optional, Tuple, Dict, Any, Callable
+from collections.abc import Mapping
+from functools import lru_cache
+from typing import Union, Optional, Any, Callable
 
-from rdflib import BNode, Graph, Literal, URIRef, DCTERMS, SOSA, XSD, SKOS, TIME
-from rdflib.namespace import GEO, RDF, RDFS, SDO, Namespace, NamespaceManager
+from rdflib import BNode, Graph, Literal, URIRef
+from rdflib.namespace import GEO, RDF, RDFS, SDO, DCTERMS, SOSA, XSD, SKOS, TIME, Namespace, NamespaceManager
 
 from geojson import (
     FeatureCollection,
@@ -30,9 +31,13 @@ TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
 PREZ = Namespace("https://prez.dev/")
 SCHEMA = SDO
 GEO_Feature = GEO.Feature
+GEO_hasGeometry = GEO.hasGeometry
 PrezFocusNode = PREZ.FocusNode
 PrezType = PREZ.type
 PrezLabel = PREZ.label
+RDFType = RDF.type
+
+observation_temporal_predicates = [SCHEMA.temporal, SOSA.phenomenonTime, TERN.resultDateTime, SOSA.resultTime]
 
 def get_geosparql_validator() -> Graph:
     try:
@@ -45,7 +50,7 @@ def get_geosparql_validator() -> Graph:
 
 def make_json_key_from_iri(
     iri: URIRef, ns: NamespaceManager
-) -> Tuple[Optional[Tuple[str, str]], str]:
+) -> tuple[Optional[tuple[str, str]], str]:
     """
     Returns either a tuple of ((namespace, prefix), local_name)
     or (None, full_uri_str)
@@ -58,15 +63,14 @@ def make_json_key_from_iri(
     except KeyError:
         # compute_qname will raise a KeyError if there is no known prefix
         (prefix, namespace, name) = None, None, id_
-    if prefix is not None:
+    if prefix is not None and namespace is not None:
         return (namespace, prefix), name
     return None, name
 
 
-def make_json_representation_of_obj(g: Graph, obj: Union[Literal, URIRef], flatten: bool = False) -> object:
-    if isinstance(obj, URIRef):
-        return str(obj)
-    elif isinstance(obj, Literal):
+def make_json_representation_of_obj(g: Graph, obj: Union[Literal, URIRef], flatten: bool = False)\
+        -> Union[Mapping[Any, Any], list[Any], str, int, float]:
+    if isinstance(obj, Literal):
         # Some literals cannot be represented as JSON, so we return a string
         if (
             obj.datatype is None
@@ -94,7 +98,7 @@ def make_json_representation_of_obj(g: Graph, obj: Union[Literal, URIRef], flatt
                     return {"datatype": str(obj.datatype), "value": str(obj)}
             else:
                 return str(obj)
-
+    return str(obj)
 
 def parse_geometry(
     geom: Literal,
@@ -125,21 +129,46 @@ def parse_geometry(
         )
 
 
-def _extract_geoms(g: Graph, pred, obj) -> List:
+def _extract_geoms(g: Graph, pred, obj, recurse=0, with_coords=False) -> list:
     geoms = []
     coords = g.value(obj, GEO.asWKT)
     if coords:
-        geoms.append(parse_geometry(coords))
+        _geom = parse_geometry(coords)
+        if with_coords:
+            geoms.append((coords, _geom))
+        else:
+            geoms.append(_geom)
     coords = g.value(obj, GEO.asGeoJSON)
     if coords:
-        geoms.append(parse_geometry(coords))
+        _geom = parse_geometry(coords)
+        if with_coords:
+            geoms.append((coords, _geom))
+        else:
+            geoms.append(_geom)
     else:
-        # TODO handle unsupported GeosPARQL geometry serialization formats
-        pass
+        if recurse < 3:
+            if hasGeometrys := list(g.objects(obj, GEO_hasGeometry)):
+                for inner_geom in hasGeometrys:
+                    geoms.extend(_extract_geoms(g, GEO_hasGeometry, inner_geom, recurse=recurse+1, with_coords=with_coords))
+            else:
+                # TODO handle unsupported GeosPARQL geometry serialization formats
+                pass
     return geoms
 
+def geosparql_wkt_to_ewkt(wktstr: str):
+    if wktstr.startswith("<"):
+        end_part_index = wktstr.find(">", 1, 101)
+        if end_part_index > 0:
+            crs_iri = wktstr[1:end_part_index]
+            srid: str = wkt._iri_to_srid(crs_iri)
+            return f"SRID={srid};"+wktstr[end_part_index+1:]
+        else:
+            return "Cannot convert GeoSPARQL WKT to OGC eWKT."
+    else:
+        return wktstr
+        
 
-def _extract_additional_property(g: Graph, pred, obj) -> Tuple[Union[str, URIRef], Any]:
+def _extract_additional_property(g: Graph, pred, obj) -> tuple[Union[str, URIRef], Any]:
     key_name = None
     value = None
     property_ids = list(g.objects(obj, SCHEMA.propertyID))
@@ -163,7 +192,7 @@ def _extract_additional_property(g: Graph, pred, obj) -> Tuple[Union[str, URIRef
     return key_name, value
 
 
-def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict|None=None, recurse: int = 0) -> Dict:
+def _extract_bnode(g: Graph, bn: BNode, prop_contexts: dict|None=None, recurse: int = 0) -> dict:
     obs_dict = {}
     for pred, obj in g.predicate_objects(bn):
         prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
@@ -185,7 +214,7 @@ def _extract_bnode(g: Graph, bn: BNode, prop_contexts: Dict|None=None, recurse: 
     return obs_dict
 
 
-def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: Dict) -> Dict:
+def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: dict) -> dict:
     if isinstance(obs, URIRef):
         obs_dict = {"rdf:subject": str(obs)}
     else:
@@ -223,8 +252,8 @@ def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: Dict) -> 
 
 
 def _extract_attribute(
-    g: Graph, attr: URIRef | BNode, prop_contexts: Dict
-) -> Dict | URIRef:
+    g: Graph, attr: URIRef | BNode, prop_contexts: dict
+) -> dict | URIRef:
     pred_ob_list = list(g.predicate_objects(attr))
     if isinstance(attr, URIRef):
         if len(pred_ob_list) == 0:
@@ -254,8 +283,8 @@ def _extract_attribute(
     return obs_dict
 
 def _extract_attribute_value(
-    g: Graph, attr: URIRef | BNode, prop_contexts: Dict
-) -> Dict | URIRef:
+    g: Graph, attr: URIRef | BNode, prop_contexts: dict
+) -> dict | URIRef:
     pred_ob_list = list(g.predicate_objects(attr))
     if isinstance(attr, URIRef):
         if len(pred_ob_list) == 0:
@@ -305,7 +334,7 @@ def _get_annotation_label(g: Graph, labelled_node: Union[URIRef,BNode]) -> Union
 
 def _hoist_attribute(
     g: Graph, attr: URIRef | BNode
-) -> Dict | URIRef:
+) -> dict[str, Any]:
     annotation_label = _get_annotation_label(g, attr)
     attrib_links = list(g.objects(attr, TERN.attribute))
     if len(attrib_links) > 0:
@@ -385,27 +414,78 @@ def _hoist_attribute(
             use_value = "error: Could not find a value for attribute"
     return {use_label: use_value}
 
-def _hoist_observation(
-    g: Graph, observation: URIRef | BNode
-) -> list[tuple[Union[URIRef,BNode], dict]]:
-    members = list(g.objects(observation, SOSA.hasMember))
-    if len(members) > 0:
-        # This is an ObservationCollection
-        members_results = []
-        for m in members:
-            members_results.extend(_hoist_observation(g, m))
-        return members_results
+@lru_cache(maxsize=128)
+def _get_flattened_observation_collection_properties(g, observation_collection) -> dict[str, Any]:
+    time_string: Optional[str] = None
+    for tp in observation_temporal_predicates:
+        if temporal_matches := list(g.objects(observation_collection, tp)):
+            time_string = temporal_to_string(g, temporal_matches[0])
+            break
+
+    procedure_string: Optional[str] = None
+    procedure_uri: Optional[URIRef|BNode] = None
+    if used_procedures := list(g.objects(observation_collection, SOSA.usedProcedure)):
+        for used_procedure in used_procedures:
+            if procedure_method_types := list(g.objects(used_procedure, TERN.methodType)):
+                procedure_uri = procedure_method_types[0]
+                break
+            else:
+                procedure_uri = used_procedure
+                break
+        if procedure_uri is not None:
+            if isinstance(procedure_uri, (URIRef, BNode)):
+                if (check_procedure_label := _get_annotation_label(g, procedure_uri)) is not None:
+                    procedure_string = check_procedure_label
+                else:
+                    procedure_string = str(procedure_uri)
+            else:
+                procedure_string = str(procedure_uri)
+    flattened_attributes = {}
+    if has_attributes := list(g.objects(observation_collection, TERN.hasAttribute)):
+        for has_attribute in has_attributes:
+            a_flat = _hoist_attribute(g, has_attribute)
+            flattened_attributes[has_attribute] = a_flat
+
+    ret = {}
+    if time_string is not None:
+        ret["time"] = time_string
+    if procedure_uri is not None and procedure_string is not None:
+        ret["procedure"] = (procedure_uri, procedure_string)
+    if flattened_attributes:
+        ret["attributes"] = flattened_attributes
+    return ret
+
+
+# Set this to True, to allow 'time' and 'procedure' flattened properties from the
+# obsevation collection to be applied to the Observation, if they are different.
+# If they are the same, they are still ignored.
+ALLOW_SECOND_ATTRIBUTES=False
+OBSERVATION_FLATTEN_EXCLUDE_TYPES = [SOSA.Sampling, TERN.Sampling]
+def _hoist_and_flatten_observation(
+    g: Graph, observation: URIRef | BNode,
+) -> dict[str, Any]:
+    if known_types := list(g.objects(observation, RDFType)):
+        for kt in known_types:
+            if kt in OBSERVATION_FLATTEN_EXCLUDE_TYPES:
+                # Don't try to flatten samplings as if they are Samples
+                return {}
+    if has_children := list(g.objects(observation, SOSA.hasMember)):
+        # This is an ObservationCollection, skip it, because observation_colltion properties are collected by each member
+        return {"children": has_children}
+    
+    flattened_collection_props: dict[URIRef|BNode, dict] = {}
+    if in_collections := list(g.subjects(SOSA.hasMember, observation)):
+        for in_col in in_collections:
+            flattened_collection_props[in_col] = _get_flattened_observation_collection_properties(g, in_col)
+
     degraded_label = False
     annotation_label = _get_annotation_label(g, observation)
-    observed_properties = list(g.objects(observation, SOSA.observedProperty))
-    if len(observed_properties) > 0:
+    if observed_properties := list(g.objects(observation, SOSA.observedProperty)):
         the_observed_property = observed_properties[0]
-        property_labels = list(g.objects(the_observed_property, PREZ.label))
-        if len(property_labels) > 0:
+        if property_labels := list(g.objects(the_observed_property, PREZ.label)):
             use_label = str(property_labels[0])
         else:
-            property_pref_labels = list(g.objects(the_observed_property, SKOS.prefLabel))
-            if len(property_pref_labels) > 0:
+            if property_pref_labels := list(g.objects(the_observed_property, SKOS.prefLabel)):
                 use_label = str(property_pref_labels[0])
             elif annotation_label is not None:
                 use_label = annotation_label
@@ -439,23 +519,18 @@ def _hoist_observation(
                 use_label = "observation_"+str(observation).rsplit(":", 1)[-1]
     use_value_node = None
     fallback_value = None
-    prez_values = list(g.objects(observation, PREZ.value))
-    if len(prez_values) > 0:
+    if prez_values := list(g.objects(observation, PREZ.value)):
         use_value_node = prez_values[0]
     if use_value_node is None:
-        simple_values = list(g.objects(observation, SOSA.hasSimpleResult))
-        if len(simple_values) > 0:
+        if simple_values := list(g.objects(observation, SOSA.hasSimpleResult)):
             use_value_node = simple_values[0]
     if use_value_node is None:
-        result_links = list(g.objects(observation, SOSA.hasResult))
-        if len(result_links) > 0:
+        if result_links := list(g.objects(observation, SOSA.hasResult)):
             sosa_result = result_links[0]
-            sosa_result_rdfs_labels = list(g.objects(sosa_result, RDFS.label))
-            if len(sosa_result_rdfs_labels) > 0:
+            if sosa_result_rdfs_labels := list(g.objects(sosa_result, RDFS.label)):
                 fallback_value = str(sosa_result_rdfs_labels[0])
             else:
-                sosa_result_rdf_values = list(g.objects(sosa_result, RDF.value))
-                if len(sosa_result_rdf_values) > 0:
+                if sosa_result_rdf_values := list(g.objects(sosa_result, RDF.value)):
                     if isinstance(sosa_result_rdf_values[0], (URIRef, BNode)):
                         use_value_node = sosa_result_rdf_values[0]
                     else:
@@ -463,7 +538,7 @@ def _hoist_observation(
                 else:
                     if degraded_label:
                         # label is bad, and also value is bad. Just give up on this one.
-                        return []
+                        return {}
                     if isinstance(sosa_result, URIRef):
                         fallback_value = str(sosa_result).rsplit("/", 1)[-1]
                     else:
@@ -485,15 +560,85 @@ def _hoist_observation(
         else:
             if degraded_label:
                 # label is bad, and also value is bad. Just give up on this one.
-                return []
+                return {}
             use_value = "result_"+str(observation)
-    return [(observation, {use_label: use_value})]
+    this_observation_flattened_dict = {use_label: use_value}
+
+    flattened_attributes = {}
+    if has_attributes := list(g.objects(observation, TERN.hasAttribute)):
+        for has_attribute in has_attributes:
+            a_flat = _hoist_attribute(g, has_attribute)
+            flattened_attributes[has_attribute] = a_flat
+    
+    time_string: Optional[str] = None
+    for tp in observation_temporal_predicates:
+        if temporal_matches := list(g.objects(observation, tp)):
+            time_string = temporal_to_string(g, temporal_matches[0])
+            break
+
+
+    procedure_string: Optional[str] = None
+    procedure_uri: Optional[URIRef|BNode] = None 
+    if used_procedures := list(g.objects(observation, SOSA.usedProcedure)):
+        for used_procedure in used_procedures:
+            if procedure_method_types := list(g.objects(used_procedure, TERN.methodType)):
+                procedure_uri = procedure_method_types[0]
+                break
+            else:
+                procedure_uri = used_procedure
+                break
+        if procedure_uri is not None:
+            if isinstance(procedure_uri, (URIRef, BNode)):
+                if (check_procedure_label := _get_annotation_label(g, procedure_uri)) is not None:
+                    procedure_string = check_procedure_label
+                else:
+                    procedure_string = str(procedure_uri)
+            else:
+                procedure_string = str(procedure_uri)
+
+    if flattened_collection_props:
+        for i, (coll_uri, coll_flat) in enumerate(sorted(flattened_collection_props.items())):
+            if (coll_time_string := coll_flat.get("time", None)) is not None:
+                if time_string is None:
+                    time_string = coll_time_string
+                elif ALLOW_SECOND_ATTRIBUTES and time_string == coll_time_string:
+                    # same, don't duplicate it
+                    pass
+                elif ALLOW_SECOND_ATTRIBUTES:
+                    this_observation_flattened_dict[f"{use_label} ({str(i+1)}) (datetime)"] = time_string
+            if (coll_procedure_pair := coll_flat.get("procedure", None)) is not None:
+                coll_proc_uri, coll_proc_string = coll_procedure_pair
+                if procedure_string is None and procedure_uri is None:
+                    procedure_string = coll_proc_string
+                    procedure_uri = coll_proc_uri
+                elif ALLOW_SECOND_ATTRIBUTES and (procedure_uri == coll_proc_uri or procedure_string == coll_proc_string):
+                    # same, pass
+                    pass
+                elif ALLOW_SECOND_ATTRIBUTES:
+                    this_observation_flattened_dict[f"{use_label} ({str(i+1)}) (procedure)"] = coll_proc_string
+            if (coll_attrs_pairs := coll_flat.get("attributes", None)) is not None:
+                for (coll_attr_uri, flattened_coll_attr_kv) in coll_attrs_pairs.items():
+                    if coll_attr_uri not in flattened_attributes:
+                        flattened_attributes[coll_attr_uri] = flattened_coll_attr_kv
+                    elif ALLOW_SECOND_ATTRIBUTES:
+                        for f_attr_k, v in flattened_coll_attr_kv.items():
+                            this_observation_flattened_dict[f"{use_label} ({str(i+1)}) ({f_attr_k})"] = v
+
+    if time_string is not None:
+        this_observation_flattened_dict[f"{use_label} (datetime)"] = time_string
+    if procedure_uri and procedure_string:
+        this_observation_flattened_dict[f"{use_label} (procedure)"] = procedure_string
+    if flattened_attributes:
+        for attr_uri, flattened_attr_kv in flattened_attributes.items():
+            for f_attr_k, v in flattened_attr_kv.items():
+                this_observation_flattened_dict[f"{use_label} ({f_attr_k})"] = v
+    return this_observation_flattened_dict
 
 def get_features_collections(
     g: Graph, fc_uri: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None
-) -> List[FeatureCollection]:
-    fc_finder = g.subjects(RDF.type, GEO.FeatureCollection)
+) -> list[tuple[URIRef, FeatureCollection]]:
+    fc_finder = g.subjects(RDFType, GEO.FeatureCollection)
     fcs = []
     for f in fc_finder:
         if fc_uri is not None:
@@ -513,7 +658,7 @@ def get_features_collections(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred == RDF.type:
+            if pred == RDFType:
                 if obj in [PrezFocusNode, GEO.FeatureCollection]:
                     # Don't include FocusNode or Geo.FeatureCollection in the list of RDF types, they are both implied
                     continue
@@ -569,8 +714,8 @@ def get_features_collections(
 def get_features_collections_for_human(
     g: Graph, fc_uri: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None
-) -> List[(URIRef, FeatureCollection)]:
-    fc_finder = g.subjects(RDF.type, GEO.FeatureCollection)
+) -> list[tuple[URIRef, FeatureCollection]]:
+    fc_finder = g.subjects(RDFType, GEO.FeatureCollection)
     fcs = []
     for f in fc_finder:
         if fc_uri is not None:
@@ -593,7 +738,7 @@ def get_features_collections_for_human(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred == RDF.type:
+            if pred == RDFType:
                 if obj in [PrezFocusNode, GEO.FeatureCollection]:
                     # Don't include FocusNode or Geo.FeatureCollection in the list of RDF types, they are both implied
                     continue
@@ -667,12 +812,12 @@ def get_converted_features(
     g: Graph,
     fc: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None,
-) -> List[Feature]:
+) -> list[Feature]:
     fs = []
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
     else:
-        feature_finder = g.subjects(RDF.type, GEO_Feature)
+        feature_finder = g.subjects(RDFType, GEO_Feature)
     for f in feature_finder:
         # TODO: handle multiple Geometries per Feature
         default_geometry = None
@@ -694,7 +839,7 @@ def get_converted_features(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred == RDF.type:
+            if pred == RDFType:
                 if obj in [PrezFocusNode, GEO_Feature]:
                     # Don't include FocusNode or GeoFeature in the list of RDF types, they are both implied
                     continue
@@ -715,7 +860,7 @@ def get_converted_features(
             elif pred == GEO.hasCentroid:
                 centroid = _extract_geoms(g, pred, obj)
                 continue
-            elif pred == GEO.hasGeometry:
+            elif pred == GEO_hasGeometry:
                 geoms.append(_extract_geoms(g, pred, obj))
                 continue
             elif pred == SCHEMA.spatial:
@@ -732,7 +877,7 @@ def get_converted_features(
                         sp_bounding_box = _extract_geoms(g, p2, o2)
                     elif p2 == GEO.hasCentroid:
                         sp_centroid = _extract_geoms(g, p2, o2)
-                    elif p2 == GEO.hasGeometry:
+                    elif p2 == GEO_hasGeometry:
                         spatial_geoms.append(_extract_geoms(g, p2, o2))
                 if sp_default_geometry is not None and default_geometry is None:
                     default_geometry = sp_default_geometry
@@ -816,18 +961,18 @@ def get_converted_features_for_human(
     g: Graph,
     fc: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None,
-) -> List[Feature]:
+) -> list[Feature]:
     fs = []
     if fc is not None:
         feature_finder = g.objects(fc, RDFS.member)
     else:
-        feature_finder = g.subjects(RDF.type, GEO_Feature)
+        feature_finder = g.subjects(RDFType, GEO_Feature)
     for f in feature_finder:
         # TODO: handle multiple Geometries per Feature
         default_geometry = None
         centroid = None
         bounding_box = None
-        geoms: list[list] = []
+        geoms: list[list[tuple[str, Any]]] = []
         props = {}
         extras = {}
         known_time_strings = []
@@ -846,7 +991,7 @@ def get_converted_features_for_human(
             else:
                 _id = str(f).rsplit("/", 1)[-1]
         for pred, obj in g.predicate_objects(f):
-            if pred == RDF.type:
+            if pred == RDFType:
                 if obj in [PrezFocusNode, GEO_Feature]:
                     # Don't include FocusNode or GeoFeature in the lost of RDF types, they are both implied
                     continue
@@ -856,21 +1001,22 @@ def get_converted_features_for_human(
             elif pred == PrezLabel:
                 anot = str(obj)
                 continue
-            elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
-                extras["title"] = str(obj)
-                continue # This is a difference between semantic and human-readable labels
-                # we don't want to duplicate the "title" into the properties, in human-readable mode.
+            elif pred in (RDFS.label, SKOS.prefLabel):
+                if "title" not in extras:
+                    extras["title"] = str(obj)
+                additional_properties_dict["label"].append(str(obj))
+                continue 
             elif pred == GEO.hasDefaultGeometry:
-                default_geometry = _extract_geoms(g, pred, obj)
+                default_geometry = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
             elif pred == GEO.hasBoundingBox:
-                bounding_box = _extract_geoms(g, pred, obj)
+                bounding_box = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
             elif pred == GEO.hasCentroid:
-                centroid = _extract_geoms(g, pred, obj)
+                centroid = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
-            elif pred == GEO.hasGeometry:
-                geoms.append(_extract_geoms(g, pred, obj))
+            elif pred == GEO_hasGeometry:
+                geoms.append(_extract_geoms(g, pred, obj, with_coords=True))
                 continue
             elif pred == SCHEMA.spatial:
                 # The Schema.org version of a GeoSpatial feature
@@ -881,13 +1027,13 @@ def get_converted_features_for_human(
                 sp_centroid = None
                 for p2, o2 in g.predicate_objects(spatial_node):
                     if p2 == GEO.hasDefaultGeometry:
-                        sp_default_geometry = _extract_geoms(g, p2, o2)
+                        sp_default_geometry = _extract_geoms(g, p2, o2, with_coords=True)
                     elif p2 == GEO.hasBoundingBox:
-                        sp_bounding_box = _extract_geoms(g, p2, o2)
+                        sp_bounding_box = _extract_geoms(g, p2, o2, with_coords=True)
                     elif p2 == GEO.hasCentroid:
-                        sp_centroid = _extract_geoms(g, p2, o2)
-                    elif p2 == GEO.hasGeometry:
-                        spatial_geoms.append(_extract_geoms(g, p2, o2))
+                        sp_centroid = _extract_geoms(g, p2, o2, with_coords=True)
+                    elif p2 == GEO_hasGeometry:
+                        spatial_geoms.append(_extract_geoms(g, p2, o2, with_coords=True))
                 if sp_default_geometry is not None and default_geometry is None:
                     default_geometry = sp_default_geometry
                 if sp_bounding_box is not None and bounding_box is None:
@@ -897,7 +1043,7 @@ def get_converted_features_for_human(
                 if sp_default_geometry is None and sp_centroid is None and sp_bounding_box is None \
                         and len(spatial_geoms) < 1:
                     # no hasGeometry in the Spatial, treat this as a the geometry itself.
-                    spatial_geoms.append(_extract_geoms(g, pred, obj))
+                    spatial_geoms.append(_extract_geoms(g, pred, obj, with_coords=True))
                 geoms.extend(spatial_geoms)
                 continue
             elif pred == SOSA.isFeatureOfInterestOf:
@@ -925,8 +1071,7 @@ def get_converted_features_for_human(
 
             if isinstance(obj, (URIRef, BNode)):
                 bn_has_obj_string = None
-                bn_prez_value = list(g.objects(obj, PREZ.value))
-                if len(bn_prez_value) > 0:
+                if bn_prez_value := list(g.objects(obj, PREZ.value)):
                     if isinstance(bn_prez_value[0], (URIRef, BNode)):
                         bn_has_obj_string = _get_annotation_label(g, bn_prez_value[0])
                     else:
@@ -935,8 +1080,15 @@ def get_converted_features_for_human(
                 if bn_has_obj_string is None:
                     bn_has_obj_string = _get_annotation_label(g, obj)
                 if bn_has_obj_string is None:
-                    # TODO: What do we actually use as the value of the property?
-                    bn_has_obj_string = str(obj)
+                    if pred == RDFType:
+                        type_name_string = str(obj)
+                        if "#" in type_name_string:
+                            bn_has_obj_string = type_name_string.rsplit("#",1)[-1]
+                        else:
+                            bn_has_obj_string = type_name_string.rsplit("/",1)[-1]
+                    else:
+                        # TODO: What do we actually use as the value of the property?
+                        bn_has_obj_string = str(obj)
                 props_dict_lists[name].append(bn_has_obj_string)
             else:
                 props_dict_lists[name].append(make_json_representation_of_obj(g, obj, flatten=True))
@@ -954,30 +1106,84 @@ def get_converted_features_for_human(
         associated_observations = associated_observations.union(
             set(g.subjects(SOSA.hasFeatureOfInterest, f))
         )
-        serialized_observations = set()
-        if len(associated_observations) > 0:
+        collection_hoisted_observations: dict[URIRef|BNode, dict] = defaultdict(dict)
+        hoisted_obs_have_collections: dict[URIRef|BNode, list] = defaultdict(list)
+        all_hoisted_observations: dict = {}
+        if associated_observations:
             for obs in associated_observations:
-                hoisted_observation_dicts = _hoist_observation(g, obs)
-                for (obs_node, hoisted_dict) in hoisted_observation_dicts:
-                    if obs_node in serialized_observations:
-                        # Its possible to see the same observation twice, if it is a member of multiple ObservationCollections
-                        continue
-                    for (k, v) in hoisted_dict.items():
-                        observations_dict[k].append(v)
-                    serialized_observations.add(obs_node)
-
-        for (obs_key, obs_value) in observations_dict.items():
-            if obs_key not in props:
-                if len(obs_value) > 1:
-                    props[obs_key] = "; ".join(obs_value)
+                if obs in all_hoisted_observations:
+                    continue
+                hoisted_observation_dict = _hoist_and_flatten_observation(g, obs)
+                if "children" in hoisted_observation_dict:
+                    # This is an observation collection.
+                    all_hoisted_observations[obs] = {}
+                    for obs_ch in hoisted_observation_dict["children"]:
+                        if obs_ch in all_hoisted_observations:
+                            hoisted_observation_dict = all_hoisted_observations[obs_ch]
+                        else:
+                            hoisted_observation_dict = _hoist_and_flatten_observation(g, obs_ch)
+                            all_hoisted_observations[obs_ch] = hoisted_observation_dict
+                        collection_hoisted_observations[obs][obs_ch] = hoisted_observation_dict
+                        hoisted_obs_have_collections[obs_ch].append(obs)
                 else:
-                    props[obs_key] = obs_value[0]
+                    all_hoisted_observations[obs] = hoisted_observation_dict
+        # get the observations that are not part of any collections, these get added directly to the occurrence
+        direct_hoisted: list = [k for k in all_hoisted_observations.keys() if k not in hoisted_obs_have_collections]
+        direct_hoisted_keys: dict[str, Any] = defaultdict(list)
+        _ = [direct_hoisted_keys[str_key].append(k) for k in direct_hoisted for str_key in all_hoisted_observations[k].keys()]
+        for d in direct_hoisted:
+            hoisted_observation_dict = all_hoisted_observations[d]
+            for (k, v) in hoisted_observation_dict.items():
+                observations_dict[k].append(v)
+        collection_hoisted_keys: dict[str, Any] = defaultdict(list)
+        _ = [collection_hoisted_keys[str_key].append(col_hoisted_child) for coll_hoisted_children in collection_hoisted_observations.values() for col_hoisted_child, coll_hoisted_kv in coll_hoisted_children.items() for str_key in coll_hoisted_kv.keys()]
+        dumped_hoisted_obs = set()
+        for i, coll_hoisted_k in enumerate(sorted(collection_hoisted_observations)):
+            for the_hoisted_obs, the_hoisted_obs_kv in collection_hoisted_observations[coll_hoisted_k].items():
+                if the_hoisted_obs in dumped_hoisted_obs:
+                    # Don't add same instance of KVs
+                    continue
+                if len(collection_hoisted_observations) > 1:
+                    # This feature is subject of multiple ObservationCollections.
+                    # So we must always add grouping tags on them
+                    in_grouping_tag = True
+                elif not direct_hoisted_keys:
+                    # There are no direct keys, so all from group-1 can be ungrouped.
+                    in_grouping_tag = False
+                else:
+                    for (k, v) in the_hoisted_obs_kv.items():
+                        if k in direct_hoisted_keys:
+                            in_grouping_tag = True
+                            break
+                    else:
+                        in_grouping_tag = False
+                for (k, v) in the_hoisted_obs_kv.items():
+                    if in_grouping_tag:
+                        # An observation of this same flattened key already exists
+                        # But we want to deliberately _not_ combine the values.
+                        #if k not in direct_hoisted and
+                        use_obs_dict_key = f"(collection {i+1}) {k}"
+                    else:
+                        use_obs_dict_key = k
+
+                    if v not in observations_dict[use_obs_dict_key]:
+                        observations_dict[use_obs_dict_key].append(v)
+                dumped_hoisted_obs.add(the_hoisted_obs)
+
+        for (obs_key, obs_values) in observations_dict.items():
+            if obs_key not in props:
+                if len(obs_values) > 1:
+                    props[obs_key] = "; ".join(obs_values)
+                else:
+                    props[obs_key] = obs_values[0]
         for (attr_key, attr_value) in attribute_dict.items():
             if attr_key not in props:
                 if len(attr_value) > 1:
                     props[attr_key] = "; ".join(attr_value)
                 else:
                     props[attr_key] = attr_value[0]
+        # additional_properties_dict is just like props_dict_lists, except its
+        # added after observatons, and attributes, and only added if the key doesn't not already exist.
         for (add_key, add_value) in additional_properties_dict.items():
             if add_key not in props:
                 if len(add_value) > 1:
@@ -988,14 +1194,17 @@ def get_converted_features_for_human(
             extras["title"] = anot
         props["uri"] = str(f)
         use_geometry = None
+        use_geo_literal = None
         if default_geometry is not None:
-            use_geometry = default_geometry[0]
+            use_geo_literal, use_geometry = default_geometry[0]
         elif len(geoms) > 0:
-            use_geometry = geoms[0][0]
+            use_geo_literal, use_geometry = geoms[0][0]
         elif bounding_box is not None:
-            use_geometry = bounding_box[0]
+            use_geo_literal, use_geometry = bounding_box[0]
         elif centroid is not None:
-            use_geometry = centroid[0]
+            use_geo_literal, use_geometry = centroid[0]
+        if use_geo_literal is not None and "wkt" not in props:
+            props["wkt"] = geosparql_wkt_to_ewkt(str(use_geo_literal))
         if use_geometry is not None:
             fs.append(Feature(_id, geometry=use_geometry, properties=props, **extras))
 
@@ -1057,10 +1266,10 @@ def convert(
         elif len(features) == 1:
             return features[0]
         else:
-            return {}
+            return GeoJSON()
 
 
-def unconvert_geometry(geom: dict) -> Tuple[str, str]:
+def unconvert_geometry(geom: dict) -> tuple[str, str]:
     # returns a WKT and GeoJSON representation of the unconverted geometry
     wkt_string = wkt.dumps(geom)
     geojson_string = geojson_dumps(geom)
@@ -1083,9 +1292,9 @@ def get_unconverted_features(g: Graph, gj: GeoJSON):
         id_ = URIRef(f.id)
         unconverted_geom = unconvert_geometry(f.geometry)
         bn = BNode()
-        g.add((id_, GEO.hasGeometry, bn))
-        g.add((id_, RDF.type, GEO.Feature))
-        g.add((bn, RDF.type, GEO.Geometry))
+        g.add((id_, GEO_hasGeometry, bn))
+        g.add((id_, RDFType, GEO_Feature))
+        g.add((bn, RDFType, GEO.Geometry))
         g.add((bn, GEO.asWKT, Literal(unconverted_geom[0], datatype=GEO.wktLiteral)))
         g.add(
             (
