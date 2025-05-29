@@ -414,20 +414,20 @@ def _hoist_attribute(
             use_value = "error: Could not find a value for attribute"
     return {use_label: use_value}
 
-@lru_cache(maxsize=128)
-def _get_flattened_observation_collection_properties(g, observation_collection) -> dict[str, Any]:
-    time_string: Optional[str] = None
-    for tp in observation_temporal_predicates:
-        if temporal_matches := list(g.objects(observation_collection, tp)):
-            time_string = temporal_to_string(g, temporal_matches[0])
-            break
-
+def _get_procedure_from_activity(g, activity, procedure_objs: Optional[list[URIRef|BNode]] = None) -> tuple[Optional[URIRef|BNode],Optional[str]]:
     procedure_string: Optional[str] = None
     procedure_uri: Optional[URIRef|BNode] = None
-    if used_procedures := list(g.objects(observation_collection, SOSA.usedProcedure)):
+    if procedure_objs is not None:
+        used_procedures = procedure_objs
+    else:
+        used_procedures = list(g.objects(activity, SOSA.usedProcedure))
+    if used_procedures:
         for used_procedure in used_procedures:
             if procedure_method_types := list(g.objects(used_procedure, TERN.methodType)):
                 procedure_uri = procedure_method_types[0]
+                break
+            elif procedure_has_methods := list(g.objects(used_procedure, TERN.hasMethod)):
+                procedure_uri = procedure_has_methods[0]
                 break
             else:
                 procedure_uri = used_procedure
@@ -440,6 +440,19 @@ def _get_flattened_observation_collection_properties(g, observation_collection) 
                     procedure_string = str(procedure_uri)
             else:
                 procedure_string = str(procedure_uri)
+    return procedure_uri, procedure_string
+
+@lru_cache(maxsize=128)
+def _get_flattened_observation_collection_properties(g, observation_collection) -> dict[str, Any]:
+    time_string: Optional[str] = None
+    for tp in observation_temporal_predicates:
+        if temporal_matches := list(g.objects(observation_collection, tp)):
+            time_string = temporal_to_string(g, temporal_matches[0])
+            break
+
+    procedure_string: Optional[str]
+    procedure_uri: Optional[URIRef|BNode]
+    procedure_uri, procedure_string = _get_procedure_from_activity(g, observation_collection)
     flattened_attributes = {}
     if has_attributes := list(g.objects(observation_collection, TERN.hasAttribute)):
         for has_attribute in has_attributes:
@@ -462,7 +475,7 @@ def _get_flattened_observation_collection_properties(g, observation_collection) 
 ALLOW_SECOND_ATTRIBUTES=False
 OBSERVATION_FLATTEN_EXCLUDE_TYPES = [SOSA.Sampling, TERN.Sampling]
 def _hoist_and_flatten_observation(
-    g: Graph, observation: URIRef | BNode,
+    g: Graph, observation: URIRef | BNode, feature_properties: dict[str, list[Any]]
 ) -> dict[str, Any]:
     if known_types := list(g.objects(observation, RDFType)):
         for kt in known_types:
@@ -478,6 +491,7 @@ def _hoist_and_flatten_observation(
         for in_col in in_collections:
             flattened_collection_props[in_col] = _get_flattened_observation_collection_properties(g, in_col)
 
+    
     degraded_label = False
     annotation_label = _get_annotation_label(g, observation)
     if observed_properties := list(g.objects(observation, SOSA.observedProperty)):
@@ -570,36 +584,34 @@ def _hoist_and_flatten_observation(
             a_flat = _hoist_attribute(g, has_attribute)
             flattened_attributes[has_attribute] = a_flat
     
+    feature_datetimes: list[str] = feature_properties.get("datetime", [])
+    feature_procedures: list[Any] = feature_properties.get("procedure", [])
+
     time_string: Optional[str] = None
     for tp in observation_temporal_predicates:
         if temporal_matches := list(g.objects(observation, tp)):
-            time_string = temporal_to_string(g, temporal_matches[0])
-            break
-
+            temporal_match = temporal_matches[0]
+            if temporal_match not in feature_datetimes:
+                _converted_time_string = temporal_to_string(g, temporal_match)
+                if _converted_time_string not in feature_datetimes:
+                    time_string = _converted_time_string
+                    break
 
     procedure_string: Optional[str] = None
     procedure_uri: Optional[URIRef|BNode] = None 
     if used_procedures := list(g.objects(observation, SOSA.usedProcedure)):
-        for used_procedure in used_procedures:
-            if procedure_method_types := list(g.objects(used_procedure, TERN.methodType)):
-                procedure_uri = procedure_method_types[0]
-                break
-            else:
-                procedure_uri = used_procedure
-                break
-        if procedure_uri is not None:
-            if isinstance(procedure_uri, (URIRef, BNode)):
-                if (check_procedure_label := _get_annotation_label(g, procedure_uri)) is not None:
-                    procedure_string = check_procedure_label
-                else:
-                    procedure_string = str(procedure_uri)
-            else:
-                procedure_string = str(procedure_uri)
+        _obs_procedure_uri, _obs_procedure_string = _get_procedure_from_activity(g, observation, used_procedures)
+        if _obs_procedure_uri not in feature_procedures and _obs_procedure_string not in feature_procedures:
+            procedure_string = _obs_procedure_string
+            procedure_uri = _obs_procedure_uri
+        
 
     if flattened_collection_props:
         for i, (coll_uri, coll_flat) in enumerate(sorted(flattened_collection_props.items())):
             if (coll_time_string := coll_flat.get("time", None)) is not None:
-                if time_string is None:
+                if coll_time_string in feature_datetimes:
+                    continue
+                elif time_string is None:
                     time_string = coll_time_string
                 elif ALLOW_SECOND_ATTRIBUTES and time_string == coll_time_string:
                     # same, don't duplicate it
@@ -608,7 +620,9 @@ def _hoist_and_flatten_observation(
                     this_observation_flattened_dict[f"{use_label} ({str(i+1)}) (datetime)"] = time_string
             if (coll_procedure_pair := coll_flat.get("procedure", None)) is not None:
                 coll_proc_uri, coll_proc_string = coll_procedure_pair
-                if procedure_string is None and procedure_uri is None:
+                if coll_proc_uri in feature_procedures or coll_proc_string in feature_procedures:
+                    continue
+                elif procedure_string is None and procedure_uri is None:
                     procedure_string = coll_proc_string
                     procedure_uri = coll_proc_uri
                 elif ALLOW_SECOND_ATTRIBUTES and (procedure_uri == coll_proc_uri or procedure_string == coll_proc_string):
@@ -976,6 +990,8 @@ def get_converted_features_for_human(
         props = {}
         extras = {}
         known_time_strings = []
+        procedure_uri: Optional[BNode|URIRef] = None
+        procedure_str: Optional[str] = None
         attribute_dict = defaultdict(list)
         observations_dict = defaultdict(list)
         additional_properties_dict = defaultdict(list)
@@ -1021,7 +1037,7 @@ def get_converted_features_for_human(
             elif pred == SCHEMA.spatial:
                 # The Schema.org version of a GeoSpatial feature
                 spatial_node = obj
-                spatial_geoms: list[list] = []
+                spatial_geoms: list[list[Any]] = []
                 sp_default_geometry = None
                 sp_bounding_box = None
                 sp_centroid = None
@@ -1067,6 +1083,8 @@ def get_converted_features_for_human(
             elif pred == SCHEMA.temporal:
                 known_time_strings.append(temporal_to_string(g, obj))
                 continue
+            elif pred == SOSA.usedProcedure:
+                procedure_uri, procedure_str = _get_procedure_from_activity(g, f, [obj])
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 
             if isinstance(obj, (URIRef, BNode)):
@@ -1102,6 +1120,7 @@ def get_converted_features_for_human(
                 props["datetime"] = "; ".join(known_time_strings)
             else:
                 props["datetime"] = known_time_strings[0]
+        feature_properties_for_observations = {"datetime": known_time_strings, "procedure": [procedure_uri, procedure_str]}
         # get observations on the feature
         associated_observations = associated_observations.union(
             set(g.subjects(SOSA.hasFeatureOfInterest, f))
@@ -1113,7 +1132,7 @@ def get_converted_features_for_human(
             for obs in associated_observations:
                 if obs in all_hoisted_observations:
                     continue
-                hoisted_observation_dict = _hoist_and_flatten_observation(g, obs)
+                hoisted_observation_dict = _hoist_and_flatten_observation(g, obs, feature_properties_for_observations)
                 if "children" in hoisted_observation_dict:
                     # This is an observation collection.
                     all_hoisted_observations[obs] = {}
@@ -1121,7 +1140,7 @@ def get_converted_features_for_human(
                         if obs_ch in all_hoisted_observations:
                             hoisted_observation_dict = all_hoisted_observations[obs_ch]
                         else:
-                            hoisted_observation_dict = _hoist_and_flatten_observation(g, obs_ch)
+                            hoisted_observation_dict = _hoist_and_flatten_observation(g, obs_ch, feature_properties_for_observations)
                             all_hoisted_observations[obs_ch] = hoisted_observation_dict
                         collection_hoisted_observations[obs][obs_ch] = hoisted_observation_dict
                         hoisted_obs_have_collections[obs_ch].append(obs)
