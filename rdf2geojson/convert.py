@@ -1085,6 +1085,7 @@ def get_converted_features_for_human(
                 continue
             elif pred == SOSA.usedProcedure:
                 procedure_uri, procedure_str = _get_procedure_from_activity(g, f, [obj])
+                continue
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 
             if isinstance(obj, (URIRef, BNode)):
@@ -1201,6 +1202,9 @@ def get_converted_features_for_human(
                     props[attr_key] = "; ".join(attr_value)
                 else:
                     props[attr_key] = attr_value[0]
+        if "usedProcedure" not in props and "usedProcedure" not in additional_properties_dict and (procedure_str or procedure_uri):
+            additional_properties_dict["usedProcedure"] = [procedure_str] if procedure_str is not None else [procedure_uri]
+
         # additional_properties_dict is just like props_dict_lists, except its
         # added after observatons, and attributes, and only added if the key doesn't not already exist.
         for (add_key, add_value) in additional_properties_dict.items():
