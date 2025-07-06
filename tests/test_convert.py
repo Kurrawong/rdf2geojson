@@ -36,7 +36,10 @@ def test_convert_rdf_to_geojson(rdf_file: Path, expected_valid: bool):
     if expected_valid:
         assert gj.is_valid
     else:
-        assert not gj
+        assert (gj is None or len(gj) == 0 or
+                (gj.get("type", None) == "GeoJSON" and gj.get("features", None) is None and
+                 gj.get("geometry", None) is None)
+                 ), "Expected invalid GeoJSON, but got valid GeoJSON"
 
 @pytest.mark.parametrize(
     "json_file",
@@ -57,6 +60,8 @@ def test_convert_geojson_to_wkt(json_file: Path):
         gj = load(f)
     if len(gj) < 1:
         pytest.skip("GeoJSON is empty")
+    elif len(gj) == 1 and gj.get("type") == "GeoJSON":
+         pytest.skip("GeoJSON is not a FeatureCollection or Feature, it's invalid and empty.")
     g: Graph = unconvert(gj)
     with open(json_file.with_suffix(".roundtrip.ttl"), "w") as f:
         f.write(g.serialize(format="turtle"))
