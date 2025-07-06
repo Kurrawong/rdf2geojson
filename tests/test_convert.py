@@ -78,3 +78,14 @@ def test_big_observation_collection_with_attributes():
         from geojson import dump
         with open(rdf_file.with_suffix(".json"), "w") as f2:
             dump(gj, f2, indent=4)
+
+def test_big_observation_collection_with_attributes_oxigraph():
+        rdf_file = TEST_DATA_DIR / "test_big_observation_collection_attributes.ttl"
+        g = Graph().parse(rdf_file, format="turtle")
+        from pyoxigraph import Store, RdfFormat
+        store = Store()
+        store.bulk_load(None, format=RdfFormat.TURTLE, path=str(rdf_file))
+        gj = convert(store, do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"), namespace_manager=g.namespace_manager)
+        from geojson import dump
+        with open(rdf_file.with_suffix(".json"), "w") as f2:
+            dump(gj, f2, indent=4)
