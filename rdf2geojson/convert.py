@@ -27,6 +27,15 @@ from pathlib import Path
 from .contrib.geomet import wkt
 from .time_ont import temporal_to_string
 
+try:
+    from pyoxigraph import Store as OxiStore
+    from oxrdflib._converter import to_ox, from_ox
+    use_oxigraph = True
+except ImportError:
+    OxiStore = to_ox = from_ox = None
+    use_pyoxigraph = False
+
+
 TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
 PREZ = Namespace("https://prez.dev/")
 SCHEMA = SDO
@@ -38,6 +47,84 @@ PrezLabel = PREZ.label
 RDFType = RDF.type
 
 observation_temporal_predicates = [SCHEMA.temporal, SOSA.phenomenonTime, TERN.resultDateTime, SOSA.resultTime]
+
+class SourceGraph():
+    def __init__(self, graph: Graph, iri2id: Optional[Callable[[URIRef], str]] = None, namespace_manager: Optional[NamespaceManager] = None):
+        if use_oxigraph:
+            is_oxigraph = isinstance(graph, OxiStore)
+        else:
+            is_oxigraph = False
+        
+        if is_oxigraph:
+            if namespace_manager is None:
+                raise ValueError("When using an Oxigraph Store, a NamespaceManager must be provided.")
+            self.namespace_manager = namespace_manager
+        else:
+            if namespace_manager is None:
+                self.namespace_manager = graph.namespace_manager
+            else:
+                self.namespace_manager = namespace_manager
+        self.graph_or_store = graph
+        self.iri2id = iri2id
+        self.is_oxigraph = is_oxigraph
+
+    def subjects(self, predicate: URIRef, object_: URIRef|BNode|Literal, **kwargs):
+        if self.is_oxigraph:
+            store: OxiStore = self.graph_or_store
+            return { from_ox(q[0]) for q in store.quads_for_pattern(None, to_ox(predicate), to_ox(object_), None) }
+        else:
+            graph: Graph = self.graph_or_store
+            return graph.subjects(predicate, object_, **kwargs)
+
+    def objects(self, subject: URIRef|BNode|Literal, predicate: URIRef, **kwargs):
+        if self.is_oxigraph:
+            store: OxiStore = self.graph_or_store
+            return { from_ox(q[2]) for q in store.quads_for_pattern(to_ox(subject), to_ox(predicate), None, None) }
+        else:
+            graph: Graph = self.graph_or_store
+            return graph.objects(subject, predicate, **kwargs)
+    
+    def predicate_objects(self, subject: URIRef|BNode|Literal, **kwargs):
+        if self.is_oxigraph:
+            store: OxiStore = self.graph_or_store
+            return { (from_ox(q[1]), from_ox(q[2])) for q in store.quads_for_pattern(to_ox(subject), None, None, None) }
+        else:
+            graph: Graph = self.graph_or_store
+            return graph.predicate_objects(subject, **kwargs)
+    
+    def value(self, subject: URIRef|BNode|Literal, predicate: URIRef, default=None, **kwargs):
+        if self.is_oxigraph:
+            store: OxiStore = self.graph_or_store
+            for q in store.quads_for_pattern(to_ox(subject), to_ox(predicate), None, None):
+                return from_ox(q[2])
+            return default
+        else:
+            graph: Graph = self.graph_or_store
+            return graph.value(subject, predicate, default=default, **kwargs)
+    
+    
+    def bnode_to_dict(self, bn: BNode, prop_contexts: dict|None=None, recurse: int = 0) -> dict:
+        obs_dict = {}
+        for pred, obj in self.predicate_objects(bn):
+            prefix_pair, name = make_json_key_from_iri(pred, self.namespace_manager)
+            if prop_contexts is not None and prefix_pair is not None:
+                use_prefix = True
+                prefix_ns, prefix_name = prefix_pair
+                if prefix_name in prop_contexts:
+                    if prefix_ns != prop_contexts[prefix_name]:
+                        # conflicting prefix with one thats already in there
+                        use_prefix = False
+                if use_prefix:
+                    prop_contexts[prefix_name] = prefix_ns
+                    name = f"{prefix_name}:{name}"
+            if isinstance(obj, BNode):
+                if recurse < 8:
+                    obs_dict[name] = self.bnode_to_dict(obj, prop_contexts, recurse + 1)
+            else:
+                obs_dict[name] = make_json_representation_of_obj(self, obj)
+        return obs_dict
+    
+
 
 def get_geosparql_validator() -> Graph:
     try:
@@ -68,7 +155,7 @@ def make_json_key_from_iri(
     return None, name
 
 
-def make_json_representation_of_obj(g: Graph, obj: Union[Literal, URIRef], flatten: bool = False)\
+def make_json_representation_of_obj(g: SourceGraph, obj: Union[Literal, URIRef], flatten: bool = False)\
         -> Union[Mapping[Any, Any], list[Any], str, int, float]:
     if isinstance(obj, Literal):
         # Some literals cannot be represented as JSON, so we return a string
@@ -129,7 +216,7 @@ def parse_geometry(
         )
 
 
-def _extract_geoms(g: Graph, pred, obj, recurse=0, with_coords=False) -> list:
+def _extract_geoms(g: SourceGraph, pred, obj, recurse=0, with_coords=False) -> list:
     geoms = []
     coords = g.value(obj, GEO.asWKT)
     if coords:
@@ -168,7 +255,7 @@ def geosparql_wkt_to_ewkt(wktstr: str):
         return wktstr
         
 
-def _extract_additional_property(g: Graph, pred, obj) -> tuple[Union[str, URIRef], Any]:
+def _extract_additional_property(g: SourceGraph, pred, obj) -> tuple[Union[str, URIRef], Any]:
     key_name = None
     value = None
     property_ids = list(g.objects(obj, SCHEMA.propertyID))
@@ -192,29 +279,7 @@ def _extract_additional_property(g: Graph, pred, obj) -> tuple[Union[str, URIRef
     return key_name, value
 
 
-def _extract_bnode(g: Graph, bn: BNode, prop_contexts: dict|None=None, recurse: int = 0) -> dict:
-    obs_dict = {}
-    for pred, obj in g.predicate_objects(bn):
-        prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
-        if prop_contexts is not None and prefix_pair is not None:
-            use_prefix = True
-            prefix_ns, prefix_name = prefix_pair
-            if prefix_name in prop_contexts:
-                if prefix_ns != prop_contexts[prefix_name]:
-                    # conflicting prefix with one thats already in there
-                    use_prefix = False
-            if use_prefix:
-                prop_contexts[prefix_name] = prefix_ns
-                name = f"{prefix_name}:{name}"
-        if isinstance(obj, BNode):
-            if recurse < 8:
-                obs_dict[name] = _extract_bnode(g, obj, prop_contexts, recurse + 1)
-        else:
-            obs_dict[name] = make_json_representation_of_obj(g, obj)
-    return obs_dict
-
-
-def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: dict) -> dict:
+def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dict) -> dict:
     if isinstance(obs, URIRef):
         obs_dict = {"rdf:subject": str(obs)}
     else:
@@ -241,7 +306,7 @@ def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: dict) -> 
                 attribute_list_name = name
                 attribute_list.append(_extract_attribute(g, obj, prop_contexts))
             elif isinstance(obj, BNode):
-                obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
+                obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
                 obs_dict[name] = make_json_representation_of_obj(g, obj)
         if len(attribute_list) > 0:
@@ -252,7 +317,7 @@ def _extract_observation(g: Graph, obs: URIRef | BNode, prop_contexts: dict) -> 
 
 
 def _extract_attribute(
-    g: Graph, attr: URIRef | BNode, prop_contexts: dict
+    g: SourceGraph, attr: URIRef | BNode, prop_contexts: dict
 ) -> dict | URIRef:
     pred_ob_list = list(g.predicate_objects(attr))
     if isinstance(attr, URIRef):
@@ -277,13 +342,13 @@ def _extract_attribute(
         if pred == TERN.hasValue:
             obs_dict[name] = _extract_attribute_value(g, obj, prop_contexts)
         elif isinstance(obj, BNode):
-            obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
+            obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
         else:
             obs_dict[name] = make_json_representation_of_obj(g, obj)
     return obs_dict
 
 def _extract_attribute_value(
-    g: Graph, attr: URIRef | BNode, prop_contexts: dict
+    g: SourceGraph, attr: URIRef | BNode, prop_contexts: dict
 ) -> dict | URIRef:
     pred_ob_list = list(g.predicate_objects(attr))
     if isinstance(attr, URIRef):
@@ -307,12 +372,12 @@ def _extract_attribute_value(
                 name = f"{prefix_name}:{name}"
 
         if isinstance(obj, BNode):
-            obs_dict[name] = _extract_bnode(g, obj, prop_contexts)
+            obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
         else:
             obs_dict[name] = make_json_representation_of_obj(g, obj)
     return obs_dict
 
-def _get_annotation_label(g: Graph, labelled_node: Union[URIRef,BNode]) -> Union[str, None]:
+def _get_annotation_label(g: SourceGraph, labelled_node: Union[URIRef,BNode]) -> Union[str, None]:
     prez_labels = list(g.objects(labelled_node, PREZ.label))
     use_label = None
 
@@ -649,7 +714,7 @@ def _hoist_and_flatten_observation(
     return this_observation_flattened_dict
 
 def get_features_collections(
-    g: Graph, fc_uri: Optional[URIRef] = None,
+    g: SourceGraph, fc_uri: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None
 ) -> list[tuple[URIRef, FeatureCollection]]:
     fc_finder = g.subjects(RDFType, GEO.FeatureCollection)
@@ -708,7 +773,7 @@ def get_features_collections(
                 prop_contexts[prefix_name] = prefix_ns
                 name = f"{prefix_name}:{name}"
             if isinstance(obj, BNode):
-                props[name] = _extract_bnode(g, obj, prop_contexts)
+                props[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
                 props[name] = make_json_representation_of_obj(g, obj)
 
@@ -726,7 +791,7 @@ def get_features_collections(
     return fcs
 
 def get_features_collections_for_human(
-    g: Graph, fc_uri: Optional[URIRef] = None,
+    g: SourceGraph, fc_uri: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None
 ) -> list[tuple[URIRef, FeatureCollection]]:
     fc_finder = g.subjects(RDFType, GEO.FeatureCollection)
@@ -823,7 +888,7 @@ def get_features_collections_for_human(
     return fcs
 
 def get_converted_features(
-    g: Graph,
+    g: SourceGraph,
     fc: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None,
 ) -> list[Feature]:
@@ -934,7 +999,7 @@ def get_converted_features(
                 prop_contexts[prefix_name] = prefix_ns
                 name = f"{prefix_name}:{name}"
             if isinstance(obj, BNode):
-                props[name] = _extract_bnode(g, obj, prop_contexts)
+                props[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
                 props[name] = make_json_representation_of_obj(g, obj)
         # get observations on the feature
@@ -972,7 +1037,7 @@ def get_converted_features(
 
 
 def get_converted_features_for_human(
-    g: Graph,
+    g: SourceGraph,
     fc: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None,
 ) -> list[Feature]:
@@ -1236,8 +1301,13 @@ def get_converted_features_for_human(
 def convert(
     g: Graph, do_validate: bool = True, iri2id: Optional[Callable[[URIRef], str]] = None,
     kind: str = "machine", fc_uri: Optional[URIRef] = None, collection_label: Optional[str] = None,
+    namespace_manager: Optional[NamespaceManager] = None
 ) -> GeoJSON:
     if do_validate:
+
+        if use_oxigraph and isinstance(g, OxiStore):
+            raise ValueError("Cannot do pre-convert validation on an OxiStore graph. "
+                             "Please convert it to a rdflib Graph first, or disable validation.")
         # validate the RDF data according to GeoSPARQL
         conforms, results_graph, results_text = validate(
             g,
@@ -1246,20 +1316,22 @@ def convert(
         if not conforms:
             print(results_text)
             return {}
+        
+    source_graph = SourceGraph(g, iri2id=iri2id, namespace_manager=namespace_manager)
 
     if fc_uri is None and collection_label is not None:
         # When a collection_label is passed, this is a custom collection that doesn't
         # exist as a defined FeatureCollection in the graph. So don't look up FeatureCollections.
         if kind == "human":
-            features = get_converted_features_for_human(g, iri2id=iri2id)
+            features = get_converted_features_for_human(source_graph, iri2id=iri2id)
         else:
-            features = get_converted_features(g, iri2id=iri2id)
+            features = get_converted_features(source_graph, iri2id=iri2id)
         return FeatureCollection(features, title=collection_label)
 
     if kind == "human":
-        feature_collections = get_features_collections_for_human(g, fc_uri=fc_uri, iri2id=iri2id)
+        feature_collections = get_features_collections_for_human(source_graph, fc_uri=fc_uri, iri2id=iri2id)
     else:
-        feature_collections = get_features_collections(g, fc_uri=fc_uri, iri2id=iri2id)
+        feature_collections = get_features_collections(source_graph, fc_uri=fc_uri, iri2id=iri2id)
     fc = None
     from_fc_uri: Optional[URIRef] = None
     if len(feature_collections) > 1:
@@ -1269,17 +1341,17 @@ def convert(
         from_fc_uri, fc = feature_collections[0]
     if from_fc_uri is not None and fc is not None:
         if kind == "human":
-            features = get_converted_features_for_human(g, from_fc_uri, iri2id=iri2id)
+            features = get_converted_features_for_human(source_graph, from_fc_uri, iri2id=iri2id)
         else:
-            features = get_converted_features(g, from_fc_uri, iri2id=iri2id)
+            features = get_converted_features(source_graph, from_fc_uri, iri2id=iri2id)
         if len(features) > 0:
             fc["features"].extend(features)
         return fc
     else:
         if kind == "human":
-            features = get_converted_features_for_human(g, iri2id=iri2id)
+            features = get_converted_features_for_human(source_graph, iri2id=iri2id)
         else:
-            features = get_converted_features(g, iri2id=iri2id)
+            features = get_converted_features(source_graph, iri2id=iri2id)
         if (len(features) > 1) or (collection_label is not None):
             # Make a new feature collection for these Features.
             if collection_label is not None:
@@ -1344,6 +1416,9 @@ def unconvert(gj: GeoJSON) -> Graph:
     # very basic GeoJSON to RDF conversion, for testing roundtripping
     g = Graph()
     type_ = gj["type"]
+    if type_ == "GeoJSON":
+        # This is invalid base GeoJSON, don't convert it.
+        return g
     if type_ == "FeatureCollection":
         assert "features" in gj
     elif type_ == "Feature":

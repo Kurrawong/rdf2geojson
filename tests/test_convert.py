@@ -36,7 +36,10 @@ def test_convert_rdf_to_geojson(rdf_file: Path, expected_valid: bool):
     if expected_valid:
         assert gj.is_valid
     else:
-        assert not gj
+        assert (gj is None or len(gj) == 0 or
+                (gj.get("type", None) == "GeoJSON" and gj.get("features", None) is None and
+                 gj.get("geometry", None) is None)
+                 ), "Expected invalid GeoJSON, but got valid GeoJSON"
 
 @pytest.mark.parametrize(
     "json_file",
@@ -57,6 +60,8 @@ def test_convert_geojson_to_wkt(json_file: Path):
         gj = load(f)
     if len(gj) < 1:
         pytest.skip("GeoJSON is empty")
+    elif len(gj) == 1 and gj.get("type") == "GeoJSON":
+         pytest.skip("GeoJSON is not a FeatureCollection or Feature, it's invalid and empty.")
     g: Graph = unconvert(gj)
     with open(json_file.with_suffix(".roundtrip.ttl"), "w") as f:
         f.write(g.serialize(format="turtle"))
@@ -75,6 +80,17 @@ def test_big_observation_collection():
 def test_big_observation_collection_with_attributes():
         rdf_file = TEST_DATA_DIR / "test_big_observation_collection_attributes.ttl"
         gj = convert(Graph().parse(rdf_file), do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"))
+        from geojson import dump
+        with open(rdf_file.with_suffix(".json"), "w") as f2:
+            dump(gj, f2, indent=4)
+
+def test_big_observation_collection_with_attributes_oxigraph():
+        rdf_file = TEST_DATA_DIR / "test_big_observation_collection_attributes.ttl"
+        g = Graph().parse(rdf_file, format="turtle")
+        from pyoxigraph import Store, RdfFormat
+        store = Store()
+        store.bulk_load(None, format=RdfFormat.TURTLE, path=str(rdf_file))
+        gj = convert(store, do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"), namespace_manager=g.namespace_manager)
         from geojson import dump
         with open(rdf_file.with_suffix(".json"), "w") as f2:
             dump(gj, f2, indent=4)

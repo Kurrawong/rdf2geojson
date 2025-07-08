@@ -1,21 +1,21 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "id": "https://example.com/dataset/geo-demo/camerons-corner",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    141.00682,
-                    -28.991121
-                ]
-            },
-            "properties": {
-                "type": "http://www.opengis.net/ont/geosparql#Feature",
-                "sfWithin": "https://example.com/dataset/geo-demo/queensland",
-                "name": "Cameron's Corner Point"
-            }
+    "type": "Feature",
+    "id": "camerons-corner",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            141.00682,
+            -28.991121
+        ]
+    },
+    "properties": {
+        "geo:sfWithin": "https://example.com/dataset/geo-demo/queensland",
+        "schema:name": "Cameron's Corner Point",
+        "rdf:subject": "https://example.com/dataset/geo-demo/camerons-corner",
+        "@context": {
+            "geo": "http://www.opengis.net/ont/geosparql#",
+            "schema": "https://schema.org/",
+            "@vocab": "https://purl.org/geojson/vocab#"
         }
-    ]
+    }
 }
