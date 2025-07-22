@@ -94,3 +94,19 @@ def test_big_observation_collection_with_attributes_oxigraph():
         from geojson import dump
         with open(rdf_file.with_suffix(".json"), "w") as f2:
             dump(gj, f2, indent=4)
+
+def test_to_taxon_support_human():
+        rdf_file = TEST_DATA_DIR / "test_to_taxon_support.ttl"
+        g = Graph().parse(rdf_file, format="turtle")
+        gj = convert(g, do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8"))
+        from geojson import dump
+        with open(rdf_file.with_suffix(".human.json"), "w") as f2:
+            dump(gj, f2, indent=4)
+
+def test_to_taxon_support_machine():
+        rdf_file = TEST_DATA_DIR / "test_to_taxon_support_machine.ttl"
+        g = Graph().parse(rdf_file, format="turtle")
+        gj = convert(g, do_validate=False, kind="machine", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8"))
+        from geojson import dump
+        with open(rdf_file.with_suffix(".json"), "w") as f2:
+            dump(gj, f2, indent=4)

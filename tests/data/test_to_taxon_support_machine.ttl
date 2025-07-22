@@ -1,0 +1,528 @@
+@prefix exds: <http://example.com/datasets/> .
+@prefix ibra7-codes: <http://linked.data.gov.au/dataset/bioregion/> .
+@prefix tern-cv: <http://linked.data.gov.au/def/tern-cv/> .
+@prefix ldgov: <http://linked.data.gov.au/org/> .
+@prefix vid: <http://ogp.me/ns#video:> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix aclump-voc: <http://www.neii.gov.au/def/voc/ACLUMP/australian-land-use-and-management-classification/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vc: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix altr-ext: <http://www.w3.org/ns/dx/connegp/altr-ext#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix exm: <https://example.com/> .
+@prefix bdr-ds: <https://linked.data.gov.au/dataset/bdr/> .
+@prefix bdr-cat: <https://linked.data.gov.au/dataset/bdr/catalogues/> .
+@prefix bdr-datatypes: <https://linked.data.gov.au/dataset/bdr/datatypes/> .
+@prefix fc: <https://linked.data.gov.au/dataset/bdr/feature-collection/> .
+@prefix bdr-obsprops: <https://linked.data.gov.au/dataset/bdr/obsprops/> .
+@prefix oc: <https://linked.data.gov.au/dataset/bdr/occurrence-collection/> .
+@prefix bdr-occ: <https://linked.data.gov.au/dataset/bdr/occurrences/> .
+@prefix bdr-op: <https://linked.data.gov.au/dataset/bdr/op/> .
+@prefix bdr-orgs: <https://linked.data.gov.au/dataset/bdr/orgs/> .
+@prefix bdr-rec: <https://linked.data.gov.au/dataset/bdr/records/> .
+@prefix bdr-sma: <https://linked.data.gov.au/dataset/bdr/sma/> .
+@prefix bdr-smrr: <https://linked.data.gov.au/dataset/bdr/smrr/> .
+@prefix ldgovau: <https://linked.data.gov.au/datasets/> .
+@prefix meshblock: <https://linked.data.gov.au/datasets/asgsed3/MB/> .
+@prefix geofab: <https://linked.data.gov.au/datasets/geofabric/fc/> .
+@prefix gnaf: <https://linked.data.gov.au/datasets/gnaf/> .
+@prefix addr: <https://linked.data.gov.au/datasets/gnaf/address/> .
+@prefix defn: <https://linked.data.gov.au/def/> .
+@prefix abis: <https://linked.data.gov.au/def/abis/> .
+@prefix abis-vocab-themes: <https://linked.data.gov.au/def/abis/vocab-themes/> .
+@prefix alum: <https://linked.data.gov.au/def/alum/> .
+@prefix bdrpr: <https://linked.data.gov.au/def/bdr-pr/> .
+@prefix sm: <https://linked.data.gov.au/def/bdr-pr/sm/> .
+@prefix data-roles: <https://linked.data.gov.au/def/data-roles/> .
+@prefix emsa-cv: <https://linked.data.gov.au/def/nrm/> .
+@prefix olis: <https://olis.dev/> .
+@prefix orc: <https://orcid.org/> .
+@prefix prez: <https://prez.dev/> .
+@prefix profile: <https://prez.dev/profile/> .
+@prefix schema: <https://schema.org/> .
+@prefix preztest: <https://test/> .
+@prefix sys: <https://w3id.org/idn/system/> .
+@prefix prfl: <https://w3id.org/profile/> .
+@prefix tern: <https://w3id.org/tern/ontologies/tern/> .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/63893afc-00de-4b83-ae6c-c22f84f4c7ab schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "63893afc-00de-4b83-ae6c-c22f84f4c7ab"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab ;
+	a defn:abis\/BiodiversityRecord .
+_:ee9871ac3caf3807eeeb15fe99d10ee time:inXSDDate "2008-10-16"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:aa5bbad71da52ab92e0ec65858f7770a time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+_:e75d4303183d7674956853255799fbd3 time:inXSDDate "2008-10-16"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Bovichtus-angustifrons-Regan-1913 rdfs:label "scientificName" ;
+	rdf:value "Bovichtus angustifrons Regan, 1913" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/individualCount\/50 rdfs:label "individual-count" ;
+	rdf:value 50 ;
+	a tern:Integer , tern:Value .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/63893afc-00de-4b83-ae6c-c22f84f4c7ab schema:temporal _:ee9871ac3caf3807eeeb15fe99d10ee ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Bovichtus-angustifrons-Regan-1913 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Bovichtus angustifrons Regan, 1913" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/63893afc-00de-4b83-ae6c-c22f84f4c7ab schema:temporal _:aa5bbad71da52ab92e0ec65858f7770a ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/individualCount\/63893afc-00de-4b83-ae6c-c22f84f4c7ab schema:temporal _:e75d4303183d7674956853255799fbd3 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:74c71500-0bae-43c9-8db0-bd6940899af1 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/individualCount\/50 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> 50 ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab ;
+	a tern:Observation .
+bdr-ds:taxa\/bd0a18be-d6e4-561a-bd71-5f377b696b51 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/afd/70790261> .
+_:fdeaca7cbd7d77e27459dbeb1f537b68 time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+_:f831250e8485966ce8dda2b429a3e467 geo:hasMetricSpatialAccuracy "100"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.06997 147.75991)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab dwciri:toTaxon bdr-ds:taxa\/bd0a18be-d6e4-561a-bd71-5f377b696b51 ;
+	geo:hasGeometry _:f831250e8485966ce8dda2b429a3e467 ;
+	prov:wasAssociatedWith bdr-ds:person\/1cc0f1bfe6e2ff80 ;
+	tern:locationDescription "Peacock Bay Prime Seal Id" ;
+	tern:featureType tern-cv:2361dea8-598c-4b6f-a641-2b98ff199e9e ;
+	schema:spatial _:f831250e8485966ce8dda2b429a3e467 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:fdeaca7cbd7d77e27459dbeb1f537b68 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "ae206d49-d96c-4d44-8b1c-a9cfbbfdc097"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 ;
+	a defn:abis\/BiodiversityRecord .
+_:ba80118722217cb424bc3d3f84b5298d time:inXSDDate "2008-10-15"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:f78df55cd864dfbd95e4575470122387 time:inXSDDate "2008-10-15"^^xsd:date ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Ficinia-nodosa-Rottb-Goetgh-Muasya-D-A-Simpson rdfs:label "scientificName" ;
+	rdf:value "Ficinia nodosa (Rottb.) Goetgh., Muasya & D.A.Simpson" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 schema:temporal _:ba80118722217cb424bc3d3f84b5298d ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Ficinia-nodosa-Rottb-Goetgh-Muasya-D-A-Simpson ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Ficinia nodosa (Rottb.) Goetgh., Muasya & D.A.Simpson" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 schema:temporal _:f78df55cd864dfbd95e4575470122387 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 ;
+	a tern:Observation .
+bdr-ds:taxa\/2da36357-76c9-55f8-bdb3-fa81c9997937 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/apni/774747> .
+_:d6335b332ea481df1ab8832ef705f741 time:inXSDDate "2008-10-15"^^xsd:date ;
+	a time:Instant .
+_:b9e5356975a15811d671d28c84b21682 geo:hasMetricSpatialAccuracy "5"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.04838 147.77519)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 dwciri:toTaxon bdr-ds:taxa\/2da36357-76c9-55f8-bdb3-fa81c9997937 ;
+	geo:hasGeometry _:b9e5356975a15811d671d28c84b21682 ;
+	prov:wasAssociatedWith bdr-ds:person\/493c4bd2c0254e67 ;
+	tern:locationDescription "Prime Seal Island" ;
+	tern:featureType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+	schema:spatial _:b9e5356975a15811d671d28c84b21682 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:d6335b332ea481df1ab8832ef705f741 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 ;
+	a defn:abis\/BiodiversityRecord .
+_:c612ea3f94235d2cf57bf05920a15ee2 time:inXSDDate "2008-10-17"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:f6a768099e50bcf1805cf88aa8713fd8 time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Zosterops-lateralis-Latham-1801 rdfs:label "scientificName" ;
+	rdf:value "Zosterops lateralis (Latham, 1801)" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 schema:temporal _:c612ea3f94235d2cf57bf05920a15ee2 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Zosterops-lateralis-Latham-1801 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Zosterops lateralis (Latham, 1801)" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 schema:temporal _:f6a768099e50bcf1805cf88aa8713fd8 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 ;
+	a tern:Observation .
+bdr-ds:taxa\/0fdb8a9a-2b37-55ee-b212-d2a081d3f625 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/afd/70865497> .
+_:da1ccc58e5d91a252cc5bfc09c75f803 time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+_:ef0f0670efbe20241a7da2d922881244 geo:hasMetricSpatialAccuracy "500"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.06549 147.75635)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 dwciri:toTaxon bdr-ds:taxa\/0fdb8a9a-2b37-55ee-b212-d2a081d3f625 ;
+	geo:hasGeometry _:ef0f0670efbe20241a7da2d922881244 ;
+	prov:wasAssociatedWith bdr-ds:person\/1cc0f1bfe6e2ff80 ;
+	tern:locationDescription "Prime Seal Id" ;
+	tern:featureType tern-cv:2361dea8-598c-4b6f-a641-2b98ff199e9e ;
+	schema:spatial _:ef0f0670efbe20241a7da2d922881244 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:da1ccc58e5d91a252cc5bfc09c75f803 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "528b8ddc-5a6f-4c03-b5c4-86ed376efbf7"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 ;
+	a defn:abis\/BiodiversityRecord .
+_:a0f6273af1485b1d471fbc6731dfb102 time:inXSDDate "2008-10-18"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:aaf368e8aedfef12f7b8b2bdc87537ef time:inXSDDate "2008-10-18"^^xsd:date ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Cotula-australis-Sieber-ex-Spreng-Hook-f rdfs:label "scientificName" ;
+	rdf:value "Cotula australis (Sieber ex Spreng.) Hook.f." ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 schema:temporal _:a0f6273af1485b1d471fbc6731dfb102 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Cotula-australis-Sieber-ex-Spreng-Hook-f ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Cotula australis (Sieber ex Spreng.) Hook.f." ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 schema:temporal _:aaf368e8aedfef12f7b8b2bdc87537ef ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 ;
+	a tern:Observation .
+bdr-ds:taxa\/16099443-4e0c-580f-9458-1a62b195a44d dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/apni/615998> .
+_:f40b3dbf8ee806234945156a6fe7d664 time:inXSDDate "2008-10-18"^^xsd:date ;
+	a time:Instant .
+_:faccb570879473104487197aae020afc geo:hasMetricSpatialAccuracy "5"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.07106 147.75841)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 dwciri:toTaxon bdr-ds:taxa\/16099443-4e0c-580f-9458-1a62b195a44d ;
+	geo:hasGeometry _:faccb570879473104487197aae020afc ;
+	prov:wasAssociatedWith bdr-ds:person\/493c4bd2c0254e67 ;
+	tern:locationDescription "Prime Seal Island" ;
+	tern:featureType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+	schema:spatial _:faccb570879473104487197aae020afc ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:f40b3dbf8ee806234945156a6fe7d664 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/8d9d3bcc-84d4-40a5-8573-ec299003f4de schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "8d9d3bcc-84d4-40a5-8573-ec299003f4de"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/8d9d3bcc-84d4-40a5-8573-ec299003f4de ;
+	a defn:abis\/BiodiversityRecord .
+_:f3af7c2262188a623d4477edf9196f63 time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+_:de5668f008dd1bfbc8735978f9d60d1b time:inXSDDate "2008-10-17"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Oonops-pulcher-Templeton-1835 rdfs:label "scientificName" ;
+	rdf:value "Oonops pulcher Templeton, 1835" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/8d9d3bcc-84d4-40a5-8573-ec299003f4de schema:temporal _:f3af7c2262188a623d4477edf9196f63 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/8d9d3bcc-84d4-40a5-8573-ec299003f4de ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/8d9d3bcc-84d4-40a5-8573-ec299003f4de schema:temporal _:de5668f008dd1bfbc8735978f9d60d1b ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Oonops-pulcher-Templeton-1835 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Oonops pulcher Templeton, 1835" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/8d9d3bcc-84d4-40a5-8573-ec299003f4de ;
+	a tern:Observation .
+bdr-ds:taxa\/89eb391a-a1c0-5607-9235-f46b4b86a12c dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/afd/70863264> .
+_:a360cdf43af859d5c0e401f52a09781b time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+_:f7cdd5e9410243ed359eaf5ee9ef85f geo:hasMetricSpatialAccuracy "5000"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.06911 147.75404)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/8d9d3bcc-84d4-40a5-8573-ec299003f4de dwciri:toTaxon bdr-ds:taxa\/89eb391a-a1c0-5607-9235-f46b4b86a12c ;
+	geo:hasGeometry _:f7cdd5e9410243ed359eaf5ee9ef85f ;
+	prov:wasAssociatedWith bdr-ds:person\/e008f4c26b1d253d ;
+	tern:locationDescription "Prime Seal Id" ;
+	tern:featureType tern-cv:2361dea8-598c-4b6f-a641-2b98ff199e9e ;
+	schema:spatial _:f7cdd5e9410243ed359eaf5ee9ef85f ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:a360cdf43af859d5c0e401f52a09781b ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/9a5e184c-addc-44b4-be7d-a616aabd3833 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "9a5e184c-addc-44b4-be7d-a616aabd3833"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 ;
+	a defn:abis\/BiodiversityRecord .
+_:f43df5cfb9ffae36b3c0f31ed747d44e time:inXSDDate "2008-10-16"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:ea3aa83e0098d9ddb98f1df205e52660 time:inXSDDate "2008-10-16"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:b625e424b10b81c5787550cd2a783223 time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/individualCount\/6 rdfs:label "individual-count" ;
+	rdf:value 6 ;
+	a tern:Integer , tern:Value .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Pempheris-victoriae-null rdfs:label "scientificName" ;
+	rdf:value "Pempheris victoriae null" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/individualCount\/9a5e184c-addc-44b4-be7d-a616aabd3833 schema:temporal _:f43df5cfb9ffae36b3c0f31ed747d44e ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:74c71500-0bae-43c9-8db0-bd6940899af1 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/individualCount\/6 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> 6 ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/9a5e184c-addc-44b4-be7d-a616aabd3833 schema:temporal _:ea3aa83e0098d9ddb98f1df205e52660 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Pempheris-victoriae-null ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Pempheris victoriae null" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/9a5e184c-addc-44b4-be7d-a616aabd3833 schema:temporal _:b625e424b10b81c5787550cd2a783223 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 ;
+	a tern:Observation .
+_:b5a0ce1e8bd8eb8db6f412f06b7c0867 time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+_:acd923b7f656ae842aec45e0a0bff146 geo:hasMetricSpatialAccuracy "100"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.06997 147.75991)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 geo:hasGeometry _:acd923b7f656ae842aec45e0a0bff146 ;
+	prov:wasAssociatedWith bdr-ds:person\/1cc0f1bfe6e2ff80 ;
+	tern:locationDescription "Peacock Bay Prime Seal Id" ;
+	tern:featureType tern-cv:2361dea8-598c-4b6f-a641-2b98ff199e9e ;
+	schema:spatial _:acd923b7f656ae842aec45e0a0bff146 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:b5a0ce1e8bd8eb8db6f412f06b7c0867 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/7f0a5b8c-8770-4b34-9a10-7f38de535dab schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "7f0a5b8c-8770-4b34-9a10-7f38de535dab"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/7f0a5b8c-8770-4b34-9a10-7f38de535dab ;
+	a defn:abis\/BiodiversityRecord .
+_:fcd4042697b3565fe7c8e59dd7f2e002 time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+_:fd5009848e8fd33a486d1b37c94be511 time:inXSDDate "2008-10-17"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Notodesmus-scotius-Chamberlin-1920 rdfs:label "scientificName" ;
+	rdf:value "Notodesmus scotius Chamberlin, 1920" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/7f0a5b8c-8770-4b34-9a10-7f38de535dab schema:temporal _:fcd4042697b3565fe7c8e59dd7f2e002 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/7f0a5b8c-8770-4b34-9a10-7f38de535dab ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/7f0a5b8c-8770-4b34-9a10-7f38de535dab schema:temporal _:fd5009848e8fd33a486d1b37c94be511 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Notodesmus-scotius-Chamberlin-1920 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Notodesmus scotius Chamberlin, 1920" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/7f0a5b8c-8770-4b34-9a10-7f38de535dab ;
+	a tern:Observation .
+bdr-ds:taxa\/af194248-6cf5-5e2b-8e32-c6062da1f544 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/afd/70839357> .
+_:c236593d64bc2499244bff08c55aca8b time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+_:b33840ca08ab89ae758f238b593b6164 geo:hasMetricSpatialAccuracy "5000"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.06911 147.75404)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/7f0a5b8c-8770-4b34-9a10-7f38de535dab dwciri:toTaxon bdr-ds:taxa\/af194248-6cf5-5e2b-8e32-c6062da1f544 ;
+	geo:hasGeometry _:b33840ca08ab89ae758f238b593b6164 ;
+	prov:wasAssociatedWith bdr-ds:person\/e008f4c26b1d253d ;
+	tern:locationDescription "Prime Seal Id" ;
+	tern:featureType tern-cv:2361dea8-598c-4b6f-a641-2b98ff199e9e ;
+	schema:spatial _:b33840ca08ab89ae758f238b593b6164 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:c236593d64bc2499244bff08c55aca8b ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/35b79c44-e388-445c-80f6-4c3de2489b41 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "35b79c44-e388-445c-80f6-4c3de2489b41"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/35b79c44-e388-445c-80f6-4c3de2489b41 ;
+	a defn:abis\/BiodiversityRecord .
+_:f5bfccdacef2fc5ec3860787759cd92 time:inXSDDate "2008-10-16"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:af7ee7cd93bbd2079193b0e6351d91a6 time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Beyeria-lechenaultii-DC-Baill rdfs:label "scientificName" ;
+	rdf:value "Beyeria lechenaultii (DC.) Baill." ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/35b79c44-e388-445c-80f6-4c3de2489b41 schema:temporal _:f5bfccdacef2fc5ec3860787759cd92 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Beyeria-lechenaultii-DC-Baill ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Beyeria lechenaultii (DC.) Baill." ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/35b79c44-e388-445c-80f6-4c3de2489b41 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/35b79c44-e388-445c-80f6-4c3de2489b41 schema:temporal _:af7ee7cd93bbd2079193b0e6351d91a6 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/35b79c44-e388-445c-80f6-4c3de2489b41 ;
+	a tern:Observation .
+bdr-ds:taxa\/e785c656-79bf-51b8-a1af-42c7024d54b2 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/apni/51435461> .
+_:f819c550c7d9b4008cd9254c08a30815 time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+_:abd4e27746822ca51592118cb53dbf7 geo:hasMetricSpatialAccuracy "5"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.08009 147.75261)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/35b79c44-e388-445c-80f6-4c3de2489b41 dwciri:toTaxon bdr-ds:taxa\/e785c656-79bf-51b8-a1af-42c7024d54b2 ;
+	geo:hasGeometry _:abd4e27746822ca51592118cb53dbf7 ;
+	prov:wasAssociatedWith bdr-ds:person\/493c4bd2c0254e67 ;
+	tern:locationDescription "Prime Seal Island" ;
+	tern:featureType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+	schema:spatial _:abd4e27746822ca51592118cb53dbf7 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:f819c550c7d9b4008cd9254c08a30815 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/e4bfb51c-4714-4cc6-9251-fff117c693b7 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "e4bfb51c-4714-4cc6-9251-fff117c693b7"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e4bfb51c-4714-4cc6-9251-fff117c693b7 ;
+	a defn:abis\/BiodiversityRecord .
+_:c31b4e6671fcd1fa4cb81443f699374e time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+_:cea0f778e030937a32fb86722f197ea9 time:inXSDDate "2008-10-16"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Helichrysum-leucopsideum-DC rdfs:label "scientificName" ;
+	rdf:value "Helichrysum leucopsideum DC." ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/e4bfb51c-4714-4cc6-9251-fff117c693b7 schema:temporal _:c31b4e6671fcd1fa4cb81443f699374e ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e4bfb51c-4714-4cc6-9251-fff117c693b7 ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/e4bfb51c-4714-4cc6-9251-fff117c693b7 schema:temporal _:cea0f778e030937a32fb86722f197ea9 ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Helichrysum-leucopsideum-DC ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Helichrysum leucopsideum DC." ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e4bfb51c-4714-4cc6-9251-fff117c693b7 ;
+	a tern:Observation .
+bdr-ds:taxa\/3c5c440f-a8c0-5cd4-b14a-f961faef39a6 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/apni/737455> .
+_:a1a17d9f6d1a2186dfdc897ff6f35881 time:inXSDDate "2008-10-16"^^xsd:date ;
+	a time:Instant .
+_:bab87fb018b6b137b9a50c1feb02da88 geo:hasMetricSpatialAccuracy "5"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.08009 147.75261)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e4bfb51c-4714-4cc6-9251-fff117c693b7 dwciri:toTaxon bdr-ds:taxa\/3c5c440f-a8c0-5cd4-b14a-f961faef39a6 ;
+	geo:hasGeometry _:bab87fb018b6b137b9a50c1feb02da88 ;
+	prov:wasAssociatedWith bdr-ds:person\/493c4bd2c0254e67 ;
+	tern:locationDescription "Prime Seal Island" ;
+	tern:featureType tern-cv:b311c0d3-4a1a-4932-a39c-f5cdc1afa611 ;
+	schema:spatial _:bab87fb018b6b137b9a50c1feb02da88 ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:a1a17d9f6d1a2186dfdc897ff6f35881 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/biodiversityRecord\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	schema:identifier "e5ac9415-ca36-4cfb-9b7b-b67cbac4902c"^^bdr-ds:datatypes\/recordID\/NVA ;
+	schema:about bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c ;
+	a defn:abis\/BiodiversityRecord .
+bdr-ds:occurrence-collection\/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	rdfs:member bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/8d9d3bcc-84d4-40a5-8573-ec299003f4de , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/7f0a5b8c-8770-4b34-9a10-7f38de535dab , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/35b79c44-e388-445c-80f6-4c3de2489b41 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e4bfb51c-4714-4cc6-9251-fff117c693b7 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c ;
+	a geo:FeatureCollection .
+bdr-ds:feature-collection\/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	rdfs:member bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/63893afc-00de-4b83-ae6c-c22f84f4c7ab , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/8d9d3bcc-84d4-40a5-8573-ec299003f4de , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/9a5e184c-addc-44b4-be7d-a616aabd3833 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/7f0a5b8c-8770-4b34-9a10-7f38de535dab , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/35b79c44-e388-445c-80f6-4c3de2489b41 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e4bfb51c-4714-4cc6-9251-fff117c693b7 , bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c ;
+	a geo:FeatureCollection .
+_:bb6b19e3891dc91d4496d351f4a0fb9f time:inXSDDate "2008-10-17"^^xsd:date ;
+	rdfs:comment "Date unknown, template eventDateStart used as proxy" ;
+	a time:Instant .
+_:bb4b6637b2c2b37c5f689091897305ab time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Stanwellia-pexa-Hickman-1930 rdfs:label "scientificName" ;
+	rdf:value "Stanwellia pexa (Hickman, 1930)" ;
+	tern:featureType tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a tern:Text , tern:Value , tern:FeatureOfInterest .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present rdfs:label "occurrenceStatus = Present" ;
+	rdf:value tern-cv:a2fb93cd-ad72-4c15-b23b-14882c2418c2 ;
+	a tern:IRI , tern:Value .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/scientificName\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c schema:temporal _:bb6b19e3891dc91d4496d351f4a0fb9f ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:56195246-ec5d-4050-a1c6-af786fbec715 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/scientificName\/Stanwellia-pexa-Hickman-1930 ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Stanwellia pexa (Hickman, 1930)" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c ;
+	a tern:Observation .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/observation\/occurrenceStatus\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c schema:temporal _:bb4b6637b2c2b37c5f689091897305ab ;
+	<http://www.w3.org/ns/sosa/observedProperty> tern-cv:835d7166-2a4d-4335-9d39-8082ff201811 ;
+	<http://www.w3.org/ns/sosa/hasResult> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/result\/occurrenceStatus\/Present ;
+	<http://www.w3.org/ns/sosa/hasSimpleResult> "Present" ;
+	<http://www.w3.org/ns/sosa/hasFeatureOfInterest> bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c ;
+	a tern:Observation .
+bdr-ds:taxa\/1fb465d1-6b3d-5112-800e-c11a6c7df8e6 dwc:acceptedNameUsageID <https://id.biodiversity.org.au/instance/afd/70876025> .
+_:ed2207f3e1fff2fff047d8f6bf0a6870 time:inXSDDate "2008-10-17"^^xsd:date ;
+	a time:Instant .
+_:c31352cba14ebecfb47b4af14633aaee geo:hasMetricSpatialAccuracy "5000"^^xsd:double ;
+	geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/7844> POINT (-40.06911 147.75404)"^^geo:wktLiteral ;
+	a geo:Geometry .
+bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8\/occurrence\/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c dwciri:toTaxon bdr-ds:taxa\/1fb465d1-6b3d-5112-800e-c11a6c7df8e6 ;
+	geo:hasGeometry _:c31352cba14ebecfb47b4af14633aaee ;
+	prov:wasAssociatedWith bdr-ds:person\/e008f4c26b1d253d ;
+	tern:locationDescription "Prime Seal Id" ;
+	tern:featureType tern-cv:2361dea8-598c-4b6f-a641-2b98ff199e9e ;
+	schema:spatial _:c31352cba14ebecfb47b4af14633aaee ;
+	<http://www.w3.org/ns/sosa/usedProcedure> tern-cv:fd083167-3cbf-4f7e-a611-4550a5926a8b ;
+	void:inDataset bdr-ds:submission\/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36 ;
+	schema:temporal _:ed2207f3e1fff2fff047d8f6bf0a6870 ;
+	schema:isPartOf bdr-ds:7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8 ;
+	a geo:Feature , dwc:Occurrence , tern:FeatureOfInterest .

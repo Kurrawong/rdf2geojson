@@ -38,12 +38,16 @@ except ImportError:
 
 TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
 PREZ = Namespace("https://prez.dev/")
+DWC = Namespace("http://rs.tdwg.org/dwc/terms/")
+DWCIRI = Namespace("http://rs.tdwg.org/dwc/iri/")
+OLIS = Namespace("https://olis.dev/")
 SCHEMA = SDO
 GEO_Feature = GEO.Feature
 GEO_hasGeometry = GEO.hasGeometry
 PrezFocusNode = PREZ.FocusNode
 PrezType = PREZ.type
 PrezLabel = PREZ.label
+PrezValue = PREZ.value
 RDFType = RDF.type
 
 observation_temporal_predicates = [SCHEMA.temporal, SOSA.phenomenonTime, TERN.resultDateTime, SOSA.resultTime]
@@ -1040,6 +1044,23 @@ def get_converted_features(
                         p_key = str(p_key)
                 props[p_key] = p_value
                 continue
+            elif pred == DWCIRI.toTaxon:
+                the_taxon_node = obj
+                taxon_pairs = {}
+                for p2, o2 in g.predicate_objects(the_taxon_node):
+                    taxon_pairs[p2] = o2
+                if len(taxon_pairs) > 0:
+                    prop_contexts["dwc"] = str(DWC)
+                    taxon_json_pairs = {}
+                    for taxon_p, taxon_o in taxon_pairs.items():
+                        prefix_pair, name = make_json_key_from_iri(taxon_p, g.namespace_manager)
+                        if prefix_pair is not None:
+                            prefix_ns, prefix_name = prefix_pair
+                            prop_contexts[prefix_name] = prefix_ns
+                            name = f"{prefix_name}:{name}"
+                        taxon_json_pairs[name] = make_json_representation_of_obj(g, taxon_o)
+                    props["dwc:taxon"] = taxon_json_pairs
+                continue
             elif pred == TERN.hasAttribute:
                 # This is the TERN version of a Key-Value pair
                 attribute_list.append(_extract_attribute(g, obj, prop_contexts))
@@ -1204,6 +1225,18 @@ def get_converted_features_for_human(
                 continue
             elif pred == SOSA.usedProcedure:
                 procedure_uri, procedure_str = _get_procedure_from_activity(g, f, [obj])
+                continue
+            elif pred == DWCIRI.toTaxon:
+                the_taxon_node = obj
+                for p2, o2 in g.predicate_objects(the_taxon_node):
+                    if p2 == DWC.acceptedNameUsageID:
+                        props_dict_lists["acceptedNameUsage"].append(str(o2))
+                    elif p2 == DWC.originalNameUsageID:
+                        props_dict_lists["originalNameUsage"].append(str(o2))
+                    elif p2 == DWC.parentNameUsageID:
+                        props_dict_lists["parentNameUsage"].append(str(o2))
+                    # Only do one taxon link per feature.
+                    break
                 continue
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 

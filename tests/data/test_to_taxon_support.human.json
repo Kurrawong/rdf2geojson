@@ -1,0 +1,302 @@
+{
+    "type": "FeatureCollection",
+    "id": "7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8",
+    "metadata": {
+        "isPartOf": "Prime Seal Island 2008",
+        "uri": "https://linked.data.gov.au/dataset/bdr/occurrence-collection/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8"
+    },
+    "title": "All Occurrence features in BDR Dataset 7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "63893afc-00de-4b83-ae6c-c22f84f4c7ab",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75991,
+                    -40.06997
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/afd/70790261",
+                "wasAssociatedWith": "Nick Mooney",
+                "locationDescription": "Peacock Bay Prime Seal Id",
+                "featureType": "animal occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-16",
+                "scientific name": "Bovichtus angustifrons Regan, 1913",
+                "individual count": "50",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/63893afc-00de-4b83-ae6c-c22f84f4c7ab",
+                "ewkt": "SRID=7844; POINT (-40.06997 147.75991)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ae206d49-d96c-4d44-8b1c-a9cfbbfdc097",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.77519,
+                    -40.04838
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/apni/774747",
+                "wasAssociatedWith": "Micah Visoiu",
+                "locationDescription": "Prime Seal Island",
+                "featureType": "plant occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-15",
+                "occurrence status": "Present",
+                "scientific name": "Ficinia nodosa (Rottb.) Goetgh., Muasya & D.A.Simpson",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097",
+                "ewkt": "SRID=7844; POINT (-40.04838 147.77519)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75635,
+                    -40.06549
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/afd/70865497",
+                "wasAssociatedWith": "Nick Mooney",
+                "locationDescription": "Prime Seal Id",
+                "featureType": "animal occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-17",
+                "occurrence status": "Present",
+                "scientific name": "Zosterops lateralis (Latham, 1801)",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17",
+                "ewkt": "SRID=7844; POINT (-40.06549 147.75635)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "528b8ddc-5a6f-4c03-b5c4-86ed376efbf7",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75841,
+                    -40.07106
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/apni/615998",
+                "wasAssociatedWith": "Micah Visoiu",
+                "locationDescription": "Prime Seal Island",
+                "featureType": "plant occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-18",
+                "scientific name": "Cotula australis (Sieber ex Spreng.) Hook.f.",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7",
+                "ewkt": "SRID=7844; POINT (-40.07106 147.75841)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8d9d3bcc-84d4-40a5-8573-ec299003f4de",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75404,
+                    -40.06911
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/afd/70863264",
+                "wasAssociatedWith": "Kevin J Bonham, Abbey C Throssell",
+                "locationDescription": "Prime Seal Id",
+                "featureType": "animal occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-17",
+                "scientific name": "Oonops pulcher Templeton, 1835",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/8d9d3bcc-84d4-40a5-8573-ec299003f4de",
+                "ewkt": "SRID=7844; POINT (-40.06911 147.75404)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "9a5e184c-addc-44b4-be7d-a616aabd3833",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75991,
+                    -40.06997
+                ]
+            },
+            "properties": {
+                "wasAssociatedWith": "Nick Mooney",
+                "locationDescription": "Peacock Bay Prime Seal Id",
+                "featureType": "animal occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-16",
+                "individual count": "6",
+                "scientific name": "Pempheris victoriae null",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/9a5e184c-addc-44b4-be7d-a616aabd3833",
+                "ewkt": "SRID=7844; POINT (-40.06997 147.75991)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "7f0a5b8c-8770-4b34-9a10-7f38de535dab",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75404,
+                    -40.06911
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/afd/70839357",
+                "wasAssociatedWith": "Kevin J Bonham, Abbey C Throssell",
+                "locationDescription": "Prime Seal Id",
+                "featureType": "animal occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-17",
+                "scientific name": "Notodesmus scotius Chamberlin, 1920",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/7f0a5b8c-8770-4b34-9a10-7f38de535dab",
+                "ewkt": "SRID=7844; POINT (-40.06911 147.75404)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "35b79c44-e388-445c-80f6-4c3de2489b41",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75261,
+                    -40.08009
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/apni/51435461",
+                "wasAssociatedWith": "Micah Visoiu",
+                "locationDescription": "Prime Seal Island",
+                "featureType": "plant occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-16",
+                "scientific name": "Beyeria lechenaultii (DC.) Baill.",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/35b79c44-e388-445c-80f6-4c3de2489b41",
+                "ewkt": "SRID=7844; POINT (-40.08009 147.75261)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "e4bfb51c-4714-4cc6-9251-fff117c693b7",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75261,
+                    -40.08009
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/apni/737455",
+                "wasAssociatedWith": "Micah Visoiu",
+                "locationDescription": "Prime Seal Island",
+                "featureType": "plant occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-16",
+                "occurrence status": "Present",
+                "scientific name": "Helichrysum leucopsideum DC.",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/e4bfb51c-4714-4cc6-9251-fff117c693b7",
+                "ewkt": "SRID=7844; POINT (-40.08009 147.75261)"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "e5ac9415-ca36-4cfb-9b7b-b67cbac4902c",
+            "geometry": {
+                "type": "Point",
+                "meta": {
+                    "srid": 7844
+                },
+                "coordinates": [
+                    147.75404,
+                    -40.06911
+                ]
+            },
+            "properties": {
+                "acceptedNameUsage": "https://id.biodiversity.org.au/instance/afd/70876025",
+                "wasAssociatedWith": "Kevin J Bonham, Abbey C Throssell",
+                "locationDescription": "Prime Seal Id",
+                "featureType": "animal occurrence",
+                "inDataset": "https://linked.data.gov.au/dataset/bdr/submission/dbdc0662-9d3f-4367-8dd8-48b6abd8cb36",
+                "isPartOf": "Prime Seal Island 2008",
+                "type": "Occurrence; Feature of Interest",
+                "datetime": "2008-10-17",
+                "scientific name": "Stanwellia pexa (Hickman, 1930)",
+                "occurrence status": "Present",
+                "usedProcedure": "Unspecified Method",
+                "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c",
+                "ewkt": "SRID=7844; POINT (-40.06911 147.75404)"
+            }
+        }
+    ]
+}
