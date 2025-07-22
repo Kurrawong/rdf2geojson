@@ -290,6 +290,8 @@ def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dic
     for pred, obj in g.predicate_objects(obs):
         if pred == SOSA.hasMember:
             members.append(_extract_observation(g, obj, prop_contexts))
+        elif pred == PrezLabel or pred == PrezValue:
+            continue # We don't need these special prez-specific properties in the JSON
         else:
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
             if prefix_pair is not None:
@@ -305,6 +307,8 @@ def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dic
             if pred == TERN.hasAttribute:
                 attribute_list_name = name
                 attribute_list.append(_extract_attribute(g, obj, prop_contexts))
+            elif pred == SOSA.hasResult:
+                obs_dict[name] = _extract_obs_result(g, obj, prop_contexts)
             elif isinstance(obj, BNode):
                 obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
@@ -315,6 +319,43 @@ def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dic
             obs_dict["sosa:hasMember"] = members
     return obs_dict
 
+def _extract_obs_result(
+    g: SourceGraph, attr: URIRef | BNode, prop_contexts: dict
+) -> dict | URIRef:
+    pred_ob_list = list(g.predicate_objects(attr))
+    if isinstance(attr, URIRef):
+        if len(pred_ob_list) == 0:
+            return attr
+        obs_dict = {"rdf:subject": str(attr)}
+    else:
+        obs_dict = {}
+    fallback_value = None
+    fallback_label = None
+    for pred, obj in pred_ob_list:
+        prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+        if prefix_pair is not None:
+            use_prefix = True
+            prefix_ns, prefix_name = prefix_pair
+            if prefix_name in prop_contexts:
+                if prefix_ns != prop_contexts[prefix_name]:
+                    # conflicting prefix with one that's already in there
+                    use_prefix = False
+            if use_prefix:
+                prop_contexts[prefix_name] = prefix_ns
+                name = f"{prefix_name}:{name}"
+        if pred == PrezValue:
+            fallback_value = make_json_representation_of_obj(g, obj)
+        elif pred == PrezLabel:
+            fallback_label = str(obj)
+        elif isinstance(obj, BNode):
+            obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
+        else:
+            obs_dict[name] = make_json_representation_of_obj(g, obj)
+    if "rdf:value" not in obs_dict and fallback_value is not None:
+        obs_dict["rdf:value"] = fallback_value
+    if "rdfs:label" not in obs_dict and fallback_label is not None:
+        obs_dict["rdfs:label"] = fallback_label
+    return obs_dict
 
 def _extract_attribute(
     g: SourceGraph, attr: URIRef | BNode, prop_contexts: dict
@@ -357,7 +398,8 @@ def _extract_attribute_value(
         obs_dict = {"rdf:subject": str(attr)}
     else:
         obs_dict = {}
-
+    fallback_value = None
+    fallback_label = None
     for pred, obj in pred_ob_list:
         prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
         if prefix_pair is not None:
@@ -370,11 +412,18 @@ def _extract_attribute_value(
             if use_prefix:
                 prop_contexts[prefix_name] = prefix_ns
                 name = f"{prefix_name}:{name}"
-
-        if isinstance(obj, BNode):
+        if pred == PrezValue:
+            fallback_value = make_json_representation_of_obj(g, obj)
+        elif pred == PrezLabel:
+            fallback_label = str(obj)
+        elif isinstance(obj, BNode):
             obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
         else:
             obs_dict[name] = make_json_representation_of_obj(g, obj)
+    if "rdf:value" not in obs_dict and fallback_value is not None:
+        obs_dict["rdf:value"] = fallback_value
+    if "rdfs:label" not in obs_dict and fallback_label is not None:
+        obs_dict["rdfs:label"] = fallback_label
     return obs_dict
 
 def _get_annotation_label(g: SourceGraph, labelled_node: Union[URIRef,BNode]) -> Union[str, None]:
@@ -903,6 +952,7 @@ def get_converted_features(
         centroid = None
         bounding_box = None
         geoms: list[list] = []
+        types: list[URIRef] = []
         props = {}
         extras = {}
         attribute_list = []
@@ -922,6 +972,8 @@ def get_converted_features(
                 if obj in [PrezFocusNode, GEO_Feature]:
                     # Don't include FocusNode or GeoFeature in the list of RDF types, they are both implied
                     continue
+                types.append(obj)
+                continue
             elif pred == PrezType:
                 # Don't include PrezType in the list of properties, it is a hidden property
                 continue
@@ -1017,6 +1069,8 @@ def get_converted_features(
 
         # ID is not the same as IRI, so put iri in the properties
         props["rdf:subject"] = str(f)
+        if types:
+            props["rdf:type"] = [str(t) for t in types]
         if "title" not in extras and anot is not None:
             extras["title"] = anot
         if len(prop_contexts) > 0:
@@ -1291,8 +1345,8 @@ def get_converted_features_for_human(
             use_geo_literal, use_geometry = bounding_box[0]
         elif centroid is not None:
             use_geo_literal, use_geometry = centroid[0]
-        if use_geo_literal is not None and "wkt" not in props:
-            props["wkt"] = geosparql_wkt_to_ewkt(str(use_geo_literal))
+        if use_geo_literal is not None and "ewkt" not in props:
+            props["ewkt"] = geosparql_wkt_to_ewkt(str(use_geo_literal))
         if use_geometry is not None:
             fs.append(Feature(_id, geometry=use_geometry, properties=props, **extras))
 
