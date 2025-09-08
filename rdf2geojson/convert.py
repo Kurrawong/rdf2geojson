@@ -327,10 +327,10 @@ def _extract_schema_collection(g: SourceGraph, collection: URIRef | BNode, prop_
                 coll_dict[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
                 coll_dict[name] = make_json_representation_of_obj(g, obj)
-        if len(attribute_list) > 0:
-            coll_dict[attribute_list_name] = attribute_list
-        if len(has_parts_list) > 0:
-            coll_dict[has_parts_list_name] = has_parts_list
+    if len(attribute_list) > 0:
+        coll_dict[attribute_list_name] = attribute_list
+    if len(has_parts_list) > 0:
+        coll_dict[has_parts_list_name] = has_parts_list
     return coll_dict
 
 
