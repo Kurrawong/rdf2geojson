@@ -77,9 +77,16 @@ def test_big_observation_collection():
         with open(rdf_file.with_suffix(".json"), "w") as f2:
             dump(gj, f2, indent=4)
 
-def test_big_observation_collection_with_attributes():
+def test_big_observation_collection_with_attributes_human():
         rdf_file = TEST_DATA_DIR / "test_big_observation_collection_attributes.ttl"
-        gj = convert(Graph().parse(rdf_file), do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"))
+        gj = convert(Graph().parse(rdf_file), do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f"))
+        from geojson import dump
+        with open(rdf_file.with_suffix(".human.json"), "w") as f2:
+            dump(gj, f2, indent=4)
+
+def test_big_observation_collection_with_attributes_machine():
+        rdf_file = TEST_DATA_DIR / "test_big_observation_collection_attributes.ttl"
+        gj = convert(Graph().parse(rdf_file), do_validate=False, kind="machine", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f"))
         from geojson import dump
         with open(rdf_file.with_suffix(".json"), "w") as f2:
             dump(gj, f2, indent=4)
@@ -90,9 +97,9 @@ def test_big_observation_collection_with_attributes_oxigraph():
         from pyoxigraph import Store, RdfFormat
         store = Store()
         store.bulk_load(None, format=RdfFormat.TURTLE, path=str(rdf_file))
-        gj = convert(store, do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/632b575b-b7eb-4804-918e-af7c65a3e4a5"), namespace_manager=g.namespace_manager)
+        gj = convert(store, do_validate=False, kind="human", fc_uri=URIRef("https://linked.data.gov.au/dataset/bdr/occurrence-collection/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f"), namespace_manager=g.namespace_manager)
         from geojson import dump
-        with open(rdf_file.with_suffix(".json"), "w") as f2:
+        with open(rdf_file.with_suffix(".oxigraph.json"), "w") as f2:
             dump(gj, f2, indent=4)
 
 def test_to_taxon_support_human():

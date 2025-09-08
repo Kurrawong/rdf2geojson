@@ -29,9 +29,9 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
-                "scientific name": "Bovichtus angustifrons Regan, 1913",
-                "individual count": "50",
                 "occurrence status": "Present",
+                "individual count": "50",
+                "scientific name": "Bovichtus angustifrons Regan, 1913",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/63893afc-00de-4b83-ae6c-c22f84f4c7ab",
                 "ewkt": "SRID=7844; POINT (-40.06997 147.75991)"
@@ -59,8 +59,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-15",
-                "occurrence status": "Present",
                 "scientific name": "Ficinia nodosa (Rottb.) Goetgh., Muasya & D.A.Simpson",
+                "occurrence status": "Present",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/ae206d49-d96c-4d44-8b1c-a9cfbbfdc097",
                 "ewkt": "SRID=7844; POINT (-40.04838 147.77519)"
@@ -117,8 +117,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-18",
-                "scientific name": "Cotula australis (Sieber ex Spreng.) Hook.f.",
                 "occurrence status": "Present",
+                "scientific name": "Cotula australis (Sieber ex Spreng.) Hook.f.",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/528b8ddc-5a6f-4c03-b5c4-86ed376efbf7",
                 "ewkt": "SRID=7844; POINT (-40.07106 147.75841)"
@@ -174,9 +174,9 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
-                "individual count": "6",
-                "scientific name": "Pempheris victoriae null",
                 "occurrence status": "Present",
+                "scientific name": "Pempheris victoriae null",
+                "individual count": "6",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/9a5e184c-addc-44b4-be7d-a616aabd3833",
                 "ewkt": "SRID=7844; POINT (-40.06997 147.75991)"
@@ -204,8 +204,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-17",
-                "scientific name": "Notodesmus scotius Chamberlin, 1920",
                 "occurrence status": "Present",
+                "scientific name": "Notodesmus scotius Chamberlin, 1920",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/7f0a5b8c-8770-4b34-9a10-7f38de535dab",
                 "ewkt": "SRID=7844; POINT (-40.06911 147.75404)"
@@ -262,8 +262,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
-                "occurrence status": "Present",
                 "scientific name": "Helichrysum leucopsideum DC.",
+                "occurrence status": "Present",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/e4bfb51c-4714-4cc6-9251-fff117c693b7",
                 "ewkt": "SRID=7844; POINT (-40.08009 147.75261)"

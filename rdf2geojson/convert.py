@@ -42,6 +42,9 @@ DWC = Namespace("http://rs.tdwg.org/dwc/terms/")
 DWCIRI = Namespace("http://rs.tdwg.org/dwc/iri/")
 OLIS = Namespace("https://olis.dev/")
 SCHEMA = SDO
+SCHEMA_Collection = SDO.Collection
+SCHEMA_hasPart = SDO.hasPart
+SCHEMA_isPartOf = SDO.isPartOf
 GEO_Feature = GEO.Feature
 GEO_hasGeometry = GEO.hasGeometry
 PrezFocusNode = PREZ.FocusNode
@@ -282,33 +285,87 @@ def _extract_additional_property(g: SourceGraph, pred, obj) -> tuple[Union[str, 
         value = "error: Could not find a value for additionalProperty"
     return key_name, value
 
+def _extract_schema_collection(g: SourceGraph, collection: URIRef | BNode, prop_contexts: dict) -> dict:
+    if isinstance(collection, URIRef):
+        coll_dict: dict[str, Any] = {"rdf:subject": str(collection)}
+    else:
+        coll_dict = {}
+    attribute_list = []
+    attribute_list_name = "attributes"
+    has_parts_list = []
+    has_parts_list_name = "hasParts"
+    json_key_name_cache = {}
+    for pred, obj in g.predicate_objects(collection):
+        if pred == PrezLabel or pred == PrezValue:
+            continue # We don't need these special prez-specific properties in the machine-readable JSON
+        else:
+            name: str
+            if (cache_lookup := json_key_name_cache.get(pred, None)) is not None:
+                name = cache_lookup
+            else:
+                prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+                if prefix_pair is not None:
+                    use_prefix = True
+                    prefix_ns, prefix_name = prefix_pair
+                    if prefix_name in prop_contexts:
+                        if prefix_ns != prop_contexts[prefix_name]:
+                            # conflicting prefix with one that's already in there
+                            use_prefix = False
+                    if use_prefix:
+                        prop_contexts[prefix_name] = prefix_ns
+                        name = f"{prefix_name}:{name}"
+            if pred == SCHEMA.hasPart:
+                has_parts_list_name = name
+                if isinstance(obj, BNode):
+                    has_parts_list.append(g.bnode_to_dict(obj, prop_contexts))
+                else:
+                    has_parts_list.append(make_json_representation_of_obj(g, obj))
+            elif pred == TERN.hasAttribute:
+                attribute_list_name = name
+                attribute_list.append(_extract_attribute(g, obj, prop_contexts))
+            elif isinstance(obj, BNode):
+                coll_dict[name] = g.bnode_to_dict(obj, prop_contexts)
+            else:
+                coll_dict[name] = make_json_representation_of_obj(g, obj)
+    if len(attribute_list) > 0:
+        coll_dict[attribute_list_name] = attribute_list
+    if len(has_parts_list) > 0:
+        coll_dict[has_parts_list_name] = has_parts_list
+    return coll_dict
+
 
 def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dict) -> dict:
     if isinstance(obs, URIRef):
-        obs_dict = {"rdf:subject": str(obs)}
+        obs_dict: dict[str, Any] = {"rdf:subject": str(obs)}
     else:
         obs_dict = {}
     members = []  # this could be an observationCollection too
+    has_member_name = "hasMembers"
     attribute_list = []
     attribute_list_name = "attributes"
+    json_key_name_cache = {}
     for pred, obj in g.predicate_objects(obs):
-        if pred == SOSA.hasMember:
-            members.append(_extract_observation(g, obj, prop_contexts))
-        elif pred == PrezLabel or pred == PrezValue:
+        if pred == PrezLabel or pred == PrezValue:
             continue # We don't need these special prez-specific properties in the JSON
         else:
-            prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
-            if prefix_pair is not None:
-                use_prefix = True
-                prefix_ns, prefix_name = prefix_pair
-                if prefix_name in prop_contexts:
-                    if prefix_ns != prop_contexts[prefix_name]:
-                        # conflicting prefix with one that's already in there
-                        use_prefix = False
-                if use_prefix:
-                    prop_contexts[prefix_name] = prefix_ns
-                    name = f"{prefix_name}:{name}"
-            if pred == TERN.hasAttribute:
+            if (cache_lookup := json_key_name_cache.get(pred, None)) is not None:
+                name = cache_lookup
+            else:
+                prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
+                if prefix_pair is not None:
+                    use_prefix = True
+                    prefix_ns, prefix_name = prefix_pair
+                    if prefix_name in prop_contexts:
+                        if prefix_ns != prop_contexts[prefix_name]:
+                            # conflicting prefix with one that's already in there
+                            use_prefix = False
+                    if use_prefix:
+                        prop_contexts[prefix_name] = prefix_ns
+                        name = f"{prefix_name}:{name}"
+            if pred == SOSA.hasMember:
+                has_member_name = name
+                members.append(_extract_observation(g, obj, prop_contexts))
+            elif pred == TERN.hasAttribute:
                 attribute_list_name = name
                 attribute_list.append(_extract_attribute(g, obj, prop_contexts))
             elif pred == SOSA.hasResult:
@@ -317,10 +374,10 @@ def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dic
                 obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
                 obs_dict[name] = make_json_representation_of_obj(g, obj)
-        if len(attribute_list) > 0:
-            obs_dict[attribute_list_name] = attribute_list
-        if len(members) > 0:
-            obs_dict["sosa:hasMember"] = members
+    if len(attribute_list) > 0:
+        obs_dict[attribute_list_name] = attribute_list
+    if len(members) > 0:
+        obs_dict[has_member_name] = members
     return obs_dict
 
 def _extract_obs_result(
@@ -766,6 +823,36 @@ def _hoist_and_flatten_observation(
                 this_observation_flattened_dict[f"{use_label} ({f_attr_k})"] = v
     return this_observation_flattened_dict
 
+@lru_cache(maxsize=128)
+def _get_flattened_schema_collection_properties(g, collection) -> dict[str, Any]:
+    time_string: Optional[str] = None
+    for tp in observation_temporal_predicates:
+        if temporal_matches := list(g.objects(collection, tp)):
+            time_string = temporal_to_string(g, temporal_matches[0])
+            break
+
+    procedure_string: Optional[str]
+    procedure_uri: Optional[URIRef|BNode]
+    procedure_uri, procedure_string = _get_procedure_from_activity(g, collection)
+    flattened_attributes = {}
+    if has_attributes := list(g.objects(collection, TERN.hasAttribute)):
+        for has_attribute in has_attributes:
+            a_flat = _hoist_attribute(g, has_attribute)
+            flattened_attributes[has_attribute] = a_flat
+    schema_name = None
+    if schema_names := list(g.objects(collection, SCHEMA.name)):
+        schema_name = str(schema_names[0])
+    ret = {}
+    if schema_name is not None:
+        ret["name"] = schema_name
+    if time_string is not None:
+        ret["time"] = time_string
+    if procedure_uri is not None and procedure_string is not None:
+        ret["procedure"] = (procedure_uri, procedure_string)
+    if flattened_attributes:
+        ret["attributes"] = flattened_attributes
+    return ret
+
 def get_features_collections(
     g: SourceGraph, fc_uri: Optional[URIRef] = None,
     iri2id: Optional[Callable[[URIRef], str]] = None
@@ -963,6 +1050,8 @@ def get_converted_features(
         _id = None
         prop_contexts = {}
         associated_observations = set()
+        in_schema_collections = set()
+        is_part_of = set()
         anot = None
         if iri2id is not None:
             _id = iri2id(f)
@@ -983,6 +1072,14 @@ def get_converted_features(
                 continue
             elif pred == PrezLabel:
                 anot = str(obj)
+                continue
+            elif pred == SCHEMA_isPartOf:
+                collection_types = list(g.objects(obj, RDFType))
+                if SCHEMA_Collection in collection_types:
+                    in_schema_collections.add(obj)
+                else:
+                    # Not a Schema.org Collection, treat as a normal property
+                    is_part_of.add(obj)
                 continue
             elif pred in (RDFS.label, SKOS.prefLabel) and "title" not in extras:
                 extras["title"] = str(obj)
@@ -1085,10 +1182,41 @@ def get_converted_features(
             for obs in associated_observations:
                 obs_dict = _extract_observation(g, obs, prop_contexts)
                 obs_dict_list.append(obs_dict)
-        if len(attribute_list) > 0:
-            props["tern:hasAttribute"] = attribute_list
 
-        # ID is not the same as IRI, so put iri in the properties
+        has_part_of = set(g.subjects(SCHEMA.hasPart, f))
+        for h in has_part_of:
+            h_types = list(g.objects(h, RDFType))
+            if SCHEMA_Collection in h_types:
+                in_schema_collections.add(h)
+            else:
+                is_part_of.add(h)
+        if is_part_of or in_schema_collections:
+            prefix_pair, name = make_json_key_from_iri(SCHEMA_isPartOf, g.namespace_manager)
+            if prefix_pair is not None:
+                prefix_ns, prefix_name = prefix_pair
+                prop_contexts[prefix_name] = prefix_ns
+                name = f"{prefix_name}:{name}"
+            if name in props:
+                name += "2"
+            if is_part_of:
+                props[name] = is_part_of_list = \
+                    [make_json_representation_of_obj(g, ip) for ip in is_part_of]
+            else:
+                props[name] = is_part_of_list = []
+            
+            if in_schema_collections:
+                is_part_of_list.extend(
+                    _extract_schema_collection(g, isc, prop_contexts) for isc in in_schema_collections
+                )
+        
+        if len(attribute_list) > 0:
+            prefix_pair, name = make_json_key_from_iri(TERN.hasAttribute, g.namespace_manager)
+            if prefix_pair is not None:
+                prefix_ns, prefix_name = prefix_pair
+                prop_contexts[prefix_name] = prefix_ns
+                name = f"{prefix_name}:{name}"
+            props[name] = attribute_list
+        # GeoJSON Feature ID is not the same as IRI, so put iri in the properties
         props["rdf:subject"] = str(f)
         if types:
             props["rdf:type"] = [str(t) for t in types]
@@ -1137,6 +1265,7 @@ def get_converted_features_for_human(
         additional_properties_dict = defaultdict(list)
         associated_observations = set()
         props_dict_lists = defaultdict(list)
+        in_schema_collections = set()
         anot = None
         _id = None
         if iri2id is not None:
@@ -1162,6 +1291,12 @@ def get_converted_features_for_human(
                     extras["title"] = str(obj)
                 additional_properties_dict["label"].append(str(obj))
                 continue 
+            elif pred == SCHEMA_isPartOf:
+                collection_types = list(g.objects(obj, RDFType))
+                if SCHEMA_Collection in collection_types:
+                    in_schema_collections.add(obj)
+                    continue
+                
             elif pred == GEO.hasDefaultGeometry:
                 default_geometry = _extract_geoms(g, pred, obj, with_coords=True)
                 continue
@@ -1273,6 +1408,13 @@ def get_converted_features_for_human(
                 props["datetime"] = "; ".join(known_time_strings)
             else:
                 props["datetime"] = known_time_strings[0]
+        
+        _has_part_of = set(g.subjects(SCHEMA.hasPart, f))
+        for h in _has_part_of:
+            h_types = list(g.objects(h, RDFType))
+            if SCHEMA_Collection in h_types:
+                in_schema_collections.add(h)
+
         feature_properties_for_observations = {"datetime": known_time_strings, "procedure": [procedure_uri, procedure_str]}
         # get observations on the feature
         associated_observations = associated_observations.union(
@@ -1299,7 +1441,7 @@ def get_converted_features_for_human(
                         hoisted_obs_have_collections[obs_ch].append(obs)
                 else:
                     all_hoisted_observations[obs] = hoisted_observation_dict
-        # get the observations that are not part of any collections, these get added directly to the occurrence
+        # get the observations that are not part of any collections, these get added directly to the feature
         direct_hoisted: list = [k for k in all_hoisted_observations.keys() if k not in hoisted_obs_have_collections]
         direct_hoisted_keys: dict[str, Any] = defaultdict(list)
         _ = [direct_hoisted_keys[str_key].append(k) for k in direct_hoisted for str_key in all_hoisted_observations[k].keys()]
@@ -1342,18 +1484,54 @@ def get_converted_features_for_human(
                         observations_dict[use_obs_dict_key].append(v)
                 dumped_hoisted_obs.add(the_hoisted_obs)
 
+        if in_schema_collections:
+            in_collection_str_list = []
+            for isc in in_schema_collections:
+                isc_dict = _get_flattened_schema_collection_properties(g, isc)
+                if (schema_name := isc_dict.get("name", None)) is not None:
+                    use_str = schema_name
+                else:
+                    use_str = str(isc)
+                in_collection_str_list.append(use_str)
+                if (_coll_attributes := isc_dict.get("attributes", None)) is not None:
+                    for (_coll_attribute, _flat_attr) in _coll_attributes.items():
+                        for k, v in _flat_attr.items():
+                            attribute_dict[k].append(v)
+                if procedure_uri is None and procedure_str is None and \
+                    (procs := isc_dict.get("procedure", None)) is not None:
+                    procedure_uri, procedure_str = procs
+                if time_str := isc_dict.get("time", None):
+                    if "datetime" not in props:
+                        props["datetime"] = time_str
+                    elif time_str not in known_time_strings:
+                        props[f"{use_str} (datetime)"] = time_str
+            props["inCollection"] = "; ".join(in_collection_str_list)
+
+
         for (obs_key, obs_values) in observations_dict.items():
-            if obs_key not in props:
-                if len(obs_values) > 1:
-                    props[obs_key] = "; ".join(obs_values)
-                else:
-                    props[obs_key] = obs_values[0]
-        for (attr_key, attr_value) in attribute_dict.items():
-            if attr_key not in props:
-                if len(attr_value) > 1:
-                    props[attr_key] = "; ".join(attr_value)
-                else:
-                    props[attr_key] = attr_value[0]
+            if len(obs_values) == 0:
+                continue
+            elif len(obs_values) > 1:
+                obs_val_str = "; ".join(str(v) for v in obs_values)
+            else:
+                obs_val_str = str(obs_values[0])
+            if obs_key in props:
+                existing_val = props[obs_key]
+                props[obs_key] = f"{existing_val}; {obs_val_str}"
+            else:
+                props[obs_key] = obs_val_str
+        for (attr_key, attr_values) in attribute_dict.items():
+            if len(attr_values) == 0:
+                continue
+            elif len(attr_values) > 1:
+                attr_val_str: str = "; ".join(attr_values)
+            else:
+                attr_val_str = str(attr_values[0])
+            if attr_key in props:
+                existing_val = props[attr_key]
+                props[attr_key] = f"{existing_val}; {attr_val_str}"
+            else:
+                props[attr_key] = attr_val_str
         if "usedProcedure" not in props and "usedProcedure" not in additional_properties_dict and (procedure_str or procedure_uri):
             additional_properties_dict["usedProcedure"] = [procedure_str] if procedure_str is not None else [procedure_uri]
 

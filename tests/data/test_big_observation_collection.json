@@ -25,7 +25,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000032",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/plant-specimen/rsl-mu14-rp1-000032",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -52,7 +52,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000034",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/plant-specimen/rsl-mu14-rp1-000034",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -79,7 +79,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/094c1e0c-6f87-4aa8-950d-712567792c36",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -106,7 +106,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/0acb15c4-318b-4be6-94f4-8270795f3812",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -133,7 +133,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/0d4e9d93-7010-45e1-8f86-3cc6dc30ef8e",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -160,7 +160,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/3338b6ea-1810-42db-84e2-1988c5311352",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -187,7 +187,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/4b4be879-0a56-4c9c-a1f2-c4cbffa8d08f",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -214,7 +214,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/963f1bb7-c2c1-429e-8ff4-29ac16c3a165",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -241,7 +241,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/b871003a-5b7b-4ff8-87b8-f8215041d2d6",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -268,7 +268,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/d0afb51c-6b0d-4b3c-a2a8-61cc698df4e5",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -295,7 +295,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/sample/photo/d5cac7b7-0f6e-4dbe-98af-0010693672fd",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -320,7 +320,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0fd583e0-7fed-4a2e-a600-7bfb78aa6f1e/photopoints-position-1-establishment/320c05c6-b137-420d-8d0e-8d8f2456e167",
-                "wkt": "SRID=7844; POINT (-34.6525449 142.5417985)"
+                "ewkt": "SRID=7844; POINT (-34.6525449 142.5417985)"
             }
         },
         {
@@ -345,7 +345,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0fd583e0-7fed-4a2e-a600-7bfb78aa6f1e/photopoints-position-2-establishment/138a3204-5a27-4a4e-93a1-adb658fd9f27",
-                "wkt": "SRID=7844; POINT (-34.65255578548726 142.5418085865524)"
+                "ewkt": "SRID=7844; POINT (-34.65255578548726 142.5418085865524)"
             }
         },
         {
@@ -370,7 +370,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0fd583e0-7fed-4a2e-a600-7bfb78aa6f1e/photopoints-position-3-establishment/3b278c61-30dc-4a52-a2d0-e25cc857233b",
-                "wkt": "SRID=7844; POINT (-34.6525473 142.541822)"
+                "ewkt": "SRID=7844; POINT (-34.6525473 142.541822)"
             }
         },
         {
@@ -396,7 +396,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0fd583e0-7fed-4a2e-a600-7bfb78aa6f1e/sample/photo/024c00c9-d2c3-4744-94f7-26c89041c6e9",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -422,7 +422,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0fd583e0-7fed-4a2e-a600-7bfb78aa6f1e/sample/photo/323ee739-e3a1-423b-8d03-a9e8395b9180",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -448,7 +448,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0fd583e0-7fed-4a2e-a600-7bfb78aa6f1e/sample/photo/ad9c78a8-54c7-40e9-b05f-621e8a452173",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -475,7 +475,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/sample/photo/226819b7-16c3-4d80-bd49-7576f9fa2303",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -502,7 +502,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/sample/photo/3f716388-c15d-4ffe-8ef9-2f811d914e0e",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -529,7 +529,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/sample/photo/4d164676-9e4b-454d-a9d9-587e2e2f3db6",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -556,7 +556,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/sample/photo/5154515d-a311-4503-84c9-2cbed306e85b",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -583,7 +583,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/sample/photo/c4c9d4d8-000c-44f6-a25a-974229b0c951",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -610,7 +610,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/sample/photo/fda70cc9-192b-4c78-acf0-d33db0f0df03",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -635,7 +635,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/345bd216-080c-44cb-8af7-b8432865f3fa/photopoints-position-1-establishment/8bbb5bf9-a5d2-4613-a68c-b93c78bea57c",
-                "wkt": "SRID=7844; POINT (-34.5819244 142.5693513)"
+                "ewkt": "SRID=7844; POINT (-34.5819244 142.5693513)"
             }
         },
         {
@@ -660,7 +660,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/345bd216-080c-44cb-8af7-b8432865f3fa/photopoints-position-2-establishment/f4fac02e-7a1b-41e0-83d1-9dc589009c0a",
-                "wkt": "SRID=7844; POINT (-34.5819266 142.5693426)"
+                "ewkt": "SRID=7844; POINT (-34.5819266 142.5693426)"
             }
         },
         {
@@ -685,7 +685,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/345bd216-080c-44cb-8af7-b8432865f3fa/photopoints-position-3-establishment/a9848a84-b1d2-4b06-a56a-eae54294406b",
-                "wkt": "SRID=7844; POINT (-34.581919800057435 142.5693056019012)"
+                "ewkt": "SRID=7844; POINT (-34.581919800057435 142.5693056019012)"
             }
         },
         {
@@ -711,7 +711,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/345bd216-080c-44cb-8af7-b8432865f3fa/sample/photo/cc74a883-b464-447c-8e8b-7fe7d97981c7",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -737,7 +737,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/345bd216-080c-44cb-8af7-b8432865f3fa/sample/photo/e9c35e38-8b71-4190-9754-cf3569acba52",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -763,7 +763,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/345bd216-080c-44cb-8af7-b8432865f3fa/sample/photo/fa9fd83c-c137-4f7d-9a00-ba463e72772d",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -788,7 +788,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/53af5d2b-9c91-494c-a27e-f4af3e9d7c13/photopoints-position-1-establishment/cb7fd9a3-3160-4bda-97cb-171fbc881e63",
-                "wkt": "SRID=7844; POINT (-34.6509783 142.981566)"
+                "ewkt": "SRID=7844; POINT (-34.6509783 142.981566)"
             }
         },
         {
@@ -813,7 +813,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/53af5d2b-9c91-494c-a27e-f4af3e9d7c13/photopoints-position-2-establishment/72e615b8-4b8f-456d-b574-66327948ff52",
-                "wkt": "SRID=7844; POINT (-34.6509694 142.9815403)"
+                "ewkt": "SRID=7844; POINT (-34.6509694 142.9815403)"
             }
         },
         {
@@ -838,7 +838,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/53af5d2b-9c91-494c-a27e-f4af3e9d7c13/photopoints-position-3-establishment/44dd2b71-5dcf-4874-9f25-5776b636571c",
-                "wkt": "SRID=7844; POINT (-34.6509641 142.9815935)"
+                "ewkt": "SRID=7844; POINT (-34.6509641 142.9815935)"
             }
         },
         {
@@ -864,7 +864,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/53af5d2b-9c91-494c-a27e-f4af3e9d7c13/sample/photo/64a45524-44c8-453f-9f79-72bdc1028e9e",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -890,7 +890,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/53af5d2b-9c91-494c-a27e-f4af3e9d7c13/sample/photo/ce1c1152-5941-4bf8-9e1a-4cf43a9b385e",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -916,7 +916,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/53af5d2b-9c91-494c-a27e-f4af3e9d7c13/sample/photo/f1b1ff78-5d53-4f12-9fd6-e8d88b41d56c",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -943,7 +943,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/635ba1d8-9e68-4fae-823e-ea6cc0d41838/sample/photo/3a0dd3d6-ba44-42bd-8fea-e0678c81cdb8",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -970,7 +970,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/635ba1d8-9e68-4fae-823e-ea6cc0d41838/sample/photo/aa066623-4baf-497c-9124-d77daaee02a4",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -997,7 +997,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/635ba1d8-9e68-4fae-823e-ea6cc0d41838/sample/photo/f62c809d-2a32-4ced-a765-df927af3d5f0",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -1024,7 +1024,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000042",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/plant-specimen/rsl-mu14-rp1-000042",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -1051,7 +1051,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000043",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/plant-specimen/rsl-mu14-rp1-000043",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -1078,7 +1078,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000044",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/plant-specimen/rsl-mu14-rp1-000044",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -1105,7 +1105,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000045",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/plant-specimen/rsl-mu14-rp1-000045",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -1130,7 +1130,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7c90e8d4-5ea8-4ae9-a865-cae46e4de05d/photopoints-position-1-establishment/1ea0c142-de74-451c-acff-f84b5efa88da",
-                "wkt": "SRID=7844; POINT (-34.533738 142.7482261)"
+                "ewkt": "SRID=7844; POINT (-34.533738 142.7482261)"
             }
         },
         {
@@ -1155,7 +1155,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7c90e8d4-5ea8-4ae9-a865-cae46e4de05d/photopoints-position-2-establishment/6bb943cf-a9f3-44d4-be9e-9647a7ab5029",
-                "wkt": "SRID=7844; POINT (-34.5337316 142.7482249)"
+                "ewkt": "SRID=7844; POINT (-34.5337316 142.7482249)"
             }
         },
         {
@@ -1180,7 +1180,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7c90e8d4-5ea8-4ae9-a865-cae46e4de05d/photopoints-position-3-establishment/ead10af8-3bc2-4397-b4e4-c9f82a3c90e1",
-                "wkt": "SRID=7844; POINT (-34.5337274 142.748235)"
+                "ewkt": "SRID=7844; POINT (-34.5337274 142.748235)"
             }
         },
         {
@@ -1206,7 +1206,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7c90e8d4-5ea8-4ae9-a865-cae46e4de05d/sample/photo/554a76d6-cafa-4b44-88b9-ef7256b674cd",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1232,7 +1232,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7c90e8d4-5ea8-4ae9-a865-cae46e4de05d/sample/photo/577ce5ea-39b5-4b91-906c-cb87b7a6eec3",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1258,7 +1258,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7c90e8d4-5ea8-4ae9-a865-cae46e4de05d/sample/photo/b3ae5553-8c85-4ff7-9e6e-a5b643bd27d9",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1283,7 +1283,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/80a05735-e281-477c-8f18-c8a9be6fc828/photopoints-position-1-establishment/50d7709d-307f-4db9-bfcf-20fa171a091c",
-                "wkt": "SRID=7844; POINT (-34.5638173 142.6517111)"
+                "ewkt": "SRID=7844; POINT (-34.5638173 142.6517111)"
             }
         },
         {
@@ -1308,7 +1308,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/80a05735-e281-477c-8f18-c8a9be6fc828/photopoints-position-2-establishment/b8c9e6c7-420c-4068-9fb6-af77a3afa3d3",
-                "wkt": "SRID=7844; POINT (-34.5638162 142.6516615)"
+                "ewkt": "SRID=7844; POINT (-34.5638162 142.6516615)"
             }
         },
         {
@@ -1333,7 +1333,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/80a05735-e281-477c-8f18-c8a9be6fc828/photopoints-position-3-establishment/029a8066-5726-4a8e-8387-48ca6b0e6c65",
-                "wkt": "SRID=7844; POINT (-34.5637861 142.6516999)"
+                "ewkt": "SRID=7844; POINT (-34.5637861 142.6516999)"
             }
         },
         {
@@ -1359,7 +1359,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/80a05735-e281-477c-8f18-c8a9be6fc828/sample/photo/11c2d8d1-99ad-4ef6-b2fa-658e5868c494",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -1385,7 +1385,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/80a05735-e281-477c-8f18-c8a9be6fc828/sample/photo/2f0b5720-6812-4f4a-8421-9ccf61d8a65c",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -1411,7 +1411,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/80a05735-e281-477c-8f18-c8a9be6fc828/sample/photo/aed3973d-9bb7-4530-8f13-b1391d5dafe1",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -1436,7 +1436,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/8135e41e-47b4-43bc-9cda-e2139e5dfca6/photopoints-position-1-establishment/703ae440-3e29-4662-957d-3682b6f718e6",
-                "wkt": "SRID=7844; POINT (-34.6424743 142.9915823)"
+                "ewkt": "SRID=7844; POINT (-34.6424743 142.9915823)"
             }
         },
         {
@@ -1461,7 +1461,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/8135e41e-47b4-43bc-9cda-e2139e5dfca6/photopoints-position-2-establishment/1e8f5c3c-29f3-417d-807f-2143d0686973",
-                "wkt": "SRID=7844; POINT (-34.6424636 142.9916339)"
+                "ewkt": "SRID=7844; POINT (-34.6424636 142.9916339)"
             }
         },
         {
@@ -1486,7 +1486,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/8135e41e-47b4-43bc-9cda-e2139e5dfca6/photopoints-position-3-establishment/777e03c8-dd70-49e1-b248-fda0c2738403",
-                "wkt": "SRID=7844; POINT (-34.642515 142.9916192)"
+                "ewkt": "SRID=7844; POINT (-34.642515 142.9916192)"
             }
         },
         {
@@ -1512,7 +1512,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/8135e41e-47b4-43bc-9cda-e2139e5dfca6/sample/photo/076492dc-1c68-4503-aa0f-4356fa3a645a",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -1538,7 +1538,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/8135e41e-47b4-43bc-9cda-e2139e5dfca6/sample/photo/a8d489a7-6a62-4800-b3eb-47e2bccad465",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -1564,7 +1564,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/8135e41e-47b4-43bc-9cda-e2139e5dfca6/sample/photo/ddc2161c-48bb-40ed-91b0-26209ae4017d",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -1591,7 +1591,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/00f687b7-e0a1-4d9b-8daa-89ab53928e2b",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1618,7 +1618,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/0bb6eaed-9b01-4551-85c8-7726b026a007",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1645,7 +1645,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/1020b3d4-8087-4e0a-9bce-a4cc01efb4b4",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1672,7 +1672,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/24c7ac3b-9936-4009-9606-98355454af65",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1699,7 +1699,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/2c148db4-6816-4340-85cd-7146bc054f81",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1726,7 +1726,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/2ee29a2c-90f9-4c6b-af1c-307da184a4ef",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1753,7 +1753,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/34420be8-8f0e-496e-b6b6-a7ed9ec66448",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1780,7 +1780,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/3b0ae053-84d5-416c-9783-54384d3ebdb5",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1807,7 +1807,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/4c7436bb-bbe1-4d10-8817-7be3c6faa1a7",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1834,7 +1834,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/5c1eabaa-5d80-439d-bd53-7ce886eaa075",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1861,7 +1861,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/5d6124dd-c7f1-49d3-ac67-38eb3e04db9d",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1888,7 +1888,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/6a536f0f-a662-49ed-b5c3-c936da9cec1a",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1915,7 +1915,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/7150b3b4-95a2-44c2-bc10-9449f65b53e5",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1942,7 +1942,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/91af8c07-f4fc-48d3-b4dc-a124b71be2ab",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1969,7 +1969,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/91b8215f-8c08-42ae-9a54-3458140234a2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -1996,7 +1996,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/9581798c-d8b5-4c87-9127-11e6648835e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2023,7 +2023,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/9a100abf-dc84-466e-873d-cfcd63c3e890",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2050,7 +2050,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/9d56b68f-0ef3-493a-99c4-edc7b7cabe54",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2077,7 +2077,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/a0751033-c066-46dc-b5d4-08c579e54042",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2104,7 +2104,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/a2165fa2-4b76-4b90-a5f3-7acc4798e0bf",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2131,7 +2131,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/a5fe7f2d-b268-45e9-960a-fd152b329210",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2158,7 +2158,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/a7ffb204-1cb1-4baf-a1bd-59bd1653165a",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2185,7 +2185,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/bebbf85c-ca41-4d95-853d-e3dcb9caf4c5",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2212,7 +2212,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/d008c8ed-a694-4409-bfc4-d4eff676cd14",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2239,7 +2239,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/de75ac90-479a-461f-a810-b8a4ade83620",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2266,7 +2266,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/sample/photo/ff52254d-4c4f-449e-be8a-e0f57ca8e4e0",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -2293,7 +2293,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/sample/photo/2ab7cd79-c801-4fd7-813c-6449e364b7ed",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -2320,7 +2320,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/sample/photo/4c5ef4a0-a430-4f84-8981-30096192eedf",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -2347,7 +2347,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/sample/photo/82716636-2e7d-4524-beac-7b6dacdd5d9e",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -2374,7 +2374,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/sample/photo/8c992e51-5aa1-445e-a343-8baff5260d25",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -2401,7 +2401,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/sample/photo/d87154d2-eb36-4cb9-a15c-098b87d3fa4d",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -2426,7 +2426,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/90b72ce8-8694-4c0d-afe5-5f9508391602/photopoints-position-1-establishment/c4f0acc9-83a1-445a-ab5a-44d4d6b7cfba",
-                "wkt": "SRID=7844; POINT (-34.5500772 142.8071821)"
+                "ewkt": "SRID=7844; POINT (-34.5500772 142.8071821)"
             }
         },
         {
@@ -2451,7 +2451,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/90b72ce8-8694-4c0d-afe5-5f9508391602/photopoints-position-2-establishment/524958f4-f149-4dd9-8402-0534a2406517",
-                "wkt": "SRID=7844; POINT (-34.5500867 142.8071927)"
+                "ewkt": "SRID=7844; POINT (-34.5500867 142.8071927)"
             }
         },
         {
@@ -2476,7 +2476,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/90b72ce8-8694-4c0d-afe5-5f9508391602/photopoints-position-3-establishment/c8f0c689-7661-46e8-9fad-20cc72e2dd76",
-                "wkt": "SRID=7844; POINT (-34.5500741 142.8071366)"
+                "ewkt": "SRID=7844; POINT (-34.5500741 142.8071366)"
             }
         },
         {
@@ -2502,7 +2502,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/90b72ce8-8694-4c0d-afe5-5f9508391602/sample/photo/6299a50c-3e3c-4fc0-92eb-7dac80cfca4a",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2528,7 +2528,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/90b72ce8-8694-4c0d-afe5-5f9508391602/sample/photo/634c70f7-4cb9-4af7-a8a4-29502505cf24",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2554,7 +2554,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/90b72ce8-8694-4c0d-afe5-5f9508391602/sample/photo/dcfb4933-95cf-4b6c-831a-01982b283671",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2581,7 +2581,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/3510cb99-66d7-4f61-b36e-14ffda35825c",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2608,7 +2608,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/60549b29-07a8-4f84-bf75-d90190e66e7b",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2635,7 +2635,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/6600964d-feea-49c6-ab5c-53fd7f3c5409",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2662,7 +2662,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/6e81ae3c-b7f7-47af-9fba-e3b20030a0bd",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2689,7 +2689,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/72e56a49-64ee-4a75-98ee-87f877086f3f",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2716,7 +2716,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/e95d9c0e-9eb7-47f3-8099-efdca761e19f",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2743,7 +2743,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/f210d26c-1fa0-42b9-942d-f08c26fdc170",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2770,7 +2770,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/sample/photo/fe850523-289b-4bb3-9cf3-b4e088a3165f",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -2797,7 +2797,7 @@
                 "voucher barcode": "RSL-MU14-RP1-000057",
                 "label": "plant specimen",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/plant-specimen/rsl-mu14-rp1-000057",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -2824,7 +2824,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/sample/photo/57dadfd3-170a-4c45-9789-239fb2bdcd76",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -2851,7 +2851,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/sample/photo/5b541e96-d06c-493c-8107-56af82f87ac9",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -2878,7 +2878,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/sample/photo/988339f7-72c4-4b8b-8c95-9bdf96e918a9",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -2905,7 +2905,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/sample/photo/ce293b47-55da-4a37-ab1f-4c0b2ac69157",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -2932,7 +2932,7 @@
                 "featureType": "plant specimen",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/sample/photo/de2a8c17-220e-43f0-82c4-9e376a3b1e12",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -2957,7 +2957,7 @@
                 "photopoint position QR code ID": "photopoint position- 1",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fc9ad169-cd9b-418e-b7e2-8779d7f55b58/photopoints-position-1-establishment/8d45c407-5083-4896-8811-5fa2fce3a256",
-                "wkt": "SRID=7844; POINT (-34.5479339 142.8562063)"
+                "ewkt": "SRID=7844; POINT (-34.5479339 142.8562063)"
             }
         },
         {
@@ -2982,7 +2982,7 @@
                 "photopoint position QR code ID": "photopoint position- 2",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fc9ad169-cd9b-418e-b7e2-8779d7f55b58/photopoints-position-2-establishment/d482c1cb-4559-4a70-8155-64cd590b2e09",
-                "wkt": "SRID=7844; POINT (-34.5479269 142.8562563)"
+                "ewkt": "SRID=7844; POINT (-34.5479269 142.8562563)"
             }
         },
         {
@@ -3007,7 +3007,7 @@
                 "photopoint position QR code ID": "photopoint position- 3",
                 "label": "photo point position",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fc9ad169-cd9b-418e-b7e2-8779d7f55b58/photopoints-position-3-establishment/a5823345-5e6d-4751-a296-26f6620d9b8c",
-                "wkt": "SRID=7844; POINT (-34.5479663 142.8562258)"
+                "ewkt": "SRID=7844; POINT (-34.5479663 142.8562258)"
             }
         },
         {
@@ -3033,7 +3033,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fc9ad169-cd9b-418e-b7e2-8779d7f55b58/sample/photo/37f52a7f-5b2e-453a-a5bc-4f8a8b9f9462",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -3059,7 +3059,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fc9ad169-cd9b-418e-b7e2-8779d7f55b58/sample/photo/81c3e4e6-c2f6-4b7e-8eec-3d0bb5e5a3ed",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -3085,7 +3085,7 @@
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "label": "photo",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fc9ad169-cd9b-418e-b7e2-8779d7f55b58/sample/photo/d49800e7-d861-4193-be70-4208d9ce8a9c",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -3113,7 +3113,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/25dcb3e0-d893-427f-92c7-dbfc8c2d4332/feature-of-interest/disturbance-04e92ac7-d6c9-815b-6c4e-659d50ccd54f/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -3141,7 +3141,7 @@
                 "land-use history (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/25dcb3e0-d893-427f-92c7-dbfc8c2d4332/feature-of-interest/land-surface-04e92ac7-d6c9-815b-6c4e-659d50ccd54f/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -3168,7 +3168,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/29ba392e-2807-444e-8791-ca77db14477d/feature-of-interest/plant-community-61f49ddf-fa6d-f777-2a51-74c7f5a87bd0/3c6a774a-296d-3e9f-5715-8d99a4fd945d",
-                "wkt": "SRID=7844; POINT (-34.5502036 142.8064699)"
+                "ewkt": "SRID=7844; POINT (-34.5502036 142.8064699)"
             }
         },
         {
@@ -3196,7 +3196,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/feature-of-interest/disturbance-9cb89c55-e56b-35ad-e407-084bc5edc6e2/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -3224,7 +3224,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/disturbance-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -3251,7 +3251,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-0d9a45d6-e173-77bf-64bc-9cba9dc99716/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3278,7 +3278,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-1ba65637-5767-b254-6fa1-1b17272bd31a/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3305,7 +3305,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-6e45bc94-2357-cf48-65b3-43b8e66e1ef5/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3332,7 +3332,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-9fda1385-b472-ad7f-08d5-3473b6aa6edb/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3359,7 +3359,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-cbe2cd9f-04ba-32e9-0404-265c68e70064/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3386,7 +3386,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-e9621c78-76fe-e1b1-5afa-2299a045e462/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3413,7 +3413,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/plant-community-fd157929-cf00-a2f8-1554-42944dfbc231/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -3441,7 +3441,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/disturbance-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -3469,7 +3469,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7e10a89d-40ef-48ee-b889-8f4bece340ae/feature-of-interest/disturbance-876b0aa9-0934-a6d4-0008-69171bef479b/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -3497,7 +3497,7 @@
                 "land-use history (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7e10a89d-40ef-48ee-b889-8f4bece340ae/feature-of-interest/land-surface-876b0aa9-0934-a6d4-0008-69171bef479b/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -3525,7 +3525,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/88da3356-e647-46ff-92bb-47a60d0292fc/feature-of-interest/disturbance-28de0cc1-64df-5d4c-7eec-51e612d88312/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -3553,7 +3553,7 @@
                 "land-use history (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/88da3356-e647-46ff-92bb-47a60d0292fc/feature-of-interest/land-surface-28de0cc1-64df-5d4c-7eec-51e612d88312/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -3581,7 +3581,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/e96a31ef-605c-4f78-84f3-b892e95fc303/feature-of-interest/disturbance-4ac09bc8-ff50-50e8-b0db-3a165428abe3/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -3608,7 +3608,7 @@
                 "NVIS major vegetation group (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fe773975-9ab4-41a5-a82a-c3f7d2d9e806/feature-of-interest/plant-community-026323e3-b6b4-efd4-67ac-7896444ac976/090fa7ee-815a-eca1-bc7c-b7f69852a030",
-                "wkt": "SRID=7844; POINT (-34.6527164 142.5412386)"
+                "ewkt": "SRID=7844; POINT (-34.6527164 142.5412386)"
             }
         },
         {
@@ -3639,7 +3639,7 @@
                 "site disturbance (procedure)": "procedure",
                 "label": "disturbance",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/333ef2dd-785a-45b0-a99d-2fa4c72c22d8/feature-of-interest/disturbance-a2e3d33f-863c-a93b-2cd0-3ebebccb16d5/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -3670,7 +3670,7 @@
                 "outcrop lithology (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/333ef2dd-785a-45b0-a99d-2fa4c72c22d8/feature-of-interest/land-surface-a2e3d33f-863c-a93b-2cd0-3ebebccb16d5/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -3701,7 +3701,7 @@
                 "outcrop lithology (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/feature-of-interest/land-surface-9cb89c55-e56b-35ad-e407-084bc5edc6e2/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -3732,7 +3732,7 @@
                 "outcrop lithology (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/land-surface-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -3763,7 +3763,7 @@
                 "outcrop lithology (procedure)": "procedure",
                 "label": "land surface",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/land-surface-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -3797,7 +3797,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/25dcb3e0-d893-427f-92c7-dbfc8c2d4332/feature-of-interest/plant-community-04e92ac7-d6c9-815b-6c4e-659d50ccd54f/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -3831,7 +3831,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/333ef2dd-785a-45b0-a99d-2fa4c72c22d8/feature-of-interest/plant-community-a2e3d33f-863c-a93b-2cd0-3ebebccb16d5/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -3865,7 +3865,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/feature-of-interest/plant-community-9cb89c55-e56b-35ad-e407-084bc5edc6e2/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -3899,7 +3899,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/plant-community-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -3933,7 +3933,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/plant-community-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -3967,7 +3967,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7e10a89d-40ef-48ee-b889-8f4bece340ae/feature-of-interest/plant-community-876b0aa9-0934-a6d4-0008-69171bef479b/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -4001,7 +4001,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/88da3356-e647-46ff-92bb-47a60d0292fc/feature-of-interest/plant-community-28de0cc1-64df-5d4c-7eec-51e612d88312/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -4035,7 +4035,7 @@
                 "vegetation growth stage (procedure)": "procedure",
                 "label": "plant community",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/e96a31ef-605c-4f78-84f3-b892e95fc303/feature-of-interest/plant-community-4ac09bc8-ff50-50e8-b0db-3a165428abe3/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4066,7 +4066,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/1c968cec-4e8e-5aeb-a423-24df810869fe",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -4097,7 +4097,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/1e4b0993-8c33-5f55-85d4-61613dc05494",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -4128,7 +4128,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/25d61f08-be71-57d3-9fb7-b68c0dbcd93e",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4159,7 +4159,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/33f0dfc0-cccb-5718-887b-48c6de176d45",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -4190,7 +4190,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/3c838ed1-6e05-57a1-9056-d269ade6eae8",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -4221,7 +4221,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/43186827-bc36-5cac-8011-f25d7205ea4d",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -4252,7 +4252,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/4492fbe5-ee3c-5c5f-b2bb-369bdbe4baf9",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -4283,7 +4283,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/55468721-5971-507f-a266-99865db5a323",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4314,7 +4314,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/74d0ab93-ce7a-5799-99ea-a0cb916cd2c2",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -4345,7 +4345,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/9125ef9e-5f56-56ec-a919-0e8007b84841",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -4376,7 +4376,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/a0e6268b-d1ec-5f35-bdda-6d09aec424bb",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4407,7 +4407,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/b2e66f36-c980-58d1-9ebf-cfeeb9b4436a",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4438,7 +4438,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/b30fbef9-ed43-5f46-bc76-94ee3eb97739",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -4469,7 +4469,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/b328c9b9-0032-57a8-addb-f9dab14dfe07",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4500,7 +4500,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/b8ac7ed6-afb3-5732-9688-52abeb62bc7c",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -4531,7 +4531,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/d69e4e16-ad80-5e51-9491-6159434d8d2d",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -4562,7 +4562,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/e38c611f-7f8f-5b59-bc4f-c344f5fc2b51",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -4593,7 +4593,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/f2c4db3a-47df-5046-9679-dca77dd9c5f0",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -4624,7 +4624,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/fe7b17a1-9d64-599f-93cd-0467c9e70213",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -4644,7 +4644,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/cc435d12-70b3-56b3-b390-2f0759e63b08",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-11T23:03:35.000994+00:00",
@@ -4656,7 +4655,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/29ba392e-2807-444e-8791-ca77db14477d/feature-of-interest/animal-occurrence-61f49ddf-fa6d-f777-2a51-74c7f5a87bd0/3c6a774a-296d-3e9f-5715-8d99a4fd945d",
-                "wkt": "SRID=7844; POINT (-34.5502036 142.8064699)"
+                "ewkt": "SRID=7844; POINT (-34.5502036 142.8064699)"
             }
         },
         {
@@ -4676,7 +4675,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/5d67c78a-b925-5438-8758-e36a9935de2a",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-12T04:19:31.000236+00:00",
@@ -4688,7 +4686,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/50b975e9-ce60-47f3-bb75-5e46b7e75dcd/feature-of-interest/animal-occurrence-17eff40c-f95d-10c0-bd4e-3b15437bfc7e/543e3486-884a-e446-afff-8e771dd9bf49",
-                "wkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
+                "ewkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
             }
         },
         {
@@ -4708,7 +4706,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/f432bef4-077a-5439-8a2b-d2c05b4ebe94",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-12T04:15:08.000115+00:00",
@@ -4720,7 +4717,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/50b975e9-ce60-47f3-bb75-5e46b7e75dcd/feature-of-interest/animal-occurrence-1ae66627-8acf-53dd-0002-0c7b77654af2/543e3486-884a-e446-afff-8e771dd9bf49",
-                "wkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
+                "ewkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
             }
         },
         {
@@ -4740,7 +4737,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/c42f9295-4f52-5eb7-b815-94a83cd1c779",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-12T04:21:17.000861+00:00",
@@ -4752,7 +4748,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/50b975e9-ce60-47f3-bb75-5e46b7e75dcd/feature-of-interest/animal-occurrence-3067bb25-37fb-5f0f-331f-4d78a3e908d6/543e3486-884a-e446-afff-8e771dd9bf49",
-                "wkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
+                "ewkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
             }
         },
         {
@@ -4772,7 +4768,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/66e89395-4c5b-5aa3-8110-a295e1b5d2c6",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-12T04:23:11.000158+00:00",
@@ -4784,7 +4779,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/50b975e9-ce60-47f3-bb75-5e46b7e75dcd/feature-of-interest/animal-occurrence-6d049ed1-6937-8895-6233-f2f4904d2275/543e3486-884a-e446-afff-8e771dd9bf49",
-                "wkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
+                "ewkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
             }
         },
         {
@@ -4815,7 +4810,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/50b975e9-ce60-47f3-bb75-5e46b7e75dcd/feature-of-interest/animal-occurrence-6fd3e4c6-4edc-68b2-7057-dd5678a20f0c/543e3486-884a-e446-afff-8e771dd9bf49",
-                "wkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
+                "ewkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
             }
         },
         {
@@ -4835,7 +4830,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/cf1d4a8e-e4af-5afc-9634-61394e93c4e3",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-12T04:24:49.000600+00:00",
@@ -4847,7 +4841,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/50b975e9-ce60-47f3-bb75-5e46b7e75dcd/feature-of-interest/animal-occurrence-bc111bb6-b15f-384a-1443-e9e085fc7130/543e3486-884a-e446-afff-8e771dd9bf49",
-                "wkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
+                "ewkt": "SRID=7844; POINT (-34.550264982007555 142.80626922347918)"
             }
         },
         {
@@ -4878,7 +4872,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-0d9a45d6-e173-77bf-64bc-9cba9dc99716/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -4909,7 +4903,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-1ba65637-5767-b254-6fa1-1b17272bd31a/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -4940,7 +4934,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-1f85410c-a6e6-401d-4ae3-4c4c293b008d/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -4971,7 +4965,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-6e45bc94-2357-cf48-65b3-43b8e66e1ef5/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -5002,7 +4996,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-9fda1385-b472-ad7f-08d5-3473b6aa6edb/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -5033,7 +5027,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-cbe2cd9f-04ba-32e9-0404-265c68e70064/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -5064,7 +5058,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-e9621c78-76fe-e1b1-5afa-2299a045e462/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -5095,7 +5089,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/5dba240a-585a-4ce1-acbe-39ec0fc3e757/feature-of-interest/animal-occurrence-fd157929-cf00-a2f8-1554-42944dfbc231/0376ee6d-dc74-4a91-e67a-271e3e7fbc50",
-                "wkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
+                "ewkt": "SRID=7844; POINT (-34.581615677768134 142.56974142444403)"
             }
         },
         {
@@ -5115,7 +5109,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/8786d936-be37-55d6-be1d-25bfa8ed0b3e",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-13T21:04:21.000133+00:00",
@@ -5127,7 +5120,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fe773975-9ab4-41a5-a82a-c3f7d2d9e806/feature-of-interest/animal-occurrence-026323e3-b6b4-efd4-67ac-7896444ac976/090fa7ee-815a-eca1-bc7c-b7f69852a030",
-                "wkt": "SRID=7844; POINT (-34.6527164 142.5412386)"
+                "ewkt": "SRID=7844; POINT (-34.6527164 142.5412386)"
             }
         },
         {
@@ -5147,7 +5140,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of opportunistic",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/0f950dc3-8115-51a1-b3db-5d19149e2365",
                 "additionalType": "animal occurrence",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "datetime": "2024-11-13T21:01:24.000432+00:00",
@@ -5159,7 +5151,7 @@
                 "taxa type (procedure)": "procedure",
                 "label": "animal occurrence",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/fe773975-9ab4-41a5-a82a-c3f7d2d9e806/feature-of-interest/animal-occurrence-2f8b8d47-4f72-fe2d-ef03-abeebb05a5f6/090fa7ee-815a-eca1-bc7c-b7f69852a030",
-                "wkt": "SRID=7844; POINT (-34.6527164 142.5412386)"
+                "ewkt": "SRID=7844; POINT (-34.6527164 142.5412386)"
             }
         },
         {
@@ -5202,7 +5194,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/25dcb3e0-d893-427f-92c7-dbfc8c2d4332/feature-of-interest/landform-04e92ac7-d6c9-815b-6c4e-659d50ccd54f/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -5245,7 +5237,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/333ef2dd-785a-45b0-a99d-2fa4c72c22d8/feature-of-interest/landform-a2e3d33f-863c-a93b-2cd0-3ebebccb16d5/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -5288,7 +5280,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/3c485bb0-20b9-4c5c-83b5-002568919286/feature-of-interest/landform-9cb89c55-e56b-35ad-e407-084bc5edc6e2/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5331,7 +5323,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/45472b17-c17b-41a3-ad9b-e84b55034306/feature-of-interest/landform-8dc32901-3c9e-0f78-332a-cc850d5cefaa/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -5374,7 +5366,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6e174368-bf82-4347-9bb4-e7ae8e7f9b41/feature-of-interest/landform-8e089b3f-4fc9-472d-816e-aca2d279c032/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -5417,7 +5409,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/7e10a89d-40ef-48ee-b889-8f4bece340ae/feature-of-interest/landform-876b0aa9-0934-a6d4-0008-69171bef479b/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -5460,7 +5452,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/88da3356-e647-46ff-92bb-47a60d0292fc/feature-of-interest/landform-28de0cc1-64df-5d4c-7eec-51e612d88312/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -5503,7 +5495,7 @@
                 "slope (procedure)": "procedure",
                 "label": "landform",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/e96a31ef-605c-4f78-84f3-b892e95fc303/feature-of-interest/landform-4ac09bc8-ff50-50e8-b0db-3a165428abe3/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -5534,7 +5526,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/05360e16-3d5d-5e95-887d-0f145c86c1cf",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -5565,7 +5557,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/44123551-4c10-5e9a-96d6-acf0990c6b71",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5596,7 +5588,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/44d7670e-15ad-5706-b1f1-fa7234031e5e",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -5627,7 +5619,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/5cb66ee5-1a1f-570a-a049-7620aec843e9",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5658,7 +5650,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/65ba867a-f80c-5b6c-9038-36b84f88cb46",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5689,7 +5681,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/6845ed96-1c55-5da9-a0af-618de2448608",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -5720,7 +5712,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/78f44d2e-c2af-5272-99d3-32578bcc00d5",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -5751,7 +5743,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/9144d115-64da-5fd2-a2a1-2a6aa5f6a37d",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5782,7 +5774,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/972f3763-5e4b-5647-80fc-5d0b62517508",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5813,7 +5805,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/9a9a6530-f665-5328-b908-dcc62a8b4dc8",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -5844,7 +5836,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/a2942f09-c813-521f-9d5f-66288983fa96",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5875,7 +5867,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/bb63953a-330b-5875-a9f1-72fd66ab3b9b",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5906,7 +5898,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/bf781ea7-4fad-5a9b-9554-471c78ff2f7c",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5937,7 +5929,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/c3e08cde-3727-528e-a1a6-0ff9a1a7f03b",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -5968,7 +5960,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/d03cfc28-96f9-5d41-8475-17f931b38ca3",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -5999,7 +5991,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/d376a2a3-687d-5d1b-ac14-a6641eb47c88",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6030,7 +6022,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/e3ba3f40-d65e-5912-8246-e62cf963b961",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -6061,7 +6053,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/298b3a01-7eaf-5a5f-a934-ab1f945cc113",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6092,7 +6084,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/55afec8f-58bd-5f00-ac65-def4f26e87a2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6123,7 +6115,7 @@
                 "label": "plant specimen; plant specimen collection",
                 "usedProcedure": "procedure",
                 "uri": "https://linked.data.gov.au/dataset/bdr/occurrences/82da3288-5544-563c-8ffd-c0ec98d44240",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -6165,7 +6157,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-0e55af83-0d8a-3e61-116e-aa7df5086abb/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -6185,7 +6177,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/b6453986-04ee-52e3-a6c0-53790e224e42",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1002",
@@ -6204,7 +6195,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-bad11dcf-38a2-9c93-ab22-c3faf7dd1a06/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -6242,7 +6233,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-d029b173-683f-3223-40cd-4401f502b016/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -6262,7 +6253,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-full-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/37dde5cc-1588-56fe-9d05-fca3da3e6ed1",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1005",
@@ -6285,7 +6275,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/feature-of-interest/plant-population-2cbb4ee0-c9c3-10ac-24bc-c23946cc5556/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -6305,7 +6295,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-full-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/04abed3c-2f27-566d-82fa-73e68ee3a0a5",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1005",
@@ -6328,7 +6317,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/feature-of-interest/plant-population-5a6a9a9f-c07d-a40a-63de-21461e885543/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -6370,7 +6359,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/feature-of-interest/plant-population-b975e17e-912d-de4f-9529-0ad5cedf9f3c/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -6412,7 +6401,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/feature-of-interest/plant-population-ce28bc12-3149-6a73-92b7-35e99dfd2e20/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -6454,7 +6443,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/feature-of-interest/plant-population-d9a552c5-0b9e-3660-f6db-cdce9f117db3/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -6496,7 +6485,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/1f791fb5-8212-4ff6-8dd1-02c8e79f5565/feature-of-interest/plant-population-fb10732f-cc71-24fb-bfc9-e80fc055f1d4/4ac09bc8-ff50-50e8-b0db-3a165428abe3",
-                "wkt": "SRID=7844; POINT (-34.6429176 142.991049)"
+                "ewkt": "SRID=7844; POINT (-34.6429176 142.991049)"
             }
         },
         {
@@ -6538,7 +6527,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/635ba1d8-9e68-4fae-823e-ea6cc0d41838/feature-of-interest/plant-population-3137af94-fb64-341c-23dd-a48e64ca844d/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -6580,7 +6569,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/635ba1d8-9e68-4fae-823e-ea6cc0d41838/feature-of-interest/plant-population-7e03f479-d2ae-2bb0-cf44-fe31d5efcb8f/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -6622,7 +6611,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/635ba1d8-9e68-4fae-823e-ea6cc0d41838/feature-of-interest/plant-population-7eb673ed-698e-1127-d435-fda2b62761f9/28de0cc1-64df-5d4c-7eec-51e612d88312",
-                "wkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
+                "ewkt": "SRID=7844; POINT (-34.5484015 142.8556991)"
             }
         },
         {
@@ -6660,7 +6649,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/feature-of-interest/plant-population-20cd420f-150c-2eea-ff4c-9102eb53553a/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -6698,7 +6687,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/feature-of-interest/plant-population-33ecefd1-aacb-7189-13e7-017f543595ae/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -6736,7 +6725,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/feature-of-interest/plant-population-46ecff0c-3329-2ebd-87df-ffb4ad77f975/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -6774,7 +6763,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/6d959f28-ce25-4dd8-b0e0-af5a2477fd03/feature-of-interest/plant-population-f1864916-b741-aaa4-491b-55c671ec6c07/8e089b3f-4fc9-472d-816e-aca2d279c032",
-                "wkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
+                "ewkt": "SRID=7844; POINT (-34.58151880091879 142.5698466486357)"
             }
         },
         {
@@ -6816,7 +6805,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-09ab68b9-d04a-6e87-ddc6-8f2b93338db9/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6836,7 +6825,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/43a76908-96f2-5525-9904-334800973ae9",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -6859,7 +6847,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-0cdb8642-3810-5feb-48e5-e42dfc400a7d/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6901,7 +6889,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-3bacc960-e56a-1728-2ee6-5cd5dc5f4db1/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6943,7 +6931,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-4e4a8ae4-8f16-9f37-df57-55e840437b36/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -6963,7 +6951,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/228aca46-3b30-5612-821a-b82eba64e3f9",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -6986,7 +6973,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-86dce1ef-1cdc-f888-dea6-60323df0fe98/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7028,7 +7015,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-8c43725a-ba6c-2b30-33bf-c9f258413cf6/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7070,7 +7057,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/feature-of-interest/plant-population-0358e491-1bf3-006f-8422-66bd909bab9d/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -7090,7 +7077,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-full-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/dcb79055-97c8-56d8-85f7-ba12a1040769",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1006",
@@ -7113,7 +7099,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/feature-of-interest/plant-population-4eebb981-97f9-a365-4c15-32936805e1cd/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -7133,7 +7119,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-full-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/228aca46-3b30-5612-821a-b82eba64e3f9",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1006",
@@ -7156,7 +7141,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/feature-of-interest/plant-population-be780a5e-58d4-78e8-3746-5b1592f74e56/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -7176,7 +7161,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-full-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/8c259e3e-bbe6-5ba8-85e4-011001eb6416",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1006",
@@ -7199,7 +7183,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/feature-of-interest/plant-population-c746828d-4469-3690-1708-91a83043685e/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -7241,7 +7225,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/86f8e4c0-3033-4a2c-817b-21afe6e6fb26/feature-of-interest/plant-population-e1562164-6cde-0ac9-f52b-b2be337c65cb/04e92ac7-d6c9-815b-6c4e-659d50ccd54f",
-                "wkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
+                "ewkt": "SRID=7844; POINT (-34.5642421 142.6511233)"
             }
         },
         {
@@ -7283,7 +7267,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/feature-of-interest/plant-population-2c466ceb-0ab8-ded9-5923-1cd37848dfc6/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -7303,7 +7287,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-full-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/37dde5cc-1588-56fe-9d05-fca3da3e6ed1",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1004",
@@ -7326,7 +7309,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/feature-of-interest/plant-population-b10d0a86-e6a1-051a-216e-2d27af30a060/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -7364,7 +7347,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/feature-of-interest/plant-population-b421493d-e0b2-8018-6aa0-13988807c40b/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -7406,7 +7389,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/feature-of-interest/plant-population-d4c2da3a-9479-3047-4ff5-0606cefa0be9/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -7448,7 +7431,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-737ce5fd-b230-b252-2051-543d1337efa2/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -7490,7 +7473,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-79951b31-8020-1c81-8e43-2dbf806f720a/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -7532,7 +7515,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-83a38d5e-8a32-b0be-7197-e29e55cf9cd6/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -7574,7 +7557,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/0bb710c3-e924-4969-8a97-47964c46eb8b/feature-of-interest/plant-population-b8425130-790e-eebd-3253-9e3c6b10498c/8dc32901-3c9e-0f78-332a-cc850d5cefaa",
-                "wkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
+                "ewkt": "SRID=7844; POINT (-34.6528689 142.5411738)"
             }
         },
         {
@@ -7594,7 +7577,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/aa3c254b-380f-542c-93a8-62a058bb2358",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -7617,7 +7599,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-2b25647c-4743-f383-c46d-5af8cd72a11e/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7637,7 +7619,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/d78dca5c-90a2-54f2-8010-b812e9c221df",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -7660,7 +7641,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-33c7d6d4-b394-70a6-aa7f-b9fc1cd01a12/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7680,7 +7661,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/95c0568d-c02c-5b40-8cf8-75b334e54b35",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -7703,7 +7683,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-85748a3f-37e5-8dbf-7f1f-33bf5bd026d5/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7723,7 +7703,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/5a7a323c-b0e8-5391-adb3-2164a6b23f2e",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -7746,7 +7725,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-adc56d8f-e81c-8845-a7d4-b72268deed2d/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7766,7 +7745,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/e9d731f5-3b2f-5976-9739-bbd1b26cface",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1001",
@@ -7789,7 +7767,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-ea778da4-c0e9-8856-2290-bfd991f113d9/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -7809,7 +7787,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/8539a75f-f576-53b7-b855-fe24549dd5b7",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1000",
@@ -7832,7 +7809,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/feature-of-interest/plant-population-7d593da3-f221-135a-9856-f161b863b6ac/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -7852,7 +7829,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/37dde5cc-1588-56fe-9d05-fca3da3e6ed1",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1000",
@@ -7875,7 +7851,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/feature-of-interest/plant-population-be66efd9-91c5-cbc5-722c-7dace4c65327/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -7895,7 +7871,6 @@
             "properties": {
                 "type": "Occurrence; Feature of Interest",
                 "inDataset": "record of floristic-lite-protocol",
-                "toTaxon": "https://linked.data.gov.au/dataset/bdr/taxa/ec395fc1-741c-5f2c-8e79-0b99b05d6371",
                 "additionalType": "plant population",
                 "isPartOf": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f",
                 "hasSite": "site NSMMDD1000",
@@ -7918,7 +7893,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/feature-of-interest/plant-population-e13abaa8-4e83-1735-328f-39c3e8f0c193/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -7960,7 +7935,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/bb467426-b8cd-4065-8124-232b739518bf/feature-of-interest/plant-population-bb037066-67a9-b299-bf9c-0c4167c4f8ed/876b0aa9-0934-a6d4-0008-69171bef479b",
-                "wkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
+                "ewkt": "SRID=7844; POINT (-34.6513946 142.9810351)"
             }
         },
         {
@@ -8002,7 +7977,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/81835916-fc22-4410-9b5c-953a6893b1ca/feature-of-interest/plant-population-8e650a0d-e5de-b4b8-114c-0187de41e6c2/9cb89c55-e56b-35ad-e407-084bc5edc6e2",
-                "wkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
+                "ewkt": "SRID=7844; POINT (-34.5342077 142.7486586)"
             }
         },
         {
@@ -8044,7 +8019,7 @@
                 "plant habit (procedure)": "procedure",
                 "label": "plant population",
                 "uri": "https://linked.data.gov.au/dataset/bdr/cfeb6552-abf6-4fc2-9fe1-d62f76c8579f/submission/b96b0c22-5a30-4e08-8e65-eb05013fa0f3/feature-of-interest/plant-population-b2c44820-f48b-f172-7dfd-982861e4b138/a2e3d33f-863c-a93b-2cd0-3ebebccb16d5",
-                "wkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
+                "ewkt": "SRID=7844; POINT (-34.5502041 142.8063942)"
             }
         },
         {
@@ -8171,7 +8146,7 @@
                 "plot dimension": "plot dimension- 100m x 100m",
                 "label": "site NSMMDD1007",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/e3962ce8-7c4f-4fb8-abd0-84765fbdb62e",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.5484015 142.8556991), (-34.548311668471584 142.8556991), (-34.548132005414764 142.8556991), (-34.54795234235794 142.8556991), (-34.54777267930111 142.8556991), (-34.54759301624429 142.8556991), (-34.54750318471588 142.8556991), (-34.54750318471588 142.85580816551382), (-34.54750318471588 142.85602629654142), (-34.54750318471588 142.856244427569), (-34.54750318471588 142.8564625585966), (-34.54750318471588 142.8566806896242), (-34.54750318471588 142.85678975513798), (-34.54759301624429 142.85678975513798), (-34.54777267930111 142.85678975513798), (-34.54795234235794 142.85678975513798), (-34.548132005414764 142.85678975513798), (-34.548311668471584 142.85678975513798), (-34.5484015 142.85678975513798), (-34.5484015 142.8566806896242), (-34.5484015 142.8564625585966), (-34.5484015 142.856244427569), (-34.5484015 142.85602629654142), (-34.5484015 142.85580816551382), (-34.54795234235793 142.85624442756898))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.5484015 142.8556991), (-34.548311668471584 142.8556991), (-34.548132005414764 142.8556991), (-34.54795234235794 142.8556991), (-34.54777267930111 142.8556991), (-34.54759301624429 142.8556991), (-34.54750318471588 142.8556991), (-34.54750318471588 142.85580816551382), (-34.54750318471588 142.85602629654142), (-34.54750318471588 142.856244427569), (-34.54750318471588 142.8564625585966), (-34.54750318471588 142.8566806896242), (-34.54750318471588 142.85678975513798), (-34.54759301624429 142.85678975513798), (-34.54777267930111 142.85678975513798), (-34.54795234235794 142.85678975513798), (-34.548132005414764 142.85678975513798), (-34.548311668471584 142.85678975513798), (-34.5484015 142.85678975513798), (-34.5484015 142.8566806896242), (-34.5484015 142.8564625585966), (-34.5484015 142.856244427569), (-34.5484015 142.85602629654142), (-34.5484015 142.85580816551382), (-34.54795234235793 142.85624442756898))"
             }
         },
         {
@@ -8299,7 +8274,7 @@
                 "plot marker location": "plot corner - North East; plot corner - South West",
                 "label": "site NSMMDD1003",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/1c4d9971-eaa6-4673-81a2-5e3757ac6993",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.58151880091879 142.5698466486357), (-34.58148760275638 142.56963174590712), (-34.58145640459397 142.56941684317852), (-34.58142520643156 142.56920194044994), (-34.58139400826915 142.56898703772134), (-34.58137840918794 142.56887958635704), (-34.58146687597359 142.5688606397824), (-34.58164380954488 142.56882274663312), (-34.58182074311617 142.56878485348386), (-34.58199767668746 142.56874696033458), (-34.58217461025875 142.5687090671853), (-34.582263077044395 142.56869012061065), (-34.582278676125604 142.56879757197495), (-34.582309874288015 142.56901247470353), (-34.582341072450426 142.56922737743213), (-34.58237227061284 142.56944228016073), (-34.58240346877525 142.5696571828893), (-34.582419067856456 142.5697646342536), (-34.58233060107081 142.56978358082824), (-34.58215366749952 142.56982147397753), (-34.58197673392823 142.56985936712678), (-34.58179980035694 142.56989726027606), (-34.58162286678565 142.56993515342535), (-34.5815344 142.5699541), (-34.5818987385222 142.5693221103053))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.58151880091879 142.5698466486357), (-34.58148760275638 142.56963174590712), (-34.58145640459397 142.56941684317852), (-34.58142520643156 142.56920194044994), (-34.58139400826915 142.56898703772134), (-34.58137840918794 142.56887958635704), (-34.58146687597359 142.5688606397824), (-34.58164380954488 142.56882274663312), (-34.58182074311617 142.56878485348386), (-34.58199767668746 142.56874696033458), (-34.58217461025875 142.5687090671853), (-34.582263077044395 142.56869012061065), (-34.582278676125604 142.56879757197495), (-34.582309874288015 142.56901247470353), (-34.582341072450426 142.56922737743213), (-34.58237227061284 142.56944228016073), (-34.58240346877525 142.5696571828893), (-34.582419067856456 142.5697646342536), (-34.58233060107081 142.56978358082824), (-34.58215366749952 142.56982147397753), (-34.58197673392823 142.56985936712678), (-34.58179980035694 142.56989726027606), (-34.58162286678565 142.56993515342535), (-34.5815344 142.5699541), (-34.5818987385222 142.5693221103053))"
             }
         },
         {
@@ -8427,7 +8402,7 @@
                 "plot permanently marked": "true",
                 "label": "site NSMMDD1000",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/e0317e5a-9b48-449a-bb8e-090b524a68ae",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.5502041 142.8063942), (-34.5502543331532 142.80648462136756), (-34.55035479945959 142.80666546410265), (-34.55045526576598 142.80684630683777), (-34.550555732072375 142.80702714957286), (-34.55065619837877 142.80720799230798), (-34.550706431531964 142.8072984136755), (-34.55063195781971 142.80735940365804), (-34.5504830103952 142.80748138362307), (-34.55033406297069 142.8076033635881), (-34.550185115546185 142.80772534355316), (-34.55003616812168 142.8078473235182), (-34.549961694409426 142.80790831350072), (-34.54991146125623 142.80781789213316), (-34.54981099494984 142.80763704939804), (-34.549710528643445 142.80745620666295), (-34.54961006233705 142.80727536392783), (-34.54950959603066 142.80709452119274), (-34.54953383658972 142.80694310984268), (-34.54968278401423 142.80682112987762), (-34.549831731438736 142.8066991499126), (-34.54998067886324 142.80657716994756), (-34.55012962628775 142.80645518998253), (-34.55008289720471 142.80715125675036), (-34.549459362877464 142.80700409982518))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.5502041 142.8063942), (-34.5502543331532 142.80648462136756), (-34.55035479945959 142.80666546410265), (-34.55045526576598 142.80684630683777), (-34.550555732072375 142.80702714957286), (-34.55065619837877 142.80720799230798), (-34.550706431531964 142.8072984136755), (-34.55063195781971 142.80735940365804), (-34.5504830103952 142.80748138362307), (-34.55033406297069 142.8076033635881), (-34.550185115546185 142.80772534355316), (-34.55003616812168 142.8078473235182), (-34.549961694409426 142.80790831350072), (-34.54991146125623 142.80781789213316), (-34.54981099494984 142.80763704939804), (-34.549710528643445 142.80745620666295), (-34.54961006233705 142.80727536392783), (-34.54950959603066 142.80709452119274), (-34.54953383658972 142.80694310984268), (-34.54968278401423 142.80682112987762), (-34.549831731438736 142.8066991499126), (-34.54998067886324 142.80657716994756), (-34.55012962628775 142.80645518998253), (-34.55008289720471 142.80715125675036), (-34.549459362877464 142.80700409982518))"
             }
         },
         {
@@ -8554,7 +8529,7 @@
                 "plot dimension": "plot dimension- 100m x 100m",
                 "label": "site NSMMDD1006",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/5cd29bcc-3ad5-447c-930d-f0ae60284231",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.5642421 142.6511233), (-34.5642421 142.6512323862833), (-34.5642421 142.65145055884992), (-34.5642421 142.65166873141655), (-34.5642421 142.65188690398318), (-34.5642421 142.6521050765498), (-34.5642421 142.6522141628331), (-34.56415226847159 142.6522141628331), (-34.56397260541477 142.6522141628331), (-34.56379294235794 142.6522141628331), (-34.563613279301116 142.6522141628331), (-34.563433616244296 142.6522141628331), (-34.56334378471588 142.6522141628331), (-34.56334378471588 142.6521050765498), (-34.56334378471588 142.65188690398318), (-34.56334378471588 142.65166873141655), (-34.56334378471588 142.65145055884992), (-34.56334378471588 142.6512323862833), (-34.56334378471588 142.6511233), (-34.563433616244296 142.6511233), (-34.563613279301116 142.6511233), (-34.56379294235794 142.6511233), (-34.56397260541477 142.6511233), (-34.56415226847159 142.6511233), (-34.563792942357956 142.6516687314166))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.5642421 142.6511233), (-34.5642421 142.6512323862833), (-34.5642421 142.65145055884992), (-34.5642421 142.65166873141655), (-34.5642421 142.65188690398318), (-34.5642421 142.6521050765498), (-34.5642421 142.6522141628331), (-34.56415226847159 142.6522141628331), (-34.56397260541477 142.6522141628331), (-34.56379294235794 142.6522141628331), (-34.563613279301116 142.6522141628331), (-34.563433616244296 142.6522141628331), (-34.56334378471588 142.6522141628331), (-34.56334378471588 142.6521050765498), (-34.56334378471588 142.65188690398318), (-34.56334378471588 142.65166873141655), (-34.56334378471588 142.65145055884992), (-34.56334378471588 142.6512323862833), (-34.56334378471588 142.6511233), (-34.563433616244296 142.6511233), (-34.563613279301116 142.6511233), (-34.56379294235794 142.6511233), (-34.56397260541477 142.6511233), (-34.56415226847159 142.6511233), (-34.563792942357956 142.6516687314166))"
             }
         },
         {
@@ -8681,7 +8656,7 @@
                 "plot name": "NSMMDD1004",
                 "label": "site NSMMDD1004",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/7b268157-97e4-47c0-b141-8cd5dcc1a699",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.6513946 142.9810351), (-34.65130476847159 142.9810351), (-34.65112510541477 142.9810351), (-34.650945442357944 142.9810351), (-34.65076577930112 142.9810351), (-34.6505861162443 142.9810351), (-34.650496284715885 142.9810351), (-34.650496284715885 142.981144300845), (-34.650496284715885 142.9813627025349), (-34.650496284715885 142.98158110422483), (-34.650496284715885 142.98179950591475), (-34.650496284715885 142.9820179076047), (-34.650496284715885 142.98212710844965), (-34.6505861162443 142.98212710844965), (-34.65076577930112 142.98212710844965), (-34.650945442357944 142.98212710844965), (-34.65112510541477 142.98212710844965), (-34.65130476847159 142.98212710844965), (-34.6513946 142.98212710844965), (-34.6513946 142.9820179076047), (-34.6513946 142.98179950591475), (-34.6513946 142.98158110422483), (-34.6513946 142.9813627025349), (-34.6513946 142.981144300845), (-34.650945442357944 142.98158110422486))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.6513946 142.9810351), (-34.65130476847159 142.9810351), (-34.65112510541477 142.9810351), (-34.650945442357944 142.9810351), (-34.65076577930112 142.9810351), (-34.6505861162443 142.9810351), (-34.650496284715885 142.9810351), (-34.650496284715885 142.981144300845), (-34.650496284715885 142.9813627025349), (-34.650496284715885 142.98158110422483), (-34.650496284715885 142.98179950591475), (-34.650496284715885 142.9820179076047), (-34.650496284715885 142.98212710844965), (-34.6505861162443 142.98212710844965), (-34.65076577930112 142.98212710844965), (-34.650945442357944 142.98212710844965), (-34.65112510541477 142.98212710844965), (-34.65130476847159 142.98212710844965), (-34.6513946 142.98212710844965), (-34.6513946 142.9820179076047), (-34.6513946 142.98179950591475), (-34.6513946 142.98158110422483), (-34.6513946 142.9813627025349), (-34.6513946 142.981144300845), (-34.650945442357944 142.98158110422486))"
             }
         },
         {
@@ -8808,7 +8783,7 @@
                 "plot dimension": "plot dimension- 100m x 100m",
                 "label": "site NSMMDD1005",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/bb49db5b-f39b-4ff5-ac69-ca5ff0ac70f8",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.6429176 142.991049), (-34.6429176 142.99115818968033), (-34.6429176 142.99137656904097), (-34.6429176 142.9915949484016), (-34.6429176 142.99181332776223), (-34.6429176 142.9920317071229), (-34.6429176 142.9921408968032), (-34.642827768471584 142.9921408968032), (-34.642648105414764 142.9921408968032), (-34.64246844235794 142.9921408968032), (-34.64228877930111 142.9921408968032), (-34.64210911624429 142.9921408968032), (-34.64201928471588 142.9921408968032), (-34.64201928471588 142.9920317071229), (-34.64201928471588 142.99181332776223), (-34.64201928471588 142.9915949484016), (-34.64201928471588 142.99137656904097), (-34.64201928471588 142.99115818968033), (-34.64201928471588 142.991049), (-34.64210911624429 142.991049), (-34.64228877930111 142.991049), (-34.64246844235794 142.991049), (-34.642648105414764 142.991049), (-34.642827768471584 142.991049), (-34.64246844235794 142.99159494840166))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.6429176 142.991049), (-34.6429176 142.99115818968033), (-34.6429176 142.99137656904097), (-34.6429176 142.9915949484016), (-34.6429176 142.99181332776223), (-34.6429176 142.9920317071229), (-34.6429176 142.9921408968032), (-34.642827768471584 142.9921408968032), (-34.642648105414764 142.9921408968032), (-34.64246844235794 142.9921408968032), (-34.64228877930111 142.9921408968032), (-34.64210911624429 142.9921408968032), (-34.64201928471588 142.9921408968032), (-34.64201928471588 142.9920317071229), (-34.64201928471588 142.99181332776223), (-34.64201928471588 142.9915949484016), (-34.64201928471588 142.99137656904097), (-34.64201928471588 142.99115818968033), (-34.64201928471588 142.991049), (-34.64210911624429 142.991049), (-34.64228877930111 142.991049), (-34.64246844235794 142.991049), (-34.642648105414764 142.991049), (-34.642827768471584 142.991049), (-34.64246844235794 142.99159494840166))"
             }
         },
         {
@@ -8936,7 +8911,7 @@
                 "plot name": "NSMMDD1002",
                 "label": "site NSMMDD1002",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/ee2d0094-c628-4813-807e-d028bfa82442",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.6528689 142.5411738), (-34.652782129406695 142.5412020637611), (-34.652608588220076 142.54125859128328), (-34.652435047033464 142.54131511880547), (-34.652261505846845 142.5413716463277), (-34.652087964660225 142.54142817384988), (-34.65200119406692 142.54145643761098), (-34.65202444417732 142.5415619194034), (-34.65207094439813 142.54177288298825), (-34.65211744461894 142.54198384657312), (-34.65216394483975 142.54219481015798), (-34.652210445060554 142.54240577374284), (-34.652233695170956 142.54251125553526), (-34.65232046576426 142.54248299177416), (-34.65249400695088 142.54242646425197), (-34.6526675481375 142.54236993672978), (-34.65284108932411 142.5423134092076), (-34.65301463051073 142.5422568816854), (-34.65310140110404 142.54222861792428), (-34.653078150993636 142.54212313613186), (-34.653031650772824 142.541912172547), (-34.65298515055202 142.54170120896214), (-34.652938650331215 142.54149024537728), (-34.652892150110404 142.5412792817924), (-34.65255129758548 142.5418425277676))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.6528689 142.5411738), (-34.652782129406695 142.5412020637611), (-34.652608588220076 142.54125859128328), (-34.652435047033464 142.54131511880547), (-34.652261505846845 142.5413716463277), (-34.652087964660225 142.54142817384988), (-34.65200119406692 142.54145643761098), (-34.65202444417732 142.5415619194034), (-34.65207094439813 142.54177288298825), (-34.65211744461894 142.54198384657312), (-34.65216394483975 142.54219481015798), (-34.652210445060554 142.54240577374284), (-34.652233695170956 142.54251125553526), (-34.65232046576426 142.54248299177416), (-34.65249400695088 142.54242646425197), (-34.6526675481375 142.54236993672978), (-34.65284108932411 142.5423134092076), (-34.65301463051073 142.5422568816854), (-34.65310140110404 142.54222861792428), (-34.653078150993636 142.54212313613186), (-34.653031650772824 142.541912172547), (-34.65298515055202 142.54170120896214), (-34.652938650331215 142.54149024537728), (-34.652892150110404 142.5412792817924), (-34.65255129758548 142.5418425277676))"
             }
         },
         {
@@ -9064,7 +9039,7 @@
                 "plot marker location": "plot corner - South East; plot corner - North West",
                 "label": "site NSMMDD1001",
                 "uri": "https://linked.data.gov.au/dataset/bdr/sites/0b412bd4-826a-4d4a-8c3e-4bf3c4182494",
-                "wkt": "SRID=7844; MULTIPOINT ((-34.5342077 142.7486586), (-34.534192100918794 142.74855120975042), (-34.53416090275638 142.74833642925122), (-34.53412970459397 142.74812164875203), (-34.53409850643156 142.74790686825284), (-34.53406730826915 142.74769208775368), (-34.53405170918794 142.74758469750407), (-34.5339632424023 142.74760363330253), (-34.53378630883101 142.7476415048995), (-34.53360937525972 142.74767937649642), (-34.53343244168843 142.74771724809335), (-34.53325550811714 142.74775511969028), (-34.533167041331495 142.74777405548875), (-34.533182640412704 142.74788144573836), (-34.533213838575115 142.74809622623752), (-34.533245036737526 142.7483110067367), (-34.53327623489994 142.7485257872359), (-34.53330743306235 142.7487405677351), (-34.53332303214355 142.74884795798468), (-34.5334114989292 142.74882902218621), (-34.53358843250049 142.74879115058928), (-34.533765366071776 142.74875327899235), (-34.533942299643066 142.7487154073954), (-34.534119233214355 142.74867753579846), (-34.53368737066575 142.7482163277444))"
+                "ewkt": "SRID=7844; MULTIPOINT ((-34.5342077 142.7486586), (-34.534192100918794 142.74855120975042), (-34.53416090275638 142.74833642925122), (-34.53412970459397 142.74812164875203), (-34.53409850643156 142.74790686825284), (-34.53406730826915 142.74769208775368), (-34.53405170918794 142.74758469750407), (-34.5339632424023 142.74760363330253), (-34.53378630883101 142.7476415048995), (-34.53360937525972 142.74767937649642), (-34.53343244168843 142.74771724809335), (-34.53325550811714 142.74775511969028), (-34.533167041331495 142.74777405548875), (-34.533182640412704 142.74788144573836), (-34.533213838575115 142.74809622623752), (-34.533245036737526 142.7483110067367), (-34.53327623489994 142.7485257872359), (-34.53330743306235 142.7487405677351), (-34.53332303214355 142.74884795798468), (-34.5334114989292 142.74882902218621), (-34.53358843250049 142.74879115058928), (-34.533765366071776 142.74875327899235), (-34.533942299643066 142.7487154073954), (-34.534119233214355 142.74867753579846), (-34.53368737066575 142.7482163277444))"
             }
         }
     ]
