@@ -374,10 +374,10 @@ def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dic
                 obs_dict[name] = g.bnode_to_dict(obj, prop_contexts)
             else:
                 obs_dict[name] = make_json_representation_of_obj(g, obj)
-        if len(attribute_list) > 0:
-            obs_dict[attribute_list_name] = attribute_list
-        if len(members) > 0:
-            obs_dict[has_member_name] = members
+    if len(attribute_list) > 0:
+        obs_dict[attribute_list_name] = attribute_list
+    if len(members) > 0:
+        obs_dict[has_member_name] = members
     return obs_dict
 
 def _extract_obs_result(
