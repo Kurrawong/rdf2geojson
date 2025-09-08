@@ -29,9 +29,9 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
+                "occurrence status": "Present",
                 "scientific name": "Bovichtus angustifrons Regan, 1913",
                 "individual count": "50",
-                "occurrence status": "Present",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/63893afc-00de-4b83-ae6c-c22f84f4c7ab",
                 "ewkt": "SRID=7844; POINT (-40.06997 147.75991)"
@@ -88,8 +88,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-17",
-                "occurrence status": "Present",
                 "scientific name": "Zosterops lateralis (Latham, 1801)",
+                "occurrence status": "Present",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/4ced7ff7-6fc3-4b0e-9a5d-b9ccf1a90b17",
                 "ewkt": "SRID=7844; POINT (-40.06549 147.75635)"
@@ -146,8 +146,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-17",
-                "scientific name": "Oonops pulcher Templeton, 1835",
                 "occurrence status": "Present",
+                "scientific name": "Oonops pulcher Templeton, 1835",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/8d9d3bcc-84d4-40a5-8573-ec299003f4de",
                 "ewkt": "SRID=7844; POINT (-40.06911 147.75404)"
@@ -174,9 +174,9 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
-                "individual count": "6",
                 "scientific name": "Pempheris victoriae null",
                 "occurrence status": "Present",
+                "individual count": "6",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/9a5e184c-addc-44b4-be7d-a616aabd3833",
                 "ewkt": "SRID=7844; POINT (-40.06997 147.75991)"
@@ -233,8 +233,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
-                "scientific name": "Beyeria lechenaultii (DC.) Baill.",
                 "occurrence status": "Present",
+                "scientific name": "Beyeria lechenaultii (DC.) Baill.",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/35b79c44-e388-445c-80f6-4c3de2489b41",
                 "ewkt": "SRID=7844; POINT (-40.08009 147.75261)"
@@ -262,8 +262,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-16",
-                "occurrence status": "Present",
                 "scientific name": "Helichrysum leucopsideum DC.",
+                "occurrence status": "Present",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/e4bfb51c-4714-4cc6-9251-fff117c693b7",
                 "ewkt": "SRID=7844; POINT (-40.08009 147.75261)"
@@ -291,8 +291,8 @@
                 "isPartOf": "Prime Seal Island 2008",
                 "type": "Occurrence; Feature of Interest",
                 "datetime": "2008-10-17",
-                "scientific name": "Stanwellia pexa (Hickman, 1930)",
                 "occurrence status": "Present",
+                "scientific name": "Stanwellia pexa (Hickman, 1930)",
                 "usedProcedure": "Unspecified Method",
                 "uri": "https://linked.data.gov.au/dataset/bdr/7ca6f4cb-1917-4da0-b65f-912f3d2ffbe8/occurrence/e5ac9415-ca36-4cfb-9b7b-b67cbac4902c",
                 "ewkt": "SRID=7844; POINT (-40.06911 147.75404)"
