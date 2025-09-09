@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rdf2geojson"
-version = "0.8.2"
+version = "0.8.3"
 description = "A Python package that converts any RDF to GeoJSON"
 authors = ["Ashley Sommer <ashley.sommer@dcceew.gov.au>"]
 license = "BSD 3-Clause"
@@ -12,7 +12,7 @@ python = "^3.11"
 rdflib = "^7.0.0"
 pyshacl = "^0.26.0"
 geojson = "^3.1.0"
-pyoxigraph = { version = ">=0.4.11", optional = true }
+pyoxigraph = { version = "<6,>=0.4.11", optional = true, allow-prereleases = true }
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.2"
