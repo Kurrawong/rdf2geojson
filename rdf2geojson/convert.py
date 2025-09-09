@@ -285,7 +285,12 @@ def _extract_additional_property(g: SourceGraph, pred, obj) -> tuple[Union[str, 
         value = "error: Could not find a value for additionalProperty"
     return key_name, value
 
-def _extract_schema_collection(g: SourceGraph, collection: URIRef | BNode, prop_contexts: dict) -> dict:
+
+def _extract_schema_collection(g: SourceGraph, collection: URIRef | BNode, prop_contexts: dict, suppress_members:bool = True) -> dict:
+    """
+    suppress_members: If True, don't include the members of the collection, just the other properties.
+                      This is for when we don't want hundreds of duplicated members in every tree.
+    """
     if isinstance(collection, URIRef):
         coll_dict: dict[str, Any] = {"rdf:subject": str(collection)}
     else:
@@ -315,6 +320,8 @@ def _extract_schema_collection(g: SourceGraph, collection: URIRef | BNode, prop_
                         prop_contexts[prefix_name] = prefix_ns
                         name = f"{prefix_name}:{name}"
             if pred == SCHEMA.hasPart:
+                if suppress_members:
+                    continue
                 has_parts_list_name = name
                 if isinstance(obj, BNode):
                     has_parts_list.append(g.bnode_to_dict(obj, prop_contexts))
@@ -335,6 +342,7 @@ def _extract_schema_collection(g: SourceGraph, collection: URIRef | BNode, prop_
 
 
 def _extract_observation(g: SourceGraph, obs: URIRef | BNode, prop_contexts: dict) -> dict:
+    """This function also works for ObservationCollections and Samplings and SamplingCollections"""
     if isinstance(obs, URIRef):
         obs_dict: dict[str, Any] = {"rdf:subject": str(obs)}
     else:
@@ -1206,7 +1214,8 @@ def get_converted_features(
             
             if in_schema_collections:
                 is_part_of_list.extend(
-                    _extract_schema_collection(g, isc, prop_contexts) for isc in in_schema_collections
+                    _extract_schema_collection(g, isc, prop_contexts, suppress_members=True)
+                    for isc in in_schema_collections
                 )
         
         if len(attribute_list) > 0:
@@ -1363,15 +1372,27 @@ def get_converted_features_for_human(
                 continue
             elif pred == DWCIRI.toTaxon:
                 the_taxon_node = obj
+                _scientific_name_id = None
+                _accepted_name_usage_id = None
+                _original_name_usage_id = None
+                _parent_name_usage_id = None
                 for p2, o2 in g.predicate_objects(the_taxon_node):
-                    if p2 == DWC.acceptedNameUsageID:
-                        props_dict_lists["acceptedNameUsage"].append(str(o2))
-                    elif p2 == DWC.originalNameUsageID:
-                        props_dict_lists["originalNameUsage"].append(str(o2))
-                    elif p2 == DWC.parentNameUsageID:
-                        props_dict_lists["parentNameUsage"].append(str(o2))
-                    # Only do one taxon link per feature.
-                    break
+                    if p2 == DWC.scientificNameID and _scientific_name_id is None:
+                        _scientific_name_id = str(o2)
+                    elif p2 == DWC.acceptedNameUsageID and _accepted_name_usage_id is None:
+                        _accepted_name_usage_id = str(o2)
+                    elif p2 == DWC.originalNameUsageID and _original_name_usage_id is None:
+                        _original_name_usage_id = str(o2)
+                    elif p2 == DWC.parentNameUsageID and _parent_name_usage_id is None:
+                        _parent_name_usage_id = str(o2)
+                if _scientific_name_id is not None:
+                    additional_properties_dict["scientificNameID"].append(_scientific_name_id)
+                if _accepted_name_usage_id is not None:
+                    additional_properties_dict["acceptedNameUsageID"].append(_accepted_name_usage_id)
+                if _original_name_usage_id is not None and _original_name_usage_id != _accepted_name_usage_id:
+                    additional_properties_dict["nameUsageID"].append(_original_name_usage_id)
+                if _parent_name_usage_id is not None and _parent_name_usage_id != _accepted_name_usage_id:
+                    additional_properties_dict["parentNameUsageID"].append(_parent_name_usage_id)
                 continue
             prefix_pair, name = make_json_key_from_iri(pred, g.namespace_manager)
 
