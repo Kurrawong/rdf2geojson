@@ -1606,6 +1606,7 @@ def convert(
     source_graph = SourceGraph(g, iri2id=iri2id, namespace_manager=namespace_manager)
 
     if fc_uri is None and collection_label is not None:
+        # Shortcut - Fast Path
         # When a collection_label is passed, this is a custom collection that doesn't
         # exist as a defined FeatureCollection in the graph. So don't look up FeatureCollections.
         if kind == "human":
@@ -1626,6 +1627,7 @@ def convert(
     elif len(feature_collections) == 1:
         from_fc_uri, fc = feature_collections[0]
     if from_fc_uri is not None and fc is not None:
+        # Get the features that belong in that FC and put them into our FeatureCollections
         if kind == "human":
             features = get_converted_features_for_human(source_graph, from_fc_uri, iri2id=iri2id)
         else:
@@ -1634,20 +1636,22 @@ def convert(
             fc["features"].extend(features)
         return fc
     else:
+        # Get all Geospatial features in the Graph, and put them into a new feature_collection
         if kind == "human":
             features = get_converted_features_for_human(source_graph, iri2id=iri2id)
         else:
             features = get_converted_features(source_graph, iri2id=iri2id)
         if (len(features) > 1) or (collection_label is not None):
             # Make a new feature collection for these Features.
-            if collection_label is not None:
-                return FeatureCollection(features, title=collection_label)
-            else:
-                return FeatureCollection(features)
+            title = collection_label if collection_label is not None else "Converted Geospatial Features"
+            return FeatureCollection(features, title=title)
         elif len(features) == 1:
+            # If there is only a single Feature in the whole graph, just return that Feature as GeoJSON
             return features[0]
         else:
-            return GeoJSON()
+            # No Features found
+            title = collection_label if collection_label is not None else "No Geospatial Features Found"
+            return FeatureCollection([], title=title)
 
 
 def unconvert_geometry(geom: dict) -> tuple[str, str]:

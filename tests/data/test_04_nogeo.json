@@ -1,3 +1,5 @@
 {
-    "type": "GeoJSON"
+    "type": "FeatureCollection",
+    "title": "No Geospatial Features Found",
+    "features": []
 }

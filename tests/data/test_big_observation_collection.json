@@ -1,5 +1,6 @@
 {
     "type": "FeatureCollection",
+    "title": "Converted Geospatial Features",
     "features": [
         {
             "type": "Feature",
