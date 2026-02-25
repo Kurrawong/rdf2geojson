@@ -33,7 +33,7 @@ try:
     use_oxigraph = True
 except ImportError:
     OxiStore = to_ox = from_ox = None
-    use_pyoxigraph = False
+    use_oxigraph = False
 
 
 TERN = Namespace("https://w3id.org/tern/ontologies/tern/")
